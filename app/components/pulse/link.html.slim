@@ -1,0 +1,7 @@
+/! components/pulse/link
+= render Pulse::BaseComponent.new(**@options) do
+  // TODO: is there a way to check existence of icon file?? Or at least not
+  // bork the layout if it is missing
+  - if leading_visual
+    = leading_visual
+  = content

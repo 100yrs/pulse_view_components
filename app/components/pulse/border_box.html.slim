@@ -1,0 +1,10 @@
+/! components/pulse/border_box
+= render Pulse::BaseComponent.new(**@system_arguments) do
+  = header
+  = body
+  - if rows.any?
+    = render Pulse::BaseComponent.new(**@list_arguments) do
+      - rows.each do |row|
+        = row
+
+  = footer

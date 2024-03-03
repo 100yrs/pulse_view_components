@@ -1,0 +1,7 @@
+/! components/pulse/layout
+= render Pulse::BaseComponent.new(**@system_arguments) do
+  - if @first_in_source == :main
+    = main
+  = sidebar
+  - if @first_in_source == :sidebar
+    = main

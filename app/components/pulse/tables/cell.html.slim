@@ -1,0 +1,10 @@
+/! components/pulse/tables/cell
+= render Pulse::BaseComponent.new(**options) do
+  - if sortable?
+    = link_to url_options, class: merge_classes('inline-flex items-center gap-1', title_classes) do
+      = content
+      = render Pulse::Icon.new(icon: icon, width: 9, height: 8, classes: 'shrink-0', title: t(".#{icon}"))
+
+  - else
+    span class=title_classes
+      = content

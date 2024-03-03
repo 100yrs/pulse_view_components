@@ -1,0 +1,50 @@
+/! components/pulse/table
+- if collection.present?
+  div class="flex flex-col gap-4"
+    div class="w-full overflow-x-auto shadow print:shadow-none overflow-hidden border-b border-gray-200 print:border print:border-gray-300 sm:rounded-lg"
+      = render Pulse::BaseComponent.new(**table_options) do
+        - if header
+          = render Pulse::BaseComponent.new(tag: :thead, classes: head_classes) do
+            tr
+              - columns.each_with_index do |column, index|
+                = render_cell( \
+                    sr_title: column.sr_title,
+                    sort_by: (column.sort_by unless collection.empty?),
+                    current_sort_column: current_sort_column,
+                    current_sort_direction: current_sort_direction,
+                    tag: 'th',
+                    **column.options \
+                  ) do
+                    = column.title&.html_safe
+
+        = render Pulse::BaseComponent.new(tag: :tbody, classes: body_classes) do
+          - collection.each do |row|
+            = render Pulse::BaseComponent.new(**row_arguments(row)) do
+              - columns.each_with_index do |column, index|
+                = render_cell( \
+                    tag: 'td',
+                    **column.options \
+                  ) do
+                  = column.call(row)
+
+          - if footer
+            tr class=head_classes
+              - columns.each_with_index do |column, index|
+                = render_cell( \
+                    tag: 'td',
+                    footer: true,
+                    **column.options \
+                  ) do
+                    = column.footer
+
+
+    - if pagination? && collection.respond_to?(:total_pages)
+      div class="text-center text-gray"
+        = paginate(collection, window: 9)
+
+- else
+  - if empty_state?
+    = empty_state
+  - else
+    = render Pulse::BlankSlate.new do |c|
+      - c.with_title { t('.no_data') }

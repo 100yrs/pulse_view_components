@@ -1,0 +1,16 @@
+/! components/pulse/nav_link
+= render Pulse::BaseComponent.new(**@system_arguments) do
+  - if !mobile
+    = active_link_to path, active: active_mode,
+                           class_active: 'text-white hover:text-white hover:no-underline px-3 py-2 font-medium relative group is-active',
+                           class_inactive: 'text-white hover:text-white hover:no-underline px-3 py-2 font-medium relative group' do
+      = label
+      span class="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-gray-200 group-hover:w-1/2 group-hover:transition-all duration-200"
+      span class="absolute -bottom-0.5 right-1/2 w-0 h-0.5 bg-gray-200 group-hover:w-1/2 group-hover:transition-all duration-200"
+      span class="absolute -bottom-0.5 start-0 w-full h-0.5 bg-primary hidden group-[.is-active]:block"
+  - else
+    = active_link_to path, active: active_mode,
+                           class_active: 'text-primary-800 hover:no-underline block px-3 py-2',
+                           class_inactive: 'text-gray hover:no-underline block px-3 py-2',
+                           data: { action: 'dropdown#toggle' } do
+      = label

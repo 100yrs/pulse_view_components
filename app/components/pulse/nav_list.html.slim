@@ -1,0 +1,11 @@
+/! components/pulse/nav_list
+= render Pulse::BaseComponent.new(tag: :nav, **@system_arguments) do
+  = heading
+  nav-list
+    = render(Pulse::ConditionalWrapper.new(condition: render_outer_list?, tag: :ul)) do
+      - items.each_with_index do |item, index|
+        - if index > 0 && render_divider_between?(item, items[index - 1])
+          = render(Pulse::ActionList::Divider.new)
+
+        = render(Pulse::ConditionalWrapper.new(condition: render_outer_list? && group?(item), tag: :li)) do
+          = item

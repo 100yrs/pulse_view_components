@@ -1,0 +1,9 @@
+/ /! components/pulse/breadcrumbs
+= render Pulse::BaseComponent.new(**@system_arguments) do
+  ol class="list-none list-reset flex m-0 text-xs"
+    - items.filter { |i| i.text.present? }.each_with_index do |item, idx|
+      - if idx != 0
+        li class="mx-1" aria-hidden="true"
+          | >
+      li
+        = item

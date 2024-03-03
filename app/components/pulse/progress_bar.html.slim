@@ -1,0 +1,5 @@
+/! components/pulse/progress_bar
+= render Pulse::BaseComponent.new(**@system_attributes) do
+  div class="h-1 bg-success" style="width: #{[@percentage, 100].min}%"
+  - if @percentage > 100
+    div class="h-1 bg-error" style="width: #{@percentage - 100}%"

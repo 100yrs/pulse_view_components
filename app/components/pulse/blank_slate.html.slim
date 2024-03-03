@@ -1,0 +1,10 @@
+/! components/ui/blank_slate
+div class="container text-center pt-16 pb-20 bg-secondary-50"
+  / div class="flex items-center justify-center mb-4"
+  /   = render_svg 'blank-graphic'
+  = render Pulse::Text.new(type: :body1) do
+    = title || t('.empty')
+
+  - if description.present?
+    = render Pulse::Text.new(type: :body4) do
+      = description

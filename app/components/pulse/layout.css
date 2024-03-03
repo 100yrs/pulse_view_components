@@ -1,0 +1,239 @@
+/* Layout */
+
+@define-mixin flow-as-row {
+  grid-auto-flow: row;
+  grid-template-columns: 1fr !important;
+
+  & .Layout-sidebar,
+  & .Layout-divider,
+  & .Layout-main {
+    @apply w-full col-[1];
+  }
+
+  &.Layout--sidebarPosition-flowRow-start {
+    & .Layout-sidebar {
+      @apply row-[1];
+    }
+
+    & .Layout-main {
+      @apply row-[2_/_span_2];
+    }
+  }
+
+  &.Layout--sidebarPosition-flowRow-end {
+    & .Layout-sidebar {
+      @apply row-[2_/_span_2];
+    }
+
+    & .Layout-main {
+      @apply row-[1];
+    }
+  }
+
+  &.Layout--sidebarPosition-flowRow-none {
+    & .Layout-sidebar {
+      @apply hidden;
+    }
+  }
+
+  &.Layout--divided {
+    @mixin flow-as-row-divider;
+
+    & .Layout-main {
+      @apply row-[3_/_span_1];
+    }
+
+    &.Layout--sidebarPosition-flowRow-end {
+      & .Layout-sidebar {
+        @apply row-[3_/_span_1];
+      }
+
+      & .Layout-main {
+        @apply row-[1];
+      }
+    }
+  }
+}
+
+@define-mixin flow-as-row-divider {
+  --Layout-gutter: 0;
+
+  & .Layout-divider {
+    @apply h-px row-[2];
+
+    &.Layout-divider--flowRow-hidden {
+      @apply hidden;
+    }
+
+    &.Layout-divider--flowRow-shallow {
+      @apply h-2 border-[color:var(--borderColor-default)] border-[var(--borderWidth-thin)_0] mr-0 border-solid;
+      background: var(--bgColor-inset);
+    }
+  }
+}
+
+.Layout {
+  @apply grid grid-flow-col grid-cols-[auto_0_minmax(0,calc(100%_-_var(--Layout-sidebar-width)_-_var(--Layout-gutter)))] gap-[var(--Layout-gutter)];
+  --Layout-sidebar-width: 220px;
+  --Layout-gutter: 16px;
+}
+@media (max-width: calc(544px - 0.02px)) {
+  .Layout {
+    @mixin flow-as-row;
+  }
+}
+@media (max-width: calc(768px - 0.02px)) {
+  .Layout.Layout--flowRow-until-md {
+    @mixin flow-as-row;
+  }
+}
+@media (max-width: calc(1012px - 0.02px)) {
+  .Layout.Layout--flowRow-until-lg {
+    @mixin flow-as-row;
+  }
+}
+
+/* Flow as column */
+
+/* sidebar column, separator, main column */
+.Layout .Layout-sidebar {
+  @apply col-[1];
+}
+.Layout .Layout-divider {
+  @apply hidden;
+}
+.Layout .Layout-main {
+  @apply col-[2_/_span_2];
+}
+
+/* Gutter spacing */
+@media (min-width: 1012px) {
+  .Layout {
+    --Layout-gutter: 24px;
+  }
+}
+.Layout.Layout--gutter-none {
+  /* stylelint-disable-next-line length-zero-no-unit */
+  --Layout-gutter: 0px;
+
+  /* Neds px in value */
+}
+.Layout.Layout--gutter-condensed {
+  --Layout-gutter: 16px;
+}
+@media (min-width: 1012px) {
+  .Layout.Layout--gutter-spacious {
+    --Layout-gutter: 32px;
+  }
+}
+@media (min-width: 1280px) {
+  .Layout.Layout--gutter-spacious {
+    --Layout-gutter: 40px;
+  }
+}
+
+/* Sidebar width */
+@media (min-width: 544px) {
+  .Layout {
+    --Layout-sidebar-width: 220px;
+  }
+}
+@media (min-width: 768px) {
+  .Layout {
+    --Layout-sidebar-width: 256px;
+  }
+}
+@media (min-width: 1012px) {
+  .Layout {
+    --Layout-sidebar-width: 296px;
+  }
+}
+@media (min-width: 768px) {
+  .Layout.Layout--sidebar-narrow {
+    --Layout-sidebar-width: 240px;
+  }
+}
+@media (min-width: 1012px) {
+  .Layout.Layout--sidebar-narrow {
+    --Layout-sidebar-width: 256px;
+  }
+}
+@media (min-width: 1012px) {
+  .Layout.Layout--sidebar-wide {
+    --Layout-sidebar-width: 320px;
+  }
+}
+@media (min-width: 1280px) {
+  .Layout.Layout--sidebar-wide {
+    --Layout-sidebar-width: 336px;
+  }
+}
+
+/* Sidebar position */
+.Layout.Layout--sidebarPosition-start .Layout-sidebar {
+  @apply col-[1];
+}
+.Layout.Layout--sidebarPosition-start .Layout-main {
+  @apply col-[2_/_span_2];
+}
+.Layout.Layout--sidebarPosition-end {
+  @apply grid-cols-[minmax(0,calc(100%_-_var(--Layout-sidebar-width)_-_var(--Layout-gutter)))_0_auto];
+}
+.Layout.Layout--sidebarPosition-end .Layout-main {
+  @apply col-[1];
+}
+.Layout.Layout--sidebarPosition-end .Layout-sidebar {
+  @apply col-[2_/_span_2];
+}
+
+/* Sidebar divider */
+.Layout.Layout--divided .Layout-divider {
+  @apply block col-[2] w-px -mr-px;
+  background: var(--borderColor-default);
+}
+.Layout.Layout--divided .Layout-main {
+  @apply col-[3_/_span_1];
+}
+.Layout.Layout--divided.Layout--sidebarPosition-end .Layout-sidebar {
+  @apply col-[3_/_span_1];
+}
+.Layout.Layout--divided.Layout--sidebarPosition-end .Layout-main {
+  @apply col-[1];
+}
+.Layout-divider {
+  @apply hidden w-px;
+}
+.Layout-sidebar {
+  @apply w-[var(--Layout-sidebar-width)];
+}
+.Layout-main {
+  @apply min-w-0;
+}
+
+/* Centered main column
+  ** FIXME: right-aligned sidebar */
+.Layout-main .Layout-main-centered-md,
+.Layout-main .Layout-main-centered-lg,
+.Layout-main .Layout-main-centered-xl {
+  @apply mx-auto;
+}
+.Layout-main .Layout-main-centered-md > .container-md,
+.Layout-main .Layout-main-centered-md > .container-lg,
+.Layout-main .Layout-main-centered-md > .container-xl,
+.Layout-main .Layout-main-centered-lg > .container-md,
+.Layout-main .Layout-main-centered-lg > .container-lg,
+.Layout-main .Layout-main-centered-lg > .container-xl,
+.Layout-main .Layout-main-centered-xl > .container-md,
+.Layout-main .Layout-main-centered-xl > .container-lg,
+.Layout-main .Layout-main-centered-xl > .container-xl {
+  @apply ml-0;
+}
+.Layout-main .Layout-main-centered-md {
+  @apply max-w-[calc(var(--breakpoint-medium)_+_var(--Layout-sidebar-width)_+_var(--Layout-gutter))];
+}
+.Layout-main .Layout-main-centered-lg {
+  @apply max-w-[calc(var(--breakpoint-large)_+_var(--Layout-sidebar-width)_+_var(--Layout-gutter))];
+}
+.Layout-main .Layout-main-centered-xl {
+  @apply max-w-[calc(var(--breakpoint-xlarge)_+_var(--Layout-sidebar-width)_+_var(--Layout-gutter))];
+}

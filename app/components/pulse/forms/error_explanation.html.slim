@@ -1,0 +1,8 @@
+/! components/pulse/forms/error_explanation
+= render Pulse::BaseComponent.new(tag: :div, **@options) do
+  = render Pulse::Text.new(type: :body1, tag: :h2) do
+    = t('errors.template.header', count: resource.errors.count, model: resource.class.model_name.human.downcase)
+
+  ul class="list-disc list-inside"
+    - errors.full_messages.each do |msg|
+      li = msg
