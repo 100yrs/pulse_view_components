@@ -8,11 +8,6 @@ rails_version = (ENV["RAILS_VERSION"] || "7.1.1").to_s
 
 gem "rake", "~> 13.1"
 
-gem "rspec", "~> 3.0"
-
-gem "rubocop", "~> 1.21"
-
-
 gem "rails", "~> 7.0.8"
 # Use Puma as the app server
 gem "puma", "~> 6.4.2"
