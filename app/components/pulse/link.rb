@@ -4,7 +4,7 @@ module Pulse
   # Use `Link` for navigating from one page to another.
   # `Link` styles anchor tags with default styling and hover
   # text-decoration.
-  class Link < Component
+  class Link < Pulse::Component
     DEFAULT_SCHEME = :tertiary
     SCHEME_MAPPINGS = {
       primary: 'text-primary hover:text-primary',

@@ -2,7 +2,7 @@
 
 module Pulse
   # Renders a breadcrumb item
-  class BreadcrumbItem < Component
+  class BreadcrumbItem < Pulse::Component
     DEFAULT_LINK_CLASSES = 'underline'
     DEFAULT_TEXT_CLASSES = ''
 

@@ -2,7 +2,7 @@
 
 module Pulse
   # Use as placeholder when content is missing
-  class BlankSlate < Component
+  class BlankSlate < Pulse::Component
     renders_one :title
     renders_one :description
   end

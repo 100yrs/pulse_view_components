@@ -3,7 +3,7 @@
 module Pulse
   # Renders a toast popup.
   # This is used in the Notice route for flash messages.
-  class Toast < Component
+  class Toast < Pulse::Component
     include Turbo::FramesHelper
 
     renders_one :action, lambda { |url:, **system_arguments, &block|

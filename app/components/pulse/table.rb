@@ -4,7 +4,7 @@ module Pulse
   # Renders a table
   # Inspiration taken from
   # https://github.com/baoagency/polaris_view_components/
-  class Table < Component
+  class Table < Pulse::Component
     DEFAULT_TABLE_CLASSES = 'min-w-full divide-y divide-gray-200'
     DEFAULT_HEAD_CLASSES = 'bg-gray-50'
     DEFAULT_TH_CLASSES = 'text-start text-gray uppercase tracking-wider ' \

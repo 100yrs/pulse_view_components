@@ -3,7 +3,7 @@
 module Pulse
   module Tables
     # Renders a table cell
-    class Cell < Component
+    class Cell < Pulse::Component
       attr_reader :sort_by, :current_sort_column, :current_sort_direction,
                   :additional_params, :footer
 

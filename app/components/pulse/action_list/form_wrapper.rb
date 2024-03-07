@@ -3,7 +3,7 @@
 module Pulse
   class ActionList
     # Utility component for wrapping ActionLists or individual `ActionList::Item`s in forms.
-    class FormWrapper < Component
+    class FormWrapper < Pulse::Component
       DEFAULT_HTTP_METHOD = :get
       HTTP_METHOD_OPTIONS = [
         DEFAULT_HTTP_METHOD,

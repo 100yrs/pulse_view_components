@@ -2,7 +2,7 @@
 
 module Pulse
   # Base Text component
-  class Text < Component
+  class Text < Pulse::Component
     STYLE_MAPPINGS = {
       h1: 'text-3xl font-bold print:text-2xl',
       h2: 'text-2xl font-bold print:text-xl',

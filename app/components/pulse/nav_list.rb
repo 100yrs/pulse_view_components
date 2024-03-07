@@ -13,7 +13,7 @@ module Pulse
   # Nav list items appear visually active when selected. Each nav item must have one
   # or more ID values that determine which item will appear selected. Use the
   # `selected_item_id` argument to select the appropriate item.
-  class NavList < Component
+  class NavList < Pulse::Component
     # @private
     def self.custom_element_name
       'nav-list'

@@ -2,7 +2,7 @@
 
 module Pulse
   # Renders a simple progress bar
-  class ProgressBar < Component
+  class ProgressBar < Pulse::Component
     def initialize(percentage: 0, **system_attributes)
       super
 

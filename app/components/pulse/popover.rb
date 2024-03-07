@@ -8,7 +8,7 @@ module Pulse
   # usually be wrapped in an element with a relative position in order to be
   # positioned properly. To render the popover with relative positioning, use
   # the relative property.
-  class Popover < Component
+  class Popover < Pulse::Component
     CARET_DEFAULT = :top
     CARET_MAPPINGS = {
       CARET_DEFAULT => 'caret-top',

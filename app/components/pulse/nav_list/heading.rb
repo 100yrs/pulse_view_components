@@ -5,7 +5,7 @@ module Pulse
     # The heading placed above a `NavList`'s items.
     #
     # See <%= link_to_component(NavList) %> for usage examples.
-    class Heading < Component
+    class Heading < Pulse::Component
       attr_reader :title, :id, :heading_level, :system_arguments
 
       # @param title [String] The text content of the heading.

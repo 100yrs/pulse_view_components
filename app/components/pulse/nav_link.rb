@@ -2,7 +2,7 @@
 
 module Pulse
   # Links in navbars
-  class NavLink < Component
+  class NavLink < Pulse::Component
     def initialize(label:, path:, active_mode: :inclusive, mobile: false,
                    **system_arguments)
       super

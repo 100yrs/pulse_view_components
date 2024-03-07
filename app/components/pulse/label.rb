@@ -4,7 +4,7 @@ module Pulse
   # A kind of badge. Used for displaying github labels. Perhaps could be
   # consolidated with badges?
   # Accepts Hex color value for bg_color, with or without a leading "#"
-  class Label < Component
+  class Label < Pulse::Component
     def initialize(title:, bg_color: 'ffffff', **options)
       super
 

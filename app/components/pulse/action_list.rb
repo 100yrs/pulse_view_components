@@ -7,7 +7,7 @@ module Pulse
   #
   # Each item in an action list can be augmented by specifying corresponding leading
   # and/or trailing visuals.
-  class ActionList < Component
+  class ActionList < Pulse::Component
     DEFAULT_ROLE = :list
 
     MENU_ROLE = :menu

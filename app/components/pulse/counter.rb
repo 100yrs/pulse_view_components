@@ -7,7 +7,7 @@ module Pulse
   #   Always use `Counter` with adjacent text that provides supplementary information regarding what the count is for. For instance, `Counter`
   #   should be accompanied with text such as `issues` or `pull requests`.
   #
-  class Counter < Component
+  class Counter < Pulse::Component
     DEFAULT_SCHEME = :default
     SCHEME_MAPPINGS = {
       DEFAULT_SCHEME => "",

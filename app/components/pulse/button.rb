@@ -2,7 +2,7 @@
 
 module Pulse
   # Renders a button or link button
-  class Button < Component
+  class Button < Pulse::Component
     delegate :button_to, to: :helpers
 
     DEFAULT_SCHEME = :secondary

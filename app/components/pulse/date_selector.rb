@@ -2,7 +2,7 @@
 
 module Pulse
   # Renders a date selector component
-  class DateSelector < Component
+  class DateSelector < Pulse::Component
     def initialize(start_date:, end_date:, **system_arguments)
       super
 
