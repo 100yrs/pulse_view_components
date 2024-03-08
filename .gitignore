@@ -1,11 +1,18 @@
 /.bundle/
-/.yardoc
-/_yardoc/
-/coverage/
 /doc/
+/log/*.log
 /pkg/
-/spec/reports/
 /tmp/
 
-# rspec failure tracking
-.rspec_status
+coverage/
+/node_modules/
+.DS_Store
+.env
+
+/demo/db/*.sqlite3
+/demo/db/*.sqlite3-*
+/demo/log/*.log
+/demo/node_modules/
+/demo/public/assets/
+/demo/storage/
+/demo/tmp/

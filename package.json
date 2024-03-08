@@ -1,0 +1,39 @@
+{
+  "name": "pulse-view-components",
+  "version": "0.1.0",
+  "description": "View Components for Pulse design system",
+  "main": "app/assets/javascripts/pulse_view_components.js",
+  "module": "app/assets/javascripts/pulse_view_components/index.js",
+  "repository": "100yrs/pulse_view_components",
+  "author": "A Hundred Years",
+  "license": "MIT",
+  "homepage": "https://github.com/100yrs/pulse_view_components#readme",
+  "bugs": {
+    "url": "https://github.com/100yrs/pulse_view_components/issues"
+  },
+  "files": [
+    "app/assets/**/*",
+    "app/components/pulse/**/*.js",
+    "app/components/pulse/**/*.css"
+  ],
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.2",
+    "@rails/request.js": "^0.0.9",
+    "el-transition": "^0.0.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/typography": "^0.5.10",
+    "esbuild": "^0.20.0",
+    "esbuild-rails": "^1.0.7",
+    "postcss": "^8.4.31",
+    "prettier": "^3.1.1",
+    "tailwindcss": "^3.4.0"
+  },
+  "scripts": {
+    "build": "node esbuild.config.mjs",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/pulse_view_components/application.tailwind.css -o ./app/assets/builds/pulse_view_components.css --minify"
+  }
+}

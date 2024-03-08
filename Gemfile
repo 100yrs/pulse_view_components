@@ -4,7 +4,6 @@ source "https://rubygems.org"
 
 # Specify your gem's dependencies in pulse_view_components.gemspec
 gemspec
-rails_version = (ENV["RAILS_VERSION"] || "7.1.1").to_s
 
 gem "rake", "~> 13.1"
 
@@ -13,14 +12,15 @@ gem "rails", "~> 7.0.8"
 gem "puma", "~> 6.4.2"
 gem "turbo-rails"
 gem "stimulus-rails"
+
 gem "lookbook", "~> 2.2.1"
-
-gem "foreman"
-
+gem 'slim-rails'
 gem "view_component"
 
 gem "kramdown", "~> 2.4"
 gem "sourcemap", "~> 0.1"
+
+gem "foreman"
 
 group :test do
   gem "webmock"
@@ -41,6 +41,12 @@ group :development do
   # gem "rubocop-rails-accessibility", "~> 0.2.0"
   gem "simplecov", "~> 0.22.0"
   gem "dartsass-rails"
+
+  gem 'cssbundling-rails'
+
+  # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
+  gem 'jsbundling-rails'
+
   # gem "thor"
   # gem "yard", "~> 0.9.35"
 end
