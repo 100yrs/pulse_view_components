@@ -17,11 +17,9 @@ Gem::Specification.new do |spec|
 
   spec.metadata["homepage_uri"] = spec.homepage
 
-  # spec.files = Dir["CHANGELOG.md", "LICENSE.txt", "README.md", "lib/**/*", "app/**/*", "static/**/*", "previews/**/*"] - Dir["lib/**/*.rake"]
-  # spec.files = Dir["lib/**/*", "app/**/*", "config/**/*", "LICENSE.txt", "README.md"]
-  spec.files = Dir["lib/**/*", "app/**/*", "doc/**/*", "LICENSE.txt", "README.md"]
+  spec.files = Dir["lib/**/*", "app/**/*", "LICENSE.txt", "README.md", "previews/**/*"]
 
-  spec.require_paths = ["lib"]
+  # spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "rails", ">= 7.0.0"
   spec.add_runtime_dependency "view_component", [">= 3.1", "< 4.0.0"]

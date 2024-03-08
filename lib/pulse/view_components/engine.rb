@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require "rails/engine"
-# require "primer/classify/utilities"
+require "view_component"
+require "view_component/version"
 
 module Pulse
   module ViewComponents
@@ -28,13 +29,13 @@ module Pulse
         #{root}/app/lib
       ]
 
-      config.pulse_view_components = ActiveSupport::OrderedOptions.new
+      # config.pulse_view_components = ActiveSupport::OrderedOptions.new
 
-      config.pulse_view_components.raise_on_invalid_options = false
+      # config.pulse_view_components.raise_on_invalid_options = false
 
-      initializer "pulse_view_components.assets" do |app|
-        app.config.assets.precompile += %w[pulse_view_components] if app.config.respond_to?(:assets)
-      end
+      # initializer "pulse_view_components.assets" do |app|
+      #   app.config.assets.precompile += %w[pulse_view_components] if app.config.respond_to?(:assets)
+      # end
 
       initializer "pulse.eager_load_actions" do
         ActiveSupport.on_load(:after_initialize) do
