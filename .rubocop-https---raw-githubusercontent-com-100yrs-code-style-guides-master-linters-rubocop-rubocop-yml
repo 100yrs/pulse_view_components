@@ -1,0 +1,136 @@
+AllCops:
+  # don't check style on generated files.
+  Exclude:
+      - tmp/**/*
+      - db/migrate/*
+      - db/schema*
+      - bin/*
+  NewCops: enable
+
+FactoryBot/AssociationStyle:
+  EnforcedStyle: explicit
+
+Layout/LineLength:
+  Max: 80
+  AllowedPatterns: ['^(\s*#)']
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec/**/*
+
+Metrics/BlockLength:
+  AllowedMethods: ['describe', 'context']
+  CountAsOne: ['array', 'hash', 'heredoc', 'method_call']
+  Exclude:
+    - Rakefile
+    - '**/*.rake'
+    - config/**/*
+
+Metrics/ClassLength:
+  CountAsOne: ['array', 'hash', 'heredoc', 'method_call']
+  Exclude:
+    - lib/component_previews/**/*
+    - doc/lookbook/component_previews/**/*
+
+Metrics/MethodLength:
+  CountAsOne: ['array', 'hash', 'heredoc', 'method_call']
+  Exclude:
+    - lib/component_previews/**/*
+    - doc/lookbook/component_previews/**/*
+
+Metrics/ModuleLength:
+  CountAsOne: ['array', 'hash', 'heredoc', 'method_call']
+
+Metrics/ParameterLists:
+  # Keyword arguments are a great alternative to setting lots of variables
+  # from an options hash, so let's not discourage them.
+  CountKeywordArgs: false
+
+Rails/ActionOrder:
+   ExpectedOrder:
+     - index
+     - show
+     - new
+     - create
+     - edit
+     - update
+     - destroy
+
+RSpec/DescribedClass:
+  EnforcedStyle: explicit
+
+# Its way to easy to exceed this, leading to lots of senseless warnings.
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 3
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 8
+  
+RSpec/NotToNot:
+  Enabled: false
+
+Style/AndOr:
+  # Only disallow `and` for conditionals
+  EnforcedStyle: conditionals
+
+# Allow braces across multiple lines when used with chained methods
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+  
+Style/Documentation:
+  Exclude:
+    - app/controllers/**/*
+    - app/listeners/**/*
+    - app/mailers/**/*
+    - app/models/**/*
+    - lib/component_previews/**/*
+    - spec/**/*
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+
+# Don't allow use of numeric predicates, ie zero?, positive?, negative?
+# Sticking with comparison operators is more consistent with other non-zero
+# comparisons
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+
+# Use `%`-literal delimiters consistently
+# https://github.com/bbatsov/ruby-style-guide#percent-literal-braces
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%': '()'
+    '%i': '()'
+    '%q': '()'
+    '%Q': '()'
+    '%r': '{}'
+    '%s': '()'
+    '%w': '()'
+    '%W': '()'
+    '%x': '()'
+
+# Use / or %r around regular expressions.
+Style/RegexpLiteral:
+  EnforcedStyle: mixed
+  # slashes: Always use slashes.
+  # percent_r: Always use %r.
+  # mixed: Use slashes on single-line regexes, and %r on multi-line regexes.
+
+  # If false, the cop will always recommend using %r if one or more slashes
+  # are found in the regexp string.
+  AllowInnerSlashes: true
+
+Style/StringLiterals:
+  # Strings which span multiple lines using \ for continuation must
+  # use the same type of quotes on each line.
+  ConsistentQuotesInMultiline: true
+
+Style/SymbolArray:
+  # This cop checks for array literals made up of symbols that are not using the %i() syntax.
+  # This check makes sense only on Ruby 2.0+.
+  # percent: (default) check for array literals made up of symbols that are not using the %i() syntax
+  # brackets: checks for symbol arrays using the %i() syntax on projects which do not want to use that syntax
+  EnforcedStyle: brackets

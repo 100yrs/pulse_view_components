@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title Pulse View Components
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+    / - if params.dig(:primitives) || params.dig(:lookbook, :display, :primitives) == "next_major_v8"
+    /   = stylesheet_link_tag "primitives_v8", "data-turbo-track": "reload"
+
+    = stylesheet_link_tag 'pulse_view_components', 'data-turbo-track': 'reload'
+    = javascript_include_tag 'pulse_view_components', 'data-turbo-track': 'reload'
+    - if Rails.env.development?
+      = javascript_include_tag 'hotwire-livereload', defer: true
+
+  body class=class_names('antialiased p-4', params.dig(:lookbook, :display, :class)) style="background-color: #{params.dig(:lookbook, :display, :bg_color) || 'white'}"
+    div class="mt-4" style="max-width:#{params.dig(:lookbook, :display, :max_width) || '100%'}"
+      - if params.dig(:lookbook, :display, :wrapper) == true
+        div class="#{['wrapper relative', params.dig(:lookbook, :display, :wrapper_classes)].compact.join(' ')}"
+          = yield
+      - else
+        = yield
+
+    / = turbo_frame_tag 'modal'
+
+    / = turbo_frame_tag 'flash', class: 'max-w-full max-h-full sm:min-w-[250px] overflow-visible fixed bottom-6 z-100 -translate-x-1/2 left-1/2' do
+    /   = render 'application/notice'

@@ -18,7 +18,7 @@ import http from "http"
 // import { setTimeout } from "timers/promises"
 
 const clients = []
-const entryPoints = ["application.js"]
+const entryPoints = ["pulse_view_components.js"]
 const watchDirectories = [
   "./app/javascript/**/*.js",
   "./app/views/**/*.html.erb",

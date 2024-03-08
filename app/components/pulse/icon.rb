@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
-  # Render icons from the images/icons directory.
+  # Render icons from the images/pulse_view_components/icons directory.
   class Icon < Pulse::Component
     SIZE_DEFAULT = :sm
     SIZE_MAPPINGS = {
@@ -14,7 +14,7 @@ module Pulse
     def initialize(icon: nil, size: SIZE_DEFAULT, **system_arguments)
       super
 
-      @icon = "ui/icons/#{icon}"
+      @icon = "pulse_view_components/icons/#{icon}"
 
       @system_arguments = system_arguments
       @system_arguments[:class] = class_names(

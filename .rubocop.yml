@@ -1,13 +1,13 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+inherit_from:
+  - https://raw.githubusercontent.com/100yrs/code-style-guides/master/linters/rubocop/rubocop.yml
+
 AllCops:
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 3.3
 
-Style/StringLiterals:
+Rails:
   Enabled: true
-  EnforcedStyle: double_quotes
-
-Style/StringLiteralsInInterpolation:
-  Enabled: true
-  EnforcedStyle: double_quotes
-
-Layout/LineLength:
-  Max: 120

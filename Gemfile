@@ -38,6 +38,7 @@ group :development do
   gem "rubocop"
   gem "rubocop-performance"
   gem "rubocop-rails"
+  gem "rubocop-rspec"
   # gem "rubocop-rails-accessibility", "~> 0.2.0"
   gem "simplecov", "~> 0.22.0"
   gem "dartsass-rails"
