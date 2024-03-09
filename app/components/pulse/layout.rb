@@ -59,7 +59,8 @@ module Pulse
       @system_arguments[:tag] = :div
       @system_arguments[:classes] = merge_classes(
         'pulse-grid pulse-grid-flow-col',
-        'pulse-grid-cols-[auto_0_minmax(0,calc(100%_-_var(--layout-sidebar-width)_-_var(--layout-gutter)))] gap-[var(--layout-gutter)]',
+        'pulse-grid-cols-[auto_0_minmax(0,calc(100%_-_var(--layout-sidebar-width)_-_var(--layout-gutter)))]',
+        'pulse-gap-[var(--layout-gutter)]',
         GUTTER_MAPPINGS[fetch_or_fallback(GUTTER_OPTIONS, gutter,
                                           GUTTER_DEFAULT)],
         system_arguments[:classes]

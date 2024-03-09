@@ -7,7 +7,7 @@
   & .Layout-sidebar,
   & .Layout-divider,
   & .Layout-main {
-    @apply w-full col-[1];
+    @apply pulse-w-full pulse-col-[1];
   }
 
   &.Layout--sidebarPosition-flowRow-start {
