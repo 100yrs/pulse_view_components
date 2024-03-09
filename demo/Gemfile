@@ -18,6 +18,7 @@ gem 'bootsnap', require: false
 
 gem 'active_link_to'
 gem 'inline_svg'
+gem 'kaminari'
 gem 'pulse_view_components', path: '../'
 gem 'slim-rails'
 
