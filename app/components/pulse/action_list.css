@@ -9,7 +9,7 @@
 
 /* ActionList */
 .ActionListHeader {
-  @apply ml-[var(--base-size-8)] mb-[var(--base-size-16)];
+  @apply pulse-ml-[var(--base-size-8)] pulse-mb-[var(--base-size-16)];
 }
 
 /* <ul> */
@@ -17,12 +17,12 @@
   list-style: none;
 }
 .ActionListWrap--inset {
-  @apply pt-[var(--base-size-8)] pr-[var(--base-size-8)] pb-[var(--base-size-8)] pl-[var(--base-size-8)];
+  @apply pulse-pt-[var(--base-size-8)] pulse-pr-[var(--base-size-8)] pulse-pb-[var(--base-size-8)] pulse-pl-[var(--base-size-8)];
 }
 
 /* list dividers */
 .ActionListWrap--divided .ActionListItem-label::before {
-  @apply absolute top-[calc(-1_*_var(--actionListContent-paddingBlock))] block w-full h-px content-[''];
+  @apply pulse-absolute pulse-top-[calc(-1_*_var(--actionListContent-paddingBlock))] pulse-block pulse-w-full pulse-h-px pulse-content-[''];
   background: var(
     --borderColor-muted,
     var(--color-action-list-item-inline-divider)
@@ -31,7 +31,7 @@
 
 /* if descriptionWrap--inline exists, move pseudo divider to wrapper */
 .ActionListWrap--divided .ActionListItem-descriptionWrap--inline::before {
-  @apply absolute top-[calc(-1_*_var(--actionListContent-paddingBlock))] block w-full h-[var(--borderWidth-thin)] content-[''];
+  @apply pulse-absolute pulse-top-[calc(-1_*_var(--actionListContent-paddingBlock))] pulse-block pulse-w-full pulse-h-[var(--borderWidth-thin)] pulse-content-[''];
   background: var(
     --borderColor-muted,
     var(--color-action-list-item-inline-divider)
@@ -42,7 +42,7 @@
 .ActionListWrap--divided
   .ActionListItem-descriptionWrap--inline
   .ActionListItem-label::before {
-  @apply content-[unset];
+  @apply pulse-content-[unset];
 }
 
 /* hide divider if item is active */
@@ -53,13 +53,13 @@
   .ActionListItem--navActive
   + .ActionListItem
   .ActionListItem-label::before {
-  @apply invisible;
+  @apply pulse-invisible;
 }
 
 /* hide if item is first of type with label::before, or is the first item after a sectionDivider */
 .ActionListItem:first-of-type .ActionListItem-label::before,
 .ActionList-sectionDivider + .ActionListItem .ActionListItem-label::before {
-  @apply invisible;
+  @apply pulse-invisible;
 }
 
 /* hide if item is first of type with label::before, or is the first item after a sectionDivider */
@@ -67,49 +67,49 @@
 .ActionList-sectionDivider
   + .ActionListItem
   .ActionListItem-descriptionWrap--inline::before {
-  @apply invisible;
+  @apply pulse-invisible;
 }
 
 /* ActionList::Item */
 .ActionListItem {
-  @apply relative bg-[color:var(--control-transparent-bgColor-rest)] rounded-[var(--borderRadius-medium)] selected:font-[number:var(--base-text-weight-normal)];
+  @apply pulse-relative pulse-bg-[color:var(--control-transparent-bgColor-rest)] pulse-rounded-[var(--borderRadius-medium)] selected:pulse-font-[number:var(--base-text-weight-normal)];
   list-style: none;
 }
 
 /* state */
 .ActionListItem:hover,
 .ActionListItem:active {
-  @apply cursor-pointer;
+  @apply pulse-cursor-pointer;
 }
 
 /* hide dividers  */
 @media (hover: hover) {
   .ActionListItem:hover .ActionListItem-label::before,
   .ActionListItem:hover + .ActionListItem .ActionListItem-label::before {
-    @apply invisible;
+    @apply pulse-invisible;
   }
   .ActionListItem:hover .ActionListItem-descriptionWrap--inline::before,
   .ActionListItem:hover
     + .ActionListItem
     .ActionListItem-descriptionWrap--inline::before {
-    @apply invisible;
+    @apply pulse-invisible;
   }
 }
 
 /* Make sure that the first visible item isn't a divider */
 .ActionListItem[hidden] + .ActionList-sectionDivider {
-  @apply hidden;
+  @apply pulse-hidden;
 }
 
 /* collapse styles here */
 
 /* first child */
 .ActionListItem.ActionListItem--hasSubItem > .ActionListContent {
-  @apply z-[1] active:bg-[color:var(--control-transparent-bgColor-active)];
+  @apply pulse-z-[1] active:bg-[color:var(--control-transparent-bgColor-active)];
 }
 @media (hover: hover) {
   .ActionListItem.ActionListItem--hasSubItem > .ActionListContent:hover {
-    @apply bg-[color:var(--control-transparent-bgColor-hover)];
+    @apply pulse-bg-[color:var(--control-transparent-bgColor-hover)];
   }
 }
 
@@ -117,12 +117,12 @@
 @media (hover: hover) {
   .ActionListItem:not(.ActionListItem--hasSubItem):hover,
   .ActionListItem.ActionListItem--hasSubItem > .ActionListContent:hover {
-    @apply cursor-pointer bg-[color:var(--control-transparent-bgColor-hover)];
+    @apply pulse-cursor-pointer pulse-bg-[color:var(--control-transparent-bgColor-hover)];
   }
   .ActionListItem:not(.ActionListItem--hasSubItem):hover:not(.ActionListItem--navActive, :focus-visible),
   .ActionListItem.ActionListItem--hasSubItem
     > .ActionListContent:hover:not(.ActionListItem--navActive, :focus-visible) {
-    @apply outline-offset-[calc(-1_*_var(--borderWidth-thin))] shadow-[var(--boxShadow-thin)_var(--control-transparent-borderColor-active)];
+    @apply pulse-outline-offset-[calc(-1_*_var(--borderWidth-thin))] pulse-shadow-[var(--boxShadow-thin)_var(--control-transparent-borderColor-active)];
 
     /* Support for "Windows high contrast mode" */
     outline: solid var(--borderWidth-thin) transparent;
@@ -135,7 +135,7 @@
 .ActionListItem:not(.ActionListItem--hasSubItem):active:not(.ActionListItem--navActive),
 .ActionListItem.ActionListItem--hasSubItem
   > .ActionListContent:active:not(.ActionListItem--navActive) {
-  @apply outline-offset-[calc(-1_*_var(--borderWidth-thin))] shadow-[var(--boxShadow-thin)_var(--control-transparent-borderColor-active)];
+  @apply pulse-outline-offset-[calc(-1_*_var(--borderWidth-thin))] pulse-shadow-[var(--boxShadow-thin)_var(--control-transparent-borderColor-active)];
 
   /* Support for "Windows high contrast mode" https:sarahmhigley.com/writing/whcm-quick-tips/ */
   outline: solid var(--borderWidth-thin) transparent;
@@ -152,7 +152,7 @@
   > .ActionListContent:active
   + .ActionListItem
   .ActionListItem-label::before {
-  @apply invisible;
+  @apply pulse-invisible;
 }
 
 /* Autocomplete [aria-selected] items */
@@ -161,12 +161,12 @@
 }
 @media (hover: hover) {
   .ActionListItem[aria-selected="true"]:hover {
-    @apply bg-[color:var(--control-transparent-bgColor-hover)];
+    @apply pulse-bg-[color:var(--control-transparent-bgColor-hover)];
   }
 }
 .ActionListItem[aria-selected="true"]::before,
 .ActionListItem[aria-selected="true"] + .ActionListItem::before {
-  @apply invisible;
+  @apply pulse-invisible;
 }
 
 /* blue accent line */
@@ -176,26 +176,26 @@
 
 /* active state [aria-current] */
 .ActionListItem.ActionListItem--navActive {
-  @apply outline-none;
+  @apply pulse-outline-none;
 
   /* provides a visual indication of the current item for Windows high-contrast mode */
 }
 .ActionListItem.ActionListItem--navActive:not(.ActionListItem--subItem)
   .ActionListItem-label {
-  @apply font-[number:var(--base-text-weight-semibold)];
+  @apply pulse-font-[number:var(--base-text-weight-semibold)];
 }
 .ActionListItem.ActionListItem--navActive:not(.ActionListItem--danger) {
   background: var(--control-transparent-bgColor-selected);
 }
 @media (hover: hover) {
   .ActionListItem.ActionListItem--navActive:not(.ActionListItem--danger):hover {
-    @apply bg-[color:var(--control-transparent-bgColor-hover)];
+    @apply pulse-bg-[color:var(--control-transparent-bgColor-hover)];
   }
 }
 .ActionListItem.ActionListItem--navActive:not(.ActionListItem--danger)::before,
 .ActionListItem.ActionListItem--navActive:not(.ActionListItem--danger)
   + .ActionListItem::before {
-  @apply invisible;
+  @apply pulse-invisible;
 }
 
 /* blue accent line  */
@@ -214,7 +214,7 @@
 .ActionListItem[aria-disabled="true"]
   .ActionListContent
   .ActionListItem-description {
-  @apply text-[color:var(--control-fgColor-disabled)];
+  @apply pulse-text-[color:var(--control-fgColor-disabled)];
 }
 .ActionListItem.ActionListItem--disabled
   .ActionListContent
@@ -222,12 +222,12 @@
 .ActionListItem[aria-disabled="true"]
   .ActionListContent
   .ActionListItem-visual {
-  @apply fill-[var(--control-fgColor-disabled)];
+  @apply pulse-fill-[var(--control-fgColor-disabled)];
 }
 @media (hover: hover) {
   .ActionListItem.ActionListItem--disabled:hover,
   .ActionListItem[aria-disabled="true"]:hover {
-    @apply cursor-not-allowed bg-transparent;
+    @apply pulse-cursor-not-allowed pulse-bg-transparent;
   }
 }
 
@@ -235,10 +235,10 @@
 
 /* danger */
 .ActionListItem.ActionListItem--danger .ActionListItem-label {
-  @apply text-[color:var(--control-danger-fgColor-rest)];
+  @apply pulse-text-[color:var(--control-danger-fgColor-rest)];
 }
 .ActionListItem.ActionListItem--danger .ActionListItem-visual {
-  @apply text-[color:var(--control-danger-fgColor-rest)];
+  @apply pulse-text-[color:var(--control-danger-fgColor-rest)];
 }
 @media (hover: hover) {
   .ActionListItem.ActionListItem--danger:hover {
@@ -247,7 +247,7 @@
   .ActionListItem.ActionListItem--danger:hover .ActionListItem-label,
   .ActionListItem.ActionListItem--danger:hover .ActionListItem-visual,
   .ActionListItem.ActionListItem--danger:hover .ActionListItem-description {
-    @apply text-[color:var(--control-danger-fgColor-hover)];
+    @apply pulse-text-[color:var(--control-danger-fgColor-hover)];
   }
 }
 .ActionListItem.ActionListItem--danger .ActionListContent:active {
@@ -262,12 +262,12 @@
 .ActionListItem.ActionListItem--danger
   .ActionListContent:active
   .ActionListItem-description {
-  @apply text-[color:var(--control-danger-fgColor-hover)];
+  @apply pulse-text-[color:var(--control-danger-fgColor-hover)];
 }
 
 /* button or a href */
 .ActionListContent {
-  @apply relative grid w-full text-[color:var(--control-fgColor-rest)] text-left select-none bg-transparent rounded-[var(--borderRadius-medium)] transition-[background] duration-[33.333ms] ease-linear touch-manipulation grid-rows-[min-content] grid-cols-[min-content_min-content_minmax(0,auto)_min-content_min-content] border-[none] hover:no-underline;
+  @apply pulse-relative pulse-grid pulse-w-full pulse-text-[color:var(--control-fgColor-rest)] pulse-text-left pulse-select-none pulse-bg-transparent pulse-rounded-[var(--borderRadius-medium)] pulse-transition-[background] pulse-duration-[33.333ms] pulse-ease-linear pulse-touch-manipulation pulse-grid-rows-[min-content] pulse-grid-cols-[min-content_min-content_minmax(0,auto)_min-content_min-content] pulse-border-[none] hover:pulse-no-underline;
   padding-block: var(--actionListContent-paddingBlock);
   padding-inline: var(--control-medium-paddingInline-condensed);
   -webkit-tap-highlight-color: transparent;
@@ -276,20 +276,20 @@
 }
 /* column-gap persists with empty grid-areas, margin applies only when children exist */
 .ActionListContent > :not(:last-child) {
-  @apply mr-[var(--control-medium-gap)];
+  @apply pulse-mr-[var(--control-medium-gap)];
 }
 /* state */
 /* disabled */
 .ActionListContent[aria-disabled="true"] .ActionListItem-label,
 .ActionListContent[aria-disabled="true"] .ActionListItem-description {
-  @apply text-[color:var(--control-fgColor-disabled)];
+  @apply pulse-text-[color:var(--control-fgColor-disabled)];
 }
 .ActionListContent[aria-disabled="true"] .ActionListItem-visual {
-  @apply fill-[var(--control-fgColor-disabled)];
+  @apply pulse-fill-[var(--control-fgColor-disabled)];
 }
 @media (hover: hover) {
   .ActionListContent[aria-disabled="true"]:hover {
-    @apply cursor-not-allowed bg-transparent;
+    @apply pulse-cursor-not-allowed pulse-bg-transparent;
   }
 }
 /* collapsible item [aria-expanded] */
@@ -302,41 +302,41 @@
   }
 }
 .ActionListContent[aria-expanded] + .ActionList--subGroup .ActionListContent {
-  @apply pl-[var(--base-size-24)];
+  @apply pulse-pl-[var(--base-size-24)];
 }
 /* has 16px leading visual */
 .ActionListContent[aria-expanded].ActionListContent--visual16
   + .ActionList--subGroup
   .ActionListContent {
-  @apply pl-[var(--base-size-32)];
+  @apply pulse-pl-[var(--base-size-32)];
 }
 /* has 20px leading visual */
 .ActionListContent[aria-expanded].ActionListContent--visual20
   + .ActionList--subGroup
   .ActionListContent {
-  @apply pl-[var(--base-size-36)];
+  @apply pulse-pl-[var(--base-size-36)];
 }
 /* has 24px leading visual */
 .ActionListContent[aria-expanded].ActionListContent--visual24
   + .ActionList--subGroup
   .ActionListContent {
-  @apply pl-[var(--base-size-40)];
+  @apply pulse-pl-[var(--base-size-40)];
 }
 .ActionListContent[aria-expanded="true"] .ActionListItem-collapseIcon {
-  @apply transition-transform duration-[120ms] ease-linear -scale-y-100;
+  @apply pulse-transition-transform pulse-duration-[120ms] pulse-ease-linear -pulse-scale-y-100;
 }
 .ActionListContent[aria-expanded="true"] + .ActionList--subGroup {
-  @apply h-auto overflow-visible visible opacity-100 translate-y-0;
+  @apply pulse-h-auto pulse-overflow-visible pulse-visible pulse-opacity-100 pulse-translate-y-0;
 }
 .ActionListContent[aria-expanded="true"].ActionListContent--hasActiveSubItem
   > .ActionListItem-label {
-  @apply font-[number:var(--base-text-weight-semibold)];
+  @apply pulse-font-[number:var(--base-text-weight-semibold)];
 }
 .ActionListContent[aria-expanded="false"] .ActionListItem-collapseIcon {
-  @apply transition-transform duration-[120ms] ease-linear scale-y-100;
+  @apply pulse-transition-transform pulse-duration-[120ms] pulse-ease-linear pulse-scale-y-100;
 }
 .ActionListContent[aria-expanded="false"] + .ActionList--subGroup {
-  @apply h-0 overflow-hidden invisible opacity-0 translate-y-[calc(-1_*_var(--base-size-16];
+  @apply pulse-h-0 pulse-overflow-hidden pulse-invisible pulse-opacity-0 pulse-translate-y-[calc(-1_*_var(--base-size-16];
 }
 /* show active indicator on parent collapse if child is active */
 .ActionListContent[aria-expanded="false"].ActionListContent--hasActiveSubItem {
@@ -344,12 +344,12 @@
 }
 .ActionListContent[aria-expanded="false"].ActionListContent--hasActiveSubItem
   .ActionListItem-label {
-  @apply font-[number:var(--base-text-weight-semibold)];
+  @apply pulse-font-[number:var(--base-text-weight-semibold)];
 }
 .ActionListContent[aria-expanded="false"].ActionListContent--hasActiveSubItem::before,
 .ActionListContent[aria-expanded="false"].ActionListContent--hasActiveSubItem
   + .ActionListItem::before {
-  @apply invisible;
+  @apply pulse-invisible;
 }
 /* blue accent line */
 .ActionListContent[aria-expanded="false"].ActionListContent--hasActiveSubItem::after {
@@ -362,13 +362,13 @@
 /* multiselect checkmark */
 .ActionListContent[aria-checked="true"] .ActionListItem-multiSelectCheckmark,
 .ActionListContent[aria-selected="true"] .ActionListItem-multiSelectCheckmark {
-  @apply visible opacity-100;
+  @apply pulse-visible pulse-opacity-100;
   transition: visibility 0 linear 0, opacity 50ms;
 }
 /* singleselect checkmark */
 .ActionListContent[aria-checked="true"] .ActionListItem-singleSelectCheckmark,
 .ActionListContent[aria-selected="true"] .ActionListItem-singleSelectCheckmark {
-  @apply visible motion-safe:animate-[checkmarkIn_200ms_cubic-bezier(0.11,0,0.5,0)_forwards];
+  @apply pulse-visible motion-safe:pulse-animate-[checkmarkIn_200ms_cubic-bezier(0.11,0,0.5,0)_forwards];
 }
 @media screen and (prefers-reduced-motion: no-preference) {
   @keyframes checkmarkIn {
@@ -387,7 +387,7 @@
 .ActionListContent[aria-selected="true"]
   .ActionListItem-multiSelectIcon
   .ActionListItem-multiSelectIconRect {
-  @apply fill-[var(--control-checked-bgColor-rest)] stroke-[color:var(--control-checked-bgColor-rest)] stroke-[length:var(--borderWidth-thin,1px)];
+  @apply pulse-fill-[var(--control-checked-bgColor-rest)] pulse-stroke-[color:var(--control-checked-bgColor-rest)] pulse-stroke-[length:var(--borderWidth-thin,1px)];
 }
 .ActionListContent[aria-checked="true"]
   .ActionListItem-multiSelectIcon
@@ -395,19 +395,19 @@
 .ActionListContent[aria-selected="true"]
   .ActionListItem-multiSelectIcon
   .ActionListItem-multiSelectCheckmark {
-  @apply fill-[var(--fgColor-onEmphasis)];
+  @apply pulse-fill-[var(--fgColor-onEmphasis)];
 }
 /* multiselect checkmark */
 .ActionListContent[aria-checked="false"] .ActionListItem-multiSelectCheckmark,
 .ActionListContent[aria-selected="false"] .ActionListItem-multiSelectCheckmark {
-  @apply invisible opacity-0;
+  @apply pulse-invisible pulse-opacity-0;
   transition: visibility 0 linear 50ms, opacity 50ms;
 }
 /* singleselect checkmark */
 .ActionListContent[aria-checked="false"] .ActionListItem-singleSelectCheckmark,
 .ActionListContent[aria-selected="false"]
   .ActionListItem-singleSelectCheckmark {
-  @apply invisible transition-[visibility] duration-[0s] ease-linear delay-200 motion-safe:animate-[checkmarkOut_200ms_cubic-bezier(0.11,0,0.5,0)_forwards];
+  @apply pulse-invisible pulse-transition-[visibility] pulse-duration-[0s] pulse-ease-linear pulse-delay-200 motion-safe:pulse-animate-[checkmarkOut_200ms_cubic-bezier(0.11,0,0.5,0)_forwards];
   clip-path: inset(16px 0 0 0);
 }
 @media screen and (prefers-reduced-motion: no-preference) {
@@ -427,11 +427,11 @@
 .ActionListContent[aria-selected="false"]
   .ActionListItem-multiSelectIcon
   .ActionListItem-multiSelectIconRect {
-  @apply fill-[var(--bgColor-default)] stroke-[color:var(--control-borderColor-rest)] stroke-[length:var(--borderWidth-thin,1px)];
+  @apply pulse-fill-[var(--bgColor-default)] pulse-stroke-[color:var(--control-borderColor-rest)] pulse-stroke-[length:var(--borderWidth-thin,1px)];
 }
 .ActionListContent[aria-checked="false"] .ActionListItem-multiSelectIconRect,
 .ActionListContent[aria-selected="false"] .ActionListItem-multiSelectIconRect {
-  @apply fill-[var(--bgColor-default)] border-[var(--borderWidth-thin,] border-[solid_var(--control-borderColor-rest)];
+  @apply pulse-fill-[var(--bgColor-default)] pulse-border-[var(--borderWidth-thin,] pulse-border-[solid_var(--control-borderColor-rest)];
 }
 /* sizes */
 .ActionListContent.ActionListContent--sizeLarge {
@@ -448,7 +448,7 @@
 }
 /* if leading/trailing visual, align with first line of content */
 .ActionListContent.ActionListContent--blockDescription .ActionListItem-visual {
-  @apply place-self-start;
+  @apply pulse-place-self-start;
 }
 
 /* place children on grid */
@@ -473,75 +473,75 @@
 /* wrapper span
  default block */
 .ActionListItem-descriptionWrap {
-  @apply flex flex-col gap-[var(--base-size-4)];
+  @apply pulse-flex pulse-flex-col pulse-gap-[var(--base-size-4)];
   grid-area: label;
 }
 .ActionListItem-descriptionWrap .ActionListItem-label {
-  @apply font-[number:var(--base-text-weight-semibold)];
+  @apply pulse-font-[number:var(--base-text-weight-semibold)];
 }
 
 /* inline */
 .ActionListItem-descriptionWrap--inline {
-  @apply relative flex-row items-baseline gap-[var(--base-size-8)];
+  @apply pulse-relative pulse-flex-row pulse-items-baseline pulse-gap-[var(--base-size-8)];
 }
 
 /* description */
 .ActionListItem-description {
-  @apply text-[length:var(--text-body-size-small)] font-[number:var(--base-text-weight-normal)] leading-[var(--text-body-lineHeight-small)] text-[color:var(--fgColor-muted)];
+  @apply pulse-text-[length:var(--text-body-size-small)] pulse-font-[number:var(--base-text-weight-normal)] pulse-leading-[var(--text-body-lineHeight-small)] pulse-text-[color:var(--fgColor-muted)];
 }
 
 /* helper for grid alignment with multi-line content
  span wrapping svg or text */
 .ActionListItem-visual,
 .ActionListItem-action {
-  @apply flex min-h-[var(--control-medium-lineBoxHeight)] text-[color:var(--fgColor-muted)] pointer-events-none fill-[var(--fgColor-muted)] items-center;
+  @apply pulse-flex pulse-min-h-[var(--control-medium-lineBoxHeight)] pulse-text-[color:var(--fgColor-muted)] pulse-pointer-events-none pulse-fill-[var(--fgColor-muted)] pulse-items-center;
 }
 
 /* text */
 .ActionListItem-label {
-  @apply relative text-[length:var(--text-body-size-medium)] font-[number:var(--base-text-weight-normal)] leading-[var(--text-body-lineHeight-medium)] text-[color:var(--fgColor-default)];
+  @apply pulse-relative pulse-text-[length:var(--text-body-size-medium)] pulse-font-[number:var(--base-text-weight-normal)] pulse-leading-[var(--text-body-lineHeight-medium)] pulse-text-[color:var(--fgColor-default)];
   grid-area: label;
 }
 .ActionListItem-label--truncate {
-  @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  @apply pulse-overflow-hidden pulse-text-ellipsis pulse-whitespace-nowrap;
 }
 
 /* nested lists (only supports 1 level currently)
  target ActionListItem--subItem for padding-left to maintain :active :after state */
 .ActionListItem--subItem > .ActionListContent > .ActionListItem-label {
-  @apply text-[length:var(--text-body-size-small)] leading-[var(--text-body-lineHeight-small)];
+  @apply pulse-text-[length:var(--text-body-size-small)] pulse-leading-[var(--text-body-lineHeight-small)];
 }
 
 /* trailing action icon button */
 .ActionListItem--withActions {
-  @apply flex flex-nowrap items-center;
+  @apply pulse-flex pulse-flex-nowrap pulse-items-center;
 }
 .ActionListItem-trailingAction {
-  @apply rounded-tl-none rounded-bl-none;
+  @apply pulse-rounded-tl-none pulse-rounded-bl-none;
 }
 
 /* show trailing action button on hover */
 .ActionListItem--trailingActionHover .ActionListItem-trailingAction {
-  @apply invisible;
+  @apply pulse-invisible;
 }
 .ActionListItem--trailingActionHover:hover .ActionListItem-trailingAction,
 .ActionListItem--trailingActionHover:focus-within
   .ActionListItem-trailingAction {
-  @apply visible;
+  @apply pulse-visible;
 }
 
 /* ActionList::Divider */
 
 /* with children */
 .ActionList-sectionDivider:not(:empty) {
-  @apply flex text-[length:var(--text-body-size-small)] leading-[var(--text-body-lineHeight-small)] font-[number:var(--base-text-weight-semibold)] text-[color:var(--fgColor-muted)] flex-col;
+  @apply pulse-flex pulse-text-[length:var(--text-body-size-small)] pulse-leading-[var(--text-body-lineHeight-small)] pulse-font-[number:var(--base-text-weight-semibold)] pulse-text-[color:var(--fgColor-muted)] pulse-flex-col;
   padding-inline: var(--actionListContent-paddingBlock);
   padding-block: var(--base-size-8);
 }
 
 /* no children */
 .ActionList-sectionDivider:empty {
-  @apply block h-[var(--borderWidth-thin)] p-0 border-0;
+  @apply pulse-block pulse-h-[var(--borderWidth-thin)] pulse-p-0 pulse-border-0;
   margin-block-start: calc(var(--base-size-8) - var(--borderWidth-thin));
   margin-block-end: var(--base-size-8);
   margin-inline: calc(-1 * var(--base-size-8));
@@ -552,10 +552,10 @@
   );
 }
 .ActionList-sectionDivider .ActionList-sectionDivider-title {
-  @apply text-[length:var(--text-body-size-small)] font-[number:var(--base-text-weight-semibold)] text-[color:var(--fgColor-muted)];
+  @apply pulse-text-[length:var(--text-body-size-small)] pulse-font-[number:var(--base-text-weight-semibold)] pulse-text-[color:var(--fgColor-muted)];
 }
 .ActionList-sectionDivider--filled {
-  @apply border-t-[color:var(--borderColor-muted,var(--color-action-list-item-inline-divider))] border-b-[color:var(--borderColor-muted,var(--color-action-list-item-inline-divider))] border-y-[solid] empty:h-[var(--base-size-8)] empty:box-border;
+  @apply pulse-border-t-[color:var(--borderColor-muted,var(--color-action-list-item-inline-divider))] pulse-border-b-[color:var(--borderColor-muted,var(--color-action-list-item-inline-divider))] pulse-border-y-[solid] empty:pulse-h-[var(--base-size-8)] empty:pulse-box-border;
   margin-block-start: calc(var(--base-size-8) - var(--borderWidth-thin));
   margin-block-end: var(--base-size-8);
   margin-inline: calc(-1 * var(--base-size-8));

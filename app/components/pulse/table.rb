@@ -5,16 +5,16 @@ module Pulse
   # Inspiration taken from
   # https://github.com/baoagency/polaris_view_components/
   class Table < Pulse::Component
-    DEFAULT_TABLE_CLASSES = 'min-w-full divide-y divide-gray-200'
-    DEFAULT_HEAD_CLASSES = 'bg-gray-50'
-    DEFAULT_TH_CLASSES = 'text-start text-gray uppercase tracking-wider ' \
-                         'px-4 print:px-2 py-4 print:py-3 text-xs font-medium'
-    DEFAULT_BODY_CLASSES = 'bg-white divide-y divide-gray-200 ' \
-                           'print:divide-gray-400 text-sm leading-extra-snug ' \
-                           'tracking-tight border-gray-200 ' \
-                           'print:border-gray-400'
-    DEFAULT_ROW_CLASSES = 'border-secondary-300'
-    DEFAULT_TD_CLASSES = 'px-4 print:px-2 py-4'
+    DEFAULT_TABLE_CLASSES = 'pulse-min-w-full pulse-divide-y pulse-divide-gray-200'
+    DEFAULT_HEAD_CLASSES = 'pulse-bg-gray-50'
+    DEFAULT_TH_CLASSES = 'pulse-text-start pulse-text-gray pulse-uppercase pulse-tracking-wider ' \
+                         'pulse-px-4 print:pulse-px-2 pulse-py-4 print:pulse-py-3 text-xs pulse-font-medium'
+    DEFAULT_BODY_CLASSES = 'pulse-bg-white pulse-divide-y pulse-divide-gray-200 ' \
+                           'print:pulse-divide-gray-400 pulse-text-sm pulse-leading-extra-snug ' \
+                           'pulse-tracking-tight pulse-border-gray-200 ' \
+                           'print:pulse-border-gray-400'
+    DEFAULT_ROW_CLASSES = 'pulse-border-secondary-300'
+    DEFAULT_TD_CLASSES = 'pulse-px-4 print:pulse-px-2 pulse-py-4'
 
     renders_many :columns, lambda { |**options, &block|
       Pulse::Tables::Column.new(**options, &block)
@@ -55,7 +55,7 @@ module Pulse
       { tag: 'table' }.deep_merge(@options).tap do |args|
         args[:classes] = merge_classes(
           DEFAULT_TABLE_CLASSES,
-          'container mx-auto',
+          'pulse-container pulse-mx-auto',
           args[:classes]
         )
         args[:data] ||= {}
@@ -78,8 +78,8 @@ module Pulse
     def body_classes
       merge_classes(
         DEFAULT_BODY_CLASSES,
-        '[&>tr:nth-child(even)]:bg-gray-50': striped,
-        'border-b [&>tr]:border-t [&>tr:first-child]:border-t-0': !striped
+        '[&>tr:nth-child(even)]:pulse-bg-gray-50': striped,
+        'pulse-border-b [&>tr]:pulse-border-t [&>tr:first-child]:pulse-border-t-0': !striped
       )
     end
 
@@ -87,7 +87,7 @@ module Pulse
       { tag: 'tr' }.tap do |args|
         args[:classes] = merge_classes(
           DEFAULT_ROW_CLASSES,
-          { 'hover:bg-dark-charcoal-50': hoverable },
+          { 'hover:pulse-bg-dark-charcoal-50': hoverable },
           row_classes
         )
         args[:id] = dom_id(row) if row.respond_to?(:to_key)

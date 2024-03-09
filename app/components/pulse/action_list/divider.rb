@@ -7,7 +7,7 @@ module Pulse
       DEFAULT_SCHEME = :subtle
       SCHEME_MAPPINGS = {
         DEFAULT_SCHEME => nil,
-        :filled => 'border-t-color-gray border-b-color-gray border-y-solid empty:h-2 empty:box-border'
+        :filled => 'pulse-border-t-color-gray pulse-border-b-color-gray pulse-border-y-solid empty:pulse-h-2 empty:pulse-box-border'
       }.freeze
       SCHEME_OPTIONS = SCHEME_MAPPINGS.keys.freeze
 
@@ -20,7 +20,7 @@ module Pulse
         @system_arguments[:'aria-hidden'] = true
         @scheme = fetch_or_fallback(SCHEME_OPTIONS, scheme, DEFAULT_SCHEME)
         @system_arguments[:classes] = merge_classes(
-          'block h-[1px] p-0 border-0 ms-2 me-2 bg-gray-100',
+          'pulse-block pulse-h-[1px] pulse-p-0 pulse-border-0 pulse-ms-2 pulse-me-2 pulse-bg-gray-100',
           SCHEME_MAPPINGS[@scheme]
         )
       end

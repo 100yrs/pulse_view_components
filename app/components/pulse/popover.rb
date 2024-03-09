@@ -11,14 +11,14 @@ module Pulse
   class Popover < Pulse::Component
     CARET_DEFAULT = :top
     CARET_MAPPINGS = {
-      CARET_DEFAULT => 'caret-top',
-      :bottom => 'caret-bottom',
+      CARET_DEFAULT => 'pulse-caret-top',
+      :bottom => 'pulse-caret-bottom',
       :bottom_right => 'Popover-message--bottom-right',
       :bottom_left => 'Popover-message--bottom-left',
-      :left => 'caret-left',
+      :left => 'pulse-caret-left',
       :left_bottom => 'Popover-message--left-bottom',
       :left_top => 'Popover-message--left-top',
-      :right => 'caret-right',
+      :right => 'pulse-caret-right',
       :right_bottom => 'Popover-message--right-bottom',
       :right_top => 'Popover-message--right-top',
       :top_left => 'Popover-message--top-left',
@@ -35,7 +35,7 @@ module Pulse
       system_arguments[:type] = :body3
       system_arguments[:tag] = tag
       system_arguments[:classes] = merge_classes(
-        'mb-2',
+        'pulse-mb-2',
         system_arguments[:classes]
       )
 
@@ -58,7 +58,7 @@ module Pulse
       )
       @body_arguments[:classes] = merge_classes(
         @body_arguments[:classes],
-        'bg-white border border-gray-200 rounded-lg p-4 mt-2 mx-auto text-left shadow-lg'
+        'pulse-bg-white pulse-border pulse-border-gray-200 pulse-rounded-lg pulse-p-4 pulse-mt-2 pulse-mx-auto pulse-text-left pulse-shadow-lg'
       )
 
       Pulse::Content.new
@@ -69,7 +69,7 @@ module Pulse
       @system_arguments = deny_tag_argument(**system_arguments)
       @system_arguments[:tag] = :div
       @system_arguments[:classes] = merge_classes(
-        'relative z-10 w-64',
+        'pulse-relative pulse-z-10 pulse-w-64',
         system_arguments[:classes]
       )
     end

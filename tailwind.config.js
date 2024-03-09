@@ -89,6 +89,7 @@ const colorPalette = {
 }
 
 module.exports = {
+  prefix: "pulse-",
   content: [
     "./app/components/**/*.{slim,rb,js,css}",
     "./app/views/**/*.{erb,slim,js}",

@@ -9,22 +9,22 @@ module Pulse
 
     DEFAULT_VARIANT = :standard
     VARIANT_MAPPINGS = {
-      standard: 'inline-block rounded uppercase py-0.5 px-1.5 text-[10px] ' \
-                'font-bold',
-      pill: 'inline-block rounded-2xl min-w-[8rem] text-center p-2 text-sm ' \
-            'leading-none font-bold'
+      standard: 'pulse-inline-block pulse-rounded pulse-uppercase pulse-py-0.5 pulse-px-1.5 pulse-text-[10px] ' \
+                'pulse-font-bold',
+      pill: 'pulse-inline-block pulse-rounded-2xl pulse-min-w-[8rem] pulse-text-center pulse-p-2 pulse-text-sm ' \
+            'pulse-leading-none pulse-font-bold'
     }.freeze
     VARIANT_OPTIONS = VARIANT_MAPPINGS.keys.freeze
 
     DEFAULT_SCHEME = :secondary
     SCHEME_MAPPINGS = {
-      primary: 'bg-primary text-white hover:text-white',
-      secondary: 'bg-secondary text-white',
-      secondary_outline: 'bg-white border border-secondary text-secondary ' \
-                         'hover:text-secondary',
-      invited: 'bg-secondary-200 text-gray hover:text-gray',
-      active: 'bg-success-200 text-gray hover:text-gray',
-      disabled: 'bg-gray-100 text-gray hover:text-gray'
+      primary: 'pulse-bg-primary pulse-text-white hover:pulse-text-white',
+      secondary: 'pulse-bg-secondary pulse-text-white',
+      secondary_outline: 'pulse-bg-white pulse-border pulse-border-secondary pulse-text-secondary ' \
+                         'pulse-hover:text-secondary',
+      invited: 'pulse-bg-secondary-200 pulse-text-gray pulse-hover:text-gray',
+      active: 'pulse-bg-success-200 pulse-text-gray hover:pulse-text-gray',
+      disabled: 'pulse-bg-gray-100 pulse-text-gray hover:pulse-text-gray'
     }.freeze
     SCHEME_OPTIONS = SCHEME_MAPPINGS.keys.freeze
 

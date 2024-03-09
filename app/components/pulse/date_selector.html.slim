@@ -1,6 +1,6 @@
 /! components/pulse/date_selector
 = render Pulse::Text.new(type: :h2, **@system_arguments) do
-  span class="print:hidden"
+  span class="print:pulse-hidden"
     => link_to '<', back_link_path
     - if (start_date + 1.month).beginning_of_month <= Date.current
       => link_to '>', forward_link_path

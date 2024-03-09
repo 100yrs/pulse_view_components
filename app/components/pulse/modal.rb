@@ -10,11 +10,11 @@ module Pulse
 
     DEFAULT_SIZE = :md
     SIZE_MAPPINGS = {
-      sm: 'max-w-md',
-      md: 'max-w-2xl',
-      lg: 'max-w-4xl',
-      xl: 'max-w-5xl',
-      xxl: 'max-w-6xl'
+      sm: 'pulse-max-w-md',
+      md: 'pulse-max-w-2xl',
+      lg: 'pulse-max-w-4xl',
+      xl: 'pulse-max-w-5xl',
+      xxl: 'pulse-max-w-6xl'
     }.freeze
     SIZE_OPTIONS = SIZE_MAPPINGS.keys.freeze
 
@@ -37,7 +37,7 @@ module Pulse
 
       @system_arguments[:'aria-labelledby'] = 'modal-title'
       @system_arguments[:'aria-modal'] = true
-      @system_arguments[:classes] = 'fixed z-9999 inset-0 overflow-y-auto'
+      @system_arguments[:classes] = 'pulse-fixed pulse-z-9999 pulse-inset-0 pulse-overflow-y-auto'
       @system_arguments[:data] = data_attributes
       @system_arguments[:role] = 'dialog'
       @system_arguments[:tabindex] = 0

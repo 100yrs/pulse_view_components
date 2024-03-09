@@ -11,7 +11,7 @@ module Pulse
       @system_arguments = system_arguments
       @system_arguments[:classes] = merge_classes(
         system_arguments[:classes],
-        'mb-6'
+        'pulse-mb-6'
       )
     end
 

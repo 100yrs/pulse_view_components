@@ -17,15 +17,15 @@ module Pulse
     }
 
     LINK_MAPPINGS = {
-      default: 'text-white hover:text-white',
-      error: 'text-gray hover:text-gray',
-      success: 'text-white hover:text-white'
+      default: 'pulse-text-white hover:pulse-text-white',
+      error: 'pulse-text-gray hover:pulse-text-gray',
+      success: 'pulse-text-white hover:pulse-text-white'
     }.freeze
 
     THEME_MAPPINGS = {
-      default: 'bg-gray text-white',
-      error: 'bg-error-100 text-gray-900',
-      success: 'bg-gray text-white'
+      default: 'pulse-bg-gray pulse-text-white',
+      error: 'pulse-bg-error-100 pulse-text-gray-900',
+      success: 'pulse-bg-gray pulse-text-white'
     }.freeze
     DEFAULT_THEME = :default
 
@@ -49,14 +49,14 @@ module Pulse
     def class_attributes
       merge_classes(
         @system_arguments[:classes],
-        'hidden',
-        'pl-8',
-        'pr-4',
-        'py-2.5',
-        'mb-4',
-        'rounded',
-        'shadow-toast',
-        'z-100',
+        'pulse-hidden',
+        'pulse-pl-8',
+        'pulse-pr-4',
+        'pulse-py-2.5',
+        'pulse-mb-4',
+        'pulse-rounded',
+        'pulse-shadow-toast',
+        'pulse-z-100',
         THEME_MAPPINGS[@theme]
       )
     end

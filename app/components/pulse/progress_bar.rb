@@ -10,7 +10,7 @@ module Pulse
       @system_attributes = system_attributes
       @system_attributes[:tag] ||= :div
       @system_attributes[:class] = merge_classes(
-        'flex flex-row h-1 w-full bg-gray-200 dark:bg-gray-600',
+        'pulse-flex pulse-flex-row pulse-h-1 pulse-w-full pulse-bg-gray-200 dark:pulse-bg-gray-600',
         system_attributes[:classes]
       )
     end

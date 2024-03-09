@@ -1,47 +1,47 @@
 = turbo_frame_tag 'modal' do
   = render Pulse::BaseComponent.new(**@system_arguments) do
     - unless auto_close
-      div class="flex items-center justify-center min-h-screen p-6 box-border"
+      div class="pulse-flex pulse-items-center pulse-justify-center pulse-min-h-screen pulse-p-6 pulse-box-border"
         /! bg overlay
         div{ data-modal-target="wrapper" data-action="#{close_on_overlay_click ? 'click->modal#close' : ''}" aria-hidden="true"
-          data-transition-enter="ease-out duration-300"
-          data-transition-enter-start="opacity-0"
-          data-transition-enter-end="opacity-100"
-          data-transition-leave="ease-in duration-200"
-          data-transition-leave-start="opacity-100"
-          data-transition-leave-end="opacity-0"
-          class="fixed inset-0 bg-gray-900/75 transition-opacity" }
+          data-transition-enter="pulse-ease-out pulse-duration-300"
+          data-transition-enter-start="pulse-opacity-0"
+          data-transition-enter-end="pulse-opacity-100"
+          data-transition-leave="pulse-ease-in pulse-duration-200"
+          data-transition-leave-start="pulse-opacity-100"
+          data-transition-leave-end="pulse-opacity-0"
+          class="pulse-fixed pulse-inset-0 pulse-bg-gray-900/75 pulse-transition-opacity" }
 
         /! modal
         div{ data-modal-target="body"
-          data-transition-enter="ease-out duration-300"
-          data-transition-enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          data-transition-enter-end="opacity-100 translate-y-0 sm:scale-100"
-          data-transition-leave="ease-in duration-200"
-          data-transition-leave-start="opacity-100 translate-y-0 sm:scale-100"
-          data-transition-leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          class="relative z-50 bg-white shadow-xl rounded-lg transition-all #{modal_classes}"
+          data-transition-enter="pulse-ease-out pulse-duration-300"
+          data-transition-enter-start="pulse-opacity-0 pulse-translate-y-4 sm:pulse-translate-y-0 sm:pulse-scale-95"
+          data-transition-enter-end="pulse-opacity-100 pulse-translate-y-0 sm:pulse-scale-100"
+          data-transition-leave="pulse-ease-in pulse-duration-200"
+          data-transition-leave-start="pulse-opacity-100 pulse-translate-y-0 sm:pulse-scale-100"
+          data-transition-leave-end="pulse-opacity-0 pulse-translate-y-4 sm:pulse-translate-y-0 sm:pulse-scale-95"
+          class="pulse-relative pulse-z-50 pulse-bg-white pulse-shadow-xl pulse-rounded-lg pulse-transition-all #{modal_classes}"
           role="dialog"
           aria-modal="true"}
 
           /! header
-          div class="flex flex-row-reverse items-center justify-between gap-4 p-4 md:p-5 border-b"
+          div class="pulse-flex pulse-flex-row-reverse pulse-items-center pulse-justify-between pulse-gap-4 pulse-p-4 md:pulse-p-5 pulse-border-b"
             - if close_button
-              button{ class="ms-auto inline-flex items-center justify-center w-10 h-10 bg-transparent border-none text-gray"
+              button{ class="pulse-ms-auto pulse-inline-flex pulse-items-center pulse-justify-center pulse-w-10 pulse-h-10 pulse-bg-transparent pulse-border-none pulse-text-gray"
                 data-action="modal#close"
                 aria-label="Close Modal"}
 
                 = render Pulse::Icon.new(icon: :close, width: 16, height: 16)
 
             - if title?
-              = render Pulse::Text.new(type: :h4, el_tag: :h2, classes: 'tracking-tight text-gray truncate')
+              = render Pulse::Text.new(type: :h4, el_tag: :h2, classes: 'pulse-tracking-tight pulse-text-gray pulse-truncate')
                 = title
 
           /! body
-          div class="p-4 md:p-5 #{'mb-4' unless footer}"
+          div class="pulse-p-4 md:pulse-p-5 #{'pulse-mb-4' unless footer}"
             = content
 
           /! footer
           - if footer
-            div class="flex items-center p-4 md:p-5 border-t border-gray-200"
+            div class="pulse-flex pulse-items-center pulse-p-4 md:pulse-p-5 pulse-border-t pulse-border-gray-200"
               = footer

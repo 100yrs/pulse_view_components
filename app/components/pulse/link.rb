@@ -7,10 +7,10 @@ module Pulse
   class Link < Pulse::Component
     DEFAULT_SCHEME = :tertiary
     SCHEME_MAPPINGS = {
-      primary: 'text-primary hover:text-primary',
-      secondary: 'text-secondary hover:text-secondary',
-      tertiary: 'text-tertiary hover:text-tertiary',
-      reversed: 'text-gray-200 hover:text-gray-200 focus:text-gray-200'
+      primary: 'pulse-text-primary hover:pulse-text-primary',
+      secondary: 'pulse-text-secondary hover:pulse-text-secondary',
+      tertiary: 'pulse-text-tertiary hover:pulse-text-tertiary',
+      reversed: 'pulse-text-gray-200 hover:pulse-text-gray-200 focus:pulse-text-gray-200'
     }.freeze
     SCHEME_OPTIONS = SCHEME_MAPPINGS.keys.freeze
 
@@ -32,8 +32,8 @@ module Pulse
         SCHEME_MAPPINGS[fetch_or_fallback(SCHEME_MAPPINGS.keys, scheme,
                                           DEFAULT_SCHEME)],
         @options[:classes],
-        'font-bold': bold,
-        'underline hover:no-underline': condition && underline
+        'pulse-font-bold': bold,
+        'pulse-underline hover:pulse-no-underline': condition && underline
       )
     end
 
@@ -46,7 +46,7 @@ module Pulse
 
       @options[:classes] = class_names(
         @options[:classes],
-        'flex items-center gap-1.5'
+        'pulse-flex pulse-items-center pulse-gap-1.5'
       )
     end
   end

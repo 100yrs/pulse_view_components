@@ -7,24 +7,24 @@ module Pulse
 
     DEFAULT_SCHEME = :secondary
     SCHEME_MAPPINGS = {
-      primary: 'border border-solid border-gray-200 bg-green-700 text-white ' \
-               'hover:bg-green-800 focus:bg-green-800 hover:text-white ' \
-               'focus:text-white',
-      secondary: 'border border-solid border-gray-200 bg-gray-50 text-gray ' \
-                 'hover:bg-gray-100 focus:bg-gray-100',
-      danger: 'border border-solid border-gray-200 bg-gray-50 ' \
-              'text-danger-800 hover:bg-danger-800 focus:bg-danger-800 ' \
-              'hover:text-white focus:text-white',
-      link: 'appearance-none font-normal no-underline px-0 py-0 ' \
-            'underline-offset-2 hover:underline focus:shadow-none'
+      primary: 'pulse-border pulse-border-solid pulse-border-gray-200 pulse-bg-green-700 pulse-text-white ' \
+               'hover:pulse-bg-green-800 focus:pulse-bg-green-800 hover:pulse-text-white ' \
+               'focus:pulse-text-white',
+      secondary: 'pulse-border pulse-border-solid pulse-border-gray-200 pulse-bg-gray-50 pulse-text-gray ' \
+                 'hover:pulse-bg-gray-100 focus:pulse-bg-gray-100',
+      danger: 'pulse-border pulse-border-solid pulse-border-gray-200 pulse-bg-gray-50 ' \
+              'pulse-text-danger-800 hover:pulse-bg-danger-800 focus:pulse-bg-danger-800 ' \
+              'hover:pulse-text-white focus:pulse-text-white',
+      link: 'pulse-appearance-none pulse-font-normal pulse-no-underline pulse-px-0 pulse-py-0 ' \
+            'pulse-underline-offset-2 hover:pulse-underline focus:pulse-shadow-none'
     }.freeze
     SCHEME_OPTIONS = SCHEME_MAPPINGS.keys
 
     DEFAULT_SIZE = :md
     SIZE_MAPPINGS = {
-      xs: 'text-xs leading-5 font-medium py-0.5 px-4',
-      sm: 'text-sm font-medium py-1 px-5',
-      md: 'text-base font-bold py-1.5 px-6'
+      xs: 'pulse-text-xs pulse-leading-5 pulse-font-medium pulse-py-0.5 pulse-px-4',
+      sm: 'pulse-text-sm pulse-font-medium pulse-py-1 pulse-px-5',
+      md: 'pulse-text-base pulse-font-bold pulse-py-1.5 pulse-px-6'
     }.freeze
     SIZE_OPTIONS = SIZE_MAPPINGS.keys
 

@@ -3,7 +3,7 @@
 module Pulse
   # Renders a breadcrumb item
   class BreadcrumbItem < Pulse::Component
-    DEFAULT_LINK_CLASSES = 'underline'
+    DEFAULT_LINK_CLASSES = 'pulse-underline'
     DEFAULT_TEXT_CLASSES = ''
 
     attr_reader :text, :href

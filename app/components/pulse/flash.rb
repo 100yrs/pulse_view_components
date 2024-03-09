@@ -17,10 +17,10 @@ module Pulse
     # TODO: Style icon in scheme color
     DEFAULT_SCHEME = :default
     SCHEME_MAPPINGS = {
-      default: 'bg-[#ddf4ff] border border-[#54aeff]',
-      warning: 'bg-[#fff8c5] border border-[#f6e05e]',
-      danger: 'bg-[#ffebe9] border border-[#ff8182]',
-      success: 'bg-[#dafbe1] border border-[#4ac26b]'
+      default: 'pulse-bg-[#ddf4ff] pulse-border pulse-border-[#54aeff]',
+      warning: 'pulse-bg-[#fff8c5] pulse-border pulse-border-[#f6e05e]',
+      danger: 'pulse-bg-[#ffebe9] pulse-border pulse-border-[#ff8182]',
+      success: 'pulse-bg-[#dafbe1] pulse-border pulse-border-[#4ac26b]'
     }.freeze
 
     # @param full [Boolean] Whether the component should take up the full width of the screen.
@@ -38,7 +38,7 @@ module Pulse
       @system_arguments = deny_tag_argument(**system_arguments)
       @system_arguments[:tag] = :div
       @system_arguments[:classes] = class_names(
-        'px-3 py-2 font-medium rounded-lg my-3 flex gap-2 items-center justify-start',
+        'pulse-px-3 pulse-py-2 pulse-font-medium pulse-rounded-lg pulse-my-3 pulse-flex pulse-gap-2 pulse-items-center pulse-justify-start',
 
         SCHEME_MAPPINGS[fetch_or_fallback(SCHEME_MAPPINGS.keys, scheme,
                                           DEFAULT_SCHEME)],
