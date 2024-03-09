@@ -14,7 +14,7 @@ RSpec.describe Pulse::Button, type: :component do
         render_inline(Pulse::Button.new(label: 'button text', scheme: :danger))
       expect(
         component
-      ).to have_button('button text').and have_css('.text-danger-800')
+      ).to have_button('button text').and have_css('.pulse-text-danger-800')
     end
   end
 
@@ -24,7 +24,7 @@ RSpec.describe Pulse::Button, type: :component do
         render_inline(Pulse::Button.new(label: 'button text', size: :sm))
       expect(
         component
-      ).to have_button('button text').and have_css('.text-sm')
+      ).to have_button('button text').and have_css('.pulse-text-sm')
     end
   end
 

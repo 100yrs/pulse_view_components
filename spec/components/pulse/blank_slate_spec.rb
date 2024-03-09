@@ -9,9 +9,9 @@ RSpec.describe Pulse::BlankSlate, type: :component do
       c.with_description { 'Description' }
     end
     expect(component).to have_css(
-      'p.text-lg', text: 'Title'
+      'p.pulse-text-lg', text: 'Title'
     ).and have_css(
-      'p.text-base', text: 'Description'
+      'p.pulse-text-base', text: 'Description'
     )
   end
 end
