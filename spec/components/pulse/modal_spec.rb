@@ -12,19 +12,19 @@ RSpec.describe Pulse::Modal, type: :component do
   it 'renders sm' do
     expect(
       render_inline(Pulse::Modal.new(size: :sm))
-    ).to have_selector("[class~='#{Pulse::Modal::SIZE_MAPPINGS[:sm]}']")
+    ).to have_css("[class~='#{Pulse::Modal::SIZE_MAPPINGS[:sm]}']")
   end
 
   it 'renders md' do
     expect(
       render_inline(Pulse::Modal.new(size: :md))
-    ).to have_selector("[class~='#{Pulse::Modal::SIZE_MAPPINGS[:md]}']")
+    ).to have_css("[class~='#{Pulse::Modal::SIZE_MAPPINGS[:md]}']")
   end
 
   it 'renders lg' do
     expect(
       render_inline(Pulse::Modal.new(size: :lg))
-    ).to have_selector("[class~='#{Pulse::Modal::SIZE_MAPPINGS[:lg]}']")
+    ).to have_css("[class~='#{Pulse::Modal::SIZE_MAPPINGS[:lg]}']")
   end
 
   it 'renders with close button' do
