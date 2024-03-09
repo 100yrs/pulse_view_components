@@ -40,13 +40,13 @@ module Pulse
     def leading_visual(href: 'https://example.com', content: 'Link text',
                        scheme: Pulse::Link::DEFAULT_SCHEME,
                        bold: false, underline: false, condition: true,
-                       classes: '', icon: 'gear')
+                       icon: 'gear', classes: '')
       render(
         Pulse::Link.new(href: href, scheme: scheme, bold: bold,
-                              underline: underline, condition: condition,
-                              classes: classes)
+                        underline: underline, condition: condition,
+                        classes: classes)
       ) do |c|
-        c.with_leading_visual_icon(name: icon)
+        c.with_leading_visual_icon(icon: icon)
         content
       end
     end

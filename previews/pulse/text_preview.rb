@@ -38,18 +38,6 @@ module Pulse
       render(Pulse::Text.new(type: :subtitle)) { 'Subtitle' }
     end
 
-    def subtitle2
-      render(Pulse::Text.new(type: :subtitle2)) { 'Subtitle' }
-    end
-
-    def subtitle3
-      render(Pulse::Text.new(type: :subtitle3)) { 'Subtitle' }
-    end
-
-    def subtitle4
-      render(Pulse::Text.new(type: :subtitle4)) { 'Subtitle' }
-    end
-
     def body1
       render(Pulse::Text.new(type: :body1)) do
         'Lorem ipsum esse soluta voluptas maiores omnis nihil officia consequa.'
