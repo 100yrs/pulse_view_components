@@ -2,7 +2,7 @@
 
 module Pulse
   module Forms
-    # Render error message box for a resource
+    # Render error message box for an ActiveModel resource
     class ErrorExplanation < ViewComponent::Base
       def initialize(resource:, **options)
         super
