@@ -49,32 +49,12 @@ module Demo
     config.generators.system_tests = nil
 
     # ViewComponent
-    # config.view_component.preview_paths << Rails.root.join("previews").to_s
-    # config.view_component.view_component_path = Rails.root.join("../app/components").to_s
-    # config.view_component.preview_controller = "PreviewController"
-    # config.view_component.show_previews = true
     config.view_component.default_preview_layout = 'component_preview'
-    config.view_component.show_previews = true
     config.view_component.preview_controller = 'PreviewController'
     config.view_component.preview_paths << Rails.root.join('../previews')
+    config.view_component.show_previews = true
 
     # Lookbook
-    # POLARIS CONFIG
-    # config.lookbook.project_name = "Pulse ViewComponents"
-    # config.lookbook.page_paths = [Rails.root.join("..", "previews")]
-    # config.lookbook.component_paths = [Pulse::ViewComponents::Engine.root.join("app", "components")]
-
-    # ORIGINAL PULSE APP CONFIG
-    # config.view_component.generate.preview = true
-    # config.view_component.preview_paths <<
-    #   Rails.root.join('doc/lookbook/component_previews')
-    # config.view_component.default_preview_layout = 'component_preview'
-
-    # config.lookbook.page_paths = ['doc/lookbook/pages']
-    # config.lookbook.project_name = 'Pulse Components'
-    # config.lookbook.ui_theme = 'zinc'
-
-    # PRIMER CONFIG
     if config.respond_to?(:lookbook)
       # asset_panel_config = {
       #   label: "Assets",
@@ -111,29 +91,27 @@ module Demo
       # }
       # Lookbook.add_panel("assets", asset_panel_config)
 
-      config.lookbook.project_name = "Pulse ViewComponents v#{Pulse::ViewComponents::VERSION::STRING}"
-      config.lookbook.preview_display_options = {
-        theme: [
-          ['Light default', 'light'],
-          ['Light colorblind', 'light_colorblind'],
-          ['Light high contrast', 'light_high_contrast'],
-          ['Dark default', 'dark'],
-          ['Dark Dimmed', 'dark_dimmed'],
-          ['Dark high contrast', 'dark_high_contrast'],
-          ['Dark colorblind', 'dark_colorblind'],
-          ['All themes', 'all']
-        ],
-        primitives: [
-          ['Next Major v8', 'next_major_v8'],
-          ['Default', 'default']
-        ]
-      }
+      config.lookbook.project_name =
+        "Pulse ViewComponents v#{Pulse::ViewComponents::VERSION::STRING}"
+      # config.lookbook.preview_display_options = {
+      #   theme: [
+      #     ['Light default', 'light'],
+      #     ['Light colorblind', 'light_colorblind'],
+      #     ['Light high contrast', 'light_high_contrast'],
+      #     ['Dark default', 'dark'],
+      #     ['Dark Dimmed', 'dark_dimmed'],
+      #     ['Dark high contrast', 'dark_high_contrast'],
+      #     ['Dark colorblind', 'dark_colorblind'],
+      #     ['All themes', 'all']
+      #   ]
+      # }
 
       config.lookbook.preview_embeds.policy = 'ALLOWALL'
       config.lookbook.page_paths = [Rails.root.join('../previews/pages')]
-      config.lookbook.component_paths = [Pulse::ViewComponents::Engine.root.join(
-        'app', 'components'
-      )]
+      config.lookbook.component_paths = [
+        Pulse::ViewComponents::Engine.root.join('app', 'components')
+      ]
+      config.lookbook.ui_theme = 'zinc'
     end
   end
 end
