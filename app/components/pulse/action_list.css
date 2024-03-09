@@ -105,7 +105,7 @@
 
 /* first child */
 .ActionListItem.ActionListItem--hasSubItem > .ActionListContent {
-  @apply pulse-z-[1] active:bg-[color:var(--control-transparent-bgColor-active)];
+  @apply pulse-z-[1] active:pulse-bg-[color:var(--control-transparent-bgColor-active)];
 }
 @media (hover: hover) {
   .ActionListItem.ActionListItem--hasSubItem > .ActionListContent:hover {
@@ -467,7 +467,7 @@
 
 /* have leading visual svg filled with chosen color */
 /* .ActionListItem-visual--leading svg {
-  @apply fill-[currentcolor];
+  @apply pulse-fill-[currentcolor];
 } */
 
 /* wrapper span

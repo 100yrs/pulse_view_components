@@ -116,7 +116,8 @@ module Pulse
       # @param system_arguments [Hash] The arguments accepted by <%= link_to_component(Pulse::Tooltip) %>.
       renders_one :tooltip, lambda { |**system_arguments|
         if @id.blank? && !Rails.env.production?
-          raise ArgumentError, 'Buttons with a tooltip must have a unique `id` set on the `Button`.'
+          raise ArgumentError,
+                'Buttons with a tooltip must have a unique `id` set on the `Button`.'
         end
 
         system_arguments[:for_id] = @id
@@ -196,7 +197,9 @@ module Pulse
         @size = fetch_or_fallback(SIZE_OPTIONS, size, DEFAULT_SIZE)
         @scheme = fetch_or_fallback(SCHEME_OPTIONS, scheme, DEFAULT_SCHEME)
         @description_scheme = fetch_or_fallback(
-          DESCRIPTION_SCHEME_OPTIONS, description_scheme, DEFAULT_DESCRIPTION_SCHEME
+          DESCRIPTION_SCHEME_OPTIONS,
+          description_scheme,
+          DEFAULT_DESCRIPTION_SCHEME
         )
 
         @system_arguments[:classes] = merge_classes(
@@ -223,7 +226,12 @@ module Pulse
         @content_arguments[:id] = @id
         @content_arguments[:classes] = merge_classes(
           @content_arguments[:classes],
-          'pulse-relative pulse-grid pulse-w-full pulse-text-start pulse-select-none pulse-bg-transparent pulse-rounded pulse-grid-rows-[min-content] pulse-grid-cols-[min-content_min-content_minmax(0,auto)_min-content_min-content] pulse-border-none pulse-hover:no-underline pulse-py-2 pulse-items-start pulse-gap-2 pulse-items-center',
+          'pulse-relative pulse-grid pulse-w-full pulse-text-start',
+          'pulse-select-none pulse-bg-transparent pulse-rounded',
+          'pulse-grid-rows-[min-content]',
+          'pulse-grid-cols-[min-content_min-content_minmax(0,auto)_min-content_min-content]',
+          'pulse-border-none hover:pulse-no-underline pulse-py-2',
+          'pulse-items-start pulse-gap-2 pulse-items-center',
           SIZE_MAPPINGS[@size]
         )
 
@@ -241,12 +249,14 @@ module Pulse
 
         if @content_arguments[:tag] != :button && @form_wrapper.form_required?
           raise ArgumentError,
-                "items that submit forms must use a \"button\" tag instead of \"#{@content_arguments[:tag]}\""
+                "items that submit forms must use a \"button\" tag instead " \
+                "of \"#{@content_arguments[:tag]}\""
         end
 
         if @content_arguments[:tag] != :button && @list.acts_as_form_input?
           raise ArgumentError,
-                "items within lists/menus that act as form inputs must use \"button\" tags instead of \"#{@content_arguments[:tag]}\""
+                "items within lists/menus that act as form inputs must use " \
+                "\"button\" tags instead of \"#{@content_arguments[:tag]}\""
         end
         if @disabled
           @content_arguments[:aria] ||= merge_aria(
@@ -255,12 +265,13 @@ module Pulse
           )
         end
 
-        @content_arguments[:role] = role ||
-                                    if @list.allows_selection?
-                                      ActionList::SELECT_VARIANT_ROLE_MAP[@list.select_variant]
-                                    elsif @list.acts_as_menu?
-                                      ActionList::DEFAULT_MENU_ITEM_ROLE
-                                    end
+        @content_arguments[:role] =
+          role ||
+          if @list.allows_selection?
+            ActionList::SELECT_VARIANT_ROLE_MAP[@list.select_variant]
+          elsif @list.acts_as_menu?
+            ActionList::DEFAULT_MENU_ITEM_ROLE
+          end
 
         @system_arguments[:role] = @list.acts_as_menu? ? :none : nil
 
@@ -291,7 +302,7 @@ module Pulse
 
         @content_arguments[:classes] = merge_classes(
           @content_arguments[:classes],
-          'pl-2' => leading_visual,
+          'pulse-pl-2' => leading_visual,
           'ActionListContent--blockDescription' => description && @description_scheme == :block
         )
       end

@@ -3,15 +3,17 @@
 module Pulse
   # :nodoc:
   module AttributesHelper
-    PLURAL_ARIA_ATTRIBUTES = %i[describedby labelledby].freeze
-    PLURAL_DATA_ATTRIBUTES = %i[target targets].freeze
+    PLURAL_ARIA_ATTRIBUTES = [:describedby, :labelledby].freeze
+    PLURAL_DATA_ATTRIBUTES = [:target, :targets].freeze
 
     def aria(val, system_arguments)
-      system_arguments[:"aria-#{val}"] || system_arguments.dig(:aria, val.to_sym)
+      system_arguments[:"aria-#{val}"] || system_arguments.dig(:aria,
+                                                               val.to_sym)
     end
 
     def data(val, system_arguments)
-      system_arguments[:"data-#{val}"] || system_arguments.dig(:data, val.to_sym)
+      system_arguments[:"data-#{val}"] || system_arguments.dig(:data,
+                                                               val.to_sym)
     end
 
     # Merges hashes that contain "aria-*" keys and nested aria: hashes. Removes keys from
@@ -74,7 +76,7 @@ module Pulse
           prefix_hash.each_pair do |key, val|
             result[key] =
               if plural_keys.include?(key)
-                [*(result[key] || "").split, val].join(" ").strip
+                [*(result[key] || '').split, val].join(' ').strip
               else
                 val
               end
@@ -84,11 +86,11 @@ module Pulse
             key_s = key.to_s
 
             if key.start_with?("#{prefix}-")
-              bare_key = key_s.sub("#{prefix}-", "").to_sym
+              bare_key = key_s.sub("#{prefix}-", '').to_sym
 
               result[bare_key] =
                 if plural_keys.include?(bare_key)
-                  [*(result[bare_key] || "").split, val].join(" ").strip
+                  [*(result[bare_key] || '').split, val].join(' ').strip
                 else
                   val
                 end

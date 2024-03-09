@@ -49,7 +49,11 @@ module Pulse
 
       def extract_http_method(args)
         if (http_method = args.delete(:method))
-          HTTP_METHOD_OPTIONS.include?(http_method) ? http_method : DEFAULT_HTTP_METHOD
+          if HTTP_METHOD_OPTIONS.include?(http_method)
+            http_method
+          else
+            DEFAULT_HTTP_METHOD
+          end
         else
           DEFAULT_HTTP_METHOD
         end

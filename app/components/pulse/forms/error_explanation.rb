@@ -10,7 +10,8 @@ module Pulse
         @resource = resource
         @options = options
         @options[:classes] = class_names(
-          'pulse-bg-error-50 pulse-text-error pulse-px-3 pulse-py-2 pulse-font-medium pulse-rounded-lg pulse-my-3',
+          'pulse-bg-error-50 pulse-text-error pulse-px-3 pulse-py-2',
+          'pulse-font-medium pulse-rounded-lg pulse-my-3',
           options[:classes]
         )
       end

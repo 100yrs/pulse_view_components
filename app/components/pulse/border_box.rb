@@ -59,7 +59,8 @@ module Pulse
     renders_many :rows, lambda { |scheme: DEFAULT_ROW_SCHEME, **system_arguments|
       system_arguments[:tag] = :li
       system_arguments[:classes] = class_names(
-        'pulse-px-4 pulse-py-5 pulse-bg-white sm:pulse-p-6 first:pulse-rounded-t-md last:pulse-rounded-b-md',
+        'pulse-px-4 pulse-py-5 pulse-bg-white sm:pulse-p-6',
+        'first:pulse-rounded-t-md last:pulse-rounded-b-md',
         ROW_SCHEME_MAPPINGS[fetch_or_fallback(ROW_SCHEME_MAPPINGS.keys,
                                               scheme, DEFAULT_ROW_SCHEME)],
         system_arguments[:classes]
@@ -74,7 +75,8 @@ module Pulse
       @system_arguments = deny_tag_argument(**system_arguments)
       @system_arguments[:tag] = :div
       @system_arguments[:classes] = class_names(
-        'pulse-bg-white pulse-border pulse-border-gray-200 pulse-border-solid pulse-border-[1px] pulse-rounded-md',
+        'pulse-bg-white pulse-border pulse-border-gray-200 pulse-border-solid',
+        'pulse-border-[1px] pulse-rounded-md',
         PADDING_MAPPINGS[fetch_or_fallback(PADDING_MAPPINGS.keys, padding,
                                            DEFAULT_PADDING)],
         system_arguments[:classes]
@@ -82,7 +84,8 @@ module Pulse
 
       @system_arguments[:system_arguments_denylist] =
         { [:p, :pt, :pb, :pr, :pl] => PADDING_SUGGESTION }
-      @list_arguments = { tag: :ul, class: 'pulse-divide-y pulse-divide-gray-200' }
+      @list_arguments = { tag: :ul,
+                          class: 'pulse-divide-y pulse-divide-gray-200' }
     end
 
     def render?

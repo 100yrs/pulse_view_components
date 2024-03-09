@@ -9,7 +9,10 @@ module Pulse
     renders_one :action, lambda { |**system_arguments|
       deny_tag_argument(**system_arguments)
       system_arguments[:tag] = :div
-      system_arguments[:classes] = class_names(system_arguments[:classes], 'flash-action')
+      system_arguments[:classes] = class_names(
+        system_arguments[:classes],
+        'flash-action'
+      )
 
       Pulse::BaseComponent.new(**system_arguments)
     }
@@ -38,8 +41,8 @@ module Pulse
       @system_arguments = deny_tag_argument(**system_arguments)
       @system_arguments[:tag] = :div
       @system_arguments[:classes] = class_names(
-        'pulse-px-3 pulse-py-2 pulse-font-medium pulse-rounded-lg pulse-my-3 pulse-flex pulse-gap-2 pulse-items-center pulse-justify-start',
-
+        'pulse-px-3 pulse-py-2 pulse-font-medium pulse-rounded-lg pulse-my-3',
+        'pulse-flex pulse-gap-2 pulse-items-center pulse-justify-start',
         SCHEME_MAPPINGS[fetch_or_fallback(SCHEME_MAPPINGS.keys, scheme,
                                           DEFAULT_SCHEME)],
         system_arguments[:classes],

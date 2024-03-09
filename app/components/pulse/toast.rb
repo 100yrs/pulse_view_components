@@ -67,12 +67,15 @@ module Pulse
         {
           controller: 'pulse--toast',
           ui__toast_auto_hide_value: @auto_hide,
-          transition_enter: 'transition ease-out duration-500',
-          transition_enter_start: 'transform opacity-0 translate-y-full',
-          transition_enter_end: 'transform opacity-100 translate-y-0',
-          transition_leave: 'transition ease-in duration-200',
-          transition_leave_start: 'transform opacity-100',
-          transition_leave_end: 'transform opacity-0'
+          transition_enter: 'pulse-transition pulse-ease-out ' \
+                            'pulse-duration-500',
+          transition_enter_start: 'pulse-transform pulse-opacity-0 ' \
+                                  'pulse-translate-y-full',
+          transition_enter_end: 'pulse-transform pulse-opacity-100 ' \
+                                'pulse-translate-y-0',
+          transition_leave: 'pulse-transition pulse-ease-in pulse-duration-200',
+          transition_leave_start: 'pulse-transform pulse-opacity-100',
+          transition_leave_end: 'pulse-transform pulse-opacity-0'
         }
       )
     end

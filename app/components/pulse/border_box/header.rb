@@ -16,7 +16,11 @@ module Pulse
       # @param tag [Symbol] <%= one_of(Pulse::BorderBox::Header::TITLE_TAG_OPTIONS) %>
       # @param system_arguments [Hash] <%= link_to_system_arguments_docs %>
       renders_one :title, lambda { |tag:, **system_arguments|
-        system_arguments[:tag] = fetch_or_fallback(TITLE_TAG_OPTIONS, tag, TITLE_TAG_FALLBACK)
+        system_arguments[:tag] = fetch_or_fallback(
+          TITLE_TAG_OPTIONS,
+          tag,
+          TITLE_TAG_FALLBACK
+        )
         system_arguments[:classes] = class_names(
           'Box-title',
           system_arguments[:classes]

@@ -12,8 +12,8 @@ module Pulse
       @bg_color = bg_color || 'ffffff'
       @options = options
       @options[:classes] = merge_classes(
-        'pulse-px-2 pulse-inline-flex pulse-text-xs print:pulse-text-2xs pulse-leading-5 pulse-font-semibold',
-        'pulse-rounded-full',
+        'pulse-px-2 pulse-inline-flex pulse-text-xs print:pulse-text-2xs',
+        'pulse-leading-5 pulse-font-semibold pulse-rounded-full',
         text_color,
         options[:classes]
       )

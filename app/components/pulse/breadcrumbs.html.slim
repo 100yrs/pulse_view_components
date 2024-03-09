@@ -1,4 +1,4 @@
-/ /! components/pulse/breadcrumbs
+/! components/pulse/breadcrumbs
 = render Pulse::BaseComponent.new(**@system_arguments) do
   ol class="pulse-list-none pulse-list-reset pulse-flex pulse-m-0 pulse-text-xs"
     - items.filter { |i| i.text.present? }.each_with_index do |item, idx|

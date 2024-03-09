@@ -58,7 +58,8 @@ module Pulse
       )
       @body_arguments[:classes] = merge_classes(
         @body_arguments[:classes],
-        'pulse-bg-white pulse-border pulse-border-gray-200 pulse-rounded-lg pulse-p-4 pulse-mt-2 pulse-mx-auto pulse-text-left pulse-shadow-lg'
+        'pulse-bg-white pulse-border pulse-border-gray-200 pulse-rounded-lg',
+        'pulse-p-4 pulse-mt-2 pulse-mx-auto pulse-text-left pulse-shadow-lg'
       )
 
       Pulse::Content.new

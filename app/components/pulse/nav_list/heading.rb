@@ -22,7 +22,13 @@ module Pulse
 
       def call
         render(
-          Pulse::Text.new(type: :body4, tag: "h#{heading_level}".to_sym, id: id, classes: 'pulse-ml-2 pulse-mb-4', **system_arguments).with_content(title)
+          Pulse::Text.new(
+            type: :body4,
+            tag: :"h#{heading_level}",
+            id: id,
+            classes: 'pulse-ml-2 pulse-mb-4',
+            **system_arguments
+          ).with_content(title)
         )
       end
     end

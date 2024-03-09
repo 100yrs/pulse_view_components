@@ -2,7 +2,8 @@
 
 module Pulse
   class NavList
-    # Separator with optional text rendered above groups or between individual items.
+    # Separator with optional text rendered above groups or between individual
+    # items.
     class Divider < Pulse::ActionList::Divider
       def kind
         :divider

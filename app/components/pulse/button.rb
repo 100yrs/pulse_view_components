@@ -7,22 +7,27 @@ module Pulse
 
     DEFAULT_SCHEME = :secondary
     SCHEME_MAPPINGS = {
-      primary: 'pulse-border pulse-border-solid pulse-border-gray-200 pulse-bg-green-700 pulse-text-white ' \
-               'hover:pulse-bg-green-800 focus:pulse-bg-green-800 hover:pulse-text-white ' \
+      primary: 'pulse-border pulse-border-solid pulse-border-gray-200 ' \
+               'pulse-bg-green-700 pulse-text-white hover:pulse-bg-green-800 ' \
+               'focus:pulse-bg-green-800 hover:pulse-text-white ' \
                'focus:pulse-text-white',
-      secondary: 'pulse-border pulse-border-solid pulse-border-gray-200 pulse-bg-gray-50 pulse-text-gray ' \
-                 'hover:pulse-bg-gray-100 focus:pulse-bg-gray-100',
-      danger: 'pulse-border pulse-border-solid pulse-border-gray-200 pulse-bg-gray-50 ' \
-              'pulse-text-danger-800 hover:pulse-bg-danger-800 focus:pulse-bg-danger-800 ' \
+      secondary: 'pulse-border pulse-border-solid pulse-border-gray-200 ' \
+                 'pulse-bg-gray-50 pulse-text-gray hover:pulse-bg-gray-100 ' \
+                 'focus:pulse-bg-gray-100',
+      danger: 'pulse-border pulse-border-solid pulse-border-gray-200 ' \
+              'pulse-bg-gray-50 pulse-text-danger-800 ' \
+              'hover:pulse-bg-danger-800 focus:pulse-bg-danger-800 ' \
               'hover:pulse-text-white focus:pulse-text-white',
-      link: 'pulse-appearance-none pulse-font-normal pulse-no-underline pulse-px-0 pulse-py-0 ' \
-            'pulse-underline-offset-2 hover:pulse-underline focus:pulse-shadow-none'
+      link: 'pulse-appearance-none pulse-font-normal pulse-no-underline ' \
+            'pulse-px-0 pulse-py-0 pulse-underline-offset-2 ' \
+            'hover:pulse-underline focus:pulse-shadow-none'
     }.freeze
     SCHEME_OPTIONS = SCHEME_MAPPINGS.keys
 
     DEFAULT_SIZE = :md
     SIZE_MAPPINGS = {
-      xs: 'pulse-text-xs pulse-leading-5 pulse-font-medium pulse-py-0.5 pulse-px-4',
+      xs: 'pulse-text-xs pulse-leading-5 pulse-font-medium pulse-py-0.5 ' \
+          'pulse-px-4',
       sm: 'pulse-text-sm pulse-font-medium pulse-py-1 pulse-px-5',
       md: 'pulse-text-base pulse-font-bold pulse-py-1.5 pulse-px-6'
     }.freeze
@@ -59,10 +64,10 @@ module Pulse
 
     def btn_class
       merge_classes(
-        'appearance-none inline-flex justify-center rounded-md',
-        'no-underline hover:no-underline',
-        'focus:outline-none focus:no-underline',
-        'disabled:opacity-25 disabled:cursor-not-allowed',
+        'pulse-appearance-none pulse-inline-flex pulse-justify-center',
+        'pulse-rounded-md pulse-no-underline hover:pulse-no-underline',
+        'focus:pulse-outline-none focus:pulse-no-underline',
+        'disabled:pulse-opacity-25 disabled:pulse-cursor-not-allowed',
         SIZE_MAPPINGS[@size],
         SCHEME_MAPPINGS[@scheme],
         kwargs.fetch(:classes, '')

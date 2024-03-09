@@ -1,10 +1,10 @@
 /* Counter */
 .Counter {
-  @apply inline-block min-w-[var(--base-size-20)] text-[length:var(--text-body-size-small)] font-[number:var(--base-text-weight-medium)] leading-[calc(var(--base-size-20)_-_var(--borderWidth-thin)_*_2)] text-[color:var(--fgColor-default)] text-center bg-[color:var(--bgColor-neutral-muted,var(--color-neutral-muted))] border-[length:var(--borderWidth-thin)] border-[color:var(--counter-borderColor)] px-1.5 py-0 rounded-[2em] border-solid empty:hidden; /* makes sure it's a circle with just one digit */ /* 20px - 2px for the borders */
+  @apply pulse-inline-block pulse-min-w-[var(--base-size-20)] pulse-text-[length:var(--text-body-size-small)] pulse-font-[number:var(--base-text-weight-medium)] pulse-leading-[calc(var(--base-size-20)_-_var(--borderWidth-thin)_*_2)] pulse-text-[color:var(--fgColor-default)] pulse-text-center bg-[color:var(--bgColor-neutral-muted,var(--color-neutral-muted))] pulse-border-[length:var(--borderWidth-thin)] pulse-border-[color:var(--counter-borderColor)] pulse-px-1.5 pulse-py-0 pulse-rounded-[2em] pulse-border-solid empty:pulse-hidden; /* makes sure it's a circle with just one digit */ /* 20px - 2px for the borders */
 }
 .Counter--primary {
-  @apply text-[color:var(--fgColor-onEmphasis)] bg-[color:var(--bgColor-neutral-emphasis)];
+  @apply pulse-text-[color:var(--fgColor-onEmphasis)] pulse-bg-[color:var(--bgColor-neutral-emphasis)];
 }
 .Counter--secondary {
-  @apply text-[color:var(--fgColor-muted)] bg-[color:var(--bgColor-neutral-muted)];
+  @apply pulse-text-[color:var(--fgColor-muted)] pulse-bg-[color:var(--bgColor-neutral-muted)];
 }

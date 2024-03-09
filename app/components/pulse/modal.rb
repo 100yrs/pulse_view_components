@@ -37,7 +37,8 @@ module Pulse
 
       @system_arguments[:'aria-labelledby'] = 'modal-title'
       @system_arguments[:'aria-modal'] = true
-      @system_arguments[:classes] = 'pulse-fixed pulse-z-9999 pulse-inset-0 pulse-overflow-y-auto'
+      @system_arguments[:classes] = 'pulse-fixed pulse-z-9999 pulse-inset-0 ' \
+                                    'pulse-overflow-y-auto'
       @system_arguments[:data] = data_attributes
       @system_arguments[:role] = 'dialog'
       @system_arguments[:tabindex] = 0

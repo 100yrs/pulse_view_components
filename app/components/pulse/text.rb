@@ -8,17 +8,26 @@ module Pulse
       h2: 'pulse-text-2xl pulse-font-bold print:pulse-text-xl',
       h3: 'pulse-text-xl pulse-font-bold print:pulse-text-lg',
       h4: 'pulse-text-lg pulse-font-bold print:pulse-text-base',
-      subtitle: 'pulse-text-xl print:pulse-text-lg pulse-leading-tight pulse-font-bold tracking-tight',
-      body1: 'pulse-text-lg print:pulse-text-base pulse-font-bold pulse-leading-6 tracking-tight',
-      body2: 'pulse-text-lg print:pulse-text-base pulse-font-normal pulse-leading-6 tracking-tight',
-      body3: 'pulse-text-base print:pulse-text-sm pulse-font-bold pulse-leading-normal',
-      body4: 'pulse-text-base print:pulse-text-sm pulse-font-normal pulse-leading-normal',
-      body5: 'pulse-text-sm print:pulse-text-xs pulse-font-bold pulse-leading-snug',
-      body6: 'pulse-text-sm print:pulse-text-xs pulse-font-normal pulse-leading-snug',
+      subtitle: 'pulse-text-xl print:pulse-text-lg pulse-leading-tight ' \
+                'pulse-font-bold tracking-tight',
+      body1: 'pulse-text-lg print:pulse-text-base pulse-font-bold ' \
+             'pulse-leading-6 tracking-tight',
+      body2: 'pulse-text-lg print:pulse-text-base pulse-font-normal ' \
+             'pulse-leading-6 tracking-tight',
+      body3: 'pulse-text-base print:pulse-text-sm pulse-font-bold ' \
+             'pulse-leading-normal',
+      body4: 'pulse-text-base print:pulse-text-sm pulse-font-normal ' \
+             'pulse-leading-normal',
+      body5: 'pulse-text-sm print:pulse-text-xs pulse-font-bold ' \
+             'pulse-leading-snug',
+      body6: 'pulse-text-sm print:pulse-text-xs pulse-font-normal ' \
+             'pulse-leading-snug',
       body7: 'pulse-text-xs pulse-font-bold pulse-leading-5',
       body8: 'pulse-text-xs pulse-font-normal pulse-leading-5',
-      caption1: 'pulse-text-2xs pulse-font-bold tracking-normal pulse-leading-extra-tight',
-      caption2: 'pulse-text-2xs pulse-font-normal tracking-normal pulse-leading-extra-tight'
+      caption1: 'pulse-text-2xs pulse-font-bold tracking-normal ' \
+                'pulse-leading-extra-tight',
+      caption2: 'pulse-text-2xs pulse-font-normal tracking-normal ' \
+                'pulse-leading-extra-tight'
     }.freeze
 
     TAG_MAPPINGS = {
