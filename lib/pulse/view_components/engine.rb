@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "rails/engine"
-require "view_component"
-require "view_component/version"
+require 'rails/engine'
+require 'view_component'
+require 'view_component/version'
 
 module Pulse
   module ViewComponents
@@ -10,9 +10,9 @@ module Pulse
     class Engine < ::Rails::Engine
       isolate_namespace Pulse::ViewComponents
 
-      config.autoload_paths = %W[
+      config.autoload_paths = %W(
         #{root}/lib
-      ]
+      )
       # config.autoload_paths = %W[
       #   #{root}/app/components
       #   #{root}/app/lib
@@ -24,20 +24,22 @@ module Pulse
       #   #{root}/app/helpers
       #   #{root}/app/lib
       # ]
-      config.eager_load_paths = %W[
+      config.eager_load_paths = %W(
         #{root}/app/components
         #{root}/app/lib
-      ]
+      )
 
       # config.pulse_view_components = ActiveSupport::OrderedOptions.new
 
       # config.pulse_view_components.raise_on_invalid_options = false
 
-      # initializer "pulse_view_components.assets" do |app|
-      #   app.config.assets.precompile += %w[pulse_view_components] if app.config.respond_to?(:assets)
+      # initializer 'pulse_view_components.assets' do |app|
+      #   if app.config.respond_to?(:assets)
+      #     app.config.assets.precompile += %w(pulse_view_components)
+      #   end
       # end
 
-      initializer "pulse.eager_load_actions" do
+      initializer 'pulse.eager_load_actions' do
         ActiveSupport.on_load(:after_initialize) do
           if Rails.application.config.eager_load
             # Pulse::Forms::Base.compile!
