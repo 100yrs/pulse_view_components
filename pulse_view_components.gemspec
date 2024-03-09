@@ -20,7 +20,9 @@ Gem::Specification.new do |spec|
   spec.files = Dir['lib/**/*', 'app/**/*', 'LICENSE.txt', 'README.md',
                    'previews/**/*']
 
-  # spec.require_paths = ["lib"]
+  # spec.require_paths = ['lib']
+
+  spec.add_runtime_dependency 'active_link_to', '>= 1.0.0'
 
   spec.add_runtime_dependency 'inline_svg', '>= 1.9.0'
   spec.add_runtime_dependency 'rails', '>= 7.0.0'

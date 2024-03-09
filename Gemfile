@@ -22,15 +22,11 @@ gem 'sourcemap', '~> 0.1'
 
 gem 'foreman'
 
-group :test do
-  gem 'webmock'
-end
-
 # development dependencies
 group :development do
   gem 'sqlite3'
 
-  gem 'capybara', '~> 3.39.2'
+  # gem 'capybara', '~> 3.39.2'
   gem 'listen', '~> 3.9'
   gem 'matrix', '~> 0.4.2'
   gem 'mocha'
@@ -40,9 +36,11 @@ group :development do
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
   # gem 'rubocop-rails-accessibility', '~> 0.2.0'
-  gem 'dartsass-rails'
-  gem 'simplecov', '~> 0.22.0'
 
+  # sprockets replacement
+  gem 'propshaft'
+
+  # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
   gem 'cssbundling-rails'
 
   # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
@@ -50,4 +48,16 @@ group :development do
 
   # gem 'thor'
   # gem 'yard', '~> 0.9.35'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'inline_svg'
+  gem 'rspec-rails'
+  gem 'simplecov', require: false
+  gem 'webmock'
+end
+
+group :development, :test do
+  gem 'bootsnap'
 end
