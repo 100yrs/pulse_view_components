@@ -13,6 +13,7 @@ gem 'puma', '~> 6.4.2'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 
+gem 'active_link_to'
 gem 'lookbook', '~> 2.2.1'
 gem 'slim-rails'
 gem 'view_component'
@@ -21,6 +22,12 @@ gem 'kramdown', '~> 2.4'
 gem 'sourcemap', '~> 0.1'
 
 gem 'foreman'
+
+group :development, :test do
+  gem 'bootsnap'
+  # sprockets replacement
+  gem 'propshaft'
+end
 
 # development dependencies
 group :development do
@@ -36,9 +43,6 @@ group :development do
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
   # gem 'rubocop-rails-accessibility', '~> 0.2.0'
-
-  # sprockets replacement
-  gem 'propshaft'
 
   # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
   gem 'cssbundling-rails'
@@ -56,8 +60,4 @@ group :test do
   gem 'rspec-rails'
   gem 'simplecov', require: false
   gem 'webmock'
-end
-
-group :development, :test do
-  gem 'bootsnap'
 end
