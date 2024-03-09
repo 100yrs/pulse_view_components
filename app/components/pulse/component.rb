@@ -41,9 +41,9 @@ module Pulse
       end
     end
 
-    def merge_classes(*args)
-      TailwindMerge::Merger.new.merge(
-        CGI.unescapeHTML(class_names(*args))
+    def merge_classes(*)
+      TailwindMerge::Merger.new(config: tailwind_merge_config).merge(
+        CGI.unescapeHTML(class_names(*))
       )
     end
 
@@ -82,6 +82,10 @@ module Pulse
 
     def should_raise_aria_error?
       !Rails.env.production?
+    end
+
+    def tailwind_merge_config
+      { prefix: 'pulse-' }
     end
   end
 end
