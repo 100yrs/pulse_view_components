@@ -25,7 +25,7 @@ module Pulse
       @size = fetch_or_fallback(SIZE_OPTIONS, size, DEFAULT_SIZE)
       @system_arguments = system_arguments
       @modal_classes = merge_classes(
-        'w-full',
+        'pulse-w-full',
         SIZE_MAPPINGS[@size],
         @system_arguments.delete(:classes)
       )
@@ -54,10 +54,10 @@ module Pulse
       merge_attributes(
         @system_arguments[:data],
         {
-          controller: 'modal',
-          'modal-close-on-esc-value': close_on_esc,
-          'modal-close-on-submit-value': close_on_submit,
-          'modal-auto-close-value': auto_close
+          controller: 'pulse--modal',
+          'pulse--modal-close-on-esc-value': close_on_esc,
+          'pulse--modal-close-on-submit-value': close_on_submit,
+          'pulse--modal-auto-close-value': auto_close
         }
       )
     end

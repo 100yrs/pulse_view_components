@@ -23,7 +23,7 @@ html
       - else
         = yield
 
-    / = turbo_frame_tag 'modal'
+    = turbo_frame_tag 'pulse_modal'
 
-    / = turbo_frame_tag 'flash', class: 'max-w-full max-h-full sm:min-w-[250px] overflow-visible fixed bottom-6 z-100 -translate-x-1/2 left-1/2' do
-    /   = render 'application/notice'
+    = turbo_frame_tag 'flash', class: 'pulse-max-w-full pulse-max-h-full sm:pulse-min-w-[250px] pulse-overflow-visible pulse-fixed pulse-bottom-6 pulse-z-100 -pulse-translate-x-1/2 pulse-left-1/2' do
+      = render 'application/notice'

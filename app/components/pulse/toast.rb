@@ -2,7 +2,6 @@
 
 module Pulse
   # Renders a toast popup.
-  # This is used in the Notice route for flash messages.
   class Toast < Pulse::Component
     include Turbo::FramesHelper
 
@@ -49,7 +48,7 @@ module Pulse
     def class_attributes
       merge_classes(
         @system_arguments[:classes],
-        'pulse-hidden',
+        # 'pulse-hidden',
         'pulse-pl-8',
         'pulse-pr-4',
         'pulse-py-2.5',
@@ -66,7 +65,7 @@ module Pulse
         @system_arguments[:data],
         {
           controller: 'pulse--toast',
-          ui__toast_auto_hide_value: @auto_hide,
+          pulse__toast_auto_hide_value: @auto_hide,
           transition_enter: 'pulse-transition pulse-ease-out ' \
                             'pulse-duration-500',
           transition_enter_start: 'pulse-transform pulse-opacity-0 ' \

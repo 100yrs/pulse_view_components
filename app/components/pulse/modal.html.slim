@@ -1,10 +1,10 @@
-= turbo_frame_tag 'modal' do
+= turbo_frame_tag 'pulse_modal' do
   = render Pulse::BaseComponent.new(**@system_arguments) do
     - unless auto_close
       div class="pulse-flex pulse-items-center pulse-justify-center pulse-min-h-screen pulse-p-6 pulse-box-border"
         /! bg overlay
         div{
-          data-modal-target="wrapper" data-action="#{close_on_overlay_click ? 'click->modal#close' : ''}" aria-hidden="true"
+          data-pulse--modal-target="wrapper" data-action="#{close_on_overlay_click ? 'click->pulse--modal#close' : ''}" aria-hidden="true"
           data-transition-enter="pulse-ease-out pulse-duration-300"
           data-transition-enter-start="pulse-opacity-0"
           data-transition-enter-end="pulse-opacity-100"
@@ -15,7 +15,7 @@
 
         /! modal
         div{
-          data-modal-target="body"
+          data-pulse--modal-target="body"
           data-transition-enter="pulse-ease-out pulse-duration-300"
           data-transition-enter-start="pulse-opacity-0 pulse-translate-y-4 sm:pulse-translate-y-0 sm:pulse-scale-95"
           data-transition-enter-end="pulse-opacity-100 pulse-translate-y-0 sm:pulse-scale-100"
@@ -31,7 +31,7 @@
             - if close_button
               button{
                 class="pulse-ms-auto pulse-inline-flex pulse-items-center pulse-justify-center pulse-w-10 pulse-h-10 pulse-bg-transparent pulse-border-none pulse-text-gray"
-                data-action="modal#close"
+                data-action="pulse--modal#close"
                 aria-label="Close Modal"}
 
                 = render Pulse::Icon.new(icon: :close, width: 16, height: 16)

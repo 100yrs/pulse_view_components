@@ -22,6 +22,7 @@ const entryPoints = ["pulse_view_components.js"]
 const watchDirectories = [
   "./app/javascript/**/*.js",
   "./app/views/**/*.html.erb",
+  "./app/views/**/*.html.slim",
   "./app/assets/builds/**/*.css", // Wait for cssbundling changes
 ]
 const config = {

@@ -1,7 +1,7 @@
 /! components/pulse/toast
-= render Pulse::BaseComponent.new(**@system_arguments)
+= render Pulse::BaseComponent.new(**@system_arguments) do
   div class="pulse-flex pulse-w-full" data-theme=(@theme)
-    div class="fpulse-lex-1 pulse-flex pulse-justify-between pulse-items-start"
+    div class="pulse-flex-1 pulse-flex pulse-justify-between pulse-items-start"
       div class="pulse-flex-1 pulse-flex pulse-justify-between pulse-items-center pulse-gap-4"
         = render Pulse::Text.new(type: :body6, classes: 'pulse-mb-0 pulse-min-w-[250px]') do
           = content

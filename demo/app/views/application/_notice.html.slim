@@ -1,0 +1,5 @@
+- if flash.present?
+  - flash.each do |key, msg|
+    = render Pulse::Toast.new.with_content(msg)
+- else
+  span class="pulse-hidden"
