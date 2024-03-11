@@ -1,5 +1,5 @@
 /! components/ui/blank_slate
-div class="pulse-container pulse-text-center pulse-pt-16 pulse-pb-20 pulse-bg-secondary-50"
+= render Pulse::BaseComponent.new(**@system_arguments) do
   / div class="flex items-center justify-center mb-4"
   /   = render_svg 'blank-graphic'
   = render Pulse::Text.new(type: :body1) do
