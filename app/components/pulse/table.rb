@@ -6,20 +6,20 @@ module Pulse
   # https://github.com/baoagency/polaris_view_components/
   class Table < Pulse::Component
     DEFAULT_TABLE_CLASSES = 'pulse-min-w-full pulse-divide-y ' \
-                            'pulse-divide-gray-200'
-    DEFAULT_HEAD_CLASSES = 'pulse-bg-gray-50'
+                            'pulse-divide-gray-300'
+    DEFAULT_HEAD_CLASSES = 'pulse-bg-gray-100'
     DEFAULT_TH_CLASSES = 'pulse-text-start pulse-text-gray pulse-uppercase ' \
                          'pulse-tracking-wider pulse-px-4 print:pulse-px-2 ' \
                          'pulse-py-4 print:pulse-py-3 text-xs pulse-font-medium'
     DEFAULT_BODY_CLASSES = 'pulse-bg-white pulse-divide-y pulse-text-sm ' \
-                           'pulse-leading-extra-snug pulse-divide-gray-200 ' \
+                           'pulse-leading-extra-snug pulse-divide-gray-300 ' \
                            'print:pulse-divide-gray-400 pulse-tracking-tight ' \
-                           'pulse-border-gray-200 print:pulse-border-gray-400'
+                           ''
     DEFAULT_ROW_CLASSES = 'pulse-border-secondary-300'
     DEFAULT_TD_CLASSES = 'pulse-px-4 print:pulse-px-2 pulse-py-4'
 
     renders_many :columns, lambda { |**options, &block|
-      Pulse::Tables::Column.new(**options, &block)
+      Pulse::Table::Column.new(**options, &block)
     }
     renders_one :empty_state, Pulse::BlankSlate
 
@@ -99,7 +99,7 @@ module Pulse
 
     def render_cell(**arguments, &)
       render(
-        Pulse::Tables::Cell.new(
+        Pulse::Table::Cell.new(
           additional_params: additional_params,
           **arguments
         ),

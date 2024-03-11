@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
-  module Tables
+  class Table
     # Encapsulates table column properties
     class Column < Pulse::Component
       attr_reader :title, :sr_title, :sort_by, :footer, :options

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
-  module Tables
+  class Table
     # Renders a table cell
     class Cell < Pulse::Component
       attr_reader :sort_by, :current_sort_column, :current_sort_direction,
