@@ -50,18 +50,6 @@ const colorPalette = {
     800: "#335266",
     900: "#1A2933",
   },
-  "spade-black": {
-    50: "#F2F1F3",
-    100: "#E6E5E7",
-    200: "#CCCBCD",
-    300: "#B3B2B4",
-    400: "#919092",
-    500: "#7E7D7F",
-    600: "#636162",
-    700: "#414042",
-    800: "#302F31",
-    900: "#1B1A1C",
-  },
   amaranth: {
     50: "#FEF4F7",
     100: "#FDE4EA",
@@ -97,7 +85,7 @@ module.exports = {
     "./app/assets/stylesheets/**/*.css",
     "./app/javascript/**/*.js",
     "./app/lib/form_builders/**/*.rb",
-    "./lib/component_previews/**/*.rb",
+    "./previews/**/*.rb",
   ],
   theme: {
     container: {
@@ -137,10 +125,6 @@ module.exports = {
           DEFAULT: colorPalette["glitter-lake"][700],
           ...colorPalette["glitter-lake"],
         },
-        gray: {
-          DEFAULT: colorPalette["spade-black"][700],
-          ...colorPalette["spade-black"],
-        },
         error: {
           DEFAULT: colorPalette["amaranth"][700],
           ...colorPalette["amaranth"],
@@ -169,8 +153,8 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            "--tw-prose-body": colorPalette["spade-black"][700],
-            "--tw-prose-counters": colorPalette["spade-black"][700],
+            "--tw-prose-body": "gray-700",
+            "--tw-prose-counters": "gray-700",
           },
         },
       },

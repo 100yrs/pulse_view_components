@@ -7,14 +7,14 @@ module Pulse
 
     DEFAULT_SCHEME = :secondary
     SCHEME_MAPPINGS = {
-      primary: 'pulse-border pulse-border-solid pulse-border-gray-200 ' \
+      primary: 'pulse-border pulse-border-solid pulse-border-gray-300 ' \
                'pulse-bg-green-700 pulse-text-white hover:pulse-bg-green-800 ' \
                'focus:pulse-bg-green-800 hover:pulse-text-white ' \
                'focus:pulse-text-white',
-      secondary: 'pulse-border pulse-border-solid pulse-border-gray-200 ' \
+      secondary: 'pulse-border pulse-border-solid pulse-border-gray-300 ' \
                  'pulse-bg-gray-50 pulse-text-gray hover:pulse-bg-gray-100 ' \
                  'focus:pulse-bg-gray-100',
-      danger: 'pulse-border pulse-border-solid pulse-border-gray-200 ' \
+      danger: 'pulse-border pulse-border-solid pulse-border-gray-300 ' \
               'pulse-bg-gray-50 pulse-text-danger-800 ' \
               'hover:pulse-bg-danger-800 focus:pulse-bg-danger-800 ' \
               'hover:pulse-text-white focus:pulse-text-white',
