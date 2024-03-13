@@ -1,16 +1,16 @@
 /! components/pulse/nav_link
 = render Pulse::BaseComponent.new(**@system_arguments) do
-  - if !mobile
-    = active_link_to path, active: active_mode,
-                           class_active: 'pulse-text-white hover:pulse-text-white hover:pulse-no-underline pulse-px-3 pulse-py-2 pulse-font-medium pulse-relative pulse-group pulse-is-active',
-                           class_inactive: 'pulse-text-white hover:pulse-text-white hover:pulse-no-underline pulse-px-3 pulse-py-2 pulse-font-medium pulse-relative pulse-group' do
-      = label
+  - if @variant == :desktop
+    = active_link_to @path, active: @active_mode,
+                            class_active: 'pulse-text-white hover:pulse-text-white hover:pulse-no-underline pulse-px-3 pulse-py-2 pulse-font-medium pulse-relative pulse-group pulse-is-active',
+                            class_inactive: 'pulse-text-white hover:pulse-text-white hover:pulse-no-underline pulse-px-3 pulse-py-2 pulse-font-medium pulse-relative pulse-group' do
+      = @label
       span class="pulse-absolute -pulse-bottom-0.5 pulse-left-1/2 pulse-w-0 pulse-h-0.5 pulse-bg-gray-300 group-hover:pulse-w-1/2 group-hover:pulse-transition-all pulse-duration-200"
       span class="pulse-absolute -pulse-bottom-0.5 pulse-right-1/2 pulse-w-0 pulse-h-0.5 pulse-bg-gray-300 group-hover:pulse-w-1/2 group-hover:pulse-transition-all pulse-duration-200"
       span class="pulse-absolute -pulse-bottom-0.5 pulse-start-0 pulse-w-full pulse-h-0.5 pulse-bg-primary pulse-hidden group-[.pulse-is-active]:pulse-block"
   - else
-    = active_link_to path, active: active_mode,
-                           class_active: 'pulse-text-primary-800 hover:pulse-no-underline pulse-block pulse-px-3 pulse-py-2',
-                           class_inactive: 'pulse-text-gray hover:pulse-no-underline pulse-block pulse-px-3 pulse-py-2',
-                           data: { action: 'dropdown#toggle' } do
-      = label
+    = active_link_to @path, active: @active_mode,
+                            class_active: 'pulse-text-primary-800 hover:pulse-no-underline pulse-block pulse-px-3 pulse-py-2',
+                            class_inactive: 'pulse-text-gray hover:pulse-no-underline pulse-block pulse-px-3 pulse-py-2',
+                            data: { action: 'dropdown#toggle' } do
+      = @label
