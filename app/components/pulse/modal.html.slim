@@ -27,18 +27,19 @@
           aria-modal="true"}
 
           /! header
-          div class="pulse-flex pulse-flex-row-reverse pulse-items-center pulse-justify-between pulse-gap-4 pulse-p-4 md:pulse-p-5 pulse-border-b"
+          div class="pulse-flex pulse-items-center pulse-justify-between pulse-gap-4 pulse-p-4 md:pulse-p-5 pulse-border-b"
+            - if title?
+              = render Pulse::Text.new(type: :h4, el_tag: :h2, classes: 'pulse-tracking-tight pulse-text-gray pulse-truncate')
+                = title
+
             - if close_button
               button{
-                class="pulse-ms-auto pulse-inline-flex pulse-items-center pulse-justify-center pulse-w-10 pulse-h-10 pulse-bg-transparent pulse-border-none pulse-text-gray"
+                class="pulse-ms-auto pulse-inline-flex pulse-items-center pulse-justify-center pulse-w-10 pulse-h-7 pulse-bg-transparent pulse-border-none pulse-text-gray"
                 data-action="pulse--modal#close"
                 aria-label="Close Modal"}
 
                 = render Pulse::Icon.new(icon: :close, width: 16, height: 16)
 
-            - if title?
-              = render Pulse::Text.new(type: :h4, el_tag: :h2, classes: 'pulse-tracking-tight pulse-text-gray pulse-truncate')
-                = title
 
           /! body
           div class="pulse-p-4 md:pulse-p-5 #{'pulse-mb-4' unless footer}"
