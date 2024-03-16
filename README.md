@@ -2,6 +2,10 @@
 
 Pulse ViewComponents is an implementation of the Pulse Design System using [ViewComponent](https://github.com/github/view_component).
 
+The implementation borrows heavily from [Primer ViewComponents](https://github.com/primer/view_components) and [Polaris ViewComponents](https://github.com/baoagency/polaris_view_components).
+
+This is still a work in progress and breaking changes may occur.
+
 ## Usage
 
 Render Pulse ViewComponents:
