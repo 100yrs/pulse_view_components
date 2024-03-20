@@ -395,7 +395,7 @@
 .ActionListContent[aria-selected="true"]
   .ActionListItem-multiSelectIcon
   .ActionListItem-multiSelectCheckmark {
-  @apply pulse-fill-[var(--fgColor-onEmphasis)];
+  @apply pulse-fill-[var(--pulse-fgColor-onEmphasis)];
 }
 /* multiselect checkmark */
 .ActionListContent[aria-checked="false"] .ActionListItem-multiSelectCheckmark,

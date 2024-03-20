@@ -110,26 +110,6 @@ module Pulse
              ))
     end
 
-    # @label Link
-    # @param label text
-    # @param size select {{ Pulse::Button::SIZE_OPTIONS }}
-    # @param disabled toggle
-    # @param tag select [a, summary, button]
-    def link(
-      label: 'Link',
-      size: Pulse::Button::DEFAULT_SIZE,
-      tag: :button,
-      disabled: false
-    )
-      render(Pulse::Button.new(
-               label: label,
-               scheme: :link,
-               size: size,
-               tag: tag,
-               disabled: disabled
-             ))
-    end
-
     # @label Button To
     # @param label text
     # @param url url

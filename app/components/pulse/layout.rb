@@ -52,15 +52,19 @@ module Pulse
     # @param system_arguments [Hash] <%= link_to_system_arguments_docs %>
     def initialize(first_in_source: FIRST_IN_SOURCE_DEFAULT, gutter: :default,
                    **system_arguments)
-      @first_in_source = fetch_or_fallback(FIRST_IN_SOURCE_OPTIONS,
-                                           first_in_source, FIRST_IN_SOURCE_OPTIONS)
+      @first_in_source = fetch_or_fallback(
+        FIRST_IN_SOURCE_OPTIONS,
+        first_in_source,
+        FIRST_IN_SOURCE_OPTIONS
+      )
 
       @system_arguments = system_arguments
       @system_arguments[:tag] = :div
       @system_arguments[:classes] = merge_classes(
         'pulse-grid pulse-grid-flow-col',
-        'pulse-grid-cols-[auto_0_minmax(0,calc(100%_-_var(--layout-sidebar-width)_-_var(--layout-gutter)))]',
-        'pulse-gap-[var(--layout-gutter)]',
+        'pulse-grid-cols-[auto_0_minmax(0,calc(100%_-_var(--pulse-layout' \
+        '-sidebar-width)_-_var(--pulse-layout-gutter)))]',
+        'pulse-gap-[var(--pulse-layout-gutter)]',
         GUTTER_MAPPINGS[fetch_or_fallback(GUTTER_OPTIONS, gutter,
                                           GUTTER_DEFAULT)],
         system_arguments[:classes]

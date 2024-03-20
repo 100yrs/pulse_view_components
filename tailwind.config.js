@@ -87,6 +87,7 @@ module.exports = {
       boxShadow: {
         arrow: "0px 0px 4px rgba(0, 0, 0, 0.25)",
         btn: "0 4px 6px 0 rgb(0, 0, 0, 0.3)",
+        "btn-inset": "inset 0 0 0 3px var(--pulse-fgColor-onEmphasis)",
         card: "0px 0px 10px rgba(0, 0, 0, 0.1)",
         modal: [
           "0px 24px 38px rgba(0, 0, 0, 0.05)",
