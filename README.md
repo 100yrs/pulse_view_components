@@ -1,4 +1,4 @@
-# Polaris ViewComponents
+# Pulse ViewComponents
 
 Pulse ViewComponents is an implementation of the Pulse Design System using [ViewComponent](https://github.com/github/view_component).
 
