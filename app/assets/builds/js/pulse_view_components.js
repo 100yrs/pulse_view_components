@@ -9185,7 +9185,6 @@
   var controller_default = modules;
 
   // pulse_view_components/application.js
-  console.log("pulse_view_components/application.js starting to load...");
   var application = Application.start();
   application.debug = false;
   window.Stimulus = application;
@@ -9193,7 +9192,6 @@
     var name = controller.name.replace("..--..--components--", "");
     application.register(name, controller.module.default);
   });
-  console.log("pulse_view_components/application.js loaded");
 })();
 /*! Bundled license information:
 
