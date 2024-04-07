@@ -11,7 +11,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("pulse--modal connected")
     if (!this.autoCloseValue) {
       document.addEventListener("keydown", this.handleKeyDown)
 

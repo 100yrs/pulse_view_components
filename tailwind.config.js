@@ -81,21 +81,9 @@ module.exports = {
       padding: "0.625rem",
     },
     extend: {
-      animation: {
-        "fade-in": "fade-in 0.5s ease-in-out",
-      },
       boxShadow: {
-        arrow: "0px 0px 4px rgba(0, 0, 0, 0.25)",
         btn: "0 4px 6px 0 rgb(0, 0, 0, 0.3)",
-        card: "0px 0px 10px rgba(0, 0, 0, 0.1)",
-        modal: [
-          "0px 24px 38px rgba(0, 0, 0, 0.05)",
-          "0px 9px 46px rgba(0, 0, 0, 0.07)",
-          "0px 11px 15px rgba(0, 0, 0, 0.06)",
-        ],
-        snackbar: "0px 0px 5px rgba(0, 0, 0, 0.25)",
-        "tools-menu": "0 0 4px rgba(0, 0, 0, 0.15)",
-        "tools-menu-dark": "0 0 4px rgba(0, 0, 0, 0.5)",
+        "btn-inset": "inset 0 0 0 3px var(--pulse-fgColor-onEmphasis)",
       },
       colors: {
         ...colorPalette,
@@ -131,20 +119,6 @@ module.exports = {
       },
       fontSize: {
         "2xs": "0.625rem" /* 10px */,
-      },
-      keyframes: {
-        "fade-in": {
-          "0%": { opacity: 0 },
-          "100%": { opacity: 1 },
-        },
-      },
-      typography: {
-        DEFAULT: {
-          css: {
-            "--tw-prose-body": "gray-700",
-            "--tw-prose-counters": "gray-700",
-          },
-        },
       },
     },
   },

@@ -22,9 +22,9 @@ module Pulse
     }.freeze
 
     THEME_MAPPINGS = {
-      default: 'pulse-bg-gray pulse-text-white',
+      default: 'pulse-bg-gray-700 pulse-text-white',
       error: 'pulse-bg-error-100 pulse-text-gray-900',
-      success: 'pulse-bg-gray pulse-text-white'
+      success: 'pulse-bg-gray-700 pulse-text-white'
     }.freeze
     DEFAULT_THEME = :default
 

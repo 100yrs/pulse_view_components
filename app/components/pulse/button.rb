@@ -9,18 +9,17 @@ module Pulse
     SCHEME_MAPPINGS = {
       primary: 'pulse-border pulse-border-solid pulse-border-gray-300 ' \
                'pulse-bg-green-700 pulse-text-white hover:pulse-bg-green-800 ' \
-               'focus:pulse-bg-green-800 hover:pulse-text-white ' \
-               'focus:pulse-text-white',
+               'focus-visible:pulse-bg-green-800 hover:pulse-text-white ' \
+               'focus-visible:pulse-text-white ' \
+               'focus-visible:pulse-shadow-btn-inset',
       secondary: 'pulse-border pulse-border-solid pulse-border-gray-300 ' \
                  'pulse-bg-gray-50 pulse-text-gray hover:pulse-bg-gray-100 ' \
-                 'focus:pulse-bg-gray-100',
+                 'focus-visible:pulse-bg-gray-100',
       danger: 'pulse-border pulse-border-solid pulse-border-gray-300 ' \
               'pulse-bg-gray-50 pulse-text-danger-800 ' \
-              'hover:pulse-bg-danger-800 focus:pulse-bg-danger-800 ' \
-              'hover:pulse-text-white focus:pulse-text-white',
-      link: 'pulse-appearance-none pulse-font-normal pulse-no-underline ' \
-            'pulse-px-0 pulse-py-0 pulse-underline-offset-2 ' \
-            'hover:pulse-underline focus:pulse-shadow-none'
+              'hover:pulse-bg-danger-800 focus-visible:pulse-bg-danger-800 ' \
+              'hover:pulse-text-white focus-visible:pulse-text-white ' \
+              'focus-visible:pulse-shadow-btn-inset'
     }.freeze
     SCHEME_OPTIONS = SCHEME_MAPPINGS.keys
 
@@ -66,7 +65,10 @@ module Pulse
       merge_classes(
         'pulse-appearance-none pulse-inline-flex pulse-justify-center',
         'pulse-rounded-md pulse-no-underline hover:pulse-no-underline',
-        'focus:pulse-outline-none focus:pulse-no-underline',
+        'focus-visible:pulse-no-underline',
+        'focus-visible:-pulse-outline-offset-2',
+        'focus-visible:pulse-outline-[2px] focus-visible:pulse-outline-solid',
+        'focus-visible:pulse-outline-[var(--pulse-focus-outlineColor)]',
         'disabled:pulse-opacity-25 disabled:pulse-cursor-not-allowed',
         SIZE_MAPPINGS[@size],
         SCHEME_MAPPINGS[@scheme],

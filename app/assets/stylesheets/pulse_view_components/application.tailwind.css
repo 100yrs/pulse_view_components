@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --pulse-fgColor-onEmphasis: #ffffff;
+  --pulse-focus-outlineColor: theme("colors.blue.700");
+  --pulse-layout-sidebar-width: 220px;
+  --pulse-layout-gutter: 16px;
+}

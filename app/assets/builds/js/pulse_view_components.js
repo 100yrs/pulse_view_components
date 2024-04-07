@@ -9104,7 +9104,6 @@
       autoClose: { type: Boolean, default: false }
     };
     connect() {
-      console.log("pulse--modal connected");
       if (!this.autoCloseValue) {
         document.addEventListener("keydown", this.handleKeyDown);
         if (this.closeOnSubmitValue) {
