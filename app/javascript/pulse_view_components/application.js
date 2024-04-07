@@ -1,5 +1,3 @@
-console.log("pulse_view_components/application.js starting to load...")
-
 import { Application } from "@hotwired/stimulus"
 import Dropdown from "stimulus-dropdown"
 // import * as ActiveStorage from "@rails/activestorage"
@@ -22,5 +20,3 @@ controllers.forEach(controller => {
 export { application }
 
 // ActiveStorage.start()
-
-console.log("pulse_view_components/application.js loaded")
