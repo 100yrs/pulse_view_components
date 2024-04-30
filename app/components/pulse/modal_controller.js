@@ -17,6 +17,7 @@ export default class extends Controller {
       if (this.closeOnSubmitValue) {
         document.addEventListener("turbo:submit-end", this.handleSubmit)
       }
+      this.lastFocusedElement = null
       this.open()
     } else {
       this.autoClose()
@@ -39,6 +40,7 @@ export default class extends Controller {
   }
 
   open() {
+    this.lastFocusedElement = document.activeElement
     enter(this.wrapperTarget)
     enter(this.bodyTarget)
     document.body.classList.add("pulse-overflow-hidden")
@@ -53,6 +55,9 @@ export default class extends Controller {
     })
 
     document.body.classList.remove("pulse-overflow-hidden")
+
+    // Return focus to the last focused element
+    if (this.lastFocusedElement) this.lastFocusedElement.focus()
 
     // Remove src reference from parent frame element
     // Without this, turbo won't re-open the modal on subsequent clicks
