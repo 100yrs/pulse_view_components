@@ -21,10 +21,11 @@ module Pulse
       primary: 'pulse-bg-primary pulse-text-white hover:pulse-text-white',
       secondary: 'pulse-bg-secondary pulse-text-white',
       secondary_outline: 'pulse-bg-white pulse-border pulse-border-secondary pulse-text-secondary ' \
-                         'pulse-hover:text-secondary',
-      invited: 'pulse-bg-secondary-200 pulse-text-gray pulse-hover:text-gray',
+                         'pulse-hover:pulse-text-secondary',
+      invited: 'pulse-bg-secondary-200 pulse-text-gray pulse-hover:pulse-text-gray',
       active: 'pulse-bg-success-200 pulse-text-gray hover:pulse-text-gray',
-      disabled: 'pulse-bg-gray-100 pulse-text-gray hover:pulse-text-gray'
+      disabled: 'pulse-bg-gray-100 pulse-text-gray hover:pulse-text-gray',
+      info: 'pulse-bg-gray-600 pulse-text-white hover:pulse-text-white'
     }.freeze
     SCHEME_OPTIONS = SCHEME_MAPPINGS.keys.freeze
 
