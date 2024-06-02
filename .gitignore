@@ -16,3 +16,6 @@ coverage/
 /demo/public/assets/
 /demo/storage/
 /demo/tmp/
+
+
+/.vscode/
