@@ -1,7 +1,7 @@
 /! components/pulse/tables/cell
 = render Pulse::BaseComponent.new(**options) do
   - if sortable?
-    = link_to url_options, class: merge_classes('pulse-inline-flex pulse-items-center pulse-gap-1', title_classes) do
+    = link_to request.params.merge(**url_options), class: merge_classes('pulse-inline-flex pulse-items-center pulse-gap-1', title_classes) do
       = content
       = render Pulse::Icon.new(icon: icon, width: 9, height: 8, classes: 'pulse-shrink-0', title: t(".#{icon}"))
 

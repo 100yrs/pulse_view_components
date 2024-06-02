@@ -77,7 +77,7 @@ module Pulse
       end
 
       def url_options
-        { sort: sort_by, direction: direction }.merge(additional_params)
+        { sort: sort_by, direction: }.merge(additional_params)
       end
 
       def direction
