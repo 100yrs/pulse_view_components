@@ -9109,6 +9109,7 @@
         if (this.closeOnSubmitValue) {
           document.addEventListener("turbo:submit-end", this.handleSubmit);
         }
+        this.lastFocusedElement = null;
         this.open();
       } else {
         this.autoClose();
@@ -9127,6 +9128,7 @@
       }
     };
     open() {
+      this.lastFocusedElement = document.activeElement;
       enter(this.wrapperTarget);
       enter(this.bodyTarget);
       document.body.classList.add("pulse-overflow-hidden");
@@ -9137,6 +9139,8 @@
         this.element.remove();
       });
       document.body.classList.remove("pulse-overflow-hidden");
+      if (this.lastFocusedElement)
+        this.lastFocusedElement.focus();
       this.element.closest("turbo-frame").src = void 0;
     }
     autoClose(e) {
