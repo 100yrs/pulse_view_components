@@ -4,7 +4,6 @@ module Pulse
   # @label BlankSlate
   class BlankSlatePreview < ViewComponent::Preview
     # @label Default options
-    # @snapshot
     def default
       render Pulse::BlankSlate.new do |component|
         component.with_title { 'Title' }
