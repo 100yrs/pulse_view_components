@@ -2374,8 +2374,8 @@
       const clonedElement = this.element.cloneNode(true);
       const selectElements = this.element.querySelectorAll("select");
       const clonedSelectElements = clonedElement.querySelectorAll("select");
-      for (const [index, source] of selectElements.entries()) {
-        const clone = clonedSelectElements[index];
+      for (const [index2, source] of selectElements.entries()) {
+        const clone = clonedSelectElements[index2];
         for (const option of clone.selectedOptions)
           option.selected = false;
         for (const option of source.selectedOptions)
@@ -3668,7 +3668,7 @@
         afterHeadMorphed: noOp
       }
     };
-    function morph(oldNode, newContent, config = {}) {
+    function morph2(oldNode, newContent, config = {}) {
       if (oldNode instanceof Document) {
         oldNode = oldNode.documentElement;
       }
@@ -4186,7 +4186,7 @@
       return idMap;
     }
     return {
-      morph,
+      morph: morph2,
       defaults
     };
   }();
@@ -4295,18 +4295,18 @@
       }
     }
     isCurrentElementInElementList(element, elementList) {
-      for (const [index, newElement] of elementList.entries()) {
+      for (const [index2, newElement] of elementList.entries()) {
         if (element.tagName == "TITLE") {
           if (newElement.tagName != "TITLE") {
             continue;
           }
           if (element.innerHTML == newElement.innerHTML) {
-            elementList.splice(index, 1);
+            elementList.splice(index2, 1);
             return true;
           }
         }
         if (newElement.isEqualNode(element)) {
-          elementList.splice(index, 1);
+          elementList.splice(index2, 1);
           return true;
         }
       }
@@ -4489,9 +4489,9 @@
     }
     touch(location2) {
       const key = toCacheKey(location2);
-      const index = this.keys.indexOf(key);
-      if (index > -1)
-        this.keys.splice(index, 1);
+      const index2 = this.keys.indexOf(key);
+      if (index2 > -1)
+        this.keys.splice(index2, 1);
       this.keys.unshift(key);
       this.trim();
     }
@@ -6057,9 +6057,9 @@
   }
   var allModifiers = ["meta", "ctrl", "alt", "shift"];
   var Action = class {
-    constructor(element, index, descriptor, schema) {
+    constructor(element, index2, descriptor, schema) {
       this.element = element;
-      this.index = index;
+      this.index = index2;
       this.eventTarget = descriptor.eventTarget || element;
       this.eventName = descriptor.eventName || getDefaultEventNameForElement(element) || error("missing event name");
       this.eventOptions = descriptor.eventOptions || {};
@@ -6208,8 +6208,8 @@
         this.method.call(this.controller, event);
         this.context.logDebugActivity(this.methodName, { event, target, currentTarget, action: this.methodName });
       } catch (error2) {
-        const { identifier, controller, element, index } = this;
-        const detail = { identifier, controller, element, index, event };
+        const { identifier, controller, element, index: index2 } = this;
+        const detail = { identifier, controller, element, index: index2, event };
         this.context.handleError(error2, `invoking action "${this.action}"`, detail);
       }
     }
@@ -6729,11 +6729,11 @@
     }
   };
   function parseTokenString(tokenString, element, attributeName) {
-    return tokenString.trim().split(/\s+/).filter((content) => content.length).map((content, index) => ({ element, attributeName, content, index }));
+    return tokenString.trim().split(/\s+/).filter((content) => content.length).map((content, index2) => ({ element, attributeName, content, index: index2 }));
   }
   function zip(left, right) {
     const length = Math.max(left.length, right.length);
-    return Array.from({ length }, (_, index) => [left[index], right[index]]);
+    return Array.from({ length }, (_, index2) => [left[index2], right[index2]]);
   }
   function tokensAreEqual(left, right) {
     return left && right && left.index == right.index && left.content == right.content;
@@ -8316,11 +8316,11 @@
       key = "";
     key = key.replace(/\s/g, "");
     const keys = key.split(",");
-    let index = keys.lastIndexOf("");
-    for (; index >= 0; ) {
-      keys[index - 1] += ",";
-      keys.splice(index, 1);
-      index = keys.lastIndexOf("");
+    let index2 = keys.lastIndexOf("");
+    for (; index2 >= 0; ) {
+      keys[index2 - 1] += ",";
+      keys.splice(index2, 1);
+      index2 = keys.lastIndexOf("");
     }
     return keys;
   }
@@ -9041,6 +9041,1061 @@
   };
   i.targets = ["menu"];
 
+  // ../../node_modules/turbo_power/dist/turbo_power.js
+  var DOCUMENT_FRAGMENT_NODE = 11;
+  function morphAttrs(fromNode, toNode) {
+    var toNodeAttrs = toNode.attributes;
+    var attr;
+    var attrName;
+    var attrNamespaceURI;
+    var attrValue;
+    var fromValue;
+    if (toNode.nodeType === DOCUMENT_FRAGMENT_NODE || fromNode.nodeType === DOCUMENT_FRAGMENT_NODE) {
+      return;
+    }
+    for (var i2 = toNodeAttrs.length - 1; i2 >= 0; i2--) {
+      attr = toNodeAttrs[i2];
+      attrName = attr.name;
+      attrNamespaceURI = attr.namespaceURI;
+      attrValue = attr.value;
+      if (attrNamespaceURI) {
+        attrName = attr.localName || attrName;
+        fromValue = fromNode.getAttributeNS(attrNamespaceURI, attrName);
+        if (fromValue !== attrValue) {
+          if (attr.prefix === "xmlns") {
+            attrName = attr.name;
+          }
+          fromNode.setAttributeNS(attrNamespaceURI, attrName, attrValue);
+        }
+      } else {
+        fromValue = fromNode.getAttribute(attrName);
+        if (fromValue !== attrValue) {
+          fromNode.setAttribute(attrName, attrValue);
+        }
+      }
+    }
+    var fromNodeAttrs = fromNode.attributes;
+    for (var d = fromNodeAttrs.length - 1; d >= 0; d--) {
+      attr = fromNodeAttrs[d];
+      attrName = attr.name;
+      attrNamespaceURI = attr.namespaceURI;
+      if (attrNamespaceURI) {
+        attrName = attr.localName || attrName;
+        if (!toNode.hasAttributeNS(attrNamespaceURI, attrName)) {
+          fromNode.removeAttributeNS(attrNamespaceURI, attrName);
+        }
+      } else {
+        if (!toNode.hasAttribute(attrName)) {
+          fromNode.removeAttribute(attrName);
+        }
+      }
+    }
+  }
+  var range;
+  var NS_XHTML = "http://www.w3.org/1999/xhtml";
+  var doc = typeof document === "undefined" ? void 0 : document;
+  var HAS_TEMPLATE_SUPPORT = !!doc && "content" in doc.createElement("template");
+  var HAS_RANGE_SUPPORT = !!doc && doc.createRange && "createContextualFragment" in doc.createRange();
+  function createFragmentFromTemplate(str) {
+    var template = doc.createElement("template");
+    template.innerHTML = str;
+    return template.content.childNodes[0];
+  }
+  function createFragmentFromRange(str) {
+    if (!range) {
+      range = doc.createRange();
+      range.selectNode(doc.body);
+    }
+    var fragment = range.createContextualFragment(str);
+    return fragment.childNodes[0];
+  }
+  function createFragmentFromWrap(str) {
+    var fragment = doc.createElement("body");
+    fragment.innerHTML = str;
+    return fragment.childNodes[0];
+  }
+  function toElement(str) {
+    str = str.trim();
+    if (HAS_TEMPLATE_SUPPORT) {
+      return createFragmentFromTemplate(str);
+    } else if (HAS_RANGE_SUPPORT) {
+      return createFragmentFromRange(str);
+    }
+    return createFragmentFromWrap(str);
+  }
+  function compareNodeNames(fromEl, toEl) {
+    var fromNodeName = fromEl.nodeName;
+    var toNodeName = toEl.nodeName;
+    var fromCodeStart, toCodeStart;
+    if (fromNodeName === toNodeName) {
+      return true;
+    }
+    fromCodeStart = fromNodeName.charCodeAt(0);
+    toCodeStart = toNodeName.charCodeAt(0);
+    if (fromCodeStart <= 90 && toCodeStart >= 97) {
+      return fromNodeName === toNodeName.toUpperCase();
+    } else if (toCodeStart <= 90 && fromCodeStart >= 97) {
+      return toNodeName === fromNodeName.toUpperCase();
+    } else {
+      return false;
+    }
+  }
+  function createElementNS(name, namespaceURI) {
+    return !namespaceURI || namespaceURI === NS_XHTML ? doc.createElement(name) : doc.createElementNS(namespaceURI, name);
+  }
+  function moveChildren(fromEl, toEl) {
+    var curChild = fromEl.firstChild;
+    while (curChild) {
+      var nextChild = curChild.nextSibling;
+      toEl.appendChild(curChild);
+      curChild = nextChild;
+    }
+    return toEl;
+  }
+  function syncBooleanAttrProp(fromEl, toEl, name) {
+    if (fromEl[name] !== toEl[name]) {
+      fromEl[name] = toEl[name];
+      if (fromEl[name]) {
+        fromEl.setAttribute(name, "");
+      } else {
+        fromEl.removeAttribute(name);
+      }
+    }
+  }
+  var specialElHandlers = {
+    OPTION: function(fromEl, toEl) {
+      var parentNode = fromEl.parentNode;
+      if (parentNode) {
+        var parentName = parentNode.nodeName.toUpperCase();
+        if (parentName === "OPTGROUP") {
+          parentNode = parentNode.parentNode;
+          parentName = parentNode && parentNode.nodeName.toUpperCase();
+        }
+        if (parentName === "SELECT" && !parentNode.hasAttribute("multiple")) {
+          if (fromEl.hasAttribute("selected") && !toEl.selected) {
+            fromEl.setAttribute("selected", "selected");
+            fromEl.removeAttribute("selected");
+          }
+          parentNode.selectedIndex = -1;
+        }
+      }
+      syncBooleanAttrProp(fromEl, toEl, "selected");
+    },
+    /**
+       * The "value" attribute is special for the <input> element since it sets
+       * the initial value. Changing the "value" attribute without changing the
+       * "value" property will have no effect since it is only used to the set the
+       * initial value.  Similar for the "checked" attribute, and "disabled".
+       */
+    INPUT: function(fromEl, toEl) {
+      syncBooleanAttrProp(fromEl, toEl, "checked");
+      syncBooleanAttrProp(fromEl, toEl, "disabled");
+      if (fromEl.value !== toEl.value) {
+        fromEl.value = toEl.value;
+      }
+      if (!toEl.hasAttribute("value")) {
+        fromEl.removeAttribute("value");
+      }
+    },
+    TEXTAREA: function(fromEl, toEl) {
+      var newValue = toEl.value;
+      if (fromEl.value !== newValue) {
+        fromEl.value = newValue;
+      }
+      var firstChild = fromEl.firstChild;
+      if (firstChild) {
+        var oldValue = firstChild.nodeValue;
+        if (oldValue == newValue || !newValue && oldValue == fromEl.placeholder) {
+          return;
+        }
+        firstChild.nodeValue = newValue;
+      }
+    },
+    SELECT: function(fromEl, toEl) {
+      if (!toEl.hasAttribute("multiple")) {
+        var selectedIndex = -1;
+        var i2 = 0;
+        var curChild = fromEl.firstChild;
+        var optgroup;
+        var nodeName;
+        while (curChild) {
+          nodeName = curChild.nodeName && curChild.nodeName.toUpperCase();
+          if (nodeName === "OPTGROUP") {
+            optgroup = curChild;
+            curChild = optgroup.firstChild;
+          } else {
+            if (nodeName === "OPTION") {
+              if (curChild.hasAttribute("selected")) {
+                selectedIndex = i2;
+                break;
+              }
+              i2++;
+            }
+            curChild = curChild.nextSibling;
+            if (!curChild && optgroup) {
+              curChild = optgroup.nextSibling;
+              optgroup = null;
+            }
+          }
+        }
+        fromEl.selectedIndex = selectedIndex;
+      }
+    }
+  };
+  var ELEMENT_NODE = 1;
+  var DOCUMENT_FRAGMENT_NODE$1 = 11;
+  var TEXT_NODE = 3;
+  var COMMENT_NODE = 8;
+  function noop() {
+  }
+  function defaultGetNodeKey(node) {
+    if (node) {
+      return node.getAttribute && node.getAttribute("id") || node.id;
+    }
+  }
+  function morphdomFactory(morphAttrs2) {
+    return function morphdom2(fromNode, toNode, options) {
+      if (!options) {
+        options = {};
+      }
+      if (typeof toNode === "string") {
+        if (fromNode.nodeName === "#document" || fromNode.nodeName === "HTML" || fromNode.nodeName === "BODY") {
+          var toNodeHtml = toNode;
+          toNode = doc.createElement("html");
+          toNode.innerHTML = toNodeHtml;
+        } else {
+          toNode = toElement(toNode);
+        }
+      } else if (toNode.nodeType === DOCUMENT_FRAGMENT_NODE$1) {
+        toNode = toNode.firstElementChild;
+      }
+      var getNodeKey = options.getNodeKey || defaultGetNodeKey;
+      var onBeforeNodeAdded = options.onBeforeNodeAdded || noop;
+      var onNodeAdded = options.onNodeAdded || noop;
+      var onBeforeElUpdated = options.onBeforeElUpdated || noop;
+      var onElUpdated = options.onElUpdated || noop;
+      var onBeforeNodeDiscarded = options.onBeforeNodeDiscarded || noop;
+      var onNodeDiscarded = options.onNodeDiscarded || noop;
+      var onBeforeElChildrenUpdated = options.onBeforeElChildrenUpdated || noop;
+      var skipFromChildren = options.skipFromChildren || noop;
+      var addChild = options.addChild || function(parent, child) {
+        return parent.appendChild(child);
+      };
+      var childrenOnly = options.childrenOnly === true;
+      var fromNodesLookup = /* @__PURE__ */ Object.create(null);
+      var keyedRemovalList = [];
+      function addKeyedRemoval(key) {
+        keyedRemovalList.push(key);
+      }
+      function walkDiscardedChildNodes(node, skipKeyedNodes) {
+        if (node.nodeType === ELEMENT_NODE) {
+          var curChild = node.firstChild;
+          while (curChild) {
+            var key = void 0;
+            if (skipKeyedNodes && (key = getNodeKey(curChild))) {
+              addKeyedRemoval(key);
+            } else {
+              onNodeDiscarded(curChild);
+              if (curChild.firstChild) {
+                walkDiscardedChildNodes(curChild, skipKeyedNodes);
+              }
+            }
+            curChild = curChild.nextSibling;
+          }
+        }
+      }
+      function removeNode(node, parentNode, skipKeyedNodes) {
+        if (onBeforeNodeDiscarded(node) === false) {
+          return;
+        }
+        if (parentNode) {
+          parentNode.removeChild(node);
+        }
+        onNodeDiscarded(node);
+        walkDiscardedChildNodes(node, skipKeyedNodes);
+      }
+      function indexTree(node) {
+        if (node.nodeType === ELEMENT_NODE || node.nodeType === DOCUMENT_FRAGMENT_NODE$1) {
+          var curChild = node.firstChild;
+          while (curChild) {
+            var key = getNodeKey(curChild);
+            if (key) {
+              fromNodesLookup[key] = curChild;
+            }
+            indexTree(curChild);
+            curChild = curChild.nextSibling;
+          }
+        }
+      }
+      indexTree(fromNode);
+      function handleNodeAdded(el) {
+        onNodeAdded(el);
+        var curChild = el.firstChild;
+        while (curChild) {
+          var nextSibling = curChild.nextSibling;
+          var key = getNodeKey(curChild);
+          if (key) {
+            var unmatchedFromEl = fromNodesLookup[key];
+            if (unmatchedFromEl && compareNodeNames(curChild, unmatchedFromEl)) {
+              curChild.parentNode.replaceChild(unmatchedFromEl, curChild);
+              morphEl(unmatchedFromEl, curChild);
+            } else {
+              handleNodeAdded(curChild);
+            }
+          } else {
+            handleNodeAdded(curChild);
+          }
+          curChild = nextSibling;
+        }
+      }
+      function cleanupFromEl(fromEl, curFromNodeChild, curFromNodeKey) {
+        while (curFromNodeChild) {
+          var fromNextSibling = curFromNodeChild.nextSibling;
+          if (curFromNodeKey = getNodeKey(curFromNodeChild)) {
+            addKeyedRemoval(curFromNodeKey);
+          } else {
+            removeNode(
+              curFromNodeChild,
+              fromEl,
+              true
+              /* skip keyed nodes */
+            );
+          }
+          curFromNodeChild = fromNextSibling;
+        }
+      }
+      function morphEl(fromEl, toEl, childrenOnly2) {
+        var toElKey = getNodeKey(toEl);
+        if (toElKey) {
+          delete fromNodesLookup[toElKey];
+        }
+        if (!childrenOnly2) {
+          if (onBeforeElUpdated(fromEl, toEl) === false) {
+            return;
+          }
+          morphAttrs2(fromEl, toEl);
+          onElUpdated(fromEl);
+          if (onBeforeElChildrenUpdated(fromEl, toEl) === false) {
+            return;
+          }
+        }
+        if (fromEl.nodeName !== "TEXTAREA") {
+          morphChildren(fromEl, toEl);
+        } else {
+          specialElHandlers.TEXTAREA(fromEl, toEl);
+        }
+      }
+      function morphChildren(fromEl, toEl) {
+        var skipFrom = skipFromChildren(fromEl);
+        var curToNodeChild = toEl.firstChild;
+        var curFromNodeChild = fromEl.firstChild;
+        var curToNodeKey;
+        var curFromNodeKey;
+        var fromNextSibling;
+        var toNextSibling;
+        var matchingFromEl;
+        outer:
+          while (curToNodeChild) {
+            toNextSibling = curToNodeChild.nextSibling;
+            curToNodeKey = getNodeKey(curToNodeChild);
+            while (!skipFrom && curFromNodeChild) {
+              fromNextSibling = curFromNodeChild.nextSibling;
+              if (curToNodeChild.isSameNode && curToNodeChild.isSameNode(curFromNodeChild)) {
+                curToNodeChild = toNextSibling;
+                curFromNodeChild = fromNextSibling;
+                continue outer;
+              }
+              curFromNodeKey = getNodeKey(curFromNodeChild);
+              var curFromNodeType = curFromNodeChild.nodeType;
+              var isCompatible = void 0;
+              if (curFromNodeType === curToNodeChild.nodeType) {
+                if (curFromNodeType === ELEMENT_NODE) {
+                  if (curToNodeKey) {
+                    if (curToNodeKey !== curFromNodeKey) {
+                      if (matchingFromEl = fromNodesLookup[curToNodeKey]) {
+                        if (fromNextSibling === matchingFromEl) {
+                          isCompatible = false;
+                        } else {
+                          fromEl.insertBefore(matchingFromEl, curFromNodeChild);
+                          if (curFromNodeKey) {
+                            addKeyedRemoval(curFromNodeKey);
+                          } else {
+                            removeNode(
+                              curFromNodeChild,
+                              fromEl,
+                              true
+                              /* skip keyed nodes */
+                            );
+                          }
+                          curFromNodeChild = matchingFromEl;
+                        }
+                      } else {
+                        isCompatible = false;
+                      }
+                    }
+                  } else if (curFromNodeKey) {
+                    isCompatible = false;
+                  }
+                  isCompatible = isCompatible !== false && compareNodeNames(curFromNodeChild, curToNodeChild);
+                  if (isCompatible) {
+                    morphEl(curFromNodeChild, curToNodeChild);
+                  }
+                } else if (curFromNodeType === TEXT_NODE || curFromNodeType == COMMENT_NODE) {
+                  isCompatible = true;
+                  if (curFromNodeChild.nodeValue !== curToNodeChild.nodeValue) {
+                    curFromNodeChild.nodeValue = curToNodeChild.nodeValue;
+                  }
+                }
+              }
+              if (isCompatible) {
+                curToNodeChild = toNextSibling;
+                curFromNodeChild = fromNextSibling;
+                continue outer;
+              }
+              if (curFromNodeKey) {
+                addKeyedRemoval(curFromNodeKey);
+              } else {
+                removeNode(
+                  curFromNodeChild,
+                  fromEl,
+                  true
+                  /* skip keyed nodes */
+                );
+              }
+              curFromNodeChild = fromNextSibling;
+            }
+            if (curToNodeKey && (matchingFromEl = fromNodesLookup[curToNodeKey]) && compareNodeNames(matchingFromEl, curToNodeChild)) {
+              addChild(fromEl, matchingFromEl);
+              morphEl(matchingFromEl, curToNodeChild);
+            } else {
+              var onBeforeNodeAddedResult = onBeforeNodeAdded(curToNodeChild);
+              if (onBeforeNodeAddedResult !== false) {
+                if (onBeforeNodeAddedResult) {
+                  curToNodeChild = onBeforeNodeAddedResult;
+                }
+                if (curToNodeChild.actualize) {
+                  curToNodeChild = curToNodeChild.actualize(fromEl.ownerDocument || doc);
+                }
+                addChild(fromEl, curToNodeChild);
+                handleNodeAdded(curToNodeChild);
+              }
+            }
+            curToNodeChild = toNextSibling;
+            curFromNodeChild = fromNextSibling;
+          }
+        cleanupFromEl(fromEl, curFromNodeChild, curFromNodeKey);
+        var specialElHandler = specialElHandlers[fromEl.nodeName];
+        if (specialElHandler) {
+          specialElHandler(fromEl, toEl);
+        }
+      }
+      var morphedNode = fromNode;
+      var morphedNodeType = morphedNode.nodeType;
+      var toNodeType = toNode.nodeType;
+      if (!childrenOnly) {
+        if (morphedNodeType === ELEMENT_NODE) {
+          if (toNodeType === ELEMENT_NODE) {
+            if (!compareNodeNames(fromNode, toNode)) {
+              onNodeDiscarded(fromNode);
+              morphedNode = moveChildren(fromNode, createElementNS(toNode.nodeName, toNode.namespaceURI));
+            }
+          } else {
+            morphedNode = toNode;
+          }
+        } else if (morphedNodeType === TEXT_NODE || morphedNodeType === COMMENT_NODE) {
+          if (toNodeType === morphedNodeType) {
+            if (morphedNode.nodeValue !== toNode.nodeValue) {
+              morphedNode.nodeValue = toNode.nodeValue;
+            }
+            return morphedNode;
+          } else {
+            morphedNode = toNode;
+          }
+        }
+      }
+      if (morphedNode === toNode) {
+        onNodeDiscarded(fromNode);
+      } else {
+        if (toNode.isSameNode && toNode.isSameNode(morphedNode)) {
+          return;
+        }
+        morphEl(morphedNode, toNode, childrenOnly);
+        if (keyedRemovalList) {
+          for (var i2 = 0, len = keyedRemovalList.length; i2 < len; i2++) {
+            var elToRemove = fromNodesLookup[keyedRemovalList[i2]];
+            if (elToRemove) {
+              removeNode(elToRemove, elToRemove.parentNode, false);
+            }
+          }
+        }
+      }
+      if (!childrenOnly && morphedNode !== fromNode && fromNode.parentNode) {
+        if (morphedNode.actualize) {
+          morphedNode = morphedNode.actualize(fromNode.ownerDocument || doc);
+        }
+        fromNode.parentNode.replaceChild(morphedNode, fromNode);
+      }
+      return morphedNode;
+    };
+  }
+  var morphdom = morphdomFactory(morphAttrs);
+  function morph() {
+    const options = {
+      childrenOnly: this.hasAttribute("children-only")
+    };
+    this.targetElements.forEach((element) => {
+      morphdom(element, options.childrenOnly ? this.templateContent : this.templateElement.innerHTML, options);
+    });
+  }
+  var initialize$1 = (streamActions) => {
+    streamActions.morph = morph;
+  };
+  function camelize2(value) {
+    return value.replace(/(?:[_-])([a-z0-9])/g, (_, char) => char.toUpperCase());
+  }
+  function capitalize2(value) {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+  function dasherize2(value) {
+    return value.replace(/([A-Z])/g, (_, char) => `-${char.toLowerCase()}`);
+  }
+  function tokenize2(value) {
+    return value ? value.match(/[^\s]+/g) || [] : [];
+  }
+  function typecast2(value) {
+    try {
+      return JSON.parse(value);
+    } catch (e) {
+      return value;
+    }
+  }
+  var Utils = Object.freeze({
+    __proto__: null,
+    camelize: camelize2,
+    capitalize: capitalize2,
+    dasherize: dasherize2,
+    tokenize: tokenize2,
+    typecast: typecast2
+  });
+  function add_css_class() {
+    const classes = tokenize2(this.getAttribute("classes"));
+    if (classes.length > 0) {
+      this.targetElements.forEach((element) => element.classList.add(...classes));
+    } else {
+      console.warn(`[TurboPower] no "classes" provided for Turbo Streams operation "add_css_class"`);
+    }
+  }
+  function remove_attribute() {
+    const attribute = this.getAttribute("attribute");
+    if (attribute) {
+      this.targetElements.forEach((element) => element.removeAttribute(attribute));
+    } else {
+      console.warn(`[TurboPower] no "attribute" provided for Turbo Streams operation "remove_attribute"`);
+    }
+  }
+  function remove_css_class() {
+    const classes = tokenize2(this.getAttribute("classes"));
+    if (classes.length > 0) {
+      this.targetElements.forEach((element) => element.classList.remove(...classes));
+    } else {
+      console.warn(`[TurboPower] no "classes" provided for Turbo Streams operation "remove_css_class"`);
+    }
+  }
+  function set_attribute() {
+    const attribute = this.getAttribute("attribute");
+    const value = this.getAttribute("value") || "";
+    if (attribute) {
+      this.targetElements.forEach((element) => element.setAttribute(attribute, value));
+    } else {
+      console.warn(`[TurboPower] no "attribute" provided for Turbo Streams operation "set_attribute"`);
+    }
+  }
+  function set_dataset_attribute() {
+    const attribute = this.getAttribute("attribute");
+    const value = this.getAttribute("value") || "";
+    if (attribute) {
+      this.targetElements.forEach((element) => element.dataset[camelize2(attribute)] = value);
+    } else {
+      console.warn(`[TurboPower] no "attribute" provided for Turbo Streams operation "set_dataset_attribute"`);
+    }
+  }
+  function set_property() {
+    const name = this.getAttribute("name");
+    const value = typecast2(this.getAttribute("value") || "");
+    if (name) {
+      this.targetElements.forEach((element) => element[name] = value);
+    } else {
+      console.error(`[TurboPower] no "name" provided for Turbo Streams operation "set_property"`);
+    }
+  }
+  function set_style() {
+    const name = this.getAttribute("name");
+    const value = this.getAttribute("value") || "";
+    if (name) {
+      this.targetElements.forEach((element) => element.style[name] = value);
+    } else {
+      console.error(`[TurboPower] no "name" provided for Turbo Streams operation "set_style"`);
+    }
+  }
+  function set_styles() {
+    const styles = this.getAttribute("styles") || "";
+    this.targetElements.forEach((element) => element.setAttribute("style", styles));
+  }
+  function set_value() {
+    const value = this.getAttribute("value") || "";
+    this.targetElements.forEach((element) => element.value = value);
+  }
+  function toggle_css_class() {
+    const classes = tokenize2(this.getAttribute("classes"));
+    if (classes.length > 0) {
+      this.targetElements.forEach((element) => {
+        classes.forEach((className) => element.classList.toggle(className));
+      });
+    } else {
+      console.warn(`[TurboPower] no "classes" provided for Turbo Streams operation "toggle_css_class"`);
+    }
+  }
+  function replace_css_class() {
+    const from = this.getAttribute("from") || "";
+    const to = this.getAttribute("to") || "";
+    if (from && to) {
+      this.targetElements.forEach((element) => {
+        const wasReplaced = element.classList.replace(from, to);
+        if (!wasReplaced) {
+          console.warn(`[TurboPower] The "${from}" CSS class provided in the "from" attribute for the "replace_css_class" action was not found on the target element. No replacements made.`, element);
+        }
+      });
+    } else {
+      console.warn(`[TurboPower] no "from" or "to" class provided for Turbo Streams operation "replace_css_class"`);
+    }
+  }
+  function registerAttributesActions(streamActions) {
+    streamActions.add_css_class = add_css_class;
+    streamActions.remove_css_class = remove_css_class;
+    streamActions.remove_attribute = remove_attribute;
+    streamActions.set_attribute = set_attribute;
+    streamActions.set_dataset_attribute = set_dataset_attribute;
+    streamActions.set_property = set_property;
+    streamActions.set_style = set_style;
+    streamActions.set_styles = set_styles;
+    streamActions.set_value = set_value;
+    streamActions.toggle_css_class = toggle_css_class;
+    streamActions.replace_css_class = replace_css_class;
+  }
+  function reload() {
+    window.location.reload();
+  }
+  function scroll_into_view() {
+    const alignToTop = this.getAttribute("align-to-top");
+    const block = this.getAttribute("block");
+    const inline = this.getAttribute("inline");
+    const behavior = this.getAttribute("behavior");
+    if (alignToTop) {
+      this.targetElements.forEach((element) => element.scrollIntoView(alignToTop === "true"));
+    } else if (block || inline || behavior) {
+      const options = {};
+      if (block)
+        options.block = block;
+      if (inline)
+        options.inline = inline;
+      if (behavior)
+        options.behavior = behavior;
+      this.targetElements.forEach((element) => element.scrollIntoView(options));
+    } else {
+      this.targetElements.forEach((element) => element.scrollIntoView());
+    }
+  }
+  function set_focus() {
+    this.targetElements.forEach((element) => element.focus());
+  }
+  function set_title() {
+    const title = this.getAttribute("title") || "";
+    let titleElement = document.head.querySelector("title");
+    if (!titleElement) {
+      titleElement = document.createElement("title");
+      document.head.appendChild(titleElement);
+    }
+    titleElement.textContent = title;
+  }
+  function registerBrowserActions(streamActions) {
+    streamActions.reload = reload;
+    streamActions.scroll_into_view = scroll_into_view;
+    streamActions.set_focus = set_focus;
+    streamActions.set_title = set_title;
+  }
+  function console_log() {
+    const message = this.getAttribute("message");
+    const level = this.getAttribute("level") || "log";
+    console[level](message);
+  }
+  function console_table() {
+    const data = JSON.parse(this.getAttribute("data") || "[]");
+    const columns = JSON.parse(this.getAttribute("columns") || "[]");
+    console.table(data, columns);
+  }
+  function registerDebugActions(streamActions) {
+    streamActions.console_log = console_log;
+    streamActions.console_table = console_table;
+  }
+  function invoke() {
+    console.warn("[TurboPower] The `invoke` Turbo Stream Action was removed from TurboPower. If you'd like to continue using this action please use the successor library instead. Read more here: https://github.com/hopsoft/turbo_boost-streams");
+  }
+  function registerDeprecatedActions(streamActions) {
+    if (!streamActions.invoke) {
+      streamActions.invoke = invoke;
+    }
+  }
+  var CookieStringBuilder = class {
+    constructor(streamElement) {
+      this.ATTRIBUTE_TO_COOKIE_KEY_MAPPING = [["domain", "Domain", false], ["path", "Path", false], ["expires", "Expires", false], ["max-age", "Max-Age", false], ["http-only", "HttpOnly", true], ["secure", "Secure", true], ["same-site", "SameSite", false]];
+      this.streamElement = streamElement;
+    }
+    build() {
+      let cookieString = `${this.streamElement.getAttribute("name")}=${this.streamElement.getAttribute("value")}`;
+      this.ATTRIBUTE_TO_COOKIE_KEY_MAPPING.forEach(([streamElementAttribute, cookieKey, isBooleanAttribute]) => {
+        const cookieValue = this.streamElement.getAttribute(streamElementAttribute);
+        if (cookieValue !== null) {
+          const cookieKeyPair = isBooleanAttribute ? cookieKey : `${cookieKey}=${cookieValue}`;
+          cookieString = `${cookieString}; ${cookieKeyPair}`;
+        }
+      });
+      return cookieString;
+    }
+  };
+  function set_cookie() {
+    const cookie = this.getAttribute("cookie") || "";
+    document.cookie = cookie;
+  }
+  function set_cookie_item() {
+    const cookieStringBuilder = new CookieStringBuilder(this);
+    document.cookie = cookieStringBuilder.build();
+  }
+  function registerDocumentActions(streamActions) {
+    streamActions.set_cookie = set_cookie;
+    streamActions.set_cookie_item = set_cookie_item;
+  }
+  function graft() {
+    const selector = this.getAttribute("parent");
+    if (selector) {
+      const parent = document.querySelector(selector);
+      if (parent) {
+        this.targetElements.forEach((element) => parent.appendChild(element));
+      } else {
+        console.error(`[TurboPower] couldn't find parent element using selector "${selector}" for Turbo Streams operation "graft"`);
+      }
+    } else {
+      console.error(`[TurboPower] no "parent" selector provided for Turbo Streams operation "graft"`);
+    }
+  }
+  function inner_html() {
+    const html = this.templateContent.textContent || "";
+    this.targetElements.forEach((element) => element.innerHTML = html);
+  }
+  function insert_adjacent_html() {
+    const position = this.getAttribute("position") || "beforebegin";
+    const html = this.templateContent.textContent || "";
+    this.targetElements.forEach((element) => element.insertAdjacentHTML(position, html));
+  }
+  function insert_adjacent_text() {
+    const position = this.getAttribute("position") || "beforebegin";
+    const message = this.getAttribute("text") || "";
+    this.targetElements.forEach((element) => element.insertAdjacentText(position, message));
+  }
+  function outer_html() {
+    const html = this.templateContent.textContent || "";
+    this.targetElements.forEach((element) => element.outerHTML = html);
+  }
+  function set_meta() {
+    const name = this.getAttribute("name");
+    const content = this.getAttribute("content") || "";
+    if (name) {
+      let meta = document.head.querySelector(`meta[name='${name}']`);
+      if (!meta) {
+        meta = document.createElement("meta");
+        meta.name = name;
+        document.head.appendChild(meta);
+      }
+      meta.content = content;
+    } else {
+      console.error(`[TurboPower] no "name" provided for Turbo Streams operation "set_meta"`);
+    }
+  }
+  function text_content() {
+    const text = this.getAttribute("text") || "";
+    this.targetElements.forEach((element) => element.textContent = text);
+  }
+  function registerDOMActions(streamActions) {
+    streamActions.graft = graft;
+    streamActions.inner_html = inner_html;
+    streamActions.insert_adjacent_html = insert_adjacent_html;
+    streamActions.insert_adjacent_text = insert_adjacent_text;
+    streamActions.outer_html = outer_html;
+    streamActions.text_content = text_content;
+    streamActions.set_meta = set_meta;
+  }
+  function dispatch_event() {
+    const name = this.getAttribute("name");
+    let template = null;
+    try {
+      template = this.templateContent.textContent;
+    } catch (e) {
+    }
+    try {
+      const detail = template ? JSON.parse(template) : {};
+      if (name) {
+        const options = {
+          bubbles: true,
+          cancelable: true,
+          detail
+        };
+        const event = new CustomEvent(name, options);
+        this.targetElements.forEach((element) => element.dispatchEvent(event));
+      } else {
+        console.warn(`[TurboPower] no "name" provided for Turbo Streams operation "dispatch_event"`);
+      }
+    } catch (error2) {
+      console.error(`[TurboPower] error proccessing provided "detail" in "<template>" ("${template}") for Turbo Streams operation "dispatch_event".`, `Error: "${error2.message}"`);
+    }
+  }
+  function registerEventsActions(streamActions) {
+    streamActions.dispatch_event = dispatch_event;
+  }
+  function reset_form() {
+    this.targetElements.forEach((form) => form.reset());
+  }
+  function registerFormActions(streamActions) {
+    streamActions.reset_form = reset_form;
+  }
+  function push_state() {
+    const url = this.getAttribute("url");
+    const state = this.getAttribute("state");
+    const title = this.getAttribute("title") || "";
+    window.history.pushState(state, title, url);
+  }
+  function replace_state() {
+    const url = this.getAttribute("url");
+    const state = this.getAttribute("state");
+    const title = this.getAttribute("title") || "";
+    window.history.replaceState(state, title, url);
+  }
+  function history_back() {
+    window.history.back();
+  }
+  function history_forward() {
+    window.history.forward();
+  }
+  function history_go() {
+    const delta = Number(this.getAttribute("delta")) || 0;
+    window.history.go(delta);
+  }
+  function registerHistoryActions(streamActions) {
+    streamActions.push_state = push_state;
+    streamActions.replace_state = replace_state;
+    streamActions.history_back = history_back;
+    streamActions.history_go = history_go;
+  }
+  var PERMITTED_ATTRIBUTES = ["dir", "lang", "badge", "body", "tag", "icon", "image", "data", "vibrate", "renotify", "require-interaction", "actions", "silent"];
+  var createNotification = (streamElement) => {
+    const title = streamElement.getAttribute("title") || "";
+    const attributes = Array.from(streamElement.attributes).filter((attribute) => PERMITTED_ATTRIBUTES.includes(attribute.name)).map((attribute) => [camelize2(attribute.name), typecast2(attribute.value)]);
+    const options = Object.fromEntries(attributes);
+    new Notification(title, options);
+  };
+  function notification() {
+    if (!window.Notification) {
+      alert("This browser does not support desktop notification");
+    } else if (Notification.permission === "granted") {
+      createNotification(this);
+    } else if (Notification.permission !== "denied") {
+      Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+          createNotification(this);
+        }
+      });
+    }
+  }
+  function registerNotificationActions(streamActions) {
+    streamActions.notification = notification;
+  }
+  function storage(type) {
+    return type === "session" ? window.sessionStorage : window.localStorage;
+  }
+  function clear_storage() {
+    const type = this.getAttribute("type");
+    storage(type).clear();
+  }
+  function set_storage_item() {
+    const key = this.getAttribute("key");
+    const value = this.getAttribute("value") || "";
+    const type = this.getAttribute("type");
+    if (key) {
+      storage(type).setItem(key, value);
+    } else {
+      console.warn(`[TurboPower] no "key" provided for Turbo Streams operation "set_storage_item"`);
+    }
+  }
+  function remove_storage_item() {
+    const key = this.getAttribute("key");
+    const type = this.getAttribute("type");
+    if (key) {
+      storage(type).removeItem(key);
+    } else {
+      console.warn(`[TurboPower] no "key" provided for Turbo Streams operation "remove_storage_item"`);
+    }
+  }
+  function registerStorageActions(streamActions) {
+    streamActions.clear_storage = clear_storage;
+    streamActions.set_storage_item = set_storage_item;
+    streamActions.remove_storage_item = remove_storage_item;
+  }
+  var Proxy2 = {
+    get location() {
+      return window.TurboPowerLocation || window.location;
+    }
+  };
+  function redirect_to() {
+    const url = this.getAttribute("url") || "/";
+    const turboAction = this.getAttribute("turbo-action") || "advance";
+    const turboFrame = this.getAttribute("turbo-frame");
+    const turbo = this.getAttribute("turbo") !== "false";
+    const options = {
+      action: turboAction
+    };
+    if (turboFrame) {
+      options.frame = turboFrame;
+    }
+    if (turbo && window.Turbo) {
+      window.Turbo.visit(url, options);
+    } else {
+      Proxy2.location.assign(url);
+    }
+  }
+  function turbo_clear_cache() {
+    window.Turbo.cache.clear();
+  }
+  function registerTurboActions(streamActions) {
+    streamActions.redirect_to = redirect_to;
+    streamActions.turbo_clear_cache = turbo_clear_cache;
+  }
+  function turbo_progress_bar_set_value() {
+    const value = this.getAttribute("value") || 0;
+    window.Turbo.navigator.adapter.progressBar.setValue(Number(value));
+  }
+  function turbo_progress_bar_show() {
+    window.Turbo.navigator.adapter.progressBar.show();
+  }
+  function turbo_progress_bar_hide() {
+    window.Turbo.navigator.adapter.progressBar.hide();
+  }
+  function registerTurboProgressBarActions(streamActions) {
+    streamActions.turbo_progress_bar_set_value = turbo_progress_bar_set_value;
+    streamActions.turbo_progress_bar_show = turbo_progress_bar_show;
+    streamActions.turbo_progress_bar_hide = turbo_progress_bar_hide;
+  }
+  function turbo_frame_reload() {
+    this.targetElements.forEach((element) => element.reload());
+  }
+  function turbo_frame_set_src() {
+    const src = this.getAttribute("src");
+    this.targetElements.forEach((element) => element.src = src);
+  }
+  function registerTurboFrameActions(streamActions) {
+    streamActions.turbo_frame_reload = turbo_frame_reload;
+    streamActions.turbo_frame_set_src = turbo_frame_set_src;
+  }
+  function register$1(streamActions) {
+    registerAttributesActions(streamActions);
+    registerBrowserActions(streamActions);
+    registerDebugActions(streamActions);
+    registerDeprecatedActions(streamActions);
+    registerDocumentActions(streamActions);
+    registerDOMActions(streamActions);
+    registerEventsActions(streamActions);
+    registerFormActions(streamActions);
+    registerHistoryActions(streamActions);
+    registerNotificationActions(streamActions);
+    registerStorageActions(streamActions);
+    registerTurboActions(streamActions);
+    registerTurboProgressBarActions(streamActions);
+    registerTurboFrameActions(streamActions);
+  }
+  var Actions = Object.freeze({
+    __proto__: null,
+    add_css_class,
+    clear_storage,
+    console_log,
+    console_table,
+    dispatch_event,
+    graft,
+    history_back,
+    history_forward,
+    history_go,
+    inner_html,
+    insert_adjacent_html,
+    insert_adjacent_text,
+    invoke,
+    notification,
+    outer_html,
+    push_state,
+    redirect_to,
+    register: register$1,
+    registerAttributesActions,
+    registerBrowserActions,
+    registerDOMActions,
+    registerDebugActions,
+    registerDeprecatedActions,
+    registerDocumentActions,
+    registerEventsActions,
+    registerFormActions,
+    registerHistoryActions,
+    registerNotificationActions,
+    registerStorageActions,
+    registerTurboActions,
+    registerTurboFrameActions,
+    registerTurboProgressBarActions,
+    reload,
+    remove_attribute,
+    remove_css_class,
+    remove_storage_item,
+    replace_css_class,
+    replace_state,
+    reset_form,
+    scroll_into_view,
+    set_attribute,
+    set_cookie,
+    set_cookie_item,
+    set_dataset_attribute,
+    set_focus,
+    set_meta,
+    set_property,
+    set_storage_item,
+    set_style,
+    set_styles,
+    set_title,
+    set_value,
+    text_content,
+    toggle_css_class,
+    turbo_clear_cache,
+    turbo_frame_reload,
+    turbo_frame_set_src,
+    turbo_progress_bar_hide,
+    turbo_progress_bar_set_value,
+    turbo_progress_bar_show
+  });
+  function initialize(streamActions) {
+    initialize$1(streamActions);
+    register$1(streamActions);
+  }
+  function register(name, action, streamActions) {
+    streamActions[name] = action;
+  }
+  var index = {
+    initialize,
+    register,
+    Actions,
+    Utils
+  };
+
   // ../components/pulse/modal_controller.js
   var modal_controller_exports = {};
   __export(modal_controller_exports, {
@@ -9189,6 +10244,7 @@
   var controller_default = modules;
 
   // pulse_view_components/application.js
+  index.initialize(StreamActions);
   var application = Application.start();
   application.debug = false;
   window.Stimulus = application;
@@ -9196,13 +10252,6 @@
     var name = controller.name.replace("..--..--components--", "");
     application.register(name, controller.module.default);
   });
-  turbo_es2017_esm_exports.StreamActions.redirect = function() {
-    turbo_es2017_esm_exports.visit(this.target);
-  };
-  turbo_es2017_esm_exports.StreamActions.console_log = function() {
-    const message = this.getAttribute("message");
-    console.log(message);
-  };
 })();
 /*! Bundled license information:
 

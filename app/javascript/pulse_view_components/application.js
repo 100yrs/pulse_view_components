@@ -1,5 +1,10 @@
 import { Application } from "@hotwired/stimulus"
 import Dropdown from "stimulus-dropdown"
+import * as Turbo from "@hotwired/turbo"
+
+import TurboPower from "turbo_power"
+TurboPower.initialize(Turbo.StreamActions)
+
 // import * as ActiveStorage from "@rails/activestorage"
 
 const application = Application.start()
@@ -18,14 +23,5 @@ controllers.forEach(controller => {
 })
 
 export { application }
-
-import { Turbo } from "@hotwired/turbo-rails"
-Turbo.StreamActions.redirect = function () {
-  Turbo.visit(this.target)
-}
-Turbo.StreamActions.console_log = function () {
-  const message = this.getAttribute("message")
-  console.log(message)
-}
 
 // ActiveStorage.start()
