@@ -9196,6 +9196,13 @@
     var name = controller.name.replace("..--..--components--", "");
     application.register(name, controller.module.default);
   });
+  turbo_es2017_esm_exports.StreamActions.redirect = function() {
+    turbo_es2017_esm_exports.visit(this.target);
+  };
+  turbo_es2017_esm_exports.StreamActions.console_log = function() {
+    const message = this.getAttribute("message");
+    console.log(message);
+  };
 })();
 /*! Bundled license information:
 

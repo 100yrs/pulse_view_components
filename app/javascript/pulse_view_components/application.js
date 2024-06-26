@@ -19,4 +19,13 @@ controllers.forEach(controller => {
 
 export { application }
 
+import { Turbo } from "@hotwired/turbo-rails"
+Turbo.StreamActions.redirect = function () {
+  Turbo.visit(this.target)
+}
+Turbo.StreamActions.console_log = function () {
+  const message = this.getAttribute("message")
+  console.log(message)
+}
+
 // ActiveStorage.start()
