@@ -100,7 +100,7 @@ module Pulse
     def render_cell(**arguments, &)
       render(
         Pulse::Table::Cell.new(
-          additional_params: additional_params,
+          additional_params:,
           **arguments
         ),
         &
