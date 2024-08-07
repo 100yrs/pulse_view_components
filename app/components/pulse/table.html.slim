@@ -1,7 +1,7 @@
 /! components/pulse/table
 - if collection.present?
   div class="pulse-flex pulse-flex-col pulse-gap-4"
-    div class="pulse-w-full pulse-overflow-x-scroll pulse-overflow-y-visible pulse-shadow print:pulse-shadow-none sm:pulse-rounded-lg"
+    div class=class_names("pulse-w-full pulse-shadow print:pulse-shadow-none sm:pulse-rounded-lg", 'pulse-overflow-x-scroll': scroll)
       = render Pulse::BaseComponent.new(**table_options) do
         - if header
           = render Pulse::BaseComponent.new(tag: :thead, classes: head_classes) do
