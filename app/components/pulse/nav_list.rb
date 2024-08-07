@@ -110,12 +110,12 @@ module Pulse
     # @param component_klass [Class] The class to use instead of the default <%= link_to_component(Pulse::NavList::Item) %>
     # @param system_arguments [Hash] These arguments are forwarded to <%= link_to_component(Pulse::NavList::Item) %>, or whatever class is passed as the `component_klass` argument.
     def build_item(component_klass: Pulse::NavList::Item, **system_arguments,
-                   &block)
+                   &)
       component_klass.new(
         list: top_level_group,
         selected_item_id: @selected_item_id,
         **system_arguments,
-        &block
+        &
       )
     end
 
@@ -144,7 +144,7 @@ module Pulse
       ).tap do |item|
         item.with_leading_visual_raw_content do
           # no alt text necessary
-          item.render(Pulse::Avatar.new(src: src, **avatar_arguments,
+          item.render(Pulse::Avatar.new(src:, **avatar_arguments,
                                         role: :presentation, size: 16))
         end
 

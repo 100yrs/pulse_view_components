@@ -25,7 +25,7 @@ module Pulse
           Pulse::Text.new(
             type: :body4,
             tag: :"h#{heading_level}",
-            id: id,
+            id:,
             classes: 'pulse-ml-2 pulse-mb-4',
             **system_arguments
           ).with_content(title)

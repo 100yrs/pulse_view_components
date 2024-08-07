@@ -43,7 +43,7 @@ module Pulse
           data: { list_id: id }
         )
 
-        component_klass.new(list: self, src: src, **system_arguments)
+        component_klass.new(list: self, src:, **system_arguments)
       }
 
       # @private
@@ -76,7 +76,7 @@ module Pulse
       # @private
       def build_item(component_klass: NavList::Item, **system_arguments)
         super(
-          component_klass: component_klass,
+          component_klass:,
           selected_item_id: @selected_item_id,
           **system_arguments
         )
@@ -85,7 +85,7 @@ module Pulse
       # @private
       def build_avatar_item(component_klass: NavList::Item, **system_arguments)
         super(
-          component_klass: component_klass,
+          component_klass:,
           selected_item_id: @selected_item_id,
           **system_arguments
         )

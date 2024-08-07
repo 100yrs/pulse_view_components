@@ -96,9 +96,9 @@ module Pulse
       form_class = options[:form_class] || 'contents'
 
       if label.present?
-        button_to(label, url, options.merge(form_class: form_class))
+        button_to(label, url, options.merge(form_class:))
       else
-        button_to(url, options.merge(form_class: form_class)) { content }
+        button_to(url, options.merge(form_class:)) { content }
       end
     end
 
@@ -106,17 +106,17 @@ module Pulse
       if button_to_helper
         raise(ArgumentError, 'URL is required') if url.blank?
 
-        @options = options.merge(disabled: disabled) if disabled
+        @options = options.merge(disabled:) if disabled
         render_button_to
       elsif url.present?
         if disabled
-          @options = options.merge(disabled: disabled) if disabled
+          @options = options.merge(disabled:) if disabled
           render_button
         else
           render_link
         end
       else
-        @options = options.merge(disabled: disabled) if disabled
+        @options = options.merge(disabled:) if disabled
         render_button
       end
     end

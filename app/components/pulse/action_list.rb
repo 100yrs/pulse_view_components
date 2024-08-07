@@ -206,10 +206,10 @@ module Pulse
     def build_avatar_item(src:, username:, full_name: nil,
                           full_name_scheme: Pulse::ActionList::Item::DEFAULT_DESCRIPTION_SCHEME, component_klass: ActionList::Item, avatar_arguments: {}, **system_arguments)
       build_item(label: username, description_scheme: full_name_scheme,
-                 component_klass: component_klass, **system_arguments).tap do |item|
+                 component_klass:, **system_arguments).tap do |item|
         item.with_leading_visual_raw_content do
           # no alt text necessary for presentational item
-          item.render(Pulse::Avatar.new(src: src, **avatar_arguments,
+          item.render(Pulse::Avatar.new(src:, **avatar_arguments,
                                         role: :presentation, size: 16))
         end
 

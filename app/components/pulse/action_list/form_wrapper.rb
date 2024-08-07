@@ -26,8 +26,8 @@ module Pulse
 
         @input_arguments = {
           type: :hidden,
-          name: name,
-          value: value,
+          name:,
+          value:,
           data: { list_item_input: true },
           **(@form_arguments.delete(:input_arguments) || {})
         }

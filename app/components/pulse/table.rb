@@ -25,12 +25,12 @@ module Pulse
 
     attr_reader :collection, :additional_params, :pagination, :striped,
                 :full_width, :current_sort_column, :current_sort_direction,
-                :hoverable, :row_classes, :header
+                :hoverable, :row_classes, :header, :scroll
 
     def initialize(collection, additional_params: {}, pagination: true,
                    striped: false, current_sort_column: nil,
                    current_sort_direction: nil, hoverable: false,
-                   row_classes: nil, header: true, **options)
+                   row_classes: nil, header: true, scroll: true, **options)
       super
 
       @collection = collection
@@ -42,6 +42,7 @@ module Pulse
       @hoverable = hoverable
       @row_classes = row_classes
       @header = header
+      @scroll = scroll
       @options = options
     end
 
