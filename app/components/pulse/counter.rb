@@ -10,12 +10,12 @@ module Pulse
   class Counter < Pulse::Component
     DEFAULT_SCHEME = :default
     SCHEME_MAPPINGS = {
-      DEFAULT_SCHEME => "",
-      :primary => "Counter--primary",
-      :secondary => "Counter--secondary",
+      DEFAULT_SCHEME => '',
+      :primary => 'Counter--primary',
+      :secondary => 'Counter--secondary',
       # deprecated
-      :gray => "Counter--primary",
-      :light_gray => "Counter--secondary"
+      :gray => 'Counter--primary',
+      :light_gray => 'Counter--secondary'
     }.freeze
     DEPRECATED_SCHEME_OPTIONS = [:gray, :light_gray].freeze
     SCHEME_OPTIONS = (SCHEME_MAPPINGS.keys - DEPRECATED_SCHEME_OPTIONS).freeze
@@ -32,7 +32,7 @@ module Pulse
       scheme: DEFAULT_SCHEME,
       limit: 5_000,
       hide_if_zero: false,
-      text: "",
+      text: '',
       round: false,
       **system_arguments
     )
@@ -47,11 +47,12 @@ module Pulse
       @system_arguments[:title] = title
       @system_arguments[:tag] = :span
       @system_arguments[:classes] = merge_classes(
-        "Counter",
+        'Counter',
         @system_arguments[:classes],
-        SCHEME_MAPPINGS[fetch_or_fallback(SCHEME_OPTIONS, scheme, DEFAULT_SCHEME, deprecated_values: DEPRECATED_SCHEME_OPTIONS)]
+        SCHEME_MAPPINGS[fetch_or_fallback(SCHEME_OPTIONS, scheme,
+                                          DEFAULT_SCHEME, deprecated_values: DEPRECATED_SCHEME_OPTIONS)]
       )
-      @system_arguments[:hidden] = true if count == 0 && hide_if_zero # rubocop:disable Style/NumericPredicate
+      @system_arguments[:hidden] = true if count == 0 && hide_if_zero
     end
 
     def call
@@ -87,10 +88,12 @@ module Pulse
           count = @has_limit ? [@count.to_i, @limit].min : @count.to_i
           precision = count.between?(100_000, 999_999) ? 0 : 1
           units = { thousand: 'k', million: 'm', billion: 'b' }
-          str = number_to_human(count, precision: precision, significant: false, units: units, format: '%n%u')
+          str = number_to_human(count, precision:, significant: false, units:,
+                                       format: '%n%u')
         else
           @count = @count.to_i
-          str = number_with_delimiter(@has_limit ? [@count, @limit].min : @count)
+          str = number_with_delimiter(@has_limit ? [@count,
+                                                    @limit].min : @count)
         end
 
         str += '+' if @has_limit && @count.to_i > @limit
