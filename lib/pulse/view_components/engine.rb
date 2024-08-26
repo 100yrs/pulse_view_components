@@ -11,12 +11,9 @@ module Pulse
       isolate_namespace Pulse::ViewComponents
 
       config.autoload_paths = %W(
+        #{root}/app/components
         #{root}/lib
       )
-      # config.autoload_paths = %W[
-      #   #{root}/app/components
-      #   #{root}/app/lib
-      # ]
 
       # config.eager_load_paths = %W[
       #   #{root}/app/components
