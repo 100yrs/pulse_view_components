@@ -36,16 +36,16 @@ module Pulse
       #   end
       # end
 
-      initializer 'pulse.eager_load_actions' do
-        ActiveSupport.on_load(:after_initialize) do
-          if Rails.application.config.eager_load
-            # Pulse::Forms::Base.compile!
-            # Pulse::Forms::Base.descendants.each(&:compile!)
-            # Pulse::Forms::BaseComponent.descendants.each(&:compile!)
-            # Pulse::Octicon::Cache.preload!
-          end
-        end
-      end
+      # initializer 'pulse.eager_load_actions' do
+      #   ActiveSupport.on_load(:after_initialize) do
+      #     if Rails.application.config.eager_load
+      #       # Pulse::Forms::Base.compile!
+      #       # Pulse::Forms::Base.descendants.each(&:compile!)
+      #       # Pulse::Forms::BaseComponent.descendants.each(&:compile!)
+      #       # Pulse::Octicon::Cache.preload!
+      #     end
+      #   end
+      # end
 
       # Polaris
 
