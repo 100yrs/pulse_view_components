@@ -3,6 +3,9 @@
 module Pulse
   # Renders a button or link button
   class Button < Pulse::Component
+    attr_reader :kwargs, :label, :url, :tag, :button_to_helper,
+                :disabled
+
     delegate :button_to, to: :helpers
 
     DEFAULT_SCHEME = :secondary
@@ -31,6 +34,24 @@ module Pulse
       md: 'pulse-text-base pulse-font-bold pulse-py-1.5 pulse-px-6'
     }.freeze
     SIZE_OPTIONS = SIZE_MAPPINGS.keys
+
+    # Leading visuals appear to the left of the button text.
+    #
+    # Use:
+    #
+    # - `leading_visual_icon` for a <%= link_to_component(Ui::Icon) %>.
+    #
+    # @param system_arguments [Hash] Same arguments as <%= link_to_component(Ui::Icon) %>.
+    renders_one :leading_visual, types: {
+      icon: lambda { |**system_arguments|
+        system_arguments[:classes] = merge_classes(
+          'pulse-me-2',
+          system_arguments[:classes]
+        )
+
+        Pulse::Icon.new(**system_arguments)
+      }
+    }
 
     def initialize(label: nil, scheme: DEFAULT_SCHEME, size: DEFAULT_SIZE,
                    url: nil, button_to: false, disabled: false, **kwargs)
@@ -64,8 +85,8 @@ module Pulse
     def btn_class
       merge_classes(
         'pulse-appearance-none pulse-inline-flex pulse-justify-center',
-        'pulse-rounded-md pulse-no-underline hover:pulse-no-underline',
-        'focus-visible:pulse-no-underline',
+        'pulse-items-center pulse-rounded-md pulse-no-underline',
+        'hover:pulse-no-underline focus-visible:pulse-no-underline',
         'focus-visible:-pulse-outline-offset-2',
         'focus-visible:pulse-outline-[2px] focus-visible:pulse-outline-solid',
         'focus-visible:pulse-outline-[var(--pulse-focus-outlineColor)]',
@@ -78,17 +99,19 @@ module Pulse
 
     def render_link
       if label.present?
-        link_to(label, url, options)
+        link_to(helpers.safe_join([leading_visual, label]), url, options)
       else
-        link_to(url, options) { content }
+        link_to(url, options) { helpers.safe_join([leading_visual, content]) }
       end
     end
 
     def render_button
       if label.present?
-        content_tag(tag, label, options)
+        content_tag(tag, helpers.safe_join([leading_visual, label]), options)
       else
-        content_tag(tag, options) { content }
+        content_tag(tag, options) do
+          helpers.safe_join([leading_visual, content])
+        end
       end
     end
 
@@ -96,9 +119,12 @@ module Pulse
       form_class = options[:form_class] || 'contents'
 
       if label.present?
-        button_to(label, url, options.merge(form_class:))
+        button_to(helpers.safe_join([leading_visual, label]), url,
+                  options.merge(form_class:))
       else
-        button_to(url, options.merge(form_class:)) { content }
+        button_to(url, options.merge(form_class:)) do
+          helpers.safe_join([leading_visual, content])
+        end
       end
     end
 
@@ -120,10 +146,5 @@ module Pulse
         render_button
       end
     end
-
-    private
-
-    attr_reader :kwargs, :label, :url, :tag, :button_to_helper,
-                :disabled
   end
 end
