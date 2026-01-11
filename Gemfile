@@ -61,5 +61,3 @@ group :test do
   gem 'simplecov', require: false
   gem 'webmock'
 end
-
-gem "turbo_power", "~> 0.6.2"

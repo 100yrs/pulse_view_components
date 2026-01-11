@@ -2,9 +2,6 @@ import { Application } from "@hotwired/stimulus"
 import Dropdown from "stimulus-dropdown"
 import * as Turbo from "@hotwired/turbo"
 
-import TurboPower from "turbo_power"
-TurboPower.initialize(Turbo.StreamActions)
-
 // import * as ActiveStorage from "@rails/activestorage"
 
 const application = Application.start()
