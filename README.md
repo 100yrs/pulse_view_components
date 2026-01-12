@@ -4,7 +4,7 @@ Pulse ViewComponents is an implementation of the future Pulse Design System usin
 
 The implementation borrows heavily from [Primer ViewComponents](https://github.com/primer/view_components) and [Polaris ViewComponents](https://github.com/baoagency/polaris_view_components).
 
-This is still a work in progress and breaking changes may occur.
+This is still a work in progress and breaking changes may occur. Currently this requires Ruby 3.4 and Rails 8.1.
 
 ## Usage
 
