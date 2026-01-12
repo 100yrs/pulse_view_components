@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
+  # :nodoc:
   class ModalPreview < ViewComponent::Preview
     # @label Playground
     # @param title text

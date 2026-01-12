@@ -102,8 +102,12 @@ module Pulse
           if @width == :full
             content
           else
-            render(Pulse::BaseComponent.new(tag: :div,
-                                            classes: "pulse-mx-auto Layout-main-centered-#{@width}")) do
+            render(
+              Pulse::BaseComponent.new(
+                tag: :div,
+                classes: "pulse-mx-auto Layout-main-centered-#{@width}"
+              )
+            ) do
               render(Pulse::BaseComponent.new(tag: :div, container: @width)) do
                 content
               end

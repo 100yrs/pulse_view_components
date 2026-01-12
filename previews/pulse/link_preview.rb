@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
+  # :nodoc:
   class LinkPreview < ViewComponent::Preview
     # @label Playground
     # @param href url

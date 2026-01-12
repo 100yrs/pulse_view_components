@@ -25,6 +25,7 @@ require 'pulse/view_components/engine'
 Bundler.require(*Rails.groups)
 
 module Demo
+  # Demo Application
   class Application < Rails::Application
     config.load_defaults Rails::VERSION::STRING.to_f
 

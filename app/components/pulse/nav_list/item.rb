@@ -13,7 +13,9 @@ module Pulse
       renders_many :items, lambda { |**system_arguments|
         raise 'Items can only be nested 2 levels deep' if sub_item?
 
-        @list.build_item(parent: self, sub_item: true, **system_arguments).tap do |item|
+        @list.build_item(parent: self,
+                         sub_item: true,
+                         **system_arguments).tap do |item|
           @list.will_add_item(item)
         end
       }
@@ -92,7 +94,8 @@ module Pulse
         end
 
         if items.present? && @selected_by_ids.present?
-          raise 'Cannot pass `selected_by_ids:` for an item with subitems, since parent items cannot be selected'
+          raise 'Cannot pass `selected_by_ids:` for an item with subitems, ' \
+                'since parent items cannot be selected'
         end
 
         return if items.blank?
@@ -114,8 +117,10 @@ module Pulse
           keydown:#{@list.custom_element_name}#handleItemWithSubItemKeydown
         "
 
-        with_private_trailing_action_icon(:'chevron-down',
-                                          classes: 'ActionListItem-collapseIcon')
+        with_private_trailing_action_icon(
+          :'chevron-down',
+          classes: 'ActionListItem-collapseIcon'
+        )
 
         @system_arguments[:classes] = merge_classes(
           @system_arguments[:classes],

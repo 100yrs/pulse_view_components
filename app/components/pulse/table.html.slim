@@ -27,7 +27,7 @@
                   ) do
                   = column.call(row)
 
-          - if footer
+          - if footer?
             tr class=head_classes
               - columns.each_with_index do |column, index|
                 = render_cell( \

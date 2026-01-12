@@ -50,7 +50,7 @@ module Pulse
       pagination
     end
 
-    def footer
+    def footer?
       columns.any?(&:footer)
     end
 
@@ -82,7 +82,7 @@ module Pulse
       merge_classes(
         DEFAULT_BODY_CLASSES,
         '[&>tr:nth-child(even)]:pulse-bg-gray-50': striped,
-        'pulse-border-b [&>tr]:pulse-border-t [&>tr:first-child]:pulse-border-t-0': !striped
+        'pulse-border-b [&>tr]:pulse-border-t [&>tr:first-child]:pulse-border-t-0': !striped # rubocop:disable Layout/LineLength
       )
     end
 

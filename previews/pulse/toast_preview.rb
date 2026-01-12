@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
+  # :nodoc:
   class ToastPreview < ViewComponent::Preview
     # @label Playground
     # @param theme [Symbol] select [[Default, ~], [Error, error], [Success, success]]

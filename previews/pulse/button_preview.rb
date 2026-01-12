@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
+  # :nodoc:
   class ButtonPreview < ViewComponent::Preview
     # @label Playground
     # The default is :primary style

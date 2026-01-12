@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
+  # :nodoc:
   class BreadcrumbsPreview < ViewComponent::Preview
     def default
       render Pulse::Breadcrumbs.new do |c|

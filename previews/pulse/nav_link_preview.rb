@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
+  # :nodoc:
   class NavLinkPreview < ViewComponent::Preview
     # @label Playground
     # @display bg_color "rgb(31 41 55)"

@@ -42,7 +42,8 @@ module Pulse
         icon: lambda { |**system_arguments, &block|
           deny_aria_key(
             :label,
-            'Avoid using `aria-label` on leading visual icons, as they are purely decorative.',
+            'Avoid using `aria-label` on leading visual icons, as they are ' \
+            'purely decorative.',
             **system_arguments
           )
 
@@ -51,7 +52,8 @@ module Pulse
         avatar: lambda { |*|
           return unless should_raise_error?
 
-          raise 'Leading visual avatars are no longer supported. Please use the #with_avatar_item slot instead.'
+          raise 'Leading visual avatars are no longer supported. Please use ' \
+                'the #with_avatar_item slot instead.'
         },
         svg: lambda { |**system_arguments|
           Pulse::BaseComponent.new(tag: :svg, width: '16', height: '16',
@@ -117,7 +119,8 @@ module Pulse
       renders_one :tooltip, lambda { |**system_arguments|
         if @id.blank? && !Rails.env.production?
           raise ArgumentError,
-                'Buttons with a tooltip must have a unique `id` set on the `Button`.'
+                'Buttons with a tooltip must have a unique `id` set on ' \
+                'the `Button`.'
         end
 
         system_arguments[:for_id] = @id
@@ -229,7 +232,7 @@ module Pulse
           'pulse-relative pulse-grid pulse-w-full pulse-text-start',
           'pulse-select-none pulse-bg-transparent pulse-rounded',
           'pulse-grid-rows-[min-content]',
-          'pulse-grid-cols-[min-content_min-content_minmax(0,auto)_min-content_min-content]',
+          'pulse-grid-cols-[min-content_min-content_minmax(0,auto)_min-content_min-content]', # rubocop:disable Layout/LineLength
           'pulse-border-none hover:pulse-no-underline pulse-py-2',
           'pulse-items-start pulse-gap-2 pulse-items-center',
           SIZE_MAPPINGS[@size]

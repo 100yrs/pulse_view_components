@@ -24,7 +24,8 @@ module Pulse
       def initialize(title:, heading_level: 3, scheme: DEFAULT_SCHEME,
                      subtitle: nil, **system_arguments)
         unless HEADING_LEVELS.include?(heading_level)
-          raise "Heading level must be between #{HEADING_MIN} and #{HEADING_MAX}"
+          raise "Heading level must be between #{HEADING_MIN} and " \
+                "#{HEADING_MAX}"
         end
 
         @heading_level = heading_level

@@ -9,7 +9,8 @@ module Pulse
       :condensed => 'Box--condensed',
       :spacious => 'Box--spacious'
     }.freeze
-    PADDING_SUGGESTION = "Perhaps you could consider using :padding options of #{PADDING_MAPPINGS.keys.to_sentence}?"
+    PADDING_SUGGESTION = "Perhaps you could consider using :padding options " \
+                         "of #{PADDING_MAPPINGS.keys.to_sentence}?".freeze
 
     DEFAULT_ROW_SCHEME = :default
     ROW_SCHEME_MAPPINGS = {
