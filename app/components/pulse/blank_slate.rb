@@ -7,8 +7,6 @@ module Pulse
     renders_one :description
 
     def initialize(**system_arguments)
-      super
-
       @system_arguments = system_arguments
       @system_arguments[:tag] ||= :div
       @system_arguments[:classes] = merge_classes(

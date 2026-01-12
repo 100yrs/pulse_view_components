@@ -214,7 +214,8 @@ module Pulse
 
     def top_level_group
       # dummy group for the list: argument in the item slot above
-      @top_level_group ||= Pulse::NavList::Group.new(selected_item_id: @selected_item_id)
+      @top_level_group ||=
+        Pulse::NavList::Group.new(selected_item_id: @selected_item_id)
     end
   end
 end

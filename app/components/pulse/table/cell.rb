@@ -27,8 +27,6 @@ module Pulse
                      current_sort_direction: nil, additional_params: {},
                      head_scheme: HEAD_DEFAULT_SCHEME, footer: nil,
                      title_classes: '', **options)
-        super
-
         @sort_by = sort_by
         @current_sort_column = current_sort_column
         @current_sort_direction = current_sort_direction

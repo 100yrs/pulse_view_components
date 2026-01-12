@@ -8,8 +8,6 @@ module Pulse
     # @param condition [Boolean] Whether or not to wrap the content in a `BaseComponent`.
     # @param base_component_arguments [Hash] The arguments to pass to `BaseComponent`.
     def initialize(condition:, **base_component_arguments)
-      super
-
       @condition = condition
       @base_component_arguments = base_component_arguments
     end

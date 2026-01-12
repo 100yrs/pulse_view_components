@@ -49,8 +49,6 @@ module Pulse
     }.freeze
 
     def initialize(type:, **system_arguments)
-      super
-
       @system_arguments = system_arguments
       @system_arguments[:classes] = merge_classes(
         STYLE_MAPPINGS[type],

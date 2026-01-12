@@ -9,8 +9,6 @@ module Pulse
     attr_reader :text, :href
 
     def initialize(text:, href: nil, **system_arguments)
-      super
-
       @text = text
       @href = href
       @classes = system_arguments[:classes]

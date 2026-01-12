@@ -21,7 +21,6 @@ module Pulse
     def initialize(size: DEFAULT_SIZE, close_button: true,
                    close_on_esc: true, close_on_overlay_click: true,
                    close_on_submit: true, auto_close: false, **system_arguments)
-      super
       @size = fetch_or_fallback(SIZE_OPTIONS, size, DEFAULT_SIZE)
       @system_arguments = system_arguments
       @modal_classes = merge_classes(

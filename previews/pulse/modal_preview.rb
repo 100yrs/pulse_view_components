@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
+  # :nodoc:
   class ModalPreview < ViewComponent::Preview
     # @label Playground
     # @param title text
@@ -22,12 +23,12 @@ module Pulse
       close_on_submit: true,
       auto_close: false
     )
-      render Pulse::Modal.new(size: size,
-                              close_button: close_button,
-                              close_on_esc: close_on_esc,
-                              close_on_overlay_click: close_on_overlay_click,
-                              close_on_submit: close_on_submit,
-                              auto_close: auto_close) do |component|
+      render Pulse::Modal.new(size:,
+                              close_button:,
+                              close_on_esc:,
+                              close_on_overlay_click:,
+                              close_on_submit:,
+                              auto_close:) do |component|
         component.with_title { title }
         component.with_footer { footer }
         content

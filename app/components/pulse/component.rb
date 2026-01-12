@@ -6,10 +6,15 @@ module Pulse
   # This core `Component` class provides a place to include shared modules
   # and helper methods that can be used by any child component.
   class Component < ViewComponent::Base
+    TW_MERGE = TailwindMerge::Merger.new(config: { prefix: 'pulse-' })
+
     include AttributesHelper
     include FetchOrFallbackHelper
     include SvgHelper
+
     # include Pulse::ViewHelper
+
+    delegate :inline_svg_tag, :inline_svg, to: :helpers
 
     # Merge nested attributes together. Particularly helpful when combining
     # data attributes without squashing previously existing data.
@@ -41,10 +46,17 @@ module Pulse
       end
     end
 
-    def merge_classes(*)
-      TailwindMerge::Merger.new(config: tailwind_merge_config).merge(
-        CGI.unescapeHTML(class_names(*))
-      )
+    def merge_classes(*args)
+      args = args.compact_blank
+      return '' if args.empty?
+
+      classes = class_names(*args)
+      return classes unless args.many?
+
+      # Handle arbitrary variants, which `class_names` will escape
+      classes = CGI.unescapeHTML(classes) if classes.include?('[&')
+
+      TW_MERGE.merge(classes)
     end
 
     def self.generate_id(base_name: name.demodulize.underscore.dasherize)
@@ -82,10 +94,6 @@ module Pulse
 
     def should_raise_aria_error?
       !Rails.env.production?
-    end
-
-    def tailwind_merge_config
-      { prefix: 'pulse-' }
     end
   end
 end

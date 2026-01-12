@@ -23,8 +23,6 @@ module Pulse
 
     def initialize(href: nil, scheme: DEFAULT_SCHEME, bold: false,
                    underline: true, condition: true, **options)
-      super
-
       @condition = condition
       @options = options
       @options[:tag] = condition ? :a : :span

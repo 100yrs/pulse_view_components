@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
+  # :nodoc:
   class NavLinkPreview < ViewComponent::Preview
     # @label Playground
     # @display bg_color "rgb(31 41 55)"
@@ -11,10 +12,10 @@ module Pulse
     def playground(label: 'Link', path: '#', active_mode: :inclusive,
                    variant: :desktop)
       render Pulse::NavLink.new(
-        label: label,
-        path: path,
-        active_mode: active_mode,
-        variant: variant
+        label:,
+        path:,
+        active_mode:,
+        variant:
       )
     end
 
@@ -24,10 +25,10 @@ module Pulse
     # @param variant select {{ Pulse::NavLink::VARIANT_OPTIONS }}
     def active(label: 'Link', variant: :desktop)
       render Pulse::NavLink.new(
-        label: label,
+        label:,
         path: '#',
         active_mode: :inclusive,
-        variant: variant
+        variant:
       )
     end
 
@@ -37,12 +38,11 @@ module Pulse
     # @param variant select {{ Pulse::NavLink::VARIANT_OPTIONS }}
     def inactive(label: 'Link', variant: :desktop)
       render Pulse::NavLink.new(
-        label: label,
+        label:,
         path: '/elsewhere',
         active_mode: :inclusive,
-        variant: variant
+        variant:
       )
     end
-
   end
 end

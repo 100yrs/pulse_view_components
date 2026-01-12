@@ -10,7 +10,7 @@ module Pulse
     # @param variant select {{ Pulse::Badge::VARIANT_OPTIONS }}
     def default(tag: :span, scheme: :secondary, variant: :standard)
       render(
-        Pulse::Badge.new(tag: tag, scheme: scheme, variant: variant)
+        Pulse::Badge.new(tag:, scheme:, variant:)
       ) do
         'Badge'
       end

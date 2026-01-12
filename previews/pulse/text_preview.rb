@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
+  # :nodoc:
   class TextPreview < ViewComponent::Preview
     # @param text text
     # @param type select [h1, h2, h3, h4, subtitle, subtitle2,  subtitle3,
@@ -10,9 +11,9 @@ module Pulse
     # @param classes text
     def default(text: 'Welcome', type: :h1, tag: nil, classes: nil)
       render Pulse::Text.new(
-        type: type,
-        tag: tag,
-        classes: classes
+        type:,
+        tag:,
+        classes:
       ) do
         text
       end
@@ -58,7 +59,7 @@ module Pulse
 
     def body4
       render(Pulse::Text.new(type: :body4)) do
-        'Lorem ipsum esse soluta voluptas maiores omnis nihil officia consequatur.'
+        'Lorem ipsum esse soluta voluptas maiores omnis nihil officia conseatr.'
       end
     end
 
@@ -88,13 +89,13 @@ module Pulse
 
     def caption1
       render(Pulse::Text.new(type: :caption1)) do
-        'At dolorem rerum ea cupiditate vel eos facilis ea beatae vitae tempore.'
+        'At dolorem rerum ea cupiditate vel eos facilis ea beatae vitae tempor'
       end
     end
 
     def caption2
       render(Pulse::Text.new(type: :caption2)) do
-        'At dolorem rerum ea cupiditate vel eos facilis ea beatae vitae tempore.'
+        'At dolorem rerum ea cupiditate vel eos facilis ea beatae vitae tempoe.'
       end
     end
   end

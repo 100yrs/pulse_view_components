@@ -4,8 +4,6 @@ module Pulse
   # Renders a simple progress bar
   class ProgressBar < Pulse::Component
     def initialize(percentage: 0, **system_attributes)
-      super
-
       @percentage = percentage.to_i
       @system_attributes = system_attributes
       @system_attributes[:tag] ||= :div

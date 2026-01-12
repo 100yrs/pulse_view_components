@@ -10,14 +10,14 @@ module Pulse
     # @param percentage number
     # @param title text
     def playground(percentage: 50, title: nil)
-      render Pulse::ProgressBar.new(percentage: percentage, title: title)
+      render Pulse::ProgressBar.new(percentage:, title:)
     end
 
     # @label Default
     #
     # @param percentage number
     def default(percentage: 50)
-      render Pulse::ProgressBar.new(percentage: percentage)
+      render Pulse::ProgressBar.new(percentage:)
     end
   end
 end

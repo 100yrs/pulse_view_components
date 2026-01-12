@@ -34,8 +34,6 @@ module Pulse
     # @param system_arguments [Hash] <%= link_to_system_arguments_docs %>
     def initialize(full: false, spacious: false, dismissible: false,
                    icon: nil, scheme: DEFAULT_SCHEME, **system_arguments)
-      super
-
       @icon = icon
       @dismissible = dismissible
       @system_arguments = deny_tag_argument(**system_arguments)

@@ -9,9 +9,11 @@ module Pulse
 
     DEFAULT_VARIANT = :standard
     VARIANT_MAPPINGS = {
-      standard: 'pulse-inline-block pulse-rounded pulse-uppercase pulse-py-0.5 pulse-px-1.5 pulse-text-[10px] ' \
+      standard: 'pulse-inline-block pulse-rounded pulse-uppercase ' \
+                'pulse-py-0.5 pulse-px-1.5 pulse-text-[10px] ' \
                 'pulse-font-bold',
-      pill: 'pulse-inline-block pulse-rounded-2xl pulse-min-w-[8rem] pulse-text-center pulse-p-2 pulse-text-sm ' \
+      pill: 'pulse-inline-block pulse-rounded-2xl pulse-min-w-[8rem] ' \
+            'pulse-text-center pulse-p-2 pulse-text-sm ' \
             'pulse-leading-none pulse-font-bold'
     }.freeze
     VARIANT_OPTIONS = VARIANT_MAPPINGS.keys.freeze
@@ -20,9 +22,11 @@ module Pulse
     SCHEME_MAPPINGS = {
       primary: 'pulse-bg-primary pulse-text-white hover:pulse-text-white',
       secondary: 'pulse-bg-secondary pulse-text-white',
-      secondary_outline: 'pulse-bg-white pulse-border pulse-border-secondary pulse-text-secondary ' \
+      secondary_outline: 'pulse-bg-white pulse-border pulse-border-secondary ' \
+                         'pulse-text-secondary ' \
                          'pulse-hover:pulse-text-secondary',
-      invited: 'pulse-bg-secondary-200 pulse-text-gray pulse-hover:pulse-text-gray',
+      invited: 'pulse-bg-secondary-200 pulse-text-gray ' \
+               'pulse-hover:pulse-text-gray',
       active: 'pulse-bg-success-200 pulse-text-gray hover:pulse-text-gray',
       disabled: 'pulse-bg-gray-100 pulse-text-gray hover:pulse-text-gray',
       info: 'pulse-bg-gray-600 pulse-text-white hover:pulse-text-white'
@@ -31,8 +35,6 @@ module Pulse
 
     def initialize(tag: DEFAULT_TAG, variant: DEFAULT_VARIANT,
                    scheme: DEFAULT_SCHEME, **system_arguments)
-      super
-
       @system_arguments = system_arguments
 
       @variant = fetch_or_fallback(VARIANT_OPTIONS, variant, DEFAULT_VARIANT)

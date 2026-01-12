@@ -41,9 +41,7 @@ module Pulse
     end
 
     # @private
-    def custom_element_name
-      self.class.custom_element_name
-    end
+    delegate :custom_element_name, to: :class
     # :nocov:
 
     # Heading text rendered above the list of items.
@@ -155,7 +153,8 @@ module Pulse
       return unless required_form_arguments_given? && !allows_selection?
 
       raise ArgumentError,
-            'lists/menus that act as form inputs must also allow item selection (please pass the `select_variant:` option)'
+            'lists/menus that act as form inputs must also allow item ' \
+            'selection (please pass the `select_variant:` option)'
     end
 
     # @private
@@ -177,9 +176,12 @@ module Pulse
     # @param component_klass [Class] The class to use instead of the default <%= link_to_component(Pulse::ActionList::Item) %>
     # @param system_arguments [Hash] These arguments are forwarded to <%= link_to_component(Pulse::ActionList::Item) %>, or whatever class is passed as the `component_klass` argument.
     def build_item(component_klass: ActionList::Item, **system_arguments)
-      if single_select? && system_arguments[:active] && items.count(&:active?).positive?
+      if single_select? &&
+         system_arguments[:active] &&
+         items.any?(&:active?)
         raise ArgumentError,
-              'only a single item may be active when select_variant is set to :single'
+              'only a single item may be active when select_variant is ' \
+              'set to :single'
       end
       system_arguments[:classes] = merge_classes(
         @item_classes,
@@ -222,7 +224,7 @@ module Pulse
     end
 
     def multi_select?
-      select_variant == :multiple || select_variant == :multiple_checkbox
+      [:multiple, :multiple_checkbox].include?(select_variant)
     end
 
     def allows_selection?

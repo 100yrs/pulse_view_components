@@ -36,7 +36,7 @@ RSpec.describe Pulse::Modal, type: :component do
   it 'renders without a close button' do
     expect(
       render_inline(Pulse::Modal.new(close_button: false))
-    ).to_not have_css('[aria-label="Close Modal"]')
+    ).to have_no_css('[aria-label="Close Modal"]')
   end
 
   it 'renders a title' do

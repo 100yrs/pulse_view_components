@@ -2,7 +2,7 @@
 
 require 'rails/engine'
 require 'view_component'
-require 'view_component/version'
+# require 'view_component/version'
 
 module Pulse
   module ViewComponents
@@ -10,10 +10,10 @@ module Pulse
     class Engine < ::Rails::Engine
       isolate_namespace Pulse::ViewComponents
 
-      config.autoload_paths = %W(
+      %W(
         #{root}/app/components
         #{root}/lib
-      )
+      ).each { |path| config.autoload_paths << path }
 
       # config.eager_load_paths = %W[
       #   #{root}/app/components

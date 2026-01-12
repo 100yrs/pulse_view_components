@@ -25,11 +25,9 @@ require 'pulse/view_components/engine'
 Bundler.require(*Rails.groups)
 
 module Demo
+  # Demo Application
   class Application < Rails::Application
     config.load_defaults Rails::VERSION::STRING.to_f
-
-    # For compatibility with applications that use this config
-    config.action_controller.include_all_helpers = false
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
@@ -51,13 +49,18 @@ module Demo
     config.generators.system_tests = nil
 
     # ViewComponent
+    config.view_component.generate.preview = true
     config.view_component.preview_controller = 'PreviewController'
-    config.view_component.preview_paths << Rails.root.join('../previews')
-    config.view_component.show_previews = true
+    config.view_component.previews.paths << Rails.root.join('../previews')
+    config.view_component.instrumentation_enabled = true
+    config.view_component.use_deprecated_instrumentation_name = false
 
     # Lookbook
     config.lookbook.project_name =
       "Pulse ViewComponents v#{Pulse::ViewComponents::VERSION::STRING}"
     config.lookbook.ui_theme = 'zinc'
+
+    # Add preview paths to autoload so they work with eager_load = true
+    config.autoload_paths << Rails.root.join('../previews')
   end
 end

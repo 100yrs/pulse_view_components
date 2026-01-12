@@ -19,7 +19,7 @@ RSpec.describe Pulse::Layout, type: :component do
       layout = render_inline(Pulse::Layout.new) do |c|
         c.with_main { 'Main' }
       end
-      expect(layout).to_not have_text('Main')
+      expect(layout).to have_no_text('Main')
     end
   end
 end

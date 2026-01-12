@@ -8,8 +8,6 @@ module Pulse
 
       def initialize(title: '', sr_title: nil, sort_by: nil, footer: nil,
                      **options, &block)
-        super
-
         @title = title
         @sr_title = sr_title
         @sort_by = sort_by
@@ -18,9 +16,7 @@ module Pulse
         @options = options
       end
 
-      def call(row)
-        @block.call(row)
-      end
+      delegate :call, to: :@block
     end
   end
 end

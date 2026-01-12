@@ -12,8 +12,6 @@ module Pulse
     SIZE_OPTIONS = SIZE_MAPPINGS.keys
 
     def initialize(icon: nil, size: SIZE_DEFAULT, **system_arguments)
-      super
-
       @icon = "pulse_view_components/icons/#{icon}"
 
       @system_arguments = system_arguments

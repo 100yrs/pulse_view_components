@@ -33,7 +33,6 @@ module Pulse
       theme: DEFAULT_THEME,
       **system_arguments
     )
-      super
       @auto_hide = auto_hide
       @system_arguments = system_arguments
       @theme = theme
