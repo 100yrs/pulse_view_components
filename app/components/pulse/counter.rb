@@ -52,8 +52,7 @@ module Pulse
         SCHEME_MAPPINGS[fetch_or_fallback(
           SCHEME_OPTIONS,
           scheme,
-          DEFAULT_SCHEME,
-          deprecated_values: DEPRECATED_SCHEME_OPTIONS
+          DEFAULT_SCHEME
         )]
       )
       @system_arguments[:hidden] = true if count.zero? && hide_if_zero
