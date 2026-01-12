@@ -10,10 +10,10 @@ module Pulse
     }.freeze
     VARIANT_OPTIONS = VARIANT_MAPPINGS.keys.freeze
 
+    delegate :active_link_to, to: :helpers
+
     def initialize(label:, path:, active_mode: :inclusive, variant: :desktop,
                    **system_arguments)
-      super
-
       @label = label
       @path = path
       @active_mode = active_mode

@@ -11,7 +11,7 @@ module Pulse
         component.with_heading do
           'Popover Heading'
         end
-        component.with_body(caret: caret) do
+        component.with_body(caret:) do
           'This is the Popover body.'
         end
       end
@@ -25,7 +25,7 @@ module Pulse
         component.with_heading do
           'Popover Heading'
         end
-        component.with_body(caret: caret) do
+        component.with_body(caret:) do
           'This is the Popover body.'
         end
       end

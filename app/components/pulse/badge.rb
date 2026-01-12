@@ -31,8 +31,6 @@ module Pulse
 
     def initialize(tag: DEFAULT_TAG, variant: DEFAULT_VARIANT,
                    scheme: DEFAULT_SCHEME, **system_arguments)
-      super
-
       @system_arguments = system_arguments
 
       @variant = fetch_or_fallback(VARIANT_OPTIONS, variant, DEFAULT_VARIANT)

@@ -7,7 +7,7 @@ RSpec.describe Pulse::Forms::ErrorExplanation, type: :component do
 
   let(:component) do
     render_inline(
-      Pulse::Forms::ErrorExplanation.new(resource: resource)
+      Pulse::Forms::ErrorExplanation.new(resource:)
     )
   end
 

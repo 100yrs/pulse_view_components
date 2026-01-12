@@ -123,7 +123,8 @@ module Pulse
       render(
         Pulse::Table.new(COLLECTION)
       ) do |c|
-        c.with_column(title: 'Column 1', classes: 'pulse-bg-secondary-50') do |row|
+        c.with_column(title: 'Column 1',
+                      classes: 'pulse-bg-secondary-50') do |row|
           row[:column1]
         end
         c.with_column(title: 'Column 2', classes: 'pulse-text-primary') do |row|

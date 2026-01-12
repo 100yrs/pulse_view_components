@@ -4,6 +4,7 @@ require 'pulse/view_components/version'
 require 'pulse/view_components/engine'
 
 module Pulse
+  # :nodoc:
   module ViewComponents
     # pulse/view_components root directory.
     def self.root

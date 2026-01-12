@@ -6,8 +6,6 @@ module Pulse
     renders_many :items, Pulse::BreadcrumbItem
 
     def initialize(**system_arguments)
-      super
-
       @system_arguments = system_arguments
       @system_arguments[:tag] = :nav
     end

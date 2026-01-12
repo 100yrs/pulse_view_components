@@ -14,9 +14,9 @@ module Pulse
                    scheme: Pulse::Link::DEFAULT_SCHEME,
                    bold: false, underline: true, condition: true, classes: '')
       render(
-        Pulse::Link.new(href: href, scheme: scheme, bold: bold,
-                        underline: underline, condition: condition,
-                        classes: classes)
+        Pulse::Link.new(href:, scheme:, bold:,
+                        underline:, condition:,
+                        classes:)
       ) do
         content
       end
@@ -42,11 +42,11 @@ module Pulse
                        bold: false, underline: false, condition: true,
                        icon: 'gear', classes: '')
       render(
-        Pulse::Link.new(href: href, scheme: scheme, bold: bold,
-                        underline: underline, condition: condition,
-                        classes: classes)
+        Pulse::Link.new(href:, scheme:, bold:,
+                        underline:, condition:,
+                        classes:)
       ) do |c|
-        c.with_leading_visual_icon(icon: icon)
+        c.with_leading_visual_icon(icon:)
         content
       end
     end

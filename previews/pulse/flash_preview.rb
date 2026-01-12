@@ -14,9 +14,9 @@ module Pulse
     def playground(full: false, spacious: false, dismissible: false,
                    icon: :people, scheme: Pulse::Flash::DEFAULT_SCHEME,
                    content: 'This is a flash message!')
-      render(Pulse::Flash.new(full: full, spacious: spacious,
-                              dismissible: dismissible, icon: icon,
-                              scheme: scheme)) do
+      render(Pulse::Flash.new(full:, spacious:,
+                              dismissible:, icon:,
+                              scheme:)) do
         content
       end
     end

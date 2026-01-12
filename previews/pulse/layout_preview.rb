@@ -8,7 +8,7 @@ module Pulse
     # @param gutter [Symbol] select [default, none, condensed, spacious]
     def playground(first_in_source: :sidebar, gutter: :default)
       render(
-        Pulse::Layout.new(gutter: gutter, first_in_source: first_in_source)
+        Pulse::Layout.new(gutter:, first_in_source:)
       ) do |component|
         component.with_main(classes: 'pulse-bg-blue-50') do
           'Main content'

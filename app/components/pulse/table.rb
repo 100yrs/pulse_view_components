@@ -18,6 +18,8 @@ module Pulse
     DEFAULT_ROW_CLASSES = 'pulse-border-secondary-300'
     DEFAULT_TD_CLASSES = 'pulse-px-4 print:pulse-px-2 pulse-py-4'
 
+    delegate :paginate, to: :helpers
+
     renders_many :columns, lambda { |**options, &block|
       Pulse::Table::Column.new(**options, &block)
     }
@@ -31,8 +33,6 @@ module Pulse
                    striped: false, current_sort_column: nil,
                    current_sort_direction: nil, hoverable: false,
                    row_classes: nil, header: true, scroll: true, **options)
-      super
-
       @collection = collection
       @additional_params = additional_params
       @pagination = pagination

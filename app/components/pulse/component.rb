@@ -9,7 +9,10 @@ module Pulse
     include AttributesHelper
     include FetchOrFallbackHelper
     include SvgHelper
+
     # include Pulse::ViewHelper
+
+    delegate :inline_svg_tag, :inline_svg, to: :helpers
 
     # Merge nested attributes together. Particularly helpful when combining
     # data attributes without squashing previously existing data.

@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = 'ViewComponents for the 100Years Pulse Design System'
   spec.homepage = 'https://github.com/100yrs/pulse_view_components'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 3.2.0'
+  spec.required_ruby_version = '>= 3.4.0'
 
   spec.metadata['allowed_push_host'] = 'https://rubygems.org'
 
@@ -22,12 +22,12 @@ Gem::Specification.new do |spec|
 
   # spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'active_link_to', '>= 1.0.0'
+  spec.add_dependency 'active_link_to', '>= 1.0.0'
 
-  spec.add_runtime_dependency 'inline_svg', '>= 1.9.0'
-  spec.add_runtime_dependency 'rails', '>= 7.0.0'
-  spec.add_runtime_dependency 'tailwind_merge', ['>= 0.10.1', '< 1.0.0']
-  spec.add_runtime_dependency 'view_component', ['>= 3.1', '< 4.0.0']
+  spec.add_dependency 'inline_svg', '>= 1.9.0'
+  spec.add_dependency 'rails', '>= 8.1.0'
+  spec.add_dependency 'tailwind_merge', ['>= 0.10.1', '< 1.0.0']
+  spec.add_dependency 'view_component', ['>= 4.0.0', '< 5.0.0']
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

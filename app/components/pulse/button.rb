@@ -55,8 +55,6 @@ module Pulse
 
     def initialize(label: nil, scheme: DEFAULT_SCHEME, size: DEFAULT_SIZE,
                    url: nil, button_to: false, disabled: false, **kwargs)
-      super
-
       @kwargs = kwargs
       @label = label
       @scheme = scheme

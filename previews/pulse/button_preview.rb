@@ -21,13 +21,13 @@ module Pulse
       disabled: false
     )
       render(Pulse::Button.new(
-               label: label,
-               scheme: scheme,
-               size: size,
-               url: url,
-               tag: tag,
-               button_to: button_to,
-               disabled: disabled
+               label:,
+               scheme:,
+               size:,
+               url:,
+               tag:,
+               button_to:,
+               disabled:
              ))
     end
 
@@ -43,10 +43,10 @@ module Pulse
       disabled: false
     )
       render(Pulse::Button.new(
-               label: label,
-               size: size,
-               tag: tag,
-               disabled: disabled
+               label:,
+               size:,
+               tag:,
+               disabled:
              ))
     end
 
@@ -62,11 +62,11 @@ module Pulse
       disabled: false
     )
       render(Pulse::Button.new(
-               label: label,
+               label:,
                scheme: :primary,
-               size: size,
-               tag: tag,
-               disabled: disabled
+               size:,
+               tag:,
+               disabled:
              ))
     end
 
@@ -82,11 +82,11 @@ module Pulse
       disabled: false
     )
       render(Pulse::Button.new(
-               label: label,
+               label:,
                scheme: :secondary,
-               size: size,
-               tag: tag,
-               disabled: disabled
+               size:,
+               tag:,
+               disabled:
              ))
     end
 
@@ -102,11 +102,11 @@ module Pulse
       disabled: false
     )
       render(Pulse::Button.new(
-               label: label,
+               label:,
                scheme: :danger,
-               size: size,
-               tag: tag,
-               disabled: disabled
+               size:,
+               tag:,
+               disabled:
              ))
     end
 
@@ -124,12 +124,12 @@ module Pulse
       disabled: false
     )
       render(Pulse::Button.new(
-               label: label,
-               url: url,
+               label:,
+               url:,
                button_to: true,
-               scheme: scheme,
-               size: size,
-               disabled: disabled
+               scheme:,
+               size:,
+               disabled:
              ))
     end
   end

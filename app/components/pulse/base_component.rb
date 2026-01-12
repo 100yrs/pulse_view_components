@@ -24,7 +24,6 @@ module Pulse
   #
   class BaseComponent < Pulse::Component
     def initialize(tag:, classes: nil, **system_arguments)
-      super
       @tag = tag
       @classes = classes
       @system_arguments = system_arguments

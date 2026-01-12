@@ -10,9 +10,9 @@ module Pulse
     # @param classes text
     def default(text: 'Welcome', type: :h1, tag: nil, classes: nil)
       render Pulse::Text.new(
-        type: type,
-        tag: tag,
-        classes: classes
+        type:,
+        tag:,
+        classes:
       ) do
         text
       end

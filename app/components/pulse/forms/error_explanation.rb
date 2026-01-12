@@ -5,8 +5,6 @@ module Pulse
     # Render error message box for an ActiveModel resource
     class ErrorExplanation < ViewComponent::Base
       def initialize(resource:, **options)
-        super
-
         @resource = resource
         @options = options
         @options[:classes] = class_names(

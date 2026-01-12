@@ -41,9 +41,7 @@ module Pulse
     end
 
     # @private
-    def custom_element_name
-      self.class.custom_element_name
-    end
+    delegate :custom_element_name, to: :class
     # :nocov:
 
     # Heading text rendered above the list of items.
@@ -222,7 +220,7 @@ module Pulse
     end
 
     def multi_select?
-      select_variant == :multiple || select_variant == :multiple_checkbox
+      [:multiple, :multiple_checkbox].include?(select_variant)
     end
 
     def allows_selection?

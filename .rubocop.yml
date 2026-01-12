@@ -1,13 +1,20 @@
-require:
+plugins:
+  - rubocop-capybara
   - rubocop-performance
   - rubocop-rails
+  - rubocop-rake
   - rubocop-rspec
+  - rubocop-rspec_rails
 
 inherit_from:
   - https://raw.githubusercontent.com/100yrs/code-style-guides/master/linters/rubocop/rubocop.yml
 
+inherit_mode:
+  merge:
+    - Exclude
+
 AllCops:
-  TargetRubyVersion: 3.3
+  TargetRubyVersion: 3.4
 
 Rails:
   Enabled: true

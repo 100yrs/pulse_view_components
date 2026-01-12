@@ -7,7 +7,7 @@ module Pulse
     # @param auto_hide toggle
     # @param text text
     def default(auto_hide: true, theme: :default, text: 'A default toast.')
-      render Pulse::Toast.new(auto_hide: auto_hide, theme: theme) do |c|
+      render Pulse::Toast.new(auto_hide:, theme:) do |c|
         c.with_action(url: 'https://www.jamieoliver.com/snacks/') do
           'Undo'
         end

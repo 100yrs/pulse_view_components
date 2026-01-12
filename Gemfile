@@ -5,21 +5,21 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in pulse_view_components.gemspec
 gemspec
 
-gem 'rake', '~> 13.1'
+gem 'rake', '~> 13.3.1'
 
-gem 'rails', '~> 7.0.8'
+gem 'rails', '~> 8.1.2'
 # Use Puma as the app server
-gem 'puma', '~> 6.4.2'
+gem 'puma', '~> 7.1.0'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 
 gem 'active_link_to'
-gem 'lookbook', '~> 2.2.1'
+gem 'lookbook', '~> 2.3.14'
 gem 'slim-rails'
-gem 'view_component'
+gem 'view_component', '~> 4.2.0'
 
-gem 'kramdown', '~> 2.4'
-gem 'sourcemap', '~> 0.1'
+gem 'kramdown', '~> 2.5.1'
+gem 'sourcemap', '~> 0.1.1'
 
 gem 'foreman'
 
@@ -33,16 +33,19 @@ end
 group :development do
   gem 'sqlite3'
 
-  # gem 'capybara', '~> 3.39.2'
-  gem 'listen', '~> 3.9'
-  gem 'matrix', '~> 0.4.2'
+  # gem 'capybara', '~> 3.40.0'
+  gem 'listen', '~> 3.9.0'
+  gem 'matrix', '~> 0.4.3'
   gem 'mocha'
   gem 'pry'
   gem 'rubocop'
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
-  gem 'rubocop-rspec'
-  # gem 'rubocop-rails-accessibility', '~> 0.2.0'
+  gem 'rubocop-capybara', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rake', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'rubocop-rspec_rails', require: false
+  # gem 'rubocop-rails-accessibility', '~> 1.0.1'
 
   # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
   gem 'cssbundling-rails'
@@ -51,7 +54,7 @@ group :development do
   gem 'jsbundling-rails'
 
   # gem 'thor'
-  # gem 'yard', '~> 0.9.35'
+  # gem 'yard', '~> 0.9.38'
 end
 
 group :test do

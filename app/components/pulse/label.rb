@@ -6,8 +6,6 @@ module Pulse
   # Accepts Hex color value for bg_color, with or without a leading "#"
   class Label < Pulse::Component
     def initialize(title:, bg_color: 'ffffff', **options)
-      super
-
       @title = title
       @bg_color = bg_color || 'ffffff'
       @options = options

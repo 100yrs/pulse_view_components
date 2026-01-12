@@ -2,13 +2,15 @@ AllCops:
   # don't check style on generated files.
   Exclude:
     - tmp/**/*
-    - db/migrate/*
+    - db/migrate/**/*
+    - db/migrate_clickhouse/*
+    - db/migrate_stats/**/*
     - db/schema*
+    - db/clickhouse_schema*
+    - db/structure*
+    - db/clickhouse_structure*
     - bin/*
   NewCops: enable
-
-FactoryBot/AssociationStyle:
-  EnforcedStyle: explicit
 
 Layout/LineLength:
   Max: 80
@@ -19,6 +21,10 @@ Layout/LineLength:
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - spec/**/*
+
+Lint/MissingSuper:
+  Exclude:
+    - app/components/**/*.rb
 
 Metrics/BlockLength:
   AllowedMethods: ["describe", "context"]
@@ -37,6 +43,8 @@ Metrics/ClassLength:
 Metrics/MethodLength:
   CountAsOne: ["array", "hash", "heredoc", "method_call"]
   Exclude:
+    - app/controllers/**/*.rb
+    - db/migrate/**/*.rb
     - lib/component_previews/**/*
     - doc/lookbook/component_previews/**/*
 
@@ -58,6 +66,15 @@ Rails/ActionOrder:
     - update
     - destroy
 
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+
+Rails/Output:
+  Exclude:
+    - db/seeds/**/*
+    - db/seeds.rb
+    - lib/tasks/**/*
+
 RSpec/ContextWording:
   Prefixes:
     - when
@@ -78,6 +95,9 @@ RSpec/MultipleExpectations:
 RSpec/MultipleMemoizedHelpers:
   Max: 8
 
+RSpec/NestedGroups:
+  Max: 4
+
 RSpec/NotToNot:
   Enabled: false
 
@@ -92,18 +112,18 @@ Style/BlockDelimiters:
 Style/Documentation:
   Exclude:
     - app/controllers/**/*
+    - app/helpers/**/*
     - app/listeners/**/*
     - app/mailers/**/*
     - app/models/**/*
     - db/migrate/**/*
+    - db/migrate_stats/**/*
     - lib/component_previews/**/*
     - spec/**/*
 
-# Don't allow use of numeric predicates, ie zero?, positive?, negative?
-# Sticking with comparison operators is more consistent with other non-zero
-# comparisons
-Style/NumericPredicate:
-  EnforcedStyle: comparison
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+  EnforcedShorthandSyntax: always
 
 # Use `%`-literal delimiters consistently
 # https://github.com/bbatsov/ruby-style-guide#percent-literal-braces
