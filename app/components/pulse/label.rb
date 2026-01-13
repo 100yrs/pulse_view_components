@@ -5,6 +5,8 @@ module Pulse
   # consolidated with badges?
   # Accepts Hex color value for bg_color, with or without a leading "#"
   class Label < Pulse::Component
+    attr_reader :title, :bg_color
+
     def initialize(title:, bg_color: 'ffffff', **options)
       @title = title
       @bg_color = bg_color || 'ffffff'
@@ -17,6 +19,8 @@ module Pulse
       )
       @options[:tag] ||= :span
     end
+
+    private
 
     def text_color
       @bg_color = @bg_color[1..] if @bg_color[0] == '#'
@@ -34,9 +38,5 @@ module Pulse
       # Choose text color based on luminance
       luminance > 0.5 ? 'pulse-text-black' : 'pulse-text-white'
     end
-
-    private
-
-    attr_reader :title, :bg_color
   end
 end
