@@ -95,15 +95,14 @@ CSS custom properties are declared in
 
 ## Gotchas
 
-- `bin/release` overwrites `lib/pulse/view_components/version.rb` with a flat
-  `VERSION = "x.y.z"` constant, but the codebase reads
-  `Pulse::ViewComponents::VERSION::STRING` from a `MAJOR`/`MINOR`/`PATCH` module.
-  Check the file after running it.
 - The sidecar `.css` files under `app/components/pulse/` (`counter.css`,
   `layout.css`, `action_list.css`) are not imported anywhere, so their rules do
   not reach the built stylesheet. Put styles in the component's Tailwind classes
   instead.
+- `postcss.config.js` requires `postcss-mixins` and `postcss-preset-env`, but
+  neither is listed in `package.json` or `yarn.lock`. Those plugins exist to
+  compile the orphaned sidecar CSS above; either wire both up or drop the config
+  along with the files.
 - `app/assets/builds/` is committed. Rebuild and commit it when JS or CSS changes.
 - RuboCop inherits a remote config from the `100yrs/code-style-guides` repo, which
   needs network access on first run.
-- CI (`.circleci/config.yml`) still pins Ruby 3.3.0 while the gem requires 3.4.

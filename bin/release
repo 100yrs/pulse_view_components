@@ -1,12 +1,42 @@
 #!/usr/bin/env bash
 
+set -e
+
 VERSION=$1
 
-if [ -z $1 ] ; then
-  echo "Please provide version number: script/release 1.0.0" && exit 1;
+if [ -z "$VERSION" ] ; then
+  echo "Please provide version number: bin/release 1.0.0" && exit 1;
 fi
 
-printf "module Pulse\n  module ViewComponents\n    VERSION = \"$VERSION\"\n  end\nend\n" > ./lib/pulse/view_components/version.rb
+if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] ; then
+  echo "Version must be MAJOR.MINOR.PATCH, e.g. 1.0.0" && exit 1;
+fi
+
+IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+# Normalise so a zero-padded segment is not read as an octal Ruby literal
+MAJOR=$((10#$MAJOR)); MINOR=$((10#$MINOR)); PATCH=$((10#$PATCH))
+
+cat > ./lib/pulse/view_components/version.rb <<RUBY
+# frozen_string_literal: true
+
+# :nocov:
+module Pulse
+  module ViewComponents
+    module VERSION
+      MAJOR = $MAJOR
+      MINOR = $MINOR
+      PATCH = $PATCH
+
+      STRING = [MAJOR, MINOR, PATCH].join('.')
+    end
+  end
+end
+
+# rubocop:disable Rails/Output
+puts Pulse::ViewComponents::VERSION::STRING if __FILE__ == \$PROGRAM_NAME
+# rubocop:enable Rails/Output
+RUBY
+
 bundle
 cd demo
 bundle
