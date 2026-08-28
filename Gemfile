@@ -16,7 +16,7 @@ gem 'turbo-rails'
 gem 'active_link_to'
 gem 'lookbook', '~> 2.3.14'
 gem 'slim-rails'
-gem 'view_component', '~> 4.2.0'
+gem 'view_component', '~> 4.15.0'
 
 gem 'kramdown', '~> 2.5.1'
 gem 'sourcemap', '~> 0.1.1'
