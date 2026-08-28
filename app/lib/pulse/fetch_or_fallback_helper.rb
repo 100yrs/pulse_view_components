@@ -41,7 +41,7 @@ module Pulse
       end
     end
 
-    # rubocop:disable Style/OptionalBooleanParameter
+    # rubocop:disable-next Style/OptionalBooleanParameter
     def fetch_or_fallback_boolean(given_value, fallback = false)
       if [true, false].include?(given_value)
         given_value
@@ -49,6 +49,5 @@ module Pulse
         fallback
       end
     end
-    # rubocop:enable Style/OptionalBooleanParameter
   end
 end

@@ -34,7 +34,7 @@ module Pulse
       multiple_checkbox: :menuitemcheckbox
     }.freeze
 
-    # :nocov:
+    # simplecov:disable
     # @private
     def self.custom_element_name
       @custom_element_name ||= name.split('::').last.underscore.dasherize
@@ -42,7 +42,7 @@ module Pulse
 
     # @private
     delegate :custom_element_name, to: :class
-    # :nocov:
+    # simplecov:enable
 
     # Heading text rendered above the list of items.
     #

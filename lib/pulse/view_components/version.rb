@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# :nocov:
+# simplecov:disable
 module Pulse
   module ViewComponents
     module VERSION
@@ -13,6 +13,5 @@ module Pulse
   end
 end
 
-# rubocop:disable Rails/Output
+# rubocop:disable-next Rails/Output
 puts Pulse::ViewComponents::VERSION::STRING if __FILE__ == $PROGRAM_NAME
-# rubocop:enable Rails/Output

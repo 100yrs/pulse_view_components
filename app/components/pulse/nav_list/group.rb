@@ -61,11 +61,11 @@ module Pulse
       end
 
       # Cause this group to show its list of sub items when rendered.
-      # :nocov:
+      # simplecov:disable
       def expand!
         @expanded = true
       end
-      # :nocov:
+      # simplecov:enable
 
       # @!parse
       #   # Items.

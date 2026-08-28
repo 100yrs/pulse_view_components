@@ -9,7 +9,7 @@ gem 'rake', '~> 13.3.1'
 
 gem 'rails', '~> 8.1.2'
 # Use Puma as the app server
-gem 'puma', '~> 7.1.0'
+gem 'puma', '~> 8.0'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 
