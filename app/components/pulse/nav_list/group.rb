@@ -14,7 +14,9 @@ module Pulse
       # @param pages [Integer] The total number of pages in the result set.
       # @param component_klass [Class] A component class to use instead of the default `Pulse::NavList::Item` class.
       # @param system_arguments [Hash] The arguments accepted by <%= link_to_component(Pulse::NavList::Item) %>.
-      renders_one :show_more_item, lambda { |src:, pages:, component_klass: NavList::Item, **system_arguments|
+      renders_one :show_more_item, lambda { |src:, pages:,
+                                             component_klass: NavList::Item,
+                                             **system_arguments|
         system_arguments[:classes] = merge_classes(
           @item_classes,
           system_arguments[:classes]

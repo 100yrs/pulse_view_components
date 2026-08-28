@@ -306,7 +306,8 @@ module Pulse
         @content_arguments[:classes] = merge_classes(
           @content_arguments[:classes],
           'pulse-pl-2' => leading_visual,
-          'ActionListContent--blockDescription' => description && @description_scheme == :block
+          'ActionListContent--blockDescription' =>
+            description && @description_scheme == :block
         )
       end
 

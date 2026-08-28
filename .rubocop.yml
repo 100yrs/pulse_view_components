@@ -9,6 +9,7 @@ plugins:
 
 inherit_from:
   - https://raw.githubusercontent.com/100yrs/code-style-guides/master/linters/rubocop/rubocop.yml
+  - .rubocop_todo.yml
 
 inherit_mode:
   merge:
@@ -16,6 +17,19 @@ inherit_mode:
 
 AllCops:
   TargetRubyVersion: 3.4
+  Exclude:
+    # Rails-generated scripts in the demo app, like the shared config's bin/*.
+    - demo/bin/*
 
 Rails:
   Enabled: true
+
+# Lookbook previews live in previews/ here, not the lib/component_previews
+# path the shared config exempts.
+Metrics/ClassLength:
+  Exclude:
+    - previews/**/*
+
+Metrics/MethodLength:
+  Exclude:
+    - previews/**/*

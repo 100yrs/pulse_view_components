@@ -133,8 +133,12 @@ module Pulse
     # @param component_klass [Class] The class to use instead of the default <%= link_to_component(Pulse::NavList::Item) %>
     # @param avatar_arguments [Hash] Optional. The arguments accepted by <%= link_to_component(Pulse::Avatar) %>
     # @param system_arguments [Hash] These arguments are forwarded to <%= link_to_component(Pulse::NavList::Item) %>, or whatever class is passed as the `component_klass` argument.
-    def build_avatar_item(src:, username:, full_name: nil,
-                          full_name_scheme: ActionList::Item::DEFAULT_DESCRIPTION_SCHEME, component_klass: Pulse::NavList::Item, avatar_arguments: {}, **system_arguments)
+    def build_avatar_item(
+      src:, username:, full_name: nil,
+      full_name_scheme: ActionList::Item::DEFAULT_DESCRIPTION_SCHEME,
+      component_klass: Pulse::NavList::Item, avatar_arguments: {},
+      **system_arguments
+    )
       component_klass.new(
         list: top_level_group,
         selected_item_id: @selected_item_id,
