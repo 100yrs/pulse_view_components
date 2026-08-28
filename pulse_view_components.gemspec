@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'inline_svg', '>= 1.9.0'
   spec.add_dependency 'rails', '>= 8.1.0'
   spec.add_dependency 'tailwind_merge', ['>= 0.10.1', '< 1.0.0']
-  spec.add_dependency 'view_component', ['>= 4.14.0', '< 5.0.0']
+  spec.add_dependency 'view_component', ['>= 4.0.0', '< 5.0.0']
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
