@@ -38,9 +38,11 @@ end
 puts Pulse::ViewComponents::VERSION::STRING if __FILE__ == \$PROGRAM_NAME
 RUBY
 
-bundle
+# Bundler 4 prints help for a bare `bundle`, so the subcommand is required or
+# the lockfiles never pick up the new version
+bundle install
 cd demo
-bundle
+bundle install
 cd ..
 git add CHANGELOG.md Gemfile.lock demo/Gemfile.lock lib/pulse/view_components/version.rb
 git commit -m "Bump version for $VERSION"
