@@ -19,7 +19,8 @@ module Pulse
   module FetchOrFallbackHelper
     mattr_accessor :fallback_raises, default: true
 
-    InvalidValueError = Class.new(StandardError)
+    class InvalidValueError < StandardError
+    end
 
     def fetch_or_fallback(allowed_values, given_value, fallback = nil)
       if allowed_values.include?(given_value)
