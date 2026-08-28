@@ -42,7 +42,7 @@ bundle
 cd demo
 bundle
 cd ..
-git add Gemfile.lock demo/Gemfile.lock lib/pulse/view_components/version.rb
+git add CHANGELOG.md Gemfile.lock demo/Gemfile.lock lib/pulse/view_components/version.rb
 git commit -m "Bump version for $VERSION"
 git push
 git tag v$VERSION
@@ -50,6 +50,26 @@ git push --tags
 gem build pulse_view_components.gemspec
 gem push "pulse_view_components-$VERSION.gem"
 rm "pulse_view_components-$VERSION.gem"
+
+# A pushed tag does not create a GitHub release on its own, so make one here
+# using this version's CHANGELOG section as the notes
+if command -v gh > /dev/null 2>&1 ; then
+  NOTES=$(awk -v ver="$VERSION" '
+    $0 ~ "^## \\[" ver "\\]" { capture = 1; next }
+    capture && /^## / { exit }
+    capture && /^\[[^]]+\]:/ { exit }
+    capture { print }
+  ' CHANGELOG.md)
+
+  if [ -n "$(printf '%s' "$NOTES" | tr -d '[:space:]')" ] ; then
+    printf '%s\n' "$NOTES" | gh release create "v$VERSION" --title "v$VERSION" --notes-file -
+  else
+    echo "No CHANGELOG.md section for $VERSION, generating notes from commits"
+    gh release create "v$VERSION" --title "v$VERSION" --generate-notes
+  fi
+else
+  echo "gh CLI not found. Create the release manually for tag v$VERSION"
+fi
 
 # echo "Need to publish NPM package too?"
 
