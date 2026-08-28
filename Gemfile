@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in pulse_view_components.gemspec
 gemspec
 
-gem 'rake', '~> 13.3.1'
+gem 'rake', '~> 13.4'
 
 gem 'rails', '~> 8.1.2'
 # Use Puma as the app server
@@ -34,7 +34,7 @@ group :development do
   gem 'sqlite3'
 
   # gem 'capybara', '~> 3.40.0'
-  gem 'listen', '~> 3.9.0'
+  gem 'listen', '~> 3.10'
   gem 'matrix', '~> 0.4.3'
   gem 'mocha'
   gem 'pry'
