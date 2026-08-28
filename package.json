@@ -19,7 +19,7 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.2",
-    "@rails/request.js": "^0.0.9",
+    "@rails/request.js": "^0.0.13",
     "el-transition": "^0.0.7"
   },
   "devDependencies": {
@@ -28,7 +28,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "autoprefixer": "^10.4.16",
     "el-transition": "^0.0.7",
-    "esbuild": "^0.20.0",
+    "esbuild": "^0.28.2",
     "esbuild-rails": "^1.0.7",
     "postcss": "^8.4.31",
     "prettier": "^3.1.1",

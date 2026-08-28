@@ -149,9 +149,9 @@ module Pulse
         elsif item.href
           current_page?(item.href)
         else
-          # :nocov:
+          # simplecov:disable
           false
-          # :nocov:
+          # simplecov:enable
         end
       end
 

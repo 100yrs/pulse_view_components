@@ -5,9 +5,9 @@ require 'simplecov'
 SimpleCov.start 'rails' do
   formatter SimpleCov::Formatter::HTMLFormatter
 
-  add_group 'Components', 'app/components'
+  group 'Components', 'app/components'
 
-  add_filter 'previews'
+  skip 'previews'
 end
 
 require 'spec_helper'

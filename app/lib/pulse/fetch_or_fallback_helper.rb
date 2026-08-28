@@ -19,7 +19,8 @@ module Pulse
   module FetchOrFallbackHelper
     mattr_accessor :fallback_raises, default: true
 
-    InvalidValueError = Class.new(StandardError)
+    class InvalidValueError < StandardError
+    end
 
     def fetch_or_fallback(allowed_values, given_value, fallback = nil)
       if allowed_values.include?(given_value)
@@ -40,7 +41,7 @@ module Pulse
       end
     end
 
-    # rubocop:disable Style/OptionalBooleanParameter
+    # rubocop:disable-next Style/OptionalBooleanParameter
     def fetch_or_fallback_boolean(given_value, fallback = false)
       if [true, false].include?(given_value)
         given_value
@@ -48,6 +49,5 @@ module Pulse
         fallback
       end
     end
-    # rubocop:enable Style/OptionalBooleanParameter
   end
 end

@@ -5,18 +5,18 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in pulse_view_components.gemspec
 gemspec
 
-gem 'rake', '~> 13.3.1'
+gem 'rake', '~> 13.4'
 
 gem 'rails', '~> 8.1.2'
 # Use Puma as the app server
-gem 'puma', '~> 7.1.0'
+gem 'puma', '~> 8.0'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 
 gem 'active_link_to'
 gem 'lookbook', '~> 2.3.14'
 gem 'slim-rails'
-gem 'view_component', '~> 4.2.0'
+gem 'view_component', '~> 4.15.0'
 
 gem 'kramdown', '~> 2.5.1'
 gem 'sourcemap', '~> 0.1.1'
@@ -34,7 +34,7 @@ group :development do
   gem 'sqlite3'
 
   # gem 'capybara', '~> 3.40.0'
-  gem 'listen', '~> 3.9.0'
+  gem 'listen', '~> 3.10'
   gem 'matrix', '~> 0.4.3'
   gem 'mocha'
   gem 'pry'
@@ -45,6 +45,7 @@ group :development do
   gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
   gem 'rubocop-rspec_rails', require: false
+  gem 'rubocop-thread_safety', require: false
   # gem 'rubocop-rails-accessibility', '~> 1.0.1'
 
   # Bundle and process CSS [https://github.com/rails/cssbundling-rails]

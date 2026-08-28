@@ -31,7 +31,8 @@ module Pulse
     #
     # @param tag [Symbol] (Pulse::Popover::DEFAULT_HEADING_TAG) <%= one_of(Pulse::Heading::TAG_OPTIONS) %>
     # @param system_arguments [Hash] <%= link_to_system_arguments_docs %>
-    renders_one :heading, lambda { |tag: DEFAULT_HEADING_TAG, **system_arguments|
+    renders_one :heading, lambda { |tag: DEFAULT_HEADING_TAG,
+                                    **system_arguments|
       system_arguments[:type] = :body3
       system_arguments[:tag] = tag
       system_arguments[:classes] = merge_classes(
@@ -47,7 +48,8 @@ module Pulse
     # @param caret [Symbol] <%= one_of(Pulse::Popover::CARET_MAPPINGS.keys) %>
     # @param large [Boolean] Whether to use the large version of the component.
     # @param system_arguments [Hash] <%= link_to_system_arguments_docs %>
-    renders_one :body, lambda { |caret: CARET_DEFAULT, large: false, **system_arguments|
+    renders_one :body, lambda { |caret: CARET_DEFAULT, large: false,
+                                 **system_arguments|
       @body_arguments = system_arguments
       @body_arguments['data-caret'] = caret
       @body_arguments[:classes] = merge_classes(

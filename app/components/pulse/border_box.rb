@@ -67,7 +67,8 @@ module Pulse
     #
     # @param scheme [Symbol] Color scheme. <%= one_of(Pulse::BorderBox::ROW_SCHEME_MAPPINGS.keys) %>
     # @param system_arguments [Hash] <%= link_to_system_arguments_docs %>
-    renders_many :rows, lambda { |scheme: DEFAULT_ROW_SCHEME, **system_arguments|
+    renders_many :rows, lambda { |scheme: DEFAULT_ROW_SCHEME,
+                                  **system_arguments|
       system_arguments[:tag] = :li
       system_arguments[:classes] = class_names(
         'pulse-px-4 pulse-py-5 pulse-bg-white sm:pulse-p-6',
