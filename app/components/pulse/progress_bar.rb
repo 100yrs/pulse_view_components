@@ -3,6 +3,8 @@
 module Pulse
   # Renders a simple progress bar
   class ProgressBar < Pulse::Component
+    status :stable
+
     def initialize(percentage: 0, **system_attributes)
       @percentage = percentage.to_i
       @system_attributes = system_attributes

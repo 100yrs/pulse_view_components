@@ -4,6 +4,8 @@ module Pulse
   class Table
     # Renders a table cell
     class Cell < Pulse::Component
+      status :stable
+
       attr_reader :sort_by, :current_sort_column, :current_sort_direction,
                   :additional_params, :footer
 

@@ -5,6 +5,8 @@ module Pulse
     # An individual `ActionList` item. Items can optionally include leading and/or trailing visuals,
     # such as icons, avatars, and counters.
     class Item < Pulse::Component
+      status :alpha
+
       DEFAULT_SIZE = :medium
       SIZE_MAPPINGS = {
         DEFAULT_SIZE => nil

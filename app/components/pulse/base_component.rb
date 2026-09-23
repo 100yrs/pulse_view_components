@@ -23,6 +23,8 @@ module Pulse
   # ```
   #
   class BaseComponent < Pulse::Component
+    status :stable
+
     # @param system_arguments_denylist [Hash] Maps arrays of denied argument
     #   keys to help text. Consumed here and never rendered as an attribute.
     def initialize(tag:, classes: nil, system_arguments_denylist: {},

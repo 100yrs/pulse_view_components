@@ -3,6 +3,8 @@
 module Pulse
   # Renders a two-column page layout
   class Layout < Pulse::Component
+    status :stable
+
     FIRST_IN_SOURCE_DEFAULT = :sidebar
     FIRST_IN_SOURCE_OPTIONS = [FIRST_IN_SOURCE_DEFAULT, :main].freeze
 
@@ -77,6 +79,8 @@ module Pulse
 
     # The layout's main content.
     class Main < Pulse::Component
+      status :stable
+
       WIDTH_DEFAULT = :full
       WIDTH_OPTIONS = [WIDTH_DEFAULT, :md, :lg, :xl].freeze
 
@@ -119,6 +123,8 @@ module Pulse
 
     # The layout's sidebar content.
     class Sidebar < Pulse::Component
+      status :stable
+
       TAG_DEFAULT = :div
       TAG_OPTIONS = [TAG_DEFAULT, :aside, :nav, :section].freeze
 

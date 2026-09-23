@@ -9,6 +9,8 @@ module Pulse
   # positioned properly. To render the popover with relative positioning, use
   # the relative property.
   class Popover < Pulse::Component
+    status :stable
+
     # The caret is a white square rotated 45 degrees and drawn over the edge of
     # the body, with a border on the two sides that face outward.
     CARET_BASE = 'pulse:before:absolute pulse:before:size-3 ' \

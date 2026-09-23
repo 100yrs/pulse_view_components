@@ -4,6 +4,8 @@ module Pulse
   class ActionList
     # Heading used to describe each sub list within an action list.
     class Heading < Pulse::Component
+      status :alpha
+
       DEFAULT_SCHEME = :subtle
       SCHEME_MAPPINGS = {
         DEFAULT_SCHEME => nil,

@@ -3,14 +3,19 @@
 module Pulse
   module Forms
     # Render error message box for an ActiveModel resource
-    class ErrorExplanation < ViewComponent::Base
-      def initialize(resource:, **options)
+    class ErrorExplanation < Pulse::Component
+      status :stable
+
+      # @param resource [ActiveModel::Validations] The record whose errors are listed.
+      # @param system_arguments [Hash] <%= link_to_system_arguments_docs %>
+      def initialize(resource:, **system_arguments)
         @resource = resource
-        @options = options
-        @options[:classes] = class_names(
+        @system_arguments = deny_tag_argument(**system_arguments)
+        @system_arguments[:tag] = :div
+        @system_arguments[:classes] = merge_classes(
           'pulse:bg-error-50 pulse:text-error pulse:px-3 pulse:py-2',
           'pulse:font-medium pulse:rounded-lg pulse:my-3',
-          options[:classes]
+          system_arguments[:classes]
         )
       end
 
@@ -22,6 +27,15 @@ module Pulse
           @errors.add(error.attribute, error.message)
         end
         @errors
+      end
+
+      # Uses the app's `errors.template.header` translation when it defines
+      # one, so existing wording is kept.
+      def header
+        options = { count: resource.errors.count,
+                    model: resource.class.model_name.human.downcase }
+
+        t('errors.template.header', **options, default: t('.header', **options))
       end
 
       def render?

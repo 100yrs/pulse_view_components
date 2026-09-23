@@ -5,6 +5,8 @@ module Pulse
   # is true, a `BaseComponent` will render around the content. If the condition is false, only
   # the content is rendered.
   class ConditionalWrapper < Pulse::Component
+    status :stable
+
     # @param condition [Boolean] Whether or not to wrap the content in a `BaseComponent`.
     # @param base_component_arguments [Hash] The arguments to pass to `BaseComponent`.
     def initialize(condition:, **base_component_arguments)

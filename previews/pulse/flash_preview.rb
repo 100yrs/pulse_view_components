@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
-  # @label Flash
+  # @label Flash (beta)
   class FlashPreview < ViewComponent::Preview
     # @label Playground
     #

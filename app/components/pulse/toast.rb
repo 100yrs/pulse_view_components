@@ -3,6 +3,8 @@
 module Pulse
   # Renders a toast popup.
   class Toast < Pulse::Component
+    status :stable
+
     include Turbo::FramesHelper
 
     renders_one :action, lambda { |url:, **system_arguments, &block|

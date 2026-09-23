@@ -11,6 +11,7 @@ module Pulse
     include AttributesHelper
     include FetchOrFallbackHelper
     include SvgHelper
+    include Status
 
     # include Pulse::ViewHelper
 

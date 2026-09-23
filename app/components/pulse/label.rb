@@ -5,6 +5,8 @@ module Pulse
   # consolidated with badges?
   # Accepts Hex color value for bg_color, with or without a leading "#"
   class Label < Pulse::Component
+    status :stable
+
     attr_reader :title, :bg_color
 
     def initialize(title:, bg_color: 'ffffff', **options)

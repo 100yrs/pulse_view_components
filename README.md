@@ -14,6 +14,31 @@ Render Pulse ViewComponents:
 <%= render(Pulse::Badge.new(scheme: :primary)) { 'Primary' } %>
 ```
 
+## Component status
+
+Each component declares how complete it is. Check it with
+`Pulse::ActionList.status`. Lookbook shows the status after the name of any
+component that is not stable.
+
+| Status | Meaning |
+| --- | --- |
+| `stable` | Complete and safe to use. |
+| `beta` | Core usage works. Some documented options are not implemented. |
+| `alpha` | Incomplete. Features may be broken, unstyled or missing, and the API may change without notice. |
+| `deprecated` | Scheduled for removal. |
+
+Components that are not stable:
+
+| Component | Status | Gaps |
+| --- | --- | --- |
+| `ActionList` | alpha | Select variants, trailing actions, tooltips, avatar items and the `:inset` scheme do not work. |
+| `NavList` | alpha | Avatar items raise. Sub-items cannot be collapsed. The show-more item has no JavaScript. |
+| `Counter` | alpha | Renders unstyled. |
+| `BorderBox` | beta | `padding:` and row `scheme:` have no effect. |
+| `Flash` | beta | `dismissible: true` raises. `full: true` has no effect. |
+
+The comment above each `status` call in the source lists what is missing.
+
 ## Dependencies
 
 - [Stimulus](https://stimulus.hotwired.dev/)

@@ -3,6 +3,8 @@
 module Pulse
   # Base Text component
   class Text < Pulse::Component
+    status :stable
+
     STYLE_MAPPINGS = {
       h1: 'pulse:text-3xl pulse:font-bold pulse:print:text-2xl',
       h2: 'pulse:text-2xl pulse:font-bold pulse:print:text-xl',

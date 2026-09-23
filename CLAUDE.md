@@ -70,6 +70,15 @@ Components with no template define `call`; ones with markup use a sidecar
 `deny_tag_argument` and `deny_single_argument` reject arguments a component does
 not support.
 
+Every component declares `status :alpha | :beta | :stable | :deprecated` (see
+`app/lib/pulse/status.rb`). Unmarked components default to `:alpha`. Mark a
+component `:stable` only when every option works with Tailwind classes. Primer
+class names such as `ActionListItem--danger` or `Box--condensed` are a sign it
+is not: no CSS in the build defines them. A non-stable component carries its
+status in its preview's `@label` (`# @label Counter (alpha)`), and
+`status_spec.rb` fails if the two disagree. Keep the README status table in
+step as well.
+
 ## Tailwind
 
 The gem uses Tailwind 4 with CSS-first configuration. There is no

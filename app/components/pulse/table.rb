@@ -5,6 +5,8 @@ module Pulse
   # Inspiration taken from
   # https://github.com/baoagency/polaris_view_components/
   class Table < Pulse::Component
+    status :stable
+
     DEFAULT_TABLE_CLASSES = 'pulse:min-w-full pulse:divide-y ' \
                             'pulse:divide-gray-300'
     DEFAULT_HEAD_CLASSES = 'pulse:bg-gray-100'

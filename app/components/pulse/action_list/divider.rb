@@ -4,6 +4,8 @@ module Pulse
   class ActionList
     # Separator with optional text rendered above groups or between individual items.
     class Divider < Pulse::Component
+      status :alpha
+
       DEFAULT_SCHEME = :subtle
       SCHEME_MAPPINGS = {
         DEFAULT_SCHEME => nil,

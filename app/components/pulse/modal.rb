@@ -3,6 +3,8 @@
 module Pulse
   # Renders a modal component targetable by turbo frame
   class Modal < Pulse::Component
+    status :stable
+
     include Turbo::FramesHelper
 
     renders_one :title

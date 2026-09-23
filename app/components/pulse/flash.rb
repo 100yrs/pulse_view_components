@@ -3,6 +3,10 @@
 module Pulse
   # Use `Flash` to inform users of successful or pending actions.
   class Flash < Pulse::Component
+    # Messages, schemes, icons and actions work. `dismissible: true` raises
+    # because `Pulse::IconButton` does not exist, and `full: true` has no styles.
+    status :beta
+
     # Optional action content showed on the right side of the component.
     #
     # @param system_arguments [Hash] <%= link_to_system_arguments_docs %>

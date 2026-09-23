@@ -3,6 +3,8 @@
 module Pulse
   # Renders a breadcrumb navigation list
   class Breadcrumbs < Pulse::Component
+    status :stable
+
     renders_many :items, Pulse::BreadcrumbItem
 
     def initialize(**system_arguments)

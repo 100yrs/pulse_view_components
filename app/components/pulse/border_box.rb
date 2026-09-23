@@ -3,6 +3,10 @@
 module Pulse
   # `BorderBox` is a Box component with a border.
   class BorderBox < Pulse::Component
+    # Header, body, rows and footer work. The `padding:` option and row
+    # `scheme:` values emit Primer classes that have no styles.
+    status :beta
+
     DEFAULT_PADDING = :default
     PADDING_MAPPINGS = {
       DEFAULT_PADDING => '',

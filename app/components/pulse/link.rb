@@ -5,6 +5,8 @@ module Pulse
   # `Link` styles anchor tags with default styling and hover
   # text-decoration.
   class Link < Pulse::Component
+    status :stable
+
     DEFAULT_SCHEME = :tertiary
     SCHEME_MAPPINGS = {
       primary: 'pulse:text-primary pulse:hover:text-primary',

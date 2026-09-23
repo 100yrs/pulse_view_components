@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
-  # @label ActionList
+  # @label ActionList (alpha)
   class ActionListPreview < ViewComponent::Preview
     # @label Playground
     #

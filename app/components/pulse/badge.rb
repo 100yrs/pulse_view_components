@@ -4,6 +4,8 @@ module Pulse
   # Renders a badge component
   # see: /lookbook/inspect/pulse/badge/default
   class Badge < Pulse::Component
+    status :stable
+
     DEFAULT_TAG = :span
     TAG_OPTIONS = [DEFAULT_TAG, :summary, :a, :div].freeze
 

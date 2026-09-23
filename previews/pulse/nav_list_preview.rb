@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
-  # @label NavList
+  # @label NavList (alpha)
   class NavListPreview < ViewComponent::Preview
     # @label default
     def default

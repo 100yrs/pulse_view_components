@@ -3,6 +3,8 @@
 module Pulse
   # Renders a button or link button
   class Button < Pulse::Component
+    status :stable
+
     attr_reader :kwargs, :label, :url, :tag, :button_to_helper,
                 :disabled
 

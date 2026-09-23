@@ -8,8 +8,30 @@ While the major version is `0`, a minor bump may carry a breaking change.
 
 ## [Unreleased]
 
+### Added
+
+- Components declare a status of `:alpha`, `:beta`, `:stable` or
+  `:deprecated`, read with `Pulse::Thing.status`. `ActionList`, `NavList` and
+  `Counter` are alpha. `BorderBox` and `Flash` are beta. See the README for
+  what each level means.
+- An `ActionList` Lookbook preview.
+
+### Fixed
+
+- `ActionList`, `ActionList::Heading` and every `NavList` group raised on
+  render because they had no template.
+- `NavList` items with sub-items raised, and their sub-items never rendered.
+- `BorderBox` rendered a `system_arguments_denylist` HTML attribute.
+  `BaseComponent` now consumes the denylist and raises outside production when
+  a denied argument is passed, so `BorderBox.new(pt: 2)` now raises.
+- `Forms::ErrorExplanation` rendered "Header" as its heading unless the app
+  defined `errors.template.header`. It now ships a default heading and still
+  prefers the app's translation.
+
 ### Changed
 
+- `Forms::ErrorExplanation` now inherits from `Pulse::Component`. It merges
+  `classes:` with `tailwind_merge` and rejects a `tag:` argument.
 - **Breaking:** upgraded to Tailwind CSS 4. The class prefix is now written as
   a leading variant, so `pulse-bg-primary` becomes `pulse:bg-primary` and
   `hover:pulse-text-white` becomes `pulse:hover:text-white`. Classes passed to
