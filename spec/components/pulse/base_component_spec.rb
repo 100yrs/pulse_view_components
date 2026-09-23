@@ -32,4 +32,18 @@ RSpec.describe Pulse::BaseComponent, type: :component do
       )
     }.to raise_error(ArgumentError, '`p` is an invalid argument. Use padding.')
   end
+
+  it 'drops denied arguments when errors are disabled' do
+    allow(ENV).to receive(:[]).and_call_original
+    allow(ENV).to receive(:[]).with('PULSE_WARNINGS_DISABLED').and_return('1')
+
+    render_inline(
+      Pulse::BaseComponent.new(
+        tag: :div, p: 2, id: 'box',
+        system_arguments_denylist: { [:p, :m] => 'Use padding.' }
+      )
+    )
+
+    expect(page).to have_css('div#box').and have_no_css('[p]')
+  end
 end

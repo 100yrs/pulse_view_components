@@ -42,16 +42,18 @@ module Pulse
     private
 
     def validate_denylist(denylist)
-      return unless should_raise_error?
-
       denylist.each do |keys, help_text|
         denied = keys & @system_arguments.keys
         next if denied.empty?
 
-        raise ArgumentError,
-              "#{denied.map { |key| "`#{key}`" }.to_sentence} " \
-              "#{denied.one? ? 'is an' : 'are'} invalid " \
-              "#{denied.one? ? 'argument' : 'arguments'}. #{help_text}"
+        if should_raise_error?
+          raise ArgumentError,
+                "#{denied.map { |key| "`#{key}`" }.to_sentence} " \
+                "#{denied.one? ? 'is an' : 'are'} invalid " \
+                "#{denied.one? ? 'argument' : 'arguments'}. #{help_text}"
+        end
+
+        @system_arguments.except!(*denied)
       end
     end
   end
