@@ -1,0 +1,11 @@
+/! components/pulse/action_list
+= render(Pulse::BaseComponent.new(tag: :div, **@list_wrapper_arguments)) do
+  = heading
+  = render(Pulse::BaseComponent.new(**@system_arguments)) do
+    - items.each_with_index do |item, index|
+      - if index > 0 && @show_dividers && !item.is_a?(Pulse::ActionList::Divider) && !items[index - 1].is_a?(Pulse::ActionList::Divider)
+        = render(Pulse::ActionList::Divider.new)
+      = item
+
+  - if post_list_content_block
+    = capture(&post_list_content_block)

@@ -118,7 +118,7 @@ module Pulse
         "
 
         with_private_trailing_action_icon(
-          :'chevron-down',
+          icon: :'chevron-down',
           classes: 'ActionListItem-collapseIcon'
         )
 
