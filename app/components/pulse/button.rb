@@ -10,28 +10,28 @@ module Pulse
 
     DEFAULT_SCHEME = :secondary
     SCHEME_MAPPINGS = {
-      primary: 'pulse-border pulse-border-solid pulse-border-gray-300 ' \
-               'pulse-bg-green-700 pulse-text-white hover:pulse-bg-green-800 ' \
-               'focus-visible:pulse-bg-green-800 hover:pulse-text-white ' \
-               'focus-visible:pulse-text-white ' \
-               'focus-visible:pulse-shadow-btn-inset',
-      secondary: 'pulse-border pulse-border-solid pulse-border-gray-300 ' \
-                 'pulse-bg-gray-50 pulse-text-gray hover:pulse-bg-gray-100 ' \
-                 'focus-visible:pulse-bg-gray-100',
-      danger: 'pulse-border pulse-border-solid pulse-border-gray-300 ' \
-              'pulse-bg-gray-50 pulse-text-danger-800 ' \
-              'hover:pulse-bg-danger-800 focus-visible:pulse-bg-danger-800 ' \
-              'hover:pulse-text-white focus-visible:pulse-text-white ' \
-              'focus-visible:pulse-shadow-btn-inset'
+      primary: 'pulse:border pulse:border-solid pulse:border-gray-300 ' \
+               'pulse:bg-green-700 pulse:text-white pulse:hover:bg-green-800 ' \
+               'pulse:focus-visible:bg-green-800 pulse:hover:text-white ' \
+               'pulse:focus-visible:text-white ' \
+               'pulse:focus-visible:shadow-btn-inset',
+      secondary: 'pulse:border pulse:border-solid pulse:border-gray-300 ' \
+                 'pulse:bg-gray-50 pulse:text-gray pulse:hover:bg-gray-100 ' \
+                 'pulse:focus-visible:bg-gray-100',
+      danger: 'pulse:border pulse:border-solid pulse:border-gray-300 ' \
+              'pulse:bg-gray-50 pulse:text-danger-800 ' \
+              'pulse:hover:bg-danger-800 pulse:focus-visible:bg-danger-800 ' \
+              'pulse:hover:text-white pulse:focus-visible:text-white ' \
+              'pulse:focus-visible:shadow-btn-inset'
     }.freeze
     SCHEME_OPTIONS = SCHEME_MAPPINGS.keys
 
     DEFAULT_SIZE = :md
     SIZE_MAPPINGS = {
-      xs: 'pulse-text-xs pulse-leading-5 pulse-font-medium pulse-py-0.5 ' \
-          'pulse-px-4',
-      sm: 'pulse-text-sm pulse-font-medium pulse-py-1 pulse-px-5',
-      md: 'pulse-text-base pulse-font-bold pulse-py-1.5 pulse-px-6'
+      xs: 'pulse:text-xs pulse:leading-5 pulse:font-medium pulse:py-0.5 ' \
+          'pulse:px-4',
+      sm: 'pulse:text-sm pulse:font-medium pulse:py-1 pulse:px-5',
+      md: 'pulse:text-base pulse:font-bold pulse:py-1.5 pulse:px-6'
     }.freeze
     SIZE_OPTIONS = SIZE_MAPPINGS.keys
 
@@ -45,7 +45,7 @@ module Pulse
     renders_one :leading_visual, types: {
       icon: lambda { |**system_arguments|
         system_arguments[:classes] = merge_classes(
-          'pulse-me-2',
+          'pulse:me-2',
           system_arguments[:classes]
         )
 
@@ -82,13 +82,13 @@ module Pulse
 
     def btn_class
       merge_classes(
-        'pulse-appearance-none pulse-inline-flex pulse-justify-center',
-        'pulse-items-center pulse-rounded-md pulse-no-underline',
-        'hover:pulse-no-underline focus-visible:pulse-no-underline',
-        'focus-visible:-pulse-outline-offset-2',
-        'focus-visible:pulse-outline-[2px] focus-visible:pulse-outline-solid',
-        'focus-visible:pulse-outline-[var(--pulse-focus-outlineColor)]',
-        'disabled:pulse-opacity-25 disabled:pulse-cursor-not-allowed',
+        'pulse:appearance-none pulse:inline-flex pulse:justify-center',
+        'pulse:items-center pulse:rounded-md pulse:no-underline',
+        'pulse:hover:no-underline pulse:focus-visible:no-underline',
+        'pulse:focus-visible:-outline-offset-2',
+        'pulse:focus-visible:outline-2 pulse:focus-visible:outline-solid',
+        'pulse:focus-visible:outline-(--pulse-focus-outlineColor)',
+        'pulse:disabled:opacity-25 pulse:disabled:cursor-not-allowed',
         SIZE_MAPPINGS[@size],
         SCHEME_MAPPINGS[@scheme],
         kwargs.fetch(:classes, '')

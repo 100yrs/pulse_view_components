@@ -8,6 +8,36 @@ While the major version is `0`, a minor bump may carry a breaking change.
 
 ## [Unreleased]
 
+### Changed
+
+- **Breaking:** upgraded to Tailwind CSS 4. The class prefix is now written as
+  a leading variant, so `pulse-bg-primary` becomes `pulse:bg-primary` and
+  `hover:pulse-text-white` becomes `pulse:hover:text-white`. Classes passed to
+  components through `classes:` must use the new form.
+- Some utilities were renamed by Tailwind 4 (`outline-none` is now
+  `outline-hidden`, `start-0` is now `inset-s-0`).
+- CSS custom properties from the theme are now emitted with the prefix, for
+  example `--pulse-color-primary`.
+- `tailwind_merge` dependency raised to `~> 1.5`, which understands Tailwind 4
+  class syntax.
+- The Tailwind config moved from `tailwind.config.js` into the stylesheet as
+  CSS-first configuration.
+
+### Removed
+
+- `@tailwindcss/aspect-ratio` and `@tailwindcss/typography`, which no component
+  used. `aspect-*` utilities are built into Tailwind 4.
+- The unused `peer-unchecked` variant. Tailwind 4's `peer-not-checked` covers
+  it.
+- `postcss.config.js`, `postcss` and `autoprefixer`. The Tailwind 4 CLI does
+  not read the PostCSS config.
+
+### Internal
+
+- Development Node moved to 22, since Tailwind 4 needs Node 20 or later.
+- `chokidar` is now a direct dev dependency. `esbuild.config.mjs` imports it,
+  and it previously arrived only through Tailwind 3.
+
 ## [0.3.0] - 2026-08-28
 
 No breaking changes. The component API, the gemspec constraints and the

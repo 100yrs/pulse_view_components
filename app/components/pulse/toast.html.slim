@@ -1,14 +1,14 @@
 /! components/pulse/toast
 = render Pulse::BaseComponent.new(**@system_arguments) do
-  div class="pulse-flex pulse-w-full" data-theme=(@theme)
-    div class="pulse-flex-1 pulse-flex pulse-justify-between pulse-items-start"
-      div class="pulse-flex-1 pulse-flex pulse-justify-between pulse-items-center pulse-gap-4"
-        = render Pulse::Text.new(type: :body6, classes: 'pulse-mb-0 pulse-min-w-[250px]') do
+  div class="pulse:flex pulse:w-full" data-theme=(@theme)
+    div class="pulse:flex-1 pulse:flex pulse:justify-between pulse:items-start"
+      div class="pulse:flex-1 pulse:flex pulse:justify-between pulse:items-center pulse:gap-4"
+        = render Pulse::Text.new(type: :body6, classes: 'pulse:mb-0 pulse:min-w-62.5') do
           = content
-        div class="pulse-mt-0"
-          div class="pulse-flex pulse-items-center pulse-gap-3.5 -pulse-my-2"
+        div class="pulse:mt-0"
+          div class="pulse:flex pulse:items-center pulse:gap-3.5 pulse:-my-2"
             - if action?
-              = render Pulse::Text.new(type: :body5, classes: merge_classes(link_classes, 'pulse-uppercase pulse-mb-0')) do
+              = render Pulse::Text.new(type: :body5, classes: merge_classes(link_classes, 'pulse:uppercase pulse:mb-0')) do
                 = action
-            button class="pulse-appearance-none pulse-bg-transparent pulse-border-0 pulse-p-2" data-action="click->pulse--toast#dismiss"
+            button class="pulse:appearance-none pulse:bg-transparent pulse:border-0 pulse:p-2" data-action="click->pulse--toast#dismiss"
               = render Pulse::Icon.new(icon: :close, width: 9, height: 9, class: link_classes)

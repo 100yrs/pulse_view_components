@@ -8,6 +8,9 @@ gemspec
 gem 'rake', '~> 13.4'
 
 gem 'rails', '~> 8.1.2'
+# json 3 makes JSON.parse options keyword-only, which breaks
+# ActiveSupport::JSON.decode in Rails 8.1. Drop once Rails supports it.
+gem 'json', '< 3'
 # Use Puma as the app server
 gem 'puma', '~> 8.0'
 gem 'stimulus-rails'

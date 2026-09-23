@@ -5,18 +5,18 @@ module Pulse
   # Inspiration taken from
   # https://github.com/baoagency/polaris_view_components/
   class Table < Pulse::Component
-    DEFAULT_TABLE_CLASSES = 'pulse-min-w-full pulse-divide-y ' \
-                            'pulse-divide-gray-300'
-    DEFAULT_HEAD_CLASSES = 'pulse-bg-gray-100'
-    DEFAULT_TH_CLASSES = 'pulse-text-start pulse-text-gray pulse-uppercase ' \
-                         'pulse-tracking-wider pulse-px-4 print:pulse-px-2 ' \
-                         'pulse-py-4 print:pulse-py-3 text-xs pulse-font-medium'
-    DEFAULT_BODY_CLASSES = 'pulse-bg-white pulse-divide-y pulse-text-sm ' \
-                           'pulse-leading-extra-snug pulse-divide-gray-300 ' \
-                           'print:pulse-divide-gray-400 pulse-tracking-tight ' \
-                           ''
-    DEFAULT_ROW_CLASSES = 'pulse-border-secondary-300'
-    DEFAULT_TD_CLASSES = 'pulse-px-4 print:pulse-px-2 pulse-py-4'
+    DEFAULT_TABLE_CLASSES = 'pulse:min-w-full pulse:divide-y ' \
+                            'pulse:divide-gray-300'
+    DEFAULT_HEAD_CLASSES = 'pulse:bg-gray-100'
+    DEFAULT_TH_CLASSES = 'pulse:text-start pulse:text-gray pulse:uppercase ' \
+                         'pulse:tracking-wider pulse:px-4 pulse:print:px-2 ' \
+                         'pulse:py-4 pulse:print:py-3 pulse:text-xs ' \
+                         'pulse:font-medium'
+    DEFAULT_BODY_CLASSES = 'pulse:bg-white pulse:divide-y pulse:text-sm ' \
+                           'pulse:leading-extra-snug pulse:divide-gray-300 ' \
+                           'pulse:print:divide-gray-400 pulse:tracking-tight'
+    DEFAULT_ROW_CLASSES = 'pulse:border-secondary-300'
+    DEFAULT_TD_CLASSES = 'pulse:px-4 pulse:print:px-2 pulse:py-4'
 
     delegate :paginate, to: :helpers
 
@@ -58,7 +58,7 @@ module Pulse
       { tag: 'table' }.deep_merge(@options).tap do |args|
         args[:classes] = merge_classes(
           DEFAULT_TABLE_CLASSES,
-          'pulse-container pulse-mx-auto',
+          'pulse:container pulse:mx-auto',
           args[:classes]
         )
         args[:data] ||= {}
@@ -81,8 +81,8 @@ module Pulse
     def body_classes
       merge_classes(
         DEFAULT_BODY_CLASSES,
-        '[&>tr:nth-child(even)]:pulse-bg-gray-50': striped,
-        'pulse-border-b [&>tr]:pulse-border-t [&>tr:first-child]:pulse-border-t-0': !striped # rubocop:disable Layout/LineLength
+        'pulse:[&>tr:nth-child(even)]:bg-gray-50': striped,
+        'pulse:border-b pulse:[&>tr]:border-t pulse:[&>tr:first-child]:border-t-0': !striped # rubocop:disable Layout/LineLength
       )
     end
 
@@ -90,7 +90,7 @@ module Pulse
       { tag: 'tr' }.tap do |args|
         args[:classes] = merge_classes(
           DEFAULT_ROW_CLASSES,
-          { 'hover:pulse-bg-dark-charcoal-50': hoverable },
+          { 'pulse:hover:bg-dark-charcoal-50': hoverable },
           row_classes
         )
         args[:id] = dom_id(row) if row.respond_to?(:to_key)

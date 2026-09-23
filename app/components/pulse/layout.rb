@@ -61,10 +61,10 @@ module Pulse
       @system_arguments = system_arguments
       @system_arguments[:tag] = :div
       @system_arguments[:classes] = merge_classes(
-        'pulse-grid pulse-grid-flow-col',
-        'pulse-grid-cols-[auto_0_minmax(0,calc(100%_-_var(--pulse-layout' \
+        'pulse:grid pulse:grid-flow-col',
+        'pulse:grid-cols-[auto_0_minmax(0,calc(100%_-_var(--pulse-layout' \
         '-sidebar-width)_-_var(--pulse-layout-gutter)))]',
-        'pulse-gap-[var(--pulse-layout-gutter)]',
+        'pulse:gap-(--pulse-layout-gutter)',
         GUTTER_MAPPINGS[fetch_or_fallback(GUTTER_OPTIONS, gutter,
                                           GUTTER_DEFAULT)],
         system_arguments[:classes]
@@ -92,7 +92,7 @@ module Pulse
         @system_arguments[:tag] =
           fetch_or_fallback(TAG_OPTIONS, tag, TAG_DEFAULT)
         @system_arguments[:classes] = merge_classes(
-          'pulse-col-[2_/_span_2]',
+          'pulse:col-[2/span_2]',
           system_arguments[:classes]
         )
       end
@@ -105,7 +105,7 @@ module Pulse
             render(
               Pulse::BaseComponent.new(
                 tag: :div,
-                classes: "pulse-mx-auto Layout-main-centered-#{@width}"
+                classes: "pulse:mx-auto Layout-main-centered-#{@width}"
               )
             ) do
               render(Pulse::BaseComponent.new(tag: :div, container: @width)) do
@@ -128,7 +128,7 @@ module Pulse
         @system_arguments[:tag] =
           fetch_or_fallback(TAG_OPTIONS, tag, TAG_DEFAULT)
         @system_arguments[:classes] = merge_classes(
-          'pulse-col-[1]',
+          'pulse:col-1',
           @system_arguments[:classes]
         )
       end

@@ -74,7 +74,7 @@ module Pulse
     end
 
     def custom_table_classes
-      render(Pulse::Table.new(COLLECTION, classes: 'pulse-mt-4')) do |c|
+      render(Pulse::Table.new(COLLECTION, classes: 'pulse:mt-4')) do |c|
         c.with_column(title: 'Column 1') do |row|
           row[:column1]
         end
@@ -89,7 +89,7 @@ module Pulse
 
     def custom_head_classes
       render(
-        Pulse::Table.new(COLLECTION, head_classes: 'pulse-bg-secondary-100')
+        Pulse::Table.new(COLLECTION, head_classes: 'pulse:bg-secondary-100')
       ) do |c|
         c.with_column(title: 'Column 1') do |row|
           row[:column1]
@@ -105,7 +105,7 @@ module Pulse
 
     def custom_row_classes
       render(
-        Pulse::Table.new(COLLECTION, row_classes: 'pulse-bg-secondary-50')
+        Pulse::Table.new(COLLECTION, row_classes: 'pulse:bg-secondary-50')
       ) do |c|
         c.with_column(title: 'Column 1') do |row|
           row[:column1]
@@ -124,13 +124,13 @@ module Pulse
         Pulse::Table.new(COLLECTION)
       ) do |c|
         c.with_column(title: 'Column 1',
-                      classes: 'pulse-bg-secondary-50') do |row|
+                      classes: 'pulse:bg-secondary-50') do |row|
           row[:column1]
         end
-        c.with_column(title: 'Column 2', classes: 'pulse-text-primary') do |row|
+        c.with_column(title: 'Column 2', classes: 'pulse:text-primary') do |row|
           row[:column2]
         end
-        c.with_column(classes: 'pulse-font-bold') do |row|
+        c.with_column(classes: 'pulse:font-bold') do |row|
           row[:column3]
         end
       end

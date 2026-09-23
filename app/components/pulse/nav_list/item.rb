@@ -81,7 +81,7 @@ module Pulse
         else
           @system_arguments[:classes] = merge_classes(
             @system_arguments[:classes],
-            'pulse-outline-none pulse-bg-gray-50' => active?
+            'pulse:outline-hidden pulse:bg-gray-50' => active?
           )
         end
 

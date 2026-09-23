@@ -10,10 +10,10 @@ module Pulse
       render(
         Pulse::Layout.new(gutter:, first_in_source:)
       ) do |component|
-        component.with_main(classes: 'pulse-bg-blue-50') do
+        component.with_main(classes: 'pulse:bg-blue-50') do
           'Main content'
         end
-        component.with_sidebar(classes: 'pulse-bg-gray-50') do
+        component.with_sidebar(classes: 'pulse:bg-gray-50') do
           'Sidebar content'
         end
       end
@@ -22,10 +22,10 @@ module Pulse
     # @label Default
     def default
       render(Pulse::Layout.new) do |component|
-        component.with_main(classes: 'pulse-bg-blue-50') do
+        component.with_main(classes: 'pulse:bg-blue-50') do
           'Main content'
         end
-        component.with_sidebar(classes: 'pulse-bg-gray-50') do
+        component.with_sidebar(classes: 'pulse:bg-gray-50') do
           'Sidebar content'
         end
       end

@@ -20,7 +20,7 @@ bundle exec rspec                # tests only
 bundle exec rspec spec/components/pulse/badge_spec.rb
 bundle exec rubocop -A           # lint with autocorrect
 yarn build                       # esbuild JS bundle -> app/assets/builds/js
-yarn build:css                   # tailwind -> app/assets/builds/pulse_view_components.css
+yarn build:css                   # tailwind 4 CLI -> app/assets/builds/pulse_view_components.css
 bin/release VERSION              # tag, build, push gem to Rubygems
 ```
 
@@ -72,16 +72,29 @@ not support.
 
 ## Tailwind
 
-Every utility class carries the `pulse-` prefix (`pulse-bg-primary`,
-`hover:pulse-text-white`). The prefix is set in `tailwind.config.js` and in the
-`TailwindMerge::Merger` config in `component.rb` — the two must stay in step.
+The gem uses Tailwind 4 with CSS-first configuration. There is no
+`tailwind.config.js`. The theme, sources and plugins all live in
+`app/assets/stylesheets/pulse_view_components/application.tailwind.css`.
+Tailwind 4 needs Node 20 or later (`.nvmrc` pins 22).
+
+Every utility carries the `pulse` prefix, written as a leading variant:
+`pulse:bg-primary`, `pulse:hover:text-white`, `pulse:sm:px-4`. The prefix
+always comes first, before any other variant. It is set by
+`@import "tailwindcss" prefix(pulse)` and by the `TailwindMerge::Merger`
+config in `component.rb` (`prefix: 'pulse'`, no dash). The two must stay in step.
+
+Theme variables are declared unprefixed in `@theme` (`--color-primary`) and
+emitted prefixed (`--pulse-color-primary`). Reference the prefixed name from
+plain CSS and arbitrary values.
+
+`source(none)` turns off automatic source detection, so only the `@source`
+paths are scanned. Add a path there if components start using classes from a
+new directory. Capybara selectors must escape the colon:
+`have_css('.pulse\:text-sm')`.
 
 Semantic color names (`primary`, `secondary`, `tertiary`, `success`, `danger`,
-`error`) map onto the named palettes in `tailwind.config.js`. Prefer the semantic
+`error`) map onto the named palettes in the `@theme` block. Prefer the semantic
 name over the raw palette name.
-
-CSS custom properties are declared in
-`app/assets/stylesheets/pulse_view_components/application.tailwind.css`.
 
 ## Adding a component
 
@@ -97,12 +110,8 @@ CSS custom properties are declared in
 
 - The sidecar `.css` files under `app/components/pulse/` (`counter.css`,
   `layout.css`, `action_list.css`) are not imported anywhere, so their rules do
-  not reach the built stylesheet. Put styles in the component's Tailwind classes
-  instead.
-- `postcss.config.js` requires `postcss-mixins` and `postcss-preset-env`, but
-  neither is listed in `package.json` or `yarn.lock`. Those plugins exist to
-  compile the orphaned sidecar CSS above; either wire both up or drop the config
-  along with the files.
+  not reach the built stylesheet. They still use the Tailwind 3 `pulse-` class
+  syntax in `@apply`. Put styles in the component's Tailwind classes instead.
 - `app/assets/builds/` is committed. Rebuild and commit it when JS or CSS changes.
 - RuboCop inherits a remote config from the `100yrs/code-style-guides` repo, which
   needs network access on first run.

@@ -6,7 +6,7 @@ module Pulse
   # This core `Component` class provides a place to include shared modules
   # and helper methods that can be used by any child component.
   class Component < ViewComponent::Base
-    TW_MERGE = TailwindMerge::Merger.new(config: { prefix: 'pulse-' })
+    TW_MERGE = TailwindMerge::Merger.new(config: { prefix: 'pulse' })
 
     include AttributesHelper
     include FetchOrFallbackHelper

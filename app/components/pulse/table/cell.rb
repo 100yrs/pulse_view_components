@@ -9,19 +9,19 @@ module Pulse
 
       HEAD_DEFAULT_SCHEME = :xs
       HEAD_SCHEME_MAPPINGS = {
-        sm: 'pulse-px-3 pulse-py-4 print:pulse-px-2 print:pulse-py-3 ' \
-            'pulse-text-sm print:pulse-text-xs pulse-font-base',
-        xs: 'pulse-px-2 pulse-py-4 print:pulse-py-2 pulse-text-xs ' \
-            'print:pulse-text-2xs pulse-font-medium'
+        sm: 'pulse:px-3 pulse:py-4 pulse:print:px-2 pulse:print:py-3 ' \
+            'pulse:text-sm pulse:print:text-xs pulse:font-base',
+        xs: 'pulse:px-2 pulse:py-4 pulse:print:py-2 pulse:text-xs ' \
+            'pulse:print:text-2xs pulse:font-medium'
       }.freeze
       HEAD_SCHEME_OPTIONS = HEAD_SCHEME_MAPPINGS.keys.freeze
 
-      DEFAULT_CELL_CLASSES = 'pulse-text-start first:pulse-ps-4 ' \
-                             'last:pulse-pe-4 pulse-px-2 pulse-text-gray ' \
-                             'print:first:pulse-ps-2 print:last:pulse-pe-2'
-      DEFAULT_TH_CLASSES = 'pulse-uppercase pulse-tracking-wider'
-      DEFAULT_TD_CLASSES = 'pulse-py-2 pulse-whitespace-nowrap ' \
-                           'pulse-text-sm print:pulse-text-xs pulse-text-gray'
+      DEFAULT_CELL_CLASSES = 'pulse:text-start pulse:first:ps-4 ' \
+                             'pulse:last:pe-4 pulse:px-2 pulse:text-gray ' \
+                             'pulse:print:first:ps-2 pulse:print:last:pe-2'
+      DEFAULT_TH_CLASSES = 'pulse:uppercase pulse:tracking-wider'
+      DEFAULT_TD_CLASSES = 'pulse:py-2 pulse:whitespace-nowrap ' \
+                           'pulse:text-sm pulse:print:text-xs pulse:text-gray'
 
       def initialize(sort_by: nil, current_sort_column: nil,
                      current_sort_direction: nil, additional_params: {},
