@@ -30,9 +30,9 @@ RSpec.describe Pulse::Status do
 
   # Lookbook shows the label, so non-stable components carry their status
   # there too. This keeps the label in step with the class.
-  Rails.root.join('../previews/pulse').glob('*_preview.rb').each do |path|
+  Rails.root.join('../previews').glob('pulse/**/*_preview.rb').each do |path|
     it "labels the #{path.basename('.rb')} with its component status" do
-      component = "Pulse::#{path.basename('_preview.rb').to_s.camelize}"
+      component = path.to_s[/previews\/(pulse\/.+)_preview\.rb\z/, 1].camelize
       status = component.constantize.status
       label = path.read[/^  # @label (.+)$/, 1]
       suffix = label.to_s[/\((\w+)\)\z/, 1]
