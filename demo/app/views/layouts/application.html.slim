@@ -15,7 +15,7 @@ html
     - if Rails.env.development?
       = javascript_include_tag 'hotwire-livereload', defer: true
 
-  body class=class_names('pulse:p-4', params.dig(:lookbook, :display, :class)) style="background-color: #{params.dig(:lookbook, :display, :bg_color) || 'pulse-white'}"
+  body class=class_names('pulse:p-4', params.dig(:lookbook, :display, :class)) style="background-color: #{params.dig(:lookbook, :display, :bg_color) || 'white'}"
     div class="pulse:mt-4" style="max-width:#{params.dig(:lookbook, :display, :max_width) || '100%'}"
       - if params.dig(:lookbook, :display, :wrapper) == true
         div class="#{['pulse-wrapper pulse:relative', params.dig(:lookbook, :display, :wrapper_classes)].compact.join(' ')}"

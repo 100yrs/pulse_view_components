@@ -60,7 +60,7 @@ module Pulse
       Pulse::BaseComponent.new(**system_arguments)
     }
 
-    # @apply pulse-pt-[var(--stack-padding-normal)] pulse-pr-[var(--stack-padding-normal)] pulse-pb-[var(--stack-padding-normal)] pulse-pl-[var(--stack-padding-normal)] pulse-mt-[calc(var(--borderWidth-thin)_*_-1)] pulse-list-none pulse-border-t-[color:var(--borderColor-muted)] pulse-border-t-[length:var(--borderWidth-thin)] first-of-type:pulse-rounded-tl-[var(--borderRadius-medium)] first-of-type:pulse-rounded-tr-[var(--borderRadius-medium)] last-of-type:pulse-rounded-br-[var(--borderRadius-medium)] last-of-type:pulse-rounded-bl-[var(--borderRadius-medium)]; /* To account for applying Box component to a list */
+    # @apply pulse:pt-[var(--stack-padding-normal)] pulse:pr-[var(--stack-padding-normal)] pulse:pb-[var(--stack-padding-normal)] pulse:pl-[var(--stack-padding-normal)] pulse:mt-[calc(var(--borderWidth-thin)_*_-1)] pulse:list-none pulse:border-t-[color:var(--borderColor-muted)] pulse:border-t-[length:var(--borderWidth-thin)] pulse:first-of-type:rounded-tl-[var(--borderRadius-medium)] pulse:first-of-type:rounded-tr-[var(--borderRadius-medium)] pulse:last-of-type:rounded-br-[var(--borderRadius-medium)] pulse:last-of-type:rounded-bl-[var(--borderRadius-medium)]; /* To account for applying Box component to a list */
     # border-top-style: solid;
 
     # Use Rows to add rows with borders and maintain the same padding.

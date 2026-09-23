@@ -5,9 +5,7 @@
 }
 
 @source "../../../components";
-@source "../../../helpers";
 @source "../../../javascript";
-@source "../../../lib/form_builders";
 @source "../../../../previews";
 
 @import "./tokens.primitives.css";

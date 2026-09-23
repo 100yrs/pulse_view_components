@@ -1,6 +1,6 @@
 {
   "name": "pulse-view-components",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "View Components for Pulse design system",
   "main": "app/assets/javascripts/pulse_view_components.js",
   "module": "app/assets/javascripts/pulse_view_components/index.js",
