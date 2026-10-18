@@ -27,9 +27,9 @@ module Pulse
       body7: 'pulse:text-xs pulse:font-bold pulse:leading-5',
       body8: 'pulse:text-xs pulse:font-normal pulse:leading-5',
       caption1: 'pulse:text-2xs pulse:font-bold pulse:tracking-normal ' \
-                'pulse:leading-extra-tight',
+                'pulse:leading-tight',
       caption2: 'pulse:text-2xs pulse:font-normal pulse:tracking-normal ' \
-                'pulse:leading-extra-tight'
+                'pulse:leading-tight'
     }.freeze
 
     TAG_MAPPINGS = {

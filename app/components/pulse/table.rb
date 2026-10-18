@@ -16,7 +16,7 @@ module Pulse
                          'pulse:py-4 pulse:print:py-3 pulse:text-xs ' \
                          'pulse:font-medium'
     DEFAULT_BODY_CLASSES = 'pulse:bg-white pulse:divide-y pulse:text-sm ' \
-                           'pulse:leading-extra-snug pulse:divide-gray-300 ' \
+                           'pulse:leading-snug pulse:divide-gray-300 ' \
                            'pulse:print:divide-gray-400 pulse:tracking-tight'
     DEFAULT_ROW_CLASSES = 'pulse:border-secondary-300'
     DEFAULT_TD_CLASSES = 'pulse:px-4 pulse:print:px-2 pulse:py-4'
