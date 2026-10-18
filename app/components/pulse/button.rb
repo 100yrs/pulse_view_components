@@ -18,8 +18,8 @@ module Pulse
                'pulse:focus-visible:text-white ' \
                'pulse:focus-visible:shadow-btn-inset',
       secondary: 'pulse:border pulse:border-solid pulse:border-gray-300 ' \
-                 'pulse:bg-gray-50 pulse:text-gray pulse:hover:bg-gray-100 ' \
-                 'pulse:focus-visible:bg-gray-100',
+                 'pulse:bg-gray-50 pulse:text-gray-700 ' \
+                 'pulse:hover:bg-gray-100 pulse:focus-visible:bg-gray-100',
       danger: 'pulse:border pulse:border-solid pulse:border-gray-300 ' \
               'pulse:bg-gray-50 pulse:text-danger-800 ' \
               'pulse:hover:bg-danger-800 pulse:focus-visible:bg-danger-800 ' \

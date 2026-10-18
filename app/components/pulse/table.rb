@@ -10,7 +10,8 @@ module Pulse
     DEFAULT_TABLE_CLASSES = 'pulse:min-w-full pulse:divide-y ' \
                             'pulse:divide-gray-300'
     DEFAULT_HEAD_CLASSES = 'pulse:bg-gray-100'
-    DEFAULT_TH_CLASSES = 'pulse:text-start pulse:text-gray pulse:uppercase ' \
+    DEFAULT_TH_CLASSES = 'pulse:text-start pulse:text-gray-700 ' \
+                         'pulse:uppercase ' \
                          'pulse:tracking-wider pulse:px-4 pulse:print:px-2 ' \
                          'pulse:py-4 pulse:print:py-3 pulse:text-xs ' \
                          'pulse:font-medium'

@@ -19,7 +19,7 @@ module Pulse
 
     LINK_MAPPINGS = {
       default: 'pulse:text-white pulse:hover:text-white',
-      error: 'pulse:text-gray pulse:hover:text-gray',
+      error: 'pulse:text-gray-700 pulse:hover:text-gray-700',
       success: 'pulse:text-white pulse:hover:text-white'
     }.freeze
 

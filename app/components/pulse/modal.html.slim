@@ -29,12 +29,12 @@
           /! header
           div class="pulse:flex pulse:items-center pulse:justify-between pulse:gap-4 pulse:p-4 pulse:md:p-5 pulse:border-b"
             - if title?
-              = render Pulse::Text.new(type: :h4, el_tag: :h2, classes: 'pulse:tracking-tight pulse:text-gray pulse:truncate')
+              = render Pulse::Text.new(type: :h4, el_tag: :h2, classes: 'pulse:tracking-tight pulse:text-gray-700 pulse:truncate')
                 = title
 
             - if close_button
               button{
-                class="pulse:ms-auto pulse:inline-flex pulse:items-center pulse:justify-center pulse:w-10 pulse:h-7 pulse:bg-transparent pulse:border-none pulse:text-gray"
+                class="pulse:ms-auto pulse:inline-flex pulse:items-center pulse:justify-center pulse:w-10 pulse:h-7 pulse:bg-transparent pulse:border-none pulse:text-gray-700"
                 data-action="pulse--modal#close"
                 aria-label="Close Modal"}
 

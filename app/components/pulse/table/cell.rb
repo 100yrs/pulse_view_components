@@ -19,11 +19,12 @@ module Pulse
       HEAD_SCHEME_OPTIONS = HEAD_SCHEME_MAPPINGS.keys.freeze
 
       DEFAULT_CELL_CLASSES = 'pulse:text-start pulse:first:ps-4 ' \
-                             'pulse:last:pe-4 pulse:px-2 pulse:text-gray ' \
+                             'pulse:last:pe-4 pulse:px-2 pulse:text-gray-700 ' \
                              'pulse:print:first:ps-2 pulse:print:last:pe-2'
       DEFAULT_TH_CLASSES = 'pulse:uppercase pulse:tracking-wider'
       DEFAULT_TD_CLASSES = 'pulse:py-2 pulse:whitespace-nowrap ' \
-                           'pulse:text-sm pulse:print:text-xs pulse:text-gray'
+                           'pulse:text-sm pulse:print:text-xs ' \
+                           'pulse:text-gray-700'
 
       def initialize(sort_by: nil, current_sort_column: nil,
                      current_sort_direction: nil, additional_params: {},
