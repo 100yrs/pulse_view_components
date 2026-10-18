@@ -32,6 +32,12 @@ module Pulse
       def call
         render(Pulse::BaseComponent.new(**@system_arguments)) { content }
       end
+
+      # `ActionList#items` yields slot wrappers, so `is_a?` cannot spot a
+      # divider. The slot forwards `respond_to?` to this component instead.
+      def divider?
+        true
+      end
     end
   end
 end
