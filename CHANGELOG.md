@@ -8,12 +8,18 @@ While the major version is `0`, a minor bump may carry a breaking change.
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-19
+
+Upgrades to Tailwind CSS 4. This is a breaking change for apps that pass
+classes through `classes:`, because the prefix is now written as a leading
+variant (`pulse:bg-primary` rather than `pulse-bg-primary`). See Changed.
+
 ### Added
 
 - Components declare a status of `:alpha`, `:beta`, `:stable` or
   `:deprecated`, read with `Pulse::Thing.status`. `ActionList`, `NavList` and
-  `Counter` are alpha. `BorderBox`, `Flash` and `Layout` are beta. See the README for
-  what each level means.
+  `Counter` are alpha. `BorderBox`, `Flash` and `Layout` are beta. See the
+  README for what each level means.
 - An `ActionList` Lookbook preview.
 - A `neutral` semantic color, backed by a new `gray` palette token that copies
   Tailwind 4's gray.
@@ -40,7 +46,7 @@ While the major version is `0`, a minor bump may carry a breaking change.
   one per attribute, so two errors on `title` read "2 errors" above one item.
   The heading now counts the listed errors.
 - Several components used `text-gray`, which Tailwind never defined, so their
-  text inherited its colour. They now use gray-700: `Badge` (`invited`,
+  text inherited its colour. They now use neutral-700: `Badge` (`invited`,
   `active` and `disabled` schemes), the secondary `Button`, the `Modal` title
   and close button, inactive `NavLink`s, `Table` headers, cells and
   pagination, and the link in an error `Toast`.
@@ -86,7 +92,7 @@ While the major version is `0`, a minor bump may carry a breaking change.
 - Utilities named after the raw palettes, such as `pulse-bg-coral-red-500`.
   The palettes are now `--palette-*` theme variables outside the colour
   namespace. Use the semantic names (`primary`, `secondary`, `tertiary`,
-  `success`, `danger`, `error`) instead.
+  `success`, `danger`, `error`, `neutral`) instead.
 
 ### Internal
 
@@ -170,7 +176,8 @@ No breaking changes. The component API, the gemspec constraints and the
 
 - Initial release.
 
-[Unreleased]: https://github.com/100yrs/pulse_view_components/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/100yrs/pulse_view_components/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/100yrs/pulse_view_components/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/100yrs/pulse_view_components/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/100yrs/pulse_view_components/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/100yrs/pulse_view_components/compare/v0.1.1...v0.2.0
