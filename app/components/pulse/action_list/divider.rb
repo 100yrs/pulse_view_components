@@ -9,8 +9,9 @@ module Pulse
       DEFAULT_SCHEME = :subtle
       SCHEME_MAPPINGS = {
         DEFAULT_SCHEME => nil,
-        :filled => 'pulse:border-t-color-gray pulse:border-b-color-gray ' \
-                   'pulse:border-y-solid pulse:empty:h-2 pulse:empty:box-border'
+        :filled => 'pulse:border-y pulse:border-solid ' \
+                   'pulse:border-neutral-300 pulse:empty:h-2 ' \
+                   'pulse:empty:box-border'
       }.freeze
       SCHEME_OPTIONS = SCHEME_MAPPINGS.keys.freeze
 

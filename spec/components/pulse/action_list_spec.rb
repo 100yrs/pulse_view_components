@@ -33,6 +33,19 @@ RSpec.describe Pulse::ActionList, type: :component do
     expect(page).to have_css('li[role="presentation"]', count: 1)
   end
 
+  it 'draws top and bottom borders on a filled divider' do
+    render_inline(Pulse::ActionList.new) do |list|
+      list.with_item(label: 'First', href: '#')
+      list.with_divider(scheme: :filled)
+      list.with_item(label: 'Second', href: '#')
+    end
+
+    expect(page).to have_css(
+      'li[role="presentation"].pulse\:border-y.pulse\:border-solid' \
+      '.pulse\:border-neutral-300'
+    )
+  end
+
   context 'with a heading' do
     it 'renders the title in an h3 by default' do
       render_inline(Pulse::ActionList.new) do |list|

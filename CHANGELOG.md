@@ -22,6 +22,8 @@ While the major version is `0`, a minor bump may carry a breaking change.
 
 ### Fixed
 
+- `ActionList::Divider` with `scheme: :filled` draws its top and bottom
+  borders again. It used class names that Tailwind 4 does not generate.
 - `ActionList`, `ActionList::Heading` and every `NavList` group raised on
   render because they had no template.
 - `NavList` items with sub-items raised, and their sub-items never rendered.
