@@ -93,7 +93,7 @@ module Pulse
       { tag: 'tr' }.tap do |args|
         args[:classes] = merge_classes(
           DEFAULT_ROW_CLASSES,
-          { 'pulse:hover:bg-dark-charcoal-50': hoverable },
+          { 'pulse:hover:bg-gray-50': hoverable },
           row_classes
         )
         args[:id] = dom_id(row) if row.respond_to?(:to_key)

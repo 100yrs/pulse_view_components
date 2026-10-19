@@ -12,7 +12,7 @@ module Pulse
       HEAD_DEFAULT_SCHEME = :xs
       HEAD_SCHEME_MAPPINGS = {
         sm: 'pulse:px-3 pulse:py-4 pulse:print:px-2 pulse:print:py-3 ' \
-            'pulse:text-sm pulse:print:text-xs pulse:font-base',
+            'pulse:text-sm pulse:print:text-xs pulse:font-normal',
         xs: 'pulse:px-2 pulse:py-4 pulse:print:py-2 pulse:text-xs ' \
             'pulse:print:text-2xs pulse:font-medium'
       }.freeze
