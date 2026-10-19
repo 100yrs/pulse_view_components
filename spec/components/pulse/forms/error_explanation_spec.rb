@@ -35,6 +35,29 @@ RSpec.describe Pulse::Forms::ErrorExplanation, type: :component do
     I18n.backend.reload!
   end
 
+  context 'with a locale the component does not translate' do
+    around do |example|
+      helper = ActionView::Helpers::TranslationHelper
+      raise_on_missing = helper.raise_on_missing_translations
+      available_locales = I18n.available_locales
+      helper.raise_on_missing_translations = true
+      I18n.available_locales += [:fr]
+      I18n.backend.store_translations(
+        :fr, errors: { template: { header: { one: 'Une erreur' } } }
+      )
+
+      I18n.with_locale(:fr) { example.run }
+    ensure
+      helper.raise_on_missing_translations = raise_on_missing
+      I18n.available_locales = available_locales
+      I18n.backend.reload!
+    end
+
+    it 'uses the app header translation without raising' do
+      expect(component).to have_css('h2', text: 'Une erreur')
+    end
+  end
+
   it 'lists each attribute once' do
     resource.errors.add(:title, 'is too short')
 

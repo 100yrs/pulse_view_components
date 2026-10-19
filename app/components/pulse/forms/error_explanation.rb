@@ -30,12 +30,18 @@ module Pulse
       end
 
       # Uses the app's `errors.template.header` translation when it defines
-      # one, so existing wording is kept.
+      # one, so existing wording is kept. The sidecar fallback is only looked
+      # up when needed, because it is English-only and would raise under
+      # `raise_on_missing_translations` in other locales.
       def header
         options = { count: resource.errors.count,
                     model: resource.class.model_name.human.downcase }
 
-        t('errors.template.header', **options, default: t('.header', **options))
+        if I18n.exists?('errors.template.header')
+          return t('errors.template.header', **options)
+        end
+
+        t('.header', **options)
       end
 
       def render?
