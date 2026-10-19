@@ -23,14 +23,38 @@ module Pulse
   # ```
   #
   class BaseComponent < Pulse::Component
-    def initialize(tag:, classes: nil, **system_arguments)
+    status :stable
+
+    # @param system_arguments_denylist [Hash] Maps arrays of denied argument
+    #   keys to help text. Consumed here and never rendered as an attribute.
+    def initialize(tag:, classes: nil, system_arguments_denylist: {},
+                   **system_arguments)
       @tag = tag
       @classes = classes
       @system_arguments = system_arguments
+      validate_denylist(system_arguments_denylist)
     end
 
     def call
       content_tag(@tag, content, class: @classes, **@system_arguments)
+    end
+
+    private
+
+    def validate_denylist(denylist)
+      denylist.each do |keys, help_text|
+        denied = keys & @system_arguments.keys
+        next if denied.empty?
+
+        if should_raise_error?
+          raise ArgumentError,
+                "#{denied.map { |key| "`#{key}`" }.to_sentence} " \
+                "#{denied.one? ? 'is an' : 'are'} invalid " \
+                "#{denied.one? ? 'argument' : 'arguments'}. #{help_text}"
+        end
+
+        @system_arguments.except!(*denied)
+      end
     end
   end
 end

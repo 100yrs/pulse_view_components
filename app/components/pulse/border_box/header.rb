@@ -6,6 +6,8 @@ module Pulse
     #
     # @accessibility When using `header.with_title`, set `tag` to one of `h1`, `h2`, `h3`, etc. based on what is appropriate for the page context. <%= link_to_heading_practices %>
     class Header < Pulse::Component
+      status :beta
+
       attr_reader :id
 
       TITLE_TAG_FALLBACK = :h2
@@ -35,9 +37,9 @@ module Pulse
         @system_arguments[:id] ||= self.class.generate_id
         @system_arguments[:tag] = :div
         @system_arguments[:classes] = class_names(
-          'pulse-px-4 pulse-py-5 pulse-bg-gray-50 sm:pulse-p-6',
-          'pulse-rounded-t-md pulse-border-b pulse-border-gray-300',
-          'pulse-border-solid',
+          'pulse:px-4 pulse:py-5 pulse:bg-neutral-50 pulse:sm:p-6',
+          'pulse:rounded-t-md pulse:border-b pulse:border-neutral-300',
+          'pulse:border-solid',
           'Box-header',
           system_arguments[:classes]
         )

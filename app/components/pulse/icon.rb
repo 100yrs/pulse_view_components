@@ -3,6 +3,8 @@
 module Pulse
   # Render icons from the images/pulse_view_components/icons directory.
   class Icon < Pulse::Component
+    status :stable
+
     SIZE_DEFAULT = :sm
     SIZE_MAPPINGS = {
       xs: 12,

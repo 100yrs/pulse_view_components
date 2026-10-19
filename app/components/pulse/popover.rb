@@ -9,21 +9,51 @@ module Pulse
   # positioned properly. To render the popover with relative positioning, use
   # the relative property.
   class Popover < Pulse::Component
+    status :stable
+
+    # The caret is a white square rotated 45 degrees and drawn over the edge of
+    # the body, with a border on the two sides that face outward.
+    CARET_BASE = 'pulse:before:absolute pulse:before:size-3 ' \
+                 'pulse:before:rotate-45 pulse:before:bg-white ' \
+                 'pulse:before:border-neutral-300'
+    CARET_TOP = 'pulse:before:-top-1.5 pulse:before:border-t ' \
+                'pulse:before:border-l'
+    CARET_BOTTOM = 'pulse:before:-bottom-1.5 pulse:before:border-b ' \
+                   'pulse:before:border-r'
+    CARET_LEFT = 'pulse:before:-left-1.5 pulse:before:border-b ' \
+                 'pulse:before:border-l'
+    CARET_RIGHT = 'pulse:before:-right-1.5 pulse:before:border-t ' \
+                  'pulse:before:border-r'
+    CARET_CENTER_X = 'pulse:before:left-1/2 pulse:before:-translate-x-1/2'
+    CARET_CENTER_Y = 'pulse:before:top-1/2 pulse:before:-translate-y-1/2'
+
     CARET_DEFAULT = :top
     CARET_MAPPINGS = {
-      CARET_DEFAULT => 'pulse-caret-top',
-      :bottom => 'pulse-caret-bottom',
-      :bottom_right => 'Popover-message--bottom-right',
-      :bottom_left => 'Popover-message--bottom-left',
-      :left => 'pulse-caret-left',
-      :left_bottom => 'Popover-message--left-bottom',
-      :left_top => 'Popover-message--left-top',
-      :right => 'pulse-caret-right',
-      :right_bottom => 'Popover-message--right-bottom',
-      :right_top => 'Popover-message--right-top',
-      :top_left => 'Popover-message--top-left',
-      :top_right => 'Popover-message--top-right'
+      CARET_DEFAULT => "#{CARET_TOP} #{CARET_CENTER_X}",
+      :top_left => "#{CARET_TOP} pulse:before:left-6",
+      :top_right => "#{CARET_TOP} pulse:before:right-6",
+      :bottom => "#{CARET_BOTTOM} #{CARET_CENTER_X}",
+      :bottom_left => "#{CARET_BOTTOM} pulse:before:left-6",
+      :bottom_right => "#{CARET_BOTTOM} pulse:before:right-6",
+      :left => "#{CARET_LEFT} #{CARET_CENTER_Y}",
+      :left_top => "#{CARET_LEFT} pulse:before:top-6",
+      :left_bottom => "#{CARET_LEFT} pulse:before:bottom-6",
+      :right => "#{CARET_RIGHT} #{CARET_CENTER_Y}",
+      :right_top => "#{CARET_RIGHT} pulse:before:top-6",
+      :right_bottom => "#{CARET_RIGHT} pulse:before:bottom-6"
     }.freeze
+    CARET_OPTIONS = CARET_MAPPINGS.keys.freeze
+
+    # Leaves room for the caret on the side it points from.
+    CARET_MARGIN_MAPPINGS = {
+      top: 'pulse:mt-2',
+      bottom: 'pulse:mb-2',
+      left: 'pulse:ml-2',
+      right: 'pulse:mr-2'
+    }.freeze
+
+    DEFAULT_WIDTH = 'pulse:w-64'
+    LARGE_WIDTH = 'pulse:w-80'
 
     DEFAULT_HEADING_TAG = :h4
 
@@ -36,7 +66,7 @@ module Pulse
       system_arguments[:type] = :body3
       system_arguments[:tag] = tag
       system_arguments[:classes] = merge_classes(
-        'pulse-mb-2',
+        'pulse:mb-2',
         system_arguments[:classes]
       )
 
@@ -50,18 +80,19 @@ module Pulse
     # @param system_arguments [Hash] <%= link_to_system_arguments_docs %>
     renders_one :body, lambda { |caret: CARET_DEFAULT, large: false,
                                  **system_arguments|
+      caret = fetch_or_fallback(CARET_OPTIONS, caret, CARET_DEFAULT)
+      side = caret.to_s.split('_').first.to_sym
+      @large = large
+
       @body_arguments = system_arguments
       @body_arguments['data-caret'] = caret
       @body_arguments[:classes] = merge_classes(
-        @body_arguments[:classes],
-        CARET_MAPPINGS[fetch_or_fallback(CARET_MAPPINGS.keys, caret,
-                                         CARET_DEFAULT)],
-        'Popover-message--large' => large
-      )
-      @body_arguments[:classes] = merge_classes(
-        @body_arguments[:classes],
-        'pulse-bg-white pulse-border pulse-border-gray-300 pulse-rounded-lg',
-        'pulse-p-4 pulse-mt-2 pulse-mx-auto pulse-text-left pulse-shadow-lg'
+        'pulse:relative pulse:bg-white pulse:border pulse:border-neutral-300',
+        'pulse:rounded-lg pulse:p-4 pulse:text-left pulse:shadow-lg',
+        CARET_MARGIN_MAPPINGS[side],
+        CARET_BASE,
+        CARET_MAPPINGS[caret],
+        system_arguments[:classes]
       )
 
       Pulse::Content.new
@@ -71,14 +102,22 @@ module Pulse
     def initialize(**system_arguments)
       @system_arguments = deny_tag_argument(**system_arguments)
       @system_arguments[:tag] = :div
-      @system_arguments[:classes] = merge_classes(
-        'pulse-relative pulse-z-10 pulse-w-64',
-        system_arguments[:classes]
-      )
     end
 
     def render?
       body.present?
+    end
+
+    # Built from the template because the body slot, which sets `large`, is
+    # only evaluated once rendering starts.
+    def wrapper_arguments
+      @system_arguments.merge(
+        classes: merge_classes(
+          'pulse:relative pulse:z-10',
+          @large ? LARGE_WIDTH : DEFAULT_WIDTH,
+          @system_arguments[:classes]
+        )
+      )
     end
 
     def body_component

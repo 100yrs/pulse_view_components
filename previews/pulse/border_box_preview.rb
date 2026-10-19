@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
-  # @label BorderBox
+  # @label BorderBox (beta)
   class BorderBoxPreview < ViewComponent::Preview
     # @label Default
     def default

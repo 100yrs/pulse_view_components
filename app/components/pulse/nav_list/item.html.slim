@@ -1,0 +1,8 @@
+/! components/pulse/nav_list/item
+- with_private_content do
+  - if items.present?
+    = render(Pulse::BaseComponent.new(tag: :ul, **@sub_list_arguments)) do
+      - items.each do |item|
+        = item
+
+= render_parent

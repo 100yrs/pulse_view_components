@@ -1,6 +1,6 @@
 {
   "name": "pulse-view-components",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "View Components for Pulse design system",
   "main": "app/assets/javascripts/pulse_view_components.js",
   "module": "app/assets/javascripts/pulse_view_components/index.js",
@@ -23,17 +23,14 @@
     "el-transition": "^0.0.7"
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/forms": "^0.5.6",
-    "@tailwindcss/typography": "^0.5.10",
-    "autoprefixer": "^10.4.16",
-    "el-transition": "^0.0.7",
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/forms": "^0.5.10",
+    "chokidar": "^3.6.0",
     "esbuild": "^0.28.2",
     "esbuild-rails": "^1.0.7",
-    "postcss": "^8.4.31",
-    "prettier": "^3.1.1",
+    "prettier": "^3.9.8",
     "stimulus-dropdown": "^2.0.0",
-    "tailwindcss": "^3.4.0"
+    "tailwindcss": "^4.3.3"
   },
   "scripts": {
     "build": "node esbuild.config.mjs",

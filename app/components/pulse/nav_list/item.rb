@@ -81,7 +81,7 @@ module Pulse
         else
           @system_arguments[:classes] = merge_classes(
             @system_arguments[:classes],
-            'pulse-outline-none pulse-bg-gray-50' => active?
+            'pulse:outline-hidden pulse:bg-neutral-50' => active?
           )
         end
 
@@ -118,7 +118,7 @@ module Pulse
         "
 
         with_private_trailing_action_icon(
-          :'chevron-down',
+          icon: :'chevron-down',
           classes: 'ActionListItem-collapseIcon'
         )
 

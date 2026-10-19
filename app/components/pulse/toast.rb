@@ -3,6 +3,8 @@
 module Pulse
   # Renders a toast popup.
   class Toast < Pulse::Component
+    status :stable
+
     include Turbo::FramesHelper
 
     renders_one :action, lambda { |url:, **system_arguments, &block|
@@ -16,15 +18,15 @@ module Pulse
     }
 
     LINK_MAPPINGS = {
-      default: 'pulse-text-white hover:pulse-text-white',
-      error: 'pulse-text-gray hover:pulse-text-gray',
-      success: 'pulse-text-white hover:pulse-text-white'
+      default: 'pulse:text-white pulse:hover:text-white',
+      error: 'pulse:text-neutral-700 pulse:hover:text-neutral-700',
+      success: 'pulse:text-white pulse:hover:text-white'
     }.freeze
 
     THEME_MAPPINGS = {
-      default: 'pulse-bg-gray-700 pulse-text-white',
-      error: 'pulse-bg-error-100 pulse-text-gray-900',
-      success: 'pulse-bg-gray-700 pulse-text-white'
+      default: 'pulse:bg-neutral-700 pulse:text-white',
+      error: 'pulse:bg-error-100 pulse:text-neutral-900',
+      success: 'pulse:bg-neutral-700 pulse:text-white'
     }.freeze
     DEFAULT_THEME = :default
 
@@ -47,14 +49,14 @@ module Pulse
     def class_attributes
       merge_classes(
         @system_arguments[:classes],
-        # 'pulse-hidden',
-        'pulse-pl-8',
-        'pulse-pr-4',
-        'pulse-py-2.5',
-        'pulse-mb-4',
-        'pulse-rounded',
-        'pulse-shadow-toast',
-        'pulse-z-100',
+        # 'pulse:hidden',
+        'pulse:pl-8',
+        'pulse:pr-4',
+        'pulse:py-2.5',
+        'pulse:mb-4',
+        'pulse:rounded',
+        'pulse:shadow-md',
+        'pulse:z-100',
         THEME_MAPPINGS[@theme]
       )
     end
@@ -65,15 +67,15 @@ module Pulse
         {
           controller: 'pulse--toast',
           pulse__toast_auto_hide_value: @auto_hide,
-          transition_enter: 'pulse-transition pulse-ease-out ' \
-                            'pulse-duration-500',
-          transition_enter_start: 'pulse-transform pulse-opacity-0 ' \
-                                  'pulse-translate-y-full',
-          transition_enter_end: 'pulse-transform pulse-opacity-100 ' \
-                                'pulse-translate-y-0',
-          transition_leave: 'pulse-transition pulse-ease-in pulse-duration-200',
-          transition_leave_start: 'pulse-transform pulse-opacity-100',
-          transition_leave_end: 'pulse-transform pulse-opacity-0'
+          transition_enter: 'pulse:transition pulse:ease-out ' \
+                            'pulse:duration-500',
+          transition_enter_start: 'pulse:transform pulse:opacity-0 ' \
+                                  'pulse:translate-y-full',
+          transition_enter_end: 'pulse:transform pulse:opacity-100 ' \
+                                'pulse:translate-y-0',
+          transition_leave: 'pulse:transition pulse:ease-in pulse:duration-200',
+          transition_leave_start: 'pulse:transform pulse:opacity-100',
+          transition_leave_end: 'pulse:transform pulse:opacity-0'
         }
       )
     end

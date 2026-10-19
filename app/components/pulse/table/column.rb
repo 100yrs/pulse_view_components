@@ -4,6 +4,8 @@ module Pulse
   class Table
     # Encapsulates table column properties
     class Column < Pulse::Component
+      status :stable
+
       attr_reader :title, :sr_title, :sort_by, :footer, :options
 
       def initialize(title: '', sr_title: nil, sort_by: nil, footer: nil,

@@ -3,6 +3,10 @@
 module Pulse
   # Renders a two-column page layout
   class Layout < Pulse::Component
+    # Main and sidebar placement work. Main `width:` options other than `:full`
+    # emit Primer classes that no CSS defines, so the content is not centred.
+    status :beta
+
     FIRST_IN_SOURCE_DEFAULT = :sidebar
     FIRST_IN_SOURCE_OPTIONS = [FIRST_IN_SOURCE_DEFAULT, :main].freeze
 
@@ -61,10 +65,10 @@ module Pulse
       @system_arguments = system_arguments
       @system_arguments[:tag] = :div
       @system_arguments[:classes] = merge_classes(
-        'pulse-grid pulse-grid-flow-col',
-        'pulse-grid-cols-[auto_0_minmax(0,calc(100%_-_var(--pulse-layout' \
+        'pulse:grid pulse:grid-flow-col',
+        'pulse:grid-cols-[auto_0_minmax(0,calc(100%_-_var(--pulse-layout' \
         '-sidebar-width)_-_var(--pulse-layout-gutter)))]',
-        'pulse-gap-[var(--pulse-layout-gutter)]',
+        'pulse:gap-(--pulse-layout-gutter)',
         GUTTER_MAPPINGS[fetch_or_fallback(GUTTER_OPTIONS, gutter,
                                           GUTTER_DEFAULT)],
         system_arguments[:classes]
@@ -77,6 +81,8 @@ module Pulse
 
     # The layout's main content.
     class Main < Pulse::Component
+      status :stable
+
       WIDTH_DEFAULT = :full
       WIDTH_OPTIONS = [WIDTH_DEFAULT, :md, :lg, :xl].freeze
 
@@ -92,7 +98,7 @@ module Pulse
         @system_arguments[:tag] =
           fetch_or_fallback(TAG_OPTIONS, tag, TAG_DEFAULT)
         @system_arguments[:classes] = merge_classes(
-          'pulse-col-[2_/_span_2]',
+          'pulse:col-[2/span_2]',
           system_arguments[:classes]
         )
       end
@@ -105,7 +111,7 @@ module Pulse
             render(
               Pulse::BaseComponent.new(
                 tag: :div,
-                classes: "pulse-mx-auto Layout-main-centered-#{@width}"
+                classes: "pulse:mx-auto Layout-main-centered-#{@width}"
               )
             ) do
               render(Pulse::BaseComponent.new(tag: :div, container: @width)) do
@@ -119,6 +125,8 @@ module Pulse
 
     # The layout's sidebar content.
     class Sidebar < Pulse::Component
+      status :stable
+
       TAG_DEFAULT = :div
       TAG_OPTIONS = [TAG_DEFAULT, :aside, :nav, :section].freeze
 
@@ -128,7 +136,7 @@ module Pulse
         @system_arguments[:tag] =
           fetch_or_fallback(TAG_OPTIONS, tag, TAG_DEFAULT)
         @system_arguments[:classes] = merge_classes(
-          'pulse-col-[1]',
+          'pulse:col-1',
           @system_arguments[:classes]
         )
       end

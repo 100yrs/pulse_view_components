@@ -3,13 +3,15 @@
 module Pulse
   # Renders a simple progress bar
   class ProgressBar < Pulse::Component
+    status :stable
+
     def initialize(percentage: 0, **system_attributes)
       @percentage = percentage.to_i
       @system_attributes = system_attributes
       @system_attributes[:tag] ||= :div
-      @system_attributes[:class] = merge_classes(
-        'pulse-flex pulse-flex-row pulse-h-1 pulse-w-full pulse-bg-gray-300',
-        'dark:pulse-bg-gray-600',
+      @system_attributes[:classes] = merge_classes(
+        'pulse:flex pulse:flex-row pulse:h-1 pulse:w-full pulse:bg-neutral-300',
+        'pulse:dark:bg-neutral-600',
         system_attributes[:classes]
       )
     end

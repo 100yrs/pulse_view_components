@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
-  # @label Counter
+  # @label Counter (alpha)
   class CounterPreview < ViewComponent::Preview
     # @label Playground
     #

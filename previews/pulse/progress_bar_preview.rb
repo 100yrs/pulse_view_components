@@ -6,7 +6,7 @@ module Pulse
     # @label Playground
     #
     # @display wrapper true
-    # @display wrapper_classes 'flex justify-center items-center p-4 bg-gray-50 h-10 w-24'
+    # @display wrapper_classes 'flex justify-center items-center p-4 bg-neutral-50 h-10 w-24'
     # @param percentage number
     # @param title text
     def playground(percentage: 50, title: nil)

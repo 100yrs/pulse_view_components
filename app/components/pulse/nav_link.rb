@@ -3,10 +3,12 @@
 module Pulse
   # Links in navbars
   class NavLink < Pulse::Component
+    status :stable
+
     DEFAULT_VARIANT = :desktop
     VARIANT_MAPPINGS = {
-      desktop: 'pulse-px-3 pulse-py-2',
-      mobile: 'pulse-px-3 pulse-py-2'
+      desktop: 'pulse:px-3 pulse:py-2',
+      mobile: 'pulse:px-3 pulse:py-2'
     }.freeze
     VARIANT_OPTIONS = VARIANT_MAPPINGS.keys.freeze
 

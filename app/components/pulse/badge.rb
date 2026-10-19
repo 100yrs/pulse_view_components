@@ -4,32 +4,36 @@ module Pulse
   # Renders a badge component
   # see: /lookbook/inspect/pulse/badge/default
   class Badge < Pulse::Component
+    status :stable
+
     DEFAULT_TAG = :span
     TAG_OPTIONS = [DEFAULT_TAG, :summary, :a, :div].freeze
 
     DEFAULT_VARIANT = :standard
     VARIANT_MAPPINGS = {
-      standard: 'pulse-inline-block pulse-rounded pulse-uppercase ' \
-                'pulse-py-0.5 pulse-px-1.5 pulse-text-[10px] ' \
-                'pulse-font-bold',
-      pill: 'pulse-inline-block pulse-rounded-2xl pulse-min-w-[8rem] ' \
-            'pulse-text-center pulse-p-2 pulse-text-sm ' \
-            'pulse-leading-none pulse-font-bold'
+      standard: 'pulse:inline-block pulse:rounded pulse:uppercase ' \
+                'pulse:py-0.5 pulse:px-1.5 pulse:text-[10px] ' \
+                'pulse:font-bold',
+      pill: 'pulse:inline-block pulse:rounded-2xl pulse:min-w-32 ' \
+            'pulse:text-center pulse:p-2 pulse:text-sm ' \
+            'pulse:leading-none pulse:font-bold'
     }.freeze
     VARIANT_OPTIONS = VARIANT_MAPPINGS.keys.freeze
 
     DEFAULT_SCHEME = :secondary
     SCHEME_MAPPINGS = {
-      primary: 'pulse-bg-primary pulse-text-white hover:pulse-text-white',
-      secondary: 'pulse-bg-secondary pulse-text-white',
-      secondary_outline: 'pulse-bg-white pulse-border pulse-border-secondary ' \
-                         'pulse-text-secondary ' \
-                         'pulse-hover:pulse-text-secondary',
-      invited: 'pulse-bg-secondary-200 pulse-text-gray ' \
-               'pulse-hover:pulse-text-gray',
-      active: 'pulse-bg-success-200 pulse-text-gray hover:pulse-text-gray',
-      disabled: 'pulse-bg-gray-100 pulse-text-gray hover:pulse-text-gray',
-      info: 'pulse-bg-gray-600 pulse-text-white hover:pulse-text-white'
+      primary: 'pulse:bg-primary pulse:text-white pulse:hover:text-white',
+      secondary: 'pulse:bg-secondary pulse:text-white',
+      secondary_outline: 'pulse:bg-white pulse:border pulse:border-secondary ' \
+                         'pulse:text-secondary ' \
+                         'pulse:hover:text-secondary',
+      invited: 'pulse:bg-secondary-200 pulse:text-neutral-700 ' \
+               'pulse:hover:text-neutral-700',
+      active: 'pulse:bg-success-200 pulse:text-neutral-700 ' \
+              'pulse:hover:text-neutral-700',
+      disabled: 'pulse:bg-neutral-100 pulse:text-neutral-700 ' \
+                'pulse:hover:text-neutral-700',
+      info: 'pulse:bg-neutral-600 pulse:text-white pulse:hover:text-white'
     }.freeze
     SCHEME_OPTIONS = SCHEME_MAPPINGS.keys.freeze
 

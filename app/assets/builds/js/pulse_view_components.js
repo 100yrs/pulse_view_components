@@ -9441,20 +9441,20 @@
       this.lastFocusedElement = document.activeElement;
       enter(this.wrapperTarget);
       enter(this.bodyTarget);
-      document.body.classList.add("pulse-overflow-hidden");
+      document.body.classList.add("pulse:overflow-hidden");
     }
     close(e) {
       leave(this.wrapperTarget);
       leave(this.bodyTarget).then(() => {
         this.element.remove();
       });
-      document.body.classList.remove("pulse-overflow-hidden");
+      document.body.classList.remove("pulse:overflow-hidden");
       if (this.lastFocusedElement) this.lastFocusedElement.focus();
       this.element.closest("turbo-frame").src = void 0;
     }
     autoClose(e) {
       this.element.remove();
-      document.body.classList.remove("pulse-overflow-hidden");
+      document.body.classList.remove("pulse:overflow-hidden");
     }
     handleSubmit = (e) => {
       if (e.detail.success) {

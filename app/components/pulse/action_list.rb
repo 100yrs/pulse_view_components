@@ -8,6 +8,11 @@ module Pulse
   # Each item in an action list can be augmented by specifying corresponding leading
   # and/or trailing visuals.
   class ActionList < Pulse::Component
+    # Incomplete: select variants, trailing actions, tooltips, avatar items and
+    # the `:inset` scheme depend on Primer CSS or components that Pulse does
+    # not ship. Links, visuals, descriptions, headings and dividers work.
+    status :alpha
+
     DEFAULT_ROLE = :list
 
     MENU_ROLE = :menu

@@ -1,0 +1,68 @@
+@theme {
+  --palette-coral-red-50: #ffecec;
+  --palette-coral-red-100: #ffd9d9;
+  --palette-coral-red-200: #ffc3c3;
+  --palette-coral-red-300: #ffb9b9;
+  --palette-coral-red-400: #ff9c9c;
+  --palette-coral-red-500: #ff8d8d;
+  --palette-coral-red-600: #ff6767;
+  --palette-coral-red-700: #ff4141;
+  --palette-coral-red-800: #cc3434;
+  --palette-coral-red-900: #992727;
+
+  --palette-midnight-50: #eaeffa;
+  --palette-midnight-100: #c8d3f2;
+  --palette-midnight-200: #a5b7e9;
+  --palette-midnight-300: #829ce1;
+  --palette-midnight-400: #5f80d9;
+  --palette-midnight-500: #3d64d1;
+  --palette-midnight-600: #2c51b7;
+  --palette-midnight-700: #234194;
+  --palette-midnight-800: #1b3271;
+  --palette-midnight-900: #050915;
+
+  --palette-glitter-lake-50: #f2faff;
+  --palette-glitter-lake-100: #e6f5ff;
+  --palette-glitter-lake-200: #ccebff;
+  --palette-glitter-lake-300: #b3e2ff;
+  --palette-glitter-lake-400: #99d8ff;
+  --palette-glitter-lake-500: #80ceff;
+  --palette-glitter-lake-600: #66a5cc;
+  --palette-glitter-lake-700: #4d7c99;
+  --palette-glitter-lake-800: #335266;
+  --palette-glitter-lake-900: #1a2933;
+
+  --palette-amaranth-50: #fef4f6;
+  --palette-amaranth-100: #fde4e8;
+  --palette-amaranth-200: #fbcad2;
+  --palette-amaranth-300: #f7a0ae;
+  --palette-amaranth-400: #f58193;
+  --palette-amaranth-500: #f36c81;
+  --palette-amaranth-600: #f1576f;
+  --palette-amaranth-700: #ee2d4b;
+  --palette-amaranth-800: #cd0725;
+  --palette-amaranth-900: #ab061f;
+
+  --palette-middle-green-50: #f6faf7;
+  --palette-middle-green-100: #e3f0e6;
+  --palette-middle-green-200: #c7e1cc;
+  --palette-middle-green-300: #b4d7bc;
+  --palette-middle-green-400: #a1ceab;
+  --palette-middle-green-500: #8fc49a;
+  --palette-middle-green-600: #60ab70;
+  --palette-middle-green-700: #449c56;
+  --palette-middle-green-800: #17742b;
+  --palette-middle-green-900: #000000;
+
+  /* Tailwind 4 gray, converted from oklch */
+  --palette-gray-50: #f9fafb;
+  --palette-gray-100: #f3f4f6;
+  --palette-gray-200: #e5e7eb;
+  --palette-gray-300: #d1d5dc;
+  --palette-gray-400: #99a1af;
+  --palette-gray-500: #6a7282;
+  --palette-gray-600: #4a5565;
+  --palette-gray-700: #364153;
+  --palette-gray-800: #1e2939;
+  --palette-gray-900: #101828;
+}

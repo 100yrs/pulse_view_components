@@ -3,6 +3,8 @@
 module Pulse
   # Renders a modal component targetable by turbo frame
   class Modal < Pulse::Component
+    status :stable
+
     include Turbo::FramesHelper
 
     renders_one :title
@@ -10,11 +12,11 @@ module Pulse
 
     DEFAULT_SIZE = :md
     SIZE_MAPPINGS = {
-      sm: 'pulse-max-w-md',
-      md: 'pulse-max-w-2xl',
-      lg: 'pulse-max-w-4xl',
-      xl: 'pulse-max-w-5xl',
-      xxl: 'pulse-max-w-6xl'
+      sm: 'pulse:max-w-md',
+      md: 'pulse:max-w-2xl',
+      lg: 'pulse:max-w-4xl',
+      xl: 'pulse:max-w-5xl',
+      xxl: 'pulse:max-w-6xl'
     }.freeze
     SIZE_OPTIONS = SIZE_MAPPINGS.keys.freeze
 
@@ -24,7 +26,7 @@ module Pulse
       @size = fetch_or_fallback(SIZE_OPTIONS, size, DEFAULT_SIZE)
       @system_arguments = system_arguments
       @modal_classes = merge_classes(
-        'pulse-w-full',
+        'pulse:w-full',
         SIZE_MAPPINGS[@size],
         @system_arguments.delete(:classes)
       )
@@ -36,8 +38,8 @@ module Pulse
 
       @system_arguments[:'aria-labelledby'] = 'modal-title'
       @system_arguments[:'aria-modal'] = true
-      @system_arguments[:classes] = 'pulse-fixed pulse-z-9999 pulse-inset-0 ' \
-                                    'pulse-overflow-y-auto'
+      @system_arguments[:classes] = 'pulse:fixed pulse:z-9999 pulse:inset-0 ' \
+                                    'pulse:overflow-y-auto'
       @system_arguments[:data] = data_attributes
       @system_arguments[:role] = 'dialog'
       @system_arguments[:tabindex] = 0

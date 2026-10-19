@@ -1,7 +1,7 @@
 /! components/pulse/table
 - if collection.present?
-  div class="pulse-flex pulse-flex-col pulse-gap-4"
-    div class=class_names("pulse-w-full pulse-shadow print:pulse-shadow-none sm:pulse-rounded-lg", 'pulse-overflow-x-scroll': scroll)
+  div class="pulse:flex pulse:flex-col pulse:gap-4"
+    div class=class_names("pulse:w-full pulse:shadow pulse:print:shadow-none pulse:sm:rounded-lg", 'pulse:overflow-x-scroll': scroll)
       = render Pulse::BaseComponent.new(**table_options) do
         - if header
           = render Pulse::BaseComponent.new(tag: :thead, classes: head_classes) do
@@ -39,7 +39,7 @@
 
 
     - if pagination? && collection.respond_to?(:total_pages)
-      div class="pulse-text-center pulse-text-gray"
+      div class="pulse:text-center pulse:text-neutral-700"
         = paginate(collection, window: 9)
 
 - else

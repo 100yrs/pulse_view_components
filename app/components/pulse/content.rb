@@ -4,6 +4,8 @@ module Pulse
   # Use `Content` as a helper to render content passed to a slot without adding
   # any tags.
   class Content < Pulse::Component
+    status :stable
+
     def call
       content
     end

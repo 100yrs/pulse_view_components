@@ -14,6 +14,11 @@ module Pulse
   # or more ID values that determine which item will appear selected. Use the
   # `selected_item_id` argument to select the appropriate item.
   class NavList < Pulse::Component
+    # Incomplete: built on `ActionList`. Avatar items raise, sub-items render
+    # expanded and cannot be toggled, and the show-more item has no JavaScript.
+    # Top-level items, headings, groups and selection work.
+    status :alpha
+
     # @private
     def self.custom_element_name
       'nav-list'

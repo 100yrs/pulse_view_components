@@ -6,6 +6,8 @@ module Pulse
     #
     # See <%= link_to_component(NavList) %> for usage examples.
     class Heading < Pulse::Component
+      status :alpha
+
       attr_reader :title, :id, :heading_level, :system_arguments
 
       # @param title [String] The text content of the heading.
@@ -26,7 +28,7 @@ module Pulse
             type: :body4,
             tag: :"h#{heading_level}",
             id:,
-            classes: 'pulse-ml-2 pulse-mb-4',
+            classes: 'pulse:ml-2 pulse:mb-4',
             **system_arguments
           ).with_content(title)
         )

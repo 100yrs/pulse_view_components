@@ -1,10 +1,50 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" prefix(pulse) source(none);
+
+@plugin "@tailwindcss/forms" {
+  strategy: base;
+}
+
+@source "../../../components";
+@source "../../../javascript";
+@source "../../../../previews";
+
+@import "./tokens.primitives.css";
+@import "./tokens.system.css";
+
+@theme {
+  --font-sans:
+    "Nunito Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --text-2xs: 0.625rem; /* 10px */
+
+  --shadow-btn: 0 4px 6px 0 rgb(0, 0, 0, 0.3);
+  --shadow-btn-inset: inset 0 0 0 3px var(--pulse-fgColor-onEmphasis);
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 0.625rem;
+}
+
+/*
+  Tailwind 4 changed the default border color to `currentcolor`. This keeps
+  the Tailwind 3 default of gray-200 for elements that set a border width
+  without a color.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--pulse-color-neutral-200, currentcolor);
+  }
+}
 
 :root {
   --pulse-fgColor-onEmphasis: #ffffff;
-  --pulse-focus-outlineColor: theme("colors.blue.700");
+  --pulse-focus-outlineColor: var(--pulse-color-blue-700);
   --pulse-layout-sidebar-width: 220px;
   --pulse-layout-gutter: 16px;
 }

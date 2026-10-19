@@ -1,0 +1,16 @@
+div class="pulse:flex pulse:flex-col pulse:gap-6"
+  - semantic.each do |name, (palette, default_shade)|
+    section
+      h2 class="pulse:text-lg pulse:font-bold pulse:text-neutral-900"
+        = name
+      p class="pulse:mb-2 pulse:text-sm pulse:text-neutral-600"
+        ' Maps to
+        code class="pulse:font-mono" = palette
+        ' . Bare
+        code class="pulse:font-mono" = "pulse:bg-#{name}"
+        |  is shade #{default_shade}.
+      div class="pulse:grid pulse:grid-cols-10 pulse:gap-1"
+        - palettes.fetch(palette).each do |swatch|
+          div class=class_names('pulse:flex pulse:flex-col pulse:justify-end pulse:h-20 pulse:p-2 pulse:rounded pulse:text-xs pulse:font-mono', 'pulse:ring-2 pulse:ring-offset-2 pulse:ring-neutral-900' => swatch.shade == default_shade) style="background-color: #{swatch.hex}; color: #{swatch.ink}" title="#{name}-#{swatch.shade}"
+            span = "#{name}-#{swatch.shade}"
+            span = swatch.hex

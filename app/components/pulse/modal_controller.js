@@ -43,7 +43,7 @@ export default class extends Controller {
     this.lastFocusedElement = document.activeElement
     enter(this.wrapperTarget)
     enter(this.bodyTarget)
-    document.body.classList.add("pulse-overflow-hidden")
+    document.body.classList.add("pulse:overflow-hidden")
   }
 
   close(e) {
@@ -54,7 +54,7 @@ export default class extends Controller {
       this.element.remove()
     })
 
-    document.body.classList.remove("pulse-overflow-hidden")
+    document.body.classList.remove("pulse:overflow-hidden")
 
     // Return focus to the last focused element
     if (this.lastFocusedElement) this.lastFocusedElement.focus()
@@ -66,7 +66,7 @@ export default class extends Controller {
 
   autoClose(e) {
     this.element.remove()
-    document.body.classList.remove("pulse-overflow-hidden")
+    document.body.classList.remove("pulse:overflow-hidden")
   }
 
   handleSubmit = e => {

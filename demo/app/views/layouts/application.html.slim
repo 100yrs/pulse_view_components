@@ -15,15 +15,15 @@ html
     - if Rails.env.development?
       = javascript_include_tag 'hotwire-livereload', defer: true
 
-  body class=class_names('pulse-antialiased pulse-p-4', params.dig(:lookbook, :display, :class)) style="background-color: #{params.dig(:lookbook, :display, :bg_color) || 'pulse-white'}"
-    div class="pulse-mt-4" style="max-width:#{params.dig(:lookbook, :display, :max_width) || '100%'}"
+  body class=class_names('pulse:p-4', params.dig(:lookbook, :display, :class)) style="background-color: #{params.dig(:lookbook, :display, :bg_color) || 'white'}"
+    div class="pulse:mt-4" style="max-width:#{params.dig(:lookbook, :display, :max_width) || '100%'}"
       - if params.dig(:lookbook, :display, :wrapper) == true
-        div class="#{['pulse-wrapper pulse-relative', params.dig(:lookbook, :display, :wrapper_classes)].compact.join(' ')}"
+        div class="#{['pulse-wrapper pulse:relative', params.dig(:lookbook, :display, :wrapper_classes)].compact.join(' ')}"
           = yield
       - else
         = yield
 
     = turbo_frame_tag 'pulse_modal'
 
-    = turbo_frame_tag 'flash', class: 'pulse-max-w-full pulse-max-h-full sm:pulse-min-w-[250px] pulse-overflow-visible pulse-fixed pulse-bottom-6 pulse-z-100 -pulse-translate-x-1/2 pulse-left-1/2' do
+    = turbo_frame_tag 'flash', class: 'pulse:max-w-full pulse:max-h-full pulse:sm:min-w-62.5 pulse:overflow-visible pulse:fixed pulse:bottom-6 pulse:z-100 pulse:-translate-x-1/2 pulse:left-1/2' do
       = render 'application/notice'

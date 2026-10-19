@@ -1,0 +1,95 @@
+@theme {
+  /* primary → coral-red */
+  --color-primary: --theme(--palette-coral-red-700 inline);
+  --color-primary-50: --theme(--palette-coral-red-50 inline);
+  --color-primary-100: --theme(--palette-coral-red-100 inline);
+  --color-primary-200: --theme(--palette-coral-red-200 inline);
+  --color-primary-300: --theme(--palette-coral-red-300 inline);
+  --color-primary-400: --theme(--palette-coral-red-400 inline);
+  --color-primary-500: --theme(--palette-coral-red-500 inline);
+  --color-primary-600: --theme(--palette-coral-red-600 inline);
+  --color-primary-700: --theme(--palette-coral-red-700 inline);
+  --color-primary-800: --theme(--palette-coral-red-800 inline);
+  --color-primary-900: --theme(--palette-coral-red-900 inline);
+
+  /* secondary → midnight */
+  --color-secondary: --theme(--palette-midnight-700 inline);
+  --color-secondary-50: --theme(--palette-midnight-50 inline);
+  --color-secondary-100: --theme(--palette-midnight-100 inline);
+  --color-secondary-200: --theme(--palette-midnight-200 inline);
+  --color-secondary-300: --theme(--palette-midnight-300 inline);
+  --color-secondary-400: --theme(--palette-midnight-400 inline);
+  --color-secondary-500: --theme(--palette-midnight-500 inline);
+  --color-secondary-600: --theme(--palette-midnight-600 inline);
+  --color-secondary-700: --theme(--palette-midnight-700 inline);
+  --color-secondary-800: --theme(--palette-midnight-800 inline);
+  --color-secondary-900: --theme(--palette-midnight-900 inline);
+
+  /* tertiary → glitter-lake */
+  --color-tertiary: --theme(--palette-glitter-lake-700 inline);
+  --color-tertiary-50: --theme(--palette-glitter-lake-50 inline);
+  --color-tertiary-100: --theme(--palette-glitter-lake-100 inline);
+  --color-tertiary-200: --theme(--palette-glitter-lake-200 inline);
+  --color-tertiary-300: --theme(--palette-glitter-lake-300 inline);
+  --color-tertiary-400: --theme(--palette-glitter-lake-400 inline);
+  --color-tertiary-500: --theme(--palette-glitter-lake-500 inline);
+  --color-tertiary-600: --theme(--palette-glitter-lake-600 inline);
+  --color-tertiary-700: --theme(--palette-glitter-lake-700 inline);
+  --color-tertiary-800: --theme(--palette-glitter-lake-800 inline);
+  --color-tertiary-900: --theme(--palette-glitter-lake-900 inline);
+
+  /* error → amaranth */
+  --color-error: --theme(--palette-amaranth-700 inline);
+  --color-error-50: --theme(--palette-amaranth-50 inline);
+  --color-error-100: --theme(--palette-amaranth-100 inline);
+  --color-error-200: --theme(--palette-amaranth-200 inline);
+  --color-error-300: --theme(--palette-amaranth-300 inline);
+  --color-error-400: --theme(--palette-amaranth-400 inline);
+  --color-error-500: --theme(--palette-amaranth-500 inline);
+  --color-error-600: --theme(--palette-amaranth-600 inline);
+  --color-error-700: --theme(--palette-amaranth-700 inline);
+  --color-error-800: --theme(--palette-amaranth-800 inline);
+  --color-error-900: --theme(--palette-amaranth-900 inline);
+
+  /* success → middle-green */
+  --color-success: --theme(--palette-middle-green-700 inline);
+  --color-success-50: --theme(--palette-middle-green-50 inline);
+  --color-success-100: --theme(--palette-middle-green-100 inline);
+  --color-success-200: --theme(--palette-middle-green-200 inline);
+  --color-success-300: --theme(--palette-middle-green-300 inline);
+  --color-success-400: --theme(--palette-middle-green-400 inline);
+  --color-success-500: --theme(--palette-middle-green-500 inline);
+  --color-success-600: --theme(--palette-middle-green-600 inline);
+  --color-success-700: --theme(--palette-middle-green-700 inline);
+  --color-success-800: --theme(--palette-middle-green-800 inline);
+  --color-success-900: --theme(--palette-middle-green-900 inline);
+
+  /* danger → amaranth */
+  --color-danger: --theme(--palette-amaranth-700 inline);
+  --color-danger-50: --theme(--palette-amaranth-50 inline);
+  --color-danger-100: --theme(--palette-amaranth-100 inline);
+  --color-danger-200: --theme(--palette-amaranth-200 inline);
+  --color-danger-300: --theme(--palette-amaranth-300 inline);
+  --color-danger-400: --theme(--palette-amaranth-400 inline);
+  --color-danger-500: --theme(--palette-amaranth-500 inline);
+  --color-danger-600: --theme(--palette-amaranth-600 inline);
+  --color-danger-700: --theme(--palette-amaranth-700 inline);
+  --color-danger-800: --theme(--palette-amaranth-800 inline);
+  --color-danger-900: --theme(--palette-amaranth-900 inline);
+
+  /* neutral → gray */
+  --color-neutral: --theme(--palette-gray-700 inline);
+  --color-neutral-50: --theme(--palette-gray-50 inline);
+  --color-neutral-100: --theme(--palette-gray-100 inline);
+  --color-neutral-200: --theme(--palette-gray-200 inline);
+  --color-neutral-300: --theme(--palette-gray-300 inline);
+  --color-neutral-400: --theme(--palette-gray-400 inline);
+  --color-neutral-500: --theme(--palette-gray-500 inline);
+  --color-neutral-600: --theme(--palette-gray-600 inline);
+  --color-neutral-700: --theme(--palette-gray-700 inline);
+  --color-neutral-800: --theme(--palette-gray-800 inline);
+  --color-neutral-900: --theme(--palette-gray-900 inline);
+
+  /* Components use neutral, so drop Tailwind's own gray utilities. */
+  --color-gray-*: initial;
+}

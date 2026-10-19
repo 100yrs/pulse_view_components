@@ -5,13 +5,15 @@ module Pulse
   # `Link` styles anchor tags with default styling and hover
   # text-decoration.
   class Link < Pulse::Component
+    status :stable
+
     DEFAULT_SCHEME = :tertiary
     SCHEME_MAPPINGS = {
-      primary: 'pulse-text-primary hover:pulse-text-primary',
-      secondary: 'pulse-text-secondary hover:pulse-text-secondary',
-      tertiary: 'pulse-text-tertiary hover:pulse-text-tertiary',
-      reversed: 'pulse-text-gray-300 hover:pulse-text-gray-300 ' \
-                'focus:pulse-text-gray-300'
+      primary: 'pulse:text-primary pulse:hover:text-primary',
+      secondary: 'pulse:text-secondary pulse:hover:text-secondary',
+      tertiary: 'pulse:text-tertiary pulse:hover:text-tertiary',
+      reversed: 'pulse:text-neutral-300 pulse:hover:text-neutral-300 ' \
+                'pulse:focus:text-neutral-300'
     }.freeze
     SCHEME_OPTIONS = SCHEME_MAPPINGS.keys.freeze
 
@@ -31,8 +33,8 @@ module Pulse
         SCHEME_MAPPINGS[fetch_or_fallback(SCHEME_MAPPINGS.keys, scheme,
                                           DEFAULT_SCHEME)],
         @options[:classes],
-        'pulse-font-bold': bold,
-        'pulse-underline hover:pulse-no-underline': condition && underline
+        'pulse:font-bold': bold,
+        'pulse:underline pulse:hover:no-underline': condition && underline
       )
     end
 
@@ -45,7 +47,7 @@ module Pulse
 
       @options[:classes] = class_names(
         @options[:classes],
-        'pulse-flex pulse-items-center pulse-gap-1.5'
+        'pulse:flex pulse:items-center pulse:gap-1.5'
       )
     end
   end

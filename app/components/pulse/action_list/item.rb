@@ -5,6 +5,8 @@ module Pulse
     # An individual `ActionList` item. Items can optionally include leading and/or trailing visuals,
     # such as icons, avatars, and counters.
     class Item < Pulse::Component
+      status :alpha
+
       DEFAULT_SIZE = :medium
       SIZE_MAPPINGS = {
         DEFAULT_SIZE => nil
@@ -208,7 +210,7 @@ module Pulse
         @system_arguments[:classes] = merge_classes(
           @system_arguments[:classes],
           SCHEME_MAPPINGS[@scheme],
-          'pulse-relative pulse-rounded selected:pulse-font-normal',
+          'pulse:relative pulse:rounded',
           'ActionListItem--disabled' => @disabled
         )
 
@@ -221,7 +223,7 @@ module Pulse
           classes: merge_classes(
             label_classes,
             label_arguments[:classes],
-            'pulse-font-semibold',
+            'pulse:font-semibold',
             'ActionListItem-label--truncate' => @truncate_label
           )
         }
@@ -229,12 +231,12 @@ module Pulse
         @content_arguments[:id] = @id
         @content_arguments[:classes] = merge_classes(
           @content_arguments[:classes],
-          'pulse-relative pulse-grid pulse-w-full pulse-text-start',
-          'pulse-select-none pulse-bg-transparent pulse-rounded',
-          'pulse-grid-rows-[min-content]',
-          'pulse-grid-cols-[min-content_min-content_minmax(0,auto)_min-content_min-content]', # rubocop:disable Layout/LineLength
-          'pulse-border-none hover:pulse-no-underline pulse-py-2',
-          'pulse-items-start pulse-gap-2 pulse-items-center',
+          'pulse:relative pulse:grid pulse:w-full pulse:text-start',
+          'pulse:select-none pulse:bg-transparent pulse:rounded',
+          'pulse:grid-rows-[min-content]',
+          'pulse:grid-cols-[min-content_min-content_minmax(0,auto)_min-content_min-content]', # rubocop:disable Layout/LineLength
+          'pulse:border-none pulse:hover:no-underline pulse:py-2',
+          'pulse:items-start pulse:gap-2 pulse:items-center',
           SIZE_MAPPINGS[@size]
         )
 
@@ -305,7 +307,7 @@ module Pulse
 
         @content_arguments[:classes] = merge_classes(
           @content_arguments[:classes],
-          'pulse-pl-2' => leading_visual,
+          'pulse:pl-2' => leading_visual,
           'ActionListContent--blockDescription' =>
             description && @description_scheme == :block
         )

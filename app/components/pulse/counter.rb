@@ -8,6 +8,10 @@ module Pulse
   #   should be accompanied with text such as `issues` or `pull requests`.
   #
   class Counter < Pulse::Component
+    # Incomplete: relies on Primer's `Counter` CSS, which is not in the built
+    # stylesheet, so the counter renders as unstyled text.
+    status :alpha
+
     DEFAULT_SCHEME = :default
     SCHEME_MAPPINGS = {
       DEFAULT_SCHEME => '',
