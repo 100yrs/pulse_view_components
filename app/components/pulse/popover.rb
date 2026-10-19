@@ -15,7 +15,7 @@ module Pulse
     # the body, with a border on the two sides that face outward.
     CARET_BASE = 'pulse:before:absolute pulse:before:size-3 ' \
                  'pulse:before:rotate-45 pulse:before:bg-white ' \
-                 'pulse:before:border-gray-300'
+                 'pulse:before:border-neutral-300'
     CARET_TOP = 'pulse:before:-top-1.5 pulse:before:border-t ' \
                 'pulse:before:border-l'
     CARET_BOTTOM = 'pulse:before:-bottom-1.5 pulse:before:border-b ' \
@@ -87,7 +87,7 @@ module Pulse
       @body_arguments = system_arguments
       @body_arguments['data-caret'] = caret
       @body_arguments[:classes] = merge_classes(
-        'pulse:relative pulse:bg-white pulse:border pulse:border-gray-300',
+        'pulse:relative pulse:bg-white pulse:border pulse:border-neutral-300',
         'pulse:rounded-lg pulse:p-4 pulse:text-left pulse:shadow-lg',
         CARET_MARGIN_MAPPINGS[side],
         CARET_BASE,

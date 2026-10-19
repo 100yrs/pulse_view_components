@@ -1,6 +1,6 @@
 /! components/pulse/action_list/heading
 = render(Pulse::BaseComponent.new(tag: :div, **@system_arguments)) do
-  = render(Pulse::BaseComponent.new(tag: @tag, id: @title_id, classes: 'pulse:block pulse:px-2 pulse:py-1 pulse:text-xs pulse:font-semibold pulse:text-gray-900 ActionList-sectionDivider-title')) do
+  = render(Pulse::BaseComponent.new(tag: @tag, id: @title_id, classes: 'pulse:block pulse:px-2 pulse:py-1 pulse:text-xs pulse:font-semibold pulse:text-neutral-900 ActionList-sectionDivider-title')) do
     = @title
   - if subtitle?
     = render(Pulse::BaseComponent.new(tag: :span, id: @subtitle_id, classes: 'pulse:block pulse:px-2 pulse:text-xs ActionList-item-description')) do

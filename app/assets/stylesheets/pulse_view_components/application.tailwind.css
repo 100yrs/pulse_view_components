@@ -38,7 +38,7 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--pulse-color-gray-200, currentcolor);
+    border-color: var(--pulse-color-neutral-200, currentcolor);
   }
 }
 

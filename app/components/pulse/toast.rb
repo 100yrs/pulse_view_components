@@ -19,14 +19,14 @@ module Pulse
 
     LINK_MAPPINGS = {
       default: 'pulse:text-white pulse:hover:text-white',
-      error: 'pulse:text-gray-700 pulse:hover:text-gray-700',
+      error: 'pulse:text-neutral-700 pulse:hover:text-neutral-700',
       success: 'pulse:text-white pulse:hover:text-white'
     }.freeze
 
     THEME_MAPPINGS = {
-      default: 'pulse:bg-gray-700 pulse:text-white',
-      error: 'pulse:bg-error-100 pulse:text-gray-900',
-      success: 'pulse:bg-gray-700 pulse:text-white'
+      default: 'pulse:bg-neutral-700 pulse:text-white',
+      error: 'pulse:bg-error-100 pulse:text-neutral-900',
+      success: 'pulse:bg-neutral-700 pulse:text-white'
     }.freeze
     DEFAULT_THEME = :default
 

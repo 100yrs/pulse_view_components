@@ -12,8 +12,8 @@ module Pulse
       primary: 'pulse:text-primary pulse:hover:text-primary',
       secondary: 'pulse:text-secondary pulse:hover:text-secondary',
       tertiary: 'pulse:text-tertiary pulse:hover:text-tertiary',
-      reversed: 'pulse:text-gray-300 pulse:hover:text-gray-300 ' \
-                'pulse:focus:text-gray-300'
+      reversed: 'pulse:text-neutral-300 pulse:hover:text-neutral-300 ' \
+                'pulse:focus:text-neutral-300'
     }.freeze
     SCHEME_OPTIONS = SCHEME_MAPPINGS.keys.freeze
 

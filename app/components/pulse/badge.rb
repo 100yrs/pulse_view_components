@@ -27,13 +27,13 @@ module Pulse
       secondary_outline: 'pulse:bg-white pulse:border pulse:border-secondary ' \
                          'pulse:text-secondary ' \
                          'pulse:hover:text-secondary',
-      invited: 'pulse:bg-secondary-200 pulse:text-gray-700 ' \
-               'pulse:hover:text-gray-700',
-      active: 'pulse:bg-success-200 pulse:text-gray-700 ' \
-              'pulse:hover:text-gray-700',
-      disabled: 'pulse:bg-gray-100 pulse:text-gray-700 ' \
-                'pulse:hover:text-gray-700',
-      info: 'pulse:bg-gray-600 pulse:text-white pulse:hover:text-white'
+      invited: 'pulse:bg-secondary-200 pulse:text-neutral-700 ' \
+               'pulse:hover:text-neutral-700',
+      active: 'pulse:bg-success-200 pulse:text-neutral-700 ' \
+              'pulse:hover:text-neutral-700',
+      disabled: 'pulse:bg-neutral-100 pulse:text-neutral-700 ' \
+                'pulse:hover:text-neutral-700',
+      info: 'pulse:bg-neutral-600 pulse:text-white pulse:hover:text-white'
     }.freeze
     SCHEME_OPTIONS = SCHEME_MAPPINGS.keys.freeze
 

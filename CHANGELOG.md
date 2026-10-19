@@ -15,6 +15,10 @@ While the major version is `0`, a minor bump may carry a breaking change.
   `Counter` are alpha. `BorderBox` and `Flash` are beta. See the README for
   what each level means.
 - An `ActionList` Lookbook preview.
+- A `neutral` semantic color, backed by a new `gray` palette token that copies
+  Tailwind 4's gray.
+- A Foundations > Colors Lookbook page that shows the semantic colors and the
+  palettes behind them.
 
 ### Fixed
 
@@ -40,6 +44,10 @@ While the major version is `0`, a minor bump may carry a breaking change.
 
 ### Changed
 
+- Components use `neutral-*` color classes instead of `gray-*`. The colors
+  are unchanged. The build no longer includes Tailwind's `gray` utilities, so
+  a `pulse:*-gray-*` class passed in through `classes:` now has no styles.
+  Use `pulse:*-neutral-*` instead.
 - **Breaking:** upgraded to Tailwind CSS 4. The class prefix is now written as
   a leading variant, so `pulse-bg-primary` becomes `pulse:bg-primary` and
   `hover:pulse-text-white` becomes `pulse:hover:text-white`. Classes passed to

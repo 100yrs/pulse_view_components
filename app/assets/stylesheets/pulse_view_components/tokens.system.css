@@ -76,4 +76,20 @@
   --color-danger-700: --theme(--palette-amaranth-700 inline);
   --color-danger-800: --theme(--palette-amaranth-800 inline);
   --color-danger-900: --theme(--palette-amaranth-900 inline);
+
+  /* neutral → gray */
+  --color-neutral: --theme(--palette-gray-700 inline);
+  --color-neutral-50: --theme(--palette-gray-50 inline);
+  --color-neutral-100: --theme(--palette-gray-100 inline);
+  --color-neutral-200: --theme(--palette-gray-200 inline);
+  --color-neutral-300: --theme(--palette-gray-300 inline);
+  --color-neutral-400: --theme(--palette-gray-400 inline);
+  --color-neutral-500: --theme(--palette-gray-500 inline);
+  --color-neutral-600: --theme(--palette-gray-600 inline);
+  --color-neutral-700: --theme(--palette-gray-700 inline);
+  --color-neutral-800: --theme(--palette-gray-800 inline);
+  --color-neutral-900: --theme(--palette-gray-900 inline);
+
+  /* Components use neutral, so drop Tailwind's own gray utilities. */
+  --color-gray-*: initial;
 }

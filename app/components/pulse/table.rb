@@ -8,16 +8,16 @@ module Pulse
     status :stable
 
     DEFAULT_TABLE_CLASSES = 'pulse:min-w-full pulse:divide-y ' \
-                            'pulse:divide-gray-300'
-    DEFAULT_HEAD_CLASSES = 'pulse:bg-gray-100'
-    DEFAULT_TH_CLASSES = 'pulse:text-start pulse:text-gray-700 ' \
+                            'pulse:divide-neutral-300'
+    DEFAULT_HEAD_CLASSES = 'pulse:bg-neutral-100'
+    DEFAULT_TH_CLASSES = 'pulse:text-start pulse:text-neutral-700 ' \
                          'pulse:uppercase ' \
                          'pulse:tracking-wider pulse:px-4 pulse:print:px-2 ' \
                          'pulse:py-4 pulse:print:py-3 pulse:text-xs ' \
                          'pulse:font-medium'
     DEFAULT_BODY_CLASSES = 'pulse:bg-white pulse:divide-y pulse:text-sm ' \
-                           'pulse:leading-snug pulse:divide-gray-300 ' \
-                           'pulse:print:divide-gray-400 pulse:tracking-tight'
+                           'pulse:leading-snug pulse:divide-neutral-300 ' \
+                           'pulse:print:divide-neutral-400 pulse:tracking-tight'
     DEFAULT_ROW_CLASSES = 'pulse:border-secondary-300'
     DEFAULT_TD_CLASSES = 'pulse:px-4 pulse:print:px-2 pulse:py-4'
 
@@ -84,7 +84,7 @@ module Pulse
     def body_classes
       merge_classes(
         DEFAULT_BODY_CLASSES,
-        'pulse:[&>tr:nth-child(even)]:bg-gray-50': striped,
+        'pulse:[&>tr:nth-child(even)]:bg-neutral-50': striped,
         'pulse:border-b pulse:[&>tr]:border-t pulse:[&>tr:first-child]:border-t-0': !striped # rubocop:disable Layout/LineLength
       )
     end
@@ -93,7 +93,7 @@ module Pulse
       { tag: 'tr' }.tap do |args|
         args[:classes] = merge_classes(
           DEFAULT_ROW_CLASSES,
-          { 'pulse:hover:bg-gray-50': hoverable },
+          { 'pulse:hover:bg-neutral-50': hoverable },
           row_classes
         )
         args[:id] = dom_id(row) if row.respond_to?(:to_key)

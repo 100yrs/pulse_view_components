@@ -1,0 +1,12 @@
+div class="pulse:flex pulse:flex-col pulse:gap-6"
+  p class="pulse:text-sm pulse:text-neutral-600"
+    ' Primitive palettes have no utility classes. Reach them through a semantic name.
+  - palettes.each do |name, swatches|
+    section
+      h2 class="pulse:mb-2 pulse:text-lg pulse:font-bold pulse:text-neutral-900"
+        code class="pulse:font-mono" = name
+      div class="pulse:grid pulse:grid-cols-10 pulse:gap-1"
+        - swatches.each do |swatch|
+          div class="pulse:flex pulse:flex-col pulse:justify-end pulse:h-20 pulse:p-2 pulse:rounded pulse:text-xs pulse:font-mono" style="background-color: #{swatch.hex}; color: #{swatch.ink}" title="#{name}-#{swatch.shade}"
+            span = swatch.shade
+            span = swatch.hex

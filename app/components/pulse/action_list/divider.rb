@@ -24,7 +24,7 @@ module Pulse
         @scheme = fetch_or_fallback(SCHEME_OPTIONS, scheme, DEFAULT_SCHEME)
         @system_arguments[:classes] = merge_classes(
           'pulse:block pulse:h-px pulse:p-0 pulse:border-0 pulse:ms-2 ',
-          'pulse:me-2 pulse:bg-gray-100',
+          'pulse:me-2 pulse:bg-neutral-100',
           SCHEME_MAPPINGS[@scheme]
         )
       end

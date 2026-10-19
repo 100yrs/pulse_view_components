@@ -37,8 +37,8 @@ module Pulse
         @system_arguments[:id] ||= self.class.generate_id
         @system_arguments[:tag] = :div
         @system_arguments[:classes] = class_names(
-          'pulse:px-4 pulse:py-5 pulse:bg-gray-50 pulse:sm:p-6',
-          'pulse:rounded-t-md pulse:border-b pulse:border-gray-300',
+          'pulse:px-4 pulse:py-5 pulse:bg-neutral-50 pulse:sm:p-6',
+          'pulse:rounded-t-md pulse:border-b pulse:border-neutral-300',
           'pulse:border-solid',
           'Box-header',
           system_arguments[:classes]

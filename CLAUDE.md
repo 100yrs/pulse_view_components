@@ -102,8 +102,11 @@ new directory. Capybara selectors must escape the colon:
 `have_css('.pulse\:text-sm')`.
 
 Semantic color names (`primary`, `secondary`, `tertiary`, `success`, `danger`,
-`error`) map onto the named palettes in the `@theme` block. Prefer the semantic
-name over the raw palette name.
+`error`, `neutral`) map onto the named palettes in
+`tokens.system.css`. The palettes are `--palette-*` variables, so they have no
+utility classes and every color class goes through a semantic name. Use
+`neutral` for greys. Tailwind's own `gray` is switched off. The Foundations >
+Colors page in Lookbook shows every token.
 
 ## Adding a component
 

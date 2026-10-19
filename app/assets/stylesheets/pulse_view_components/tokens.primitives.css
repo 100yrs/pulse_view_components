@@ -53,4 +53,16 @@
   --palette-middle-green-700: #449c56;
   --palette-middle-green-800: #17742b;
   --palette-middle-green-900: #000000;
+
+  /* Tailwind 4 gray, converted from oklch */
+  --palette-gray-50: #f9fafb;
+  --palette-gray-100: #f3f4f6;
+  --palette-gray-200: #e5e7eb;
+  --palette-gray-300: #d1d5dc;
+  --palette-gray-400: #99a1af;
+  --palette-gray-500: #6a7282;
+  --palette-gray-600: #4a5565;
+  --palette-gray-700: #364153;
+  --palette-gray-800: #1e2939;
+  --palette-gray-900: #101828;
 }
