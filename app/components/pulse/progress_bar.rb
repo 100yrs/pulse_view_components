@@ -9,7 +9,7 @@ module Pulse
       @percentage = percentage.to_i
       @system_attributes = system_attributes
       @system_attributes[:tag] ||= :div
-      @system_attributes[:class] = merge_classes(
+      @system_attributes[:classes] = merge_classes(
         'pulse:flex pulse:flex-row pulse:h-1 pulse:w-full pulse:bg-neutral-300',
         'pulse:dark:bg-neutral-600',
         system_attributes[:classes]

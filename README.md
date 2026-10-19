@@ -36,6 +36,7 @@ Components that are not stable:
 | `Counter` | alpha | Renders unstyled. |
 | `BorderBox` | beta | `padding:` and row `scheme:` have no effect. |
 | `Flash` | beta | `dismissible: true` raises. `full: true` has no effect. |
+| `Layout` | beta | Main `width:` options other than `:full` have no effect. |
 
 The comment above each `status` call in the source lists what is missing.
 

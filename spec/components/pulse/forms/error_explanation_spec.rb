@@ -42,9 +42,6 @@ RSpec.describe Pulse::Forms::ErrorExplanation, type: :component do
       available_locales = I18n.available_locales
       helper.raise_on_missing_translations = true
       I18n.available_locales += [:fr]
-      I18n.backend.store_translations(
-        :fr, errors: { template: { header: { one: 'Une erreur' } } }
-      )
 
       I18n.with_locale(:fr) { example.run }
     ensure
@@ -54,7 +51,17 @@ RSpec.describe Pulse::Forms::ErrorExplanation, type: :component do
     end
 
     it 'uses the app header translation without raising' do
+      I18n.backend.store_translations(
+        :fr, errors: { template: { header: { one: 'Une erreur' } } }
+      )
+
       expect(component).to have_css('h2', text: 'Une erreur')
+    end
+
+    it 'falls back to the English header without an app translation' do
+      expect(component).to have_css(
+        'h2', text: '1 error prohibited this project from being saved:'
+      )
     end
   end
 
@@ -63,6 +70,14 @@ RSpec.describe Pulse::Forms::ErrorExplanation, type: :component do
 
     expect(component).to have_css('li', text: 'Title is too short')
       .and have_no_css('li', text: "Title can't be blank")
+  end
+
+  it 'counts each attribute once in the heading' do
+    resource.errors.add(:title, 'is too short')
+
+    expect(component).to have_css(
+      'h2', text: '1 error prohibited this project from being saved:'
+    )
   end
 
   it 'merges classes and attributes' do

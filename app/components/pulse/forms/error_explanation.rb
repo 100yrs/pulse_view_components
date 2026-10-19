@@ -20,28 +20,25 @@ module Pulse
       end
 
       def errors
-        @errors = ActiveModel::Errors.new(resource)
-        # Only display the last of each attribute error, to avoid needless
-        # duplication.
-        resource.errors.group_by(&:attribute).values.map(&:last).each do |error|
-          @errors.add(error.attribute, error.message)
+        @errors ||= ActiveModel::Errors.new(resource).tap do |errors|
+          # Only display the last of each attribute error, to avoid needless
+          # duplication.
+          resource.errors.group_by(&:attribute).each_value do |group|
+            errors.add(group.last.attribute, group.last.message)
+          end
         end
-        @errors
       end
 
-      # Uses the app's `errors.template.header` translation when it defines
-      # one, so existing wording is kept. The sidecar fallback is only looked
-      # up when needed, because it is English-only and would raise under
-      # `raise_on_missing_translations` in other locales.
+      # Prefers the app's `errors.template.header` so existing wording is
+      # kept. The sidecar is English-only, so other locales fall back to its
+      # English text rather than raising under `raise_on_missing_translations`.
       def header
-        options = { count: resource.errors.count,
+        options = { count: errors.count,
                     model: resource.class.model_name.human.downcase }
 
-        if I18n.exists?('errors.template.header')
-          return t('errors.template.header', **options)
-        end
-
-        t('.header', **options)
+        t('errors.template.header', **options,
+          default: t('.header', **options,
+                     default: t('.header', **options, locale: :en)))
       end
 
       def render?

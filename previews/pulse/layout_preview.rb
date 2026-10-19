@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Pulse
-  # @label Layout
+  # @label Layout (beta)
   class LayoutPreview < ViewComponent::Preview
     # @label Playground
     # @param first_in_source [Symbol] select [sidebar, main]

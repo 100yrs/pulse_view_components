@@ -122,8 +122,9 @@ Colors page in Lookbook shows every token.
 
 - The sidecar `.css` files under `app/components/pulse/` (`counter.css`,
   `layout.css`, `action_list.css`) are not imported anywhere, so their rules do
-  not reach the built stylesheet. They still use the Tailwind 3 `pulse-` class
-  syntax in `@apply`. Put styles in the component's Tailwind classes instead.
+  not reach the built stylesheet. They are kept as a reference for porting
+  `Counter`, `Layout` and `ActionList` to Tailwind classes. Put styles in the
+  component's Tailwind classes, not in these files.
 - `app/assets/builds/` is committed. Rebuild and commit it when JS or CSS changes.
 - RuboCop inherits a remote config from the `100yrs/code-style-guides` repo, which
   needs network access on first run.

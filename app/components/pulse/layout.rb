@@ -3,7 +3,9 @@
 module Pulse
   # Renders a two-column page layout
   class Layout < Pulse::Component
-    status :stable
+    # Main and sidebar placement work. Main `width:` options other than `:full`
+    # emit Primer classes that no CSS defines, so the content is not centred.
+    status :beta
 
     FIRST_IN_SOURCE_DEFAULT = :sidebar
     FIRST_IN_SOURCE_OPTIONS = [FIRST_IN_SOURCE_DEFAULT, :main].freeze

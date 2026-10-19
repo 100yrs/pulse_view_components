@@ -12,7 +12,7 @@ While the major version is `0`, a minor bump may carry a breaking change.
 
 - Components declare a status of `:alpha`, `:beta`, `:stable` or
   `:deprecated`, read with `Pulse::Thing.status`. `ActionList`, `NavList` and
-  `Counter` are alpha. `BorderBox` and `Flash` are beta. See the README for
+  `Counter` are alpha. `BorderBox`, `Flash` and `Layout` are beta. See the README for
   what each level means.
 - An `ActionList` Lookbook preview.
 - A `neutral` semantic color, backed by a new `gray` palette token that copies
@@ -34,7 +34,11 @@ While the major version is `0`, a minor bump may carry a breaking change.
   from the output instead.
 - `Forms::ErrorExplanation` rendered "Header" as its heading unless the app
   defined `errors.template.header`. It now ships a default heading and still
-  prefers the app's translation.
+  prefers the app's translation. In a locale with no app translation it
+  shows the English heading instead of raising.
+- `Forms::ErrorExplanation` counted every error in its heading but listed only
+  one per attribute, so two errors on `title` read "2 errors" above one item.
+  The heading now counts the listed errors.
 - Several components used `text-gray`, which Tailwind never defined, so their
   text inherited its colour. They now use gray-700: `Badge` (`invited`,
   `active` and `disabled` schemes), the secondary `Button`, the `Modal` title
@@ -56,6 +60,9 @@ While the major version is `0`, a minor bump may carry a breaking change.
   components through `classes:` must use the new form.
 - `Forms::ErrorExplanation` now inherits from `Pulse::Component`. It merges
   `classes:` with `tailwind_merge` and rejects a `tag:` argument.
+- The primary `Button` green shifted. Tailwind 4 redefined its palette in
+  oklch, so `green-700` moved from `#15803d` to about `#008236`. The blue-700
+  focus outline shifted the same way.
 - The `error` and `danger` reds shifted slightly. Every shade of the
   `amaranth` palette they map to changed, for example 700 moved from `#ee2d5b`
   to `#ee2d4b`.
