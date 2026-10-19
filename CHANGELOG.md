@@ -23,19 +23,32 @@ While the major version is `0`, a minor bump may carry a breaking change.
 - `NavList` items with sub-items raised, and their sub-items never rendered.
 - `BorderBox` rendered a `system_arguments_denylist` HTML attribute.
   `BaseComponent` now consumes the denylist and raises outside production when
-  a denied argument is passed, so `BorderBox.new(pt: 2)` now raises.
+  a denied argument is passed, so `BorderBox.new(pt: 2)` now raises. In
+  production, or with `PULSE_WARNINGS_DISABLED`, it drops the denied argument
+  from the output instead.
 - `Forms::ErrorExplanation` rendered "Header" as its heading unless the app
   defined `errors.template.header`. It now ships a default heading and still
   prefers the app's translation.
+- Several components used `text-gray`, which Tailwind never defined, so their
+  text inherited its colour. They now use gray-700: `Badge` (`invited`,
+  `active` and `disabled` schemes), the secondary `Button`, the `Modal` title
+  and close button, inactive `NavLink`s, `Table` headers, cells and
+  pagination, and the link in an error `Toast`.
+- The `Table` body and `Text` `caption1` and `caption2` used the undefined
+  `leading-extra-snug` and `leading-extra-tight`, so no line height applied.
+  They now use `leading-snug` and `leading-tight`.
 
 ### Changed
 
-- `Forms::ErrorExplanation` now inherits from `Pulse::Component`. It merges
-  `classes:` with `tailwind_merge` and rejects a `tag:` argument.
 - **Breaking:** upgraded to Tailwind CSS 4. The class prefix is now written as
   a leading variant, so `pulse-bg-primary` becomes `pulse:bg-primary` and
   `hover:pulse-text-white` becomes `pulse:hover:text-white`. Classes passed to
   components through `classes:` must use the new form.
+- `Forms::ErrorExplanation` now inherits from `Pulse::Component`. It merges
+  `classes:` with `tailwind_merge` and rejects a `tag:` argument.
+- The `error` and `danger` reds shifted slightly. Every shade of the
+  `amaranth` palette they map to changed, for example 700 moved from `#ee2d5b`
+  to `#ee2d4b`.
 - Some utilities were renamed by Tailwind 4 (`outline-none` is now
   `outline-hidden`, `start-0` is now `inset-s-0`).
 - CSS custom properties from the theme are now emitted with the prefix, for
@@ -53,12 +66,20 @@ While the major version is `0`, a minor bump may carry a breaking change.
   it.
 - `postcss.config.js`, `postcss` and `autoprefixer`. The Tailwind 4 CLI does
   not read the PostCSS config.
+- Utilities named after the raw palettes, such as `pulse-bg-coral-red-500`.
+  The palettes are now `--palette-*` theme variables outside the colour
+  namespace. Use the semantic names (`primary`, `secondary`, `tertiary`,
+  `success`, `danger`, `error`) instead.
 
 ### Internal
 
 - Development Node moved to 22, since Tailwind 4 needs Node 20 or later.
 - `chokidar` is now a direct dev dependency. `esbuild.config.mjs` imports it,
   and it previously arrived only through Tailwind 3.
+- Design tokens split into `tokens.primitives.css` (palettes) and
+  `tokens.system.css` (semantic colours).
+- Development `view_component` moved to 4.16, along with other development gem
+  updates.
 
 ## [0.3.0] - 2026-08-28
 
