@@ -8,6 +8,8 @@ While the major version is `0`, a minor bump may carry a breaking change.
 
 ## [Unreleased]
 
+## [0.4.2] - 2026-11-13
+
 ### Fixed
 
 - `Pulse::Table` body row dividers render `neutral-300` (`neutral-400` in
@@ -198,7 +200,8 @@ No breaking changes. The component API, the gemspec constraints and the
 
 - Initial release.
 
-[Unreleased]: https://github.com/100yrs/pulse_view_components/compare/v0.4.1...HEAD
+[Unreleased]: https://github.com/100yrs/pulse_view_components/compare/v0.4.2...HEAD
+[0.4.2]: https://github.com/100yrs/pulse_view_components/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/100yrs/pulse_view_components/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/100yrs/pulse_view_components/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/100yrs/pulse_view_components/compare/v0.2.1...v0.3.0
