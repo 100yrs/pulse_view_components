@@ -8,6 +8,14 @@ While the major version is `0`, a minor bump may carry a breaking change.
 
 ## [Unreleased]
 
+### Fixed
+
+- `Pulse::Layout` lays out as a sidebar beside a main column again. Since
+  0.4.0 its `grid-cols-*` class was split across two Ruby string literals,
+  so Tailwind never generated it and the grid fell back to implicit columns.
+  The sidebar is 220/256/296px wide at the 544/768/1012px breakpoints, the
+  gutter widens to 24px from 1012px, and the columns stack below 544px.
+
 ## [0.4.2] - 2026-11-13
 
 ### Fixed

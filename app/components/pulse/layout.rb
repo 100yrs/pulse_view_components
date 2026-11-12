@@ -27,6 +27,20 @@ module Pulse
     }.freeze
     SIDEBAR_WIDTH_OPTIONS = SIDEBAR_WIDTH_MAPPINGS.keys.freeze
 
+    # Breakpoints follow Primer (544/768/1012px), not Tailwind's defaults.
+    # Each class must stay in one string literal: Tailwind's source scanner
+    # reads literals one at a time, so a class split with `\` is never built.
+    GRID_CLASSES = [
+      'pulse:grid pulse:grid-flow-col pulse:gap-(--pulse-layout-gutter)',
+      'pulse:grid-cols-[auto_0_minmax(0,calc(100%_-_var(--pulse-layout-sidebar-width)_-_var(--pulse-layout-gutter)))]', # rubocop:disable Layout/LineLength
+      'pulse:[--pulse-layout-sidebar-width:220px]',
+      'pulse:min-[768px]:[--pulse-layout-sidebar-width:256px]',
+      'pulse:min-[1012px]:[--pulse-layout-sidebar-width:296px]',
+      'pulse:[--pulse-layout-gutter:16px]',
+      'pulse:min-[1012px]:[--pulse-layout-gutter:24px]',
+      'pulse:max-[544px]:grid-flow-row pulse:max-[544px]:grid-cols-1'
+    ].join(' ').freeze
+
     # The layout's main content.
     #
     # @param width [Symbol] <%= one_of(Layout::Main::WIDTH_OPTIONS) %>
@@ -65,10 +79,7 @@ module Pulse
       @system_arguments = system_arguments
       @system_arguments[:tag] = :div
       @system_arguments[:classes] = merge_classes(
-        'pulse:grid pulse:grid-flow-col',
-        'pulse:grid-cols-[auto_0_minmax(0,calc(100%_-_var(--pulse-layout' \
-        '-sidebar-width)_-_var(--pulse-layout-gutter)))]',
-        'pulse:gap-(--pulse-layout-gutter)',
+        GRID_CLASSES,
         GUTTER_MAPPINGS[fetch_or_fallback(GUTTER_OPTIONS, gutter,
                                           GUTTER_DEFAULT)],
         system_arguments[:classes]
@@ -98,7 +109,8 @@ module Pulse
         @system_arguments[:tag] =
           fetch_or_fallback(TAG_OPTIONS, tag, TAG_DEFAULT)
         @system_arguments[:classes] = merge_classes(
-          'pulse:col-[2/span_2]',
+          'pulse:col-[2/span_2] pulse:min-w-0',
+          'pulse:max-[544px]:col-1 pulse:max-[544px]:row-[2/span_2]',
           system_arguments[:classes]
         )
       end
@@ -136,7 +148,8 @@ module Pulse
         @system_arguments[:tag] =
           fetch_or_fallback(TAG_OPTIONS, tag, TAG_DEFAULT)
         @system_arguments[:classes] = merge_classes(
-          'pulse:col-1',
+          'pulse:col-1 pulse:w-(--pulse-layout-sidebar-width)',
+          'pulse:max-[544px]:row-1 pulse:max-[544px]:w-full',
           @system_arguments[:classes]
         )
       end
