@@ -8,6 +8,18 @@ While the major version is `0`, a minor bump may carry a breaking change.
 
 ## [Unreleased]
 
+### Fixed
+
+- The gem now declares `slim` and `turbo-rails` as dependencies and requires
+  them, along with `inline_svg` and `active_link_to`, when it loads. Before,
+  components only rendered if the host app listed all four gems in its own
+  Gemfile. Without `inline_svg`, any component that renders an icon raised
+  `NoMethodError` on `inline_svg_tag`.
+
+### Changed
+
+- `rails` is capped below 9 until we test against it.
+
 ## [0.4.0] - 2026-10-19
 
 Upgrades to Tailwind CSS 4. This is a breaking change for apps that pass

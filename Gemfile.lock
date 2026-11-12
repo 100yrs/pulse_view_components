@@ -4,8 +4,10 @@ PATH
     pulse_view_components (0.4.0)
       active_link_to (>= 1.0.0)
       inline_svg (>= 1.9.0)
-      rails (>= 8.1.0)
+      rails (>= 8.1.0, < 9)
+      slim (>= 5.0, < 6)
       tailwind_merge (~> 1.5)
+      turbo-rails (>= 2.0)
       view_component (>= 4.0.0, < 5.0.0)
 
 GEM
@@ -378,10 +380,6 @@ GEM
     slim (5.2.2)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
-    slim-rails (4.0.1)
-      actionpack (>= 7.0)
-      railties (>= 7.0)
-      slim (>= 3.0, < 6.0, != 5.0.0)
     sourcemap (0.1.1)
     sqlite3 (2.10.2-aarch64-linux-gnu)
     sqlite3 (2.10.2-aarch64-linux-musl)
@@ -448,12 +446,10 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  active_link_to
   bootsnap
   capybara
   cssbundling-rails
   foreman
-  inline_svg
   jsbundling-rails
   json (< 3)
   kramdown (~> 2.5.1)
@@ -477,11 +473,9 @@ DEPENDENCIES
   rubocop-rspec_rails
   rubocop-thread_safety
   simplecov
-  slim-rails
   sourcemap (~> 0.1.1)
   sqlite3
   stimulus-rails
-  turbo-rails
   view_component (~> 4.16.0)
   webmock
 

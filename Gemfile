@@ -14,11 +14,8 @@ gem 'json', '< 3'
 # Use Puma as the app server
 gem 'puma', '~> 8.0'
 gem 'stimulus-rails'
-gem 'turbo-rails'
 
-gem 'active_link_to'
 gem 'lookbook', '~> 2.3.14'
-gem 'slim-rails'
 gem 'view_component', '~> 4.16.0'
 
 gem 'kramdown', '~> 2.5.1'
@@ -63,7 +60,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'inline_svg'
   gem 'rspec-rails'
   gem 'simplecov', require: false
   gem 'webmock'
