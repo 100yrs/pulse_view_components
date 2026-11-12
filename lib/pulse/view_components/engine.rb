@@ -2,6 +2,10 @@
 
 require 'rails/engine'
 require 'view_component'
+require 'active_link_to'
+require 'inline_svg'
+require 'slim'
+require 'turbo-rails'
 # require 'view_component/version'
 
 module Pulse

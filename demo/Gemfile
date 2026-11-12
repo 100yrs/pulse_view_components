@@ -8,10 +8,7 @@ gem 'importmap-rails'
 gem 'lookbook', '~> 2.3'
 gem 'propshaft'
 gem 'puma', '~> 8.0'
-gem 'rails', '~> 8.1.3'
-# json 3 makes JSON.parse options keyword-only, which breaks
-# ActiveSupport::JSON.decode in Rails 8.1. Drop once Rails supports it.
-gem 'json', '< 3'
+gem 'rails', '~> 8.1.4'
 gem 'sqlite3'
 gem 'stimulus-rails'
 gem 'turbo-rails'
@@ -19,11 +16,8 @@ gem 'turbo-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-gem 'active_link_to'
-gem 'inline_svg'
 gem 'kaminari'
 gem 'pulse_view_components', path: '../'
-gem 'slim-rails'
 
 group :development, :test do
   gem 'foreman'

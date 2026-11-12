@@ -50,10 +50,9 @@ module Demo
 
     # ViewComponent
     config.view_component.generate.preview = true
-    config.view_component.preview_controller = 'PreviewController'
+    config.view_component.previews.controller = 'PreviewController'
     config.view_component.previews.paths << Rails.root.join('../previews')
     config.view_component.instrumentation_enabled = true
-    config.view_component.use_deprecated_instrumentation_name = false
 
     # Lookbook
     config.lookbook.project_name =

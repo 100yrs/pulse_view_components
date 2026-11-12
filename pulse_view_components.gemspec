@@ -24,10 +24,12 @@ Gem::Specification.new do |spec|
   # spec.require_paths = ['lib']
 
   spec.add_dependency 'active_link_to', '>= 1.0.0'
-
   spec.add_dependency 'inline_svg', '>= 1.9.0'
-  spec.add_dependency 'rails', '>= 8.1.0'
+  spec.add_dependency 'rails', ['>= 8.1.0', '< 9']
+  # Slim 5 ships its own railtie, so slim-rails is not needed.
+  spec.add_dependency 'slim', ['>= 5.0', '< 6']
   spec.add_dependency 'tailwind_merge', '~> 1.5'
+  spec.add_dependency 'turbo-rails', '>= 2.0'
   spec.add_dependency 'view_component', ['>= 4.0.0', '< 5.0.0']
 
   # For more information and examples about making a new gem, check out our
