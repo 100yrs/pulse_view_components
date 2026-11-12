@@ -6,7 +6,7 @@ module Pulse
     module VERSION
       MAJOR = 0
       MINOR = 4
-      PATCH = 2
+      PATCH = 3
 
       STRING = [MAJOR, MINOR, PATCH].join('.')
     end

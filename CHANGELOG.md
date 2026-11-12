@@ -8,6 +8,8 @@ While the major version is `0`, a minor bump may carry a breaking change.
 
 ## [Unreleased]
 
+## [0.4.3] - 2026-11-13
+
 ### Fixed
 
 - `Pulse::Layout` lays out as a sidebar beside a main column again. Since
@@ -208,7 +210,8 @@ No breaking changes. The component API, the gemspec constraints and the
 
 - Initial release.
 
-[Unreleased]: https://github.com/100yrs/pulse_view_components/compare/v0.4.2...HEAD
+[Unreleased]: https://github.com/100yrs/pulse_view_components/compare/v0.4.3...HEAD
+[0.4.3]: https://github.com/100yrs/pulse_view_components/compare/v0.4.2...v0.4.3
 [0.4.2]: https://github.com/100yrs/pulse_view_components/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/100yrs/pulse_view_components/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/100yrs/pulse_view_components/compare/v0.3.0...v0.4.0
