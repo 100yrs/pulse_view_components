@@ -16,11 +16,8 @@ gem 'turbo-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-gem 'active_link_to'
-gem 'inline_svg'
 gem 'kaminari'
 gem 'pulse_view_components', path: '../'
-gem 'slim-rails'
 
 group :development, :test do
   gem 'foreman'
