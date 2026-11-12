@@ -8,6 +8,8 @@ While the major version is `0`, a minor bump may carry a breaking change.
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-11-13
+
 ### Fixed
 
 - The gem now declares `slim` and `turbo-rails` as dependencies and requires
@@ -189,7 +191,8 @@ No breaking changes. The component API, the gemspec constraints and the
 
 - Initial release.
 
-[Unreleased]: https://github.com/100yrs/pulse_view_components/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/100yrs/pulse_view_components/compare/v0.4.1...HEAD
+[0.4.1]: https://github.com/100yrs/pulse_view_components/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/100yrs/pulse_view_components/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/100yrs/pulse_view_components/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/100yrs/pulse_view_components/compare/v0.2.0...v0.2.1
