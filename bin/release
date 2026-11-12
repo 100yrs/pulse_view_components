@@ -12,6 +12,12 @@ if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] ; then
   echo "Version must be MAJOR.MINOR.PATCH, e.g. 1.0.0" && exit 1;
 fi
 
+# gem push needs a RubyGems one-time code typed at a prompt. Fail before
+# changing anything rather than after the commit is made.
+if ! [ -t 0 ] ; then
+  echo "bin/release prompts for a RubyGems one-time code, so run it in a terminal" && exit 1;
+fi
+
 IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
 # Normalise so a zero-padded segment is not read as an octal Ruby literal
 MAJOR=$((10#$MAJOR)); MINOR=$((10#$MINOR)); PATCH=$((10#$PATCH))
@@ -46,12 +52,26 @@ bundle install
 cd ..
 git add CHANGELOG.md Gemfile.lock demo/Gemfile.lock lib/pulse/view_components/version.rb
 git commit -m "Bump version for $VERSION"
+gem build pulse_view_components.gemspec
+
+# Ask for the code just before pushing, since codes expire after 30 seconds.
+# Publish the gem before pushing to git, so a failed push leaves only a local
+# commit to retry from.
+ATTEMPTS=0
+until
+  read -r -p "RubyGems one-time code: " OTP
+  gem push "pulse_view_components-$VERSION.gem" --otp "$OTP"
+do
+  ATTEMPTS=$((ATTEMPTS + 1))
+  if [ "$ATTEMPTS" -ge 3 ] ; then
+    echo "gem push failed 3 times. The version commit is local and not pushed." && exit 1;
+  fi
+done
+rm "pulse_view_components-$VERSION.gem"
+
 git push
 git tag v$VERSION
 git push --tags
-gem build pulse_view_components.gemspec
-gem push "pulse_view_components-$VERSION.gem"
-rm "pulse_view_components-$VERSION.gem"
 
 # A pushed tag does not create a GitHub release on its own, so make one here
 # using this version's CHANGELOG section as the notes
