@@ -16,7 +16,7 @@ gem 'puma', '~> 8.0'
 gem 'stimulus-rails'
 
 gem 'lookbook', '~> 2.3.14'
-gem 'view_component', '~> 4.16.0'
+gem 'view_component', '~> 4.24.0'
 
 gem 'kramdown', '~> 2.5.1'
 gem 'sourcemap', '~> 0.1.1'

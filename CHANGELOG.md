@@ -19,6 +19,7 @@ While the major version is `0`, a minor bump may carry a breaking change.
 ### Changed
 
 - `rails` is capped below 9 until we test against it.
+- Development Ruby moved to 3.4.12. The gem still supports Ruby >= 3.4.0.
 
 ## [0.4.0] - 2026-10-19
 
