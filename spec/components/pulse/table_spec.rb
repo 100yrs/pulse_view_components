@@ -29,4 +29,24 @@ RSpec.describe Pulse::Table, type: :component do
       .and have_text('A1')
       .and have_text('E3')
   end
+
+  it 'gives rows neutral borders' do
+    render_inline(Pulse::Table.new(collection)) do |c|
+      c.with_column { |row| row[:column1] }
+    end
+
+    expect(page).to have_css('tbody > tr.pulse\:border-neutral-300', count: 5)
+    expect(page).to have_no_css('tr.pulse\:border-secondary-300')
+  end
+
+  it 'lets row_classes override the border colour' do
+    render_inline(
+      Pulse::Table.new(collection, row_classes: 'pulse:border-primary-300')
+    ) do |c|
+      c.with_column { |row| row[:column1] }
+    end
+
+    expect(page).to have_css('tbody > tr.pulse\:border-primary-300', count: 5)
+    expect(page).to have_no_css('tr.pulse\:border-neutral-300')
+  end
 end

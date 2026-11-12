@@ -8,6 +8,13 @@ While the major version is `0`, a minor bump may carry a breaking change.
 
 ## [Unreleased]
 
+### Fixed
+
+- `Pulse::Table` body row dividers render `neutral-300` (`neutral-400` in
+  print) again. Since 0.4.0 they were `secondary-300` (blue), because
+  Tailwind 4's `divide-*` selector no longer outranks the row's own border
+  colour. Pass `row_classes:` to use a different colour.
+
 ## [0.4.1] - 2026-11-13
 
 ### Fixed

@@ -18,7 +18,10 @@ module Pulse
     DEFAULT_BODY_CLASSES = 'pulse:bg-white pulse:divide-y pulse:text-sm ' \
                            'pulse:leading-snug pulse:divide-neutral-300 ' \
                            'pulse:print:divide-neutral-400 pulse:tracking-tight'
-    DEFAULT_ROW_CLASSES = 'pulse:border-secondary-300'
+    # Rows set their own border colour because Tailwind 4 wraps the tbody's
+    # divide-* selector in :where(), so it no longer beats a row class.
+    DEFAULT_ROW_CLASSES = 'pulse:border-neutral-300 ' \
+                          'pulse:print:border-neutral-400'
     DEFAULT_TD_CLASSES = 'pulse:px-4 pulse:print:px-2 pulse:py-4'
 
     delegate :paginate, to: :helpers
